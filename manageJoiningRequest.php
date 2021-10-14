@@ -10,30 +10,21 @@ and open the template in the editor.
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel='stylesheet' href='style.css'>
         <title>manage joining request</title>
-    </head>
-    <body>
-        <header id="headerPage" style="padding:128px 16px">
+    </head> <header id="headerPage" style="padding:128px 16px">
             <img src="logo.jpg" alt="logo" class="pageP"  >
         </header>
+    <body>
+       
       <div class="auth-content"> 
                     <?php
-echo '<h1> This is a test</h1>';
+echo '<h1> This is a test2 manage joining request</h1>';
                     ?>      
    
-  
-                   <br>
-                     <br>
-                   
 
-                    <br>
-
-                    
-                   
-                   
-                  
                   </div>
 
 
+</body>
 <!-- Footer -->
 <footer class="footer">  
  <div class="SOCIAL">
@@ -45,10 +36,6 @@ echo '<h1> This is a test</h1>';
                 </div>
  <p>&copy; KSU|Desigend by Aljawharah, Lamya, Rahaf, Sahar and Leen</p>
 </footer>
-
-
-
-</body>
 
 
 </html>
