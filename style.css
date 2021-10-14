@@ -119,3 +119,8 @@ footer{
  border-spacing: 30px;
  border: 1px solid black;
 }
+#JoiningRequestForm{
+ font-size:  20px ;
+ border-spacing: 30px;
+ border: 3px solid black;
+}

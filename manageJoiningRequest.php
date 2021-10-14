@@ -10,44 +10,45 @@ and open the template in the editor.
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel='stylesheet' href='style.css'>
         <title>manage joining request</title>
-    </head> <header id="headerPage" style="padding:128px 16px">
-            <img src="logo.jpg" alt="logo" class="pageP"  >
-        </header>
+    </head> 
+    <header id="headerPage" style="padding:128px 16px">
+        <img src="logo.jpg" alt="logo" class="pageP"  >
+    </header>
     <body>
-       
-      <div class="auth-content"> 
-                    <?php
-echo '<h1>Joining Requests</h1>';
 
-                    ?>      
-      <table id="manageJoiningRequest">
-                        <tr>
-                            <th>Charity Photo</th>
-                            <th>Charity Name</th>
-                            <th>Charity Request</th>
-                        <tr>
-                            <td><img src="pic_trulli.jpg" alt="Charity Photo"></td>
-                            <td><a href="" id="">Charity Name from database</a></td>
-                            <td><input type="button" value="Accept" onclick="deleteRow(this)">
-                            <input type="button" value="Reject" onclick="deleteRow(this)"></td>
-                        </tr>
-                    </table>
+        <div class="auth-content"> 
+            <?php
+            echo '<h1>طلبات الاضافة</h1>';
+            ?>      
+            <table id="manageJoiningRequest">
+                <tr>
+                    <th>قبول /رفض</th>
+                    <th>اسم المنظمة الخيرية </th>
+                    <th>صورة المنظمة الخيرية</th>
+                <tr>  
+                    <td><input type="button" value="قبول" onclick="">
+                        <input type="button" value="رفض" onclick=""></td>
+                    <td><a href="" id="">اسم المنظمة الخيرية</a></td>
+                    <td><img src="pic_trulli.jpg" alt="صورة المنظمة الخيرية"></td>
 
-                  </div>
+                </tr>
+            </table>
+
+        </div>
 
 
-</body>
-<!-- Footer -->
-<footer class="footer">  
- <div class="SOCIAL">
-                    <br>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-youtube"></i></a>
-                    <a href="#"><i class="fab fa-facebook"></i></a>
-                </div>
- <p>&copy; KSU|Desigend by Aljawharah, Lamya, Rahaf, Sahar and Leen</p>
-</footer>
+    </body>
+    <!-- Footer -->
+    <footer class="footer">  
+        <div class="SOCIAL">
+            <br>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+            <a href="#"><i class="fab fa-facebook"></i></a>
+        </div>
+        <p>&copy; KSU|Desigend by Aljawharah, Lamya, Rahaf, Sahar and Leen</p>
+    </footer>
 
 
 </html>
