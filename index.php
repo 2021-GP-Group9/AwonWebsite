@@ -9,7 +9,7 @@
 
 
 
-<!-- Header Sahar is heeeereeee -->
+<!-- Header Sahar & Aljawharah is heeeereeee -->
 
 <header id="headerHome"  style="padding:128px 16px">
    <img src="logo.jpg" alt="logo" class="homeP"  >
