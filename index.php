@@ -9,7 +9,9 @@
 <header id="headerHome"  style="padding:128px 16px">
    <img src="logo.jpg" alt="logo" class="homeP"  >
    
-  
+<br>
+<br>
+
    <i id="bu"> <button class="bu1" onclick="login();return false;">تسجيل دخول </button> <button class="bu1"  onclick="signUp();return false;">طلب الإنضمام</button></i>
   
     

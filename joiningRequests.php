@@ -14,13 +14,13 @@
             <table id="manageJoiningRequest">
                 <tbody><tr>
                     <th>قبول /رفض</th>
-                    <th>اسم المنظمة الخيرية </th>
-                    <th>صورة المنظمة الخيرية</th>
+                    <th>الجمعية الخيرية</th>
+                    
                 </tr><tr>  
-                    <td><input type="button" value="قبول" onclick="">
-                        <input type="button" value="رفض" onclick=""></td>
-                    <td><a href="" id="">اسم المنظمة الخيرية</a></td>
-                    <td><img src="pic_trulli.jpg" alt="صورة المنظمة الخيرية"></td>
+                    <td><button class="bu1" style="width: 100px;height:60px;" onclick=";return false;">قبول</button>
+                        <button class="bu1" style="width: 100px;height:60px;" onclick=";return false;">رفض</button>
+                    <td><a href="" id="">اسم المنظمة الخيرية</a>&emsp;<img src="pic_trulli.jpg" alt="صورة المنظمة الخيرية"></td>
+                  
 
                 </tr>
             </tbody></table>
