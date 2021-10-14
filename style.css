@@ -15,7 +15,10 @@ and open the template in the editor.
      height:400px ; 
       width:100% ;
 }
+#signout{
+float:left;
 
+}
  .homeP{
          align-items: center ;
       margin-left: auto  ; 

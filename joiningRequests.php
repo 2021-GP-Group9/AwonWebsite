@@ -3,33 +3,30 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel='stylesheet' href='style.css'>
 <body>
-<header id="headerPage" style="padding:128px 16px">
+header id="headerPage" style="padding:128px 16px">
+    <form id="signout" action="logout.php" method="POST">
+			<input type="submit" value="تسجيل خروج">
+		</form> 
 <img src="logo.jpg" alt="logo" class="pageP"  >
 </header>
 <div class="auth-content"> 
-<form method="post" >
-      
+                    <?php
+echo '<h1> This is a test</h1>';
+                    ?>      
    
-      <h2> <br>تسجيل الدخول</h2>
+  
                    <br>
                      <br>
                    
 
-                   <label class="name"><h3> <input type="text" name="username" id="username" class="name-input" required>اسم المستخدم:</label> </h3><br><br>
                     <br>
 
                     
                    
-                    <label class="name"><h3><input type="password" name="pwd" class="password" id="password">كلمة المرور: </label></h3>
-                    <br>
-                
                    
-                    <input type="submit" class="bu1" value="تسجيل الدخول"/>
-                    <br><br>
-                    
-                  <p>جمعية جديدة? <a href ="signup.php" > تسجيل جديد </a></p> 
                   
                   </div>
+
 
 <!-- Footer -->
 <footer class="footer">  
