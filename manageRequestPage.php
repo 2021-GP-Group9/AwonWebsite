@@ -57,25 +57,24 @@ and open the template in the editor.
                 <th><p>رقم الترخيص</p>
             </th>
 
-              
+            <tr>
+                <!-- bring charity PICKUP number from database  -->
+                <th><p>توافر خدمة التوصيل</p>
+            </th> 
+            
+            <tr>
+                <!-- bring charity type of donation number from database  -->
+                <th><p>انواع التبرع التي تقبل به المنظمة الخيرية</p>
+            </th> 
             
             
+            <tr>
+                <!-- bring charity type of donation number from database  -->
+                <th><p>الموقع</p>
+            </th> 
             
-            <input type="url" name="username" id="username" class="name-input" placeholder="الموقع"required><br><br><!-- not sure if it is url maybe it is select -->
-            <label>هل تتوفر خدمة التوصيل ؟ </label>
-              <input type="radio" name="username" id="username" class="name-input">
-              <label for="نعم">نعم</label>
-              <input type="radio" name="username" id="username" class="name-input">
-              <label for="لا">لا</label>
             <br><br>
-            <label>انواع التبرع التي تقبل به المنظمة الخيرية؟</label>
-            <input type="checkbox" name="username" id="username" class="name-input">
-            <label for="ملابس">ملابس</label>
-            <input type="checkbox" name="username" id="username" class="name-input">
-            <label for="اثاث">اثاث</label>
-            <input type="checkbox" name="username" id="username" class="name-input">
-            <label for="الكترونيات">الكترونيات</label>
-            <br><br>
+            
             <td><input type="button" value="قبول" onclick="">
                 <input type="button" value="رفض" onclick=""></td>
 
