@@ -2,7 +2,7 @@
 $servername = 'localhost';
 $username = 'root';
 $password = 'root';
-$dbname = 'AwonDB';
+$dbname = 'awondb';
 $conn=new mysqli($servername ,$username ,$password ,$dbname );
 if(!$conn)
 {
