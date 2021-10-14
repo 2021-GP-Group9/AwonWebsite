@@ -8,11 +8,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel='stylesheet' href='style.css'>
-
-<body>
-
-
-
 <!-- Header -->
 
 <header id="headerPage" style="padding:128px 16px">
@@ -22,6 +17,12 @@
    
   
 </header>
+
+<body>
+
+
+
+
 
 
 <?php
@@ -60,6 +61,12 @@
                   
                   </div>
 
+
+
+
+</body>
+
+
 <!-- Footer -->
 <footer class="footer">  
  <div class="SOCIAL">
@@ -71,11 +78,5 @@
                 </div>
  <p>&copy; KSU|Desigend by Aljawharah, Lamya, Rahaf, Sahar and Leen</p>
 </footer>
-
-
-
-</body>
-
-
 </html>
 

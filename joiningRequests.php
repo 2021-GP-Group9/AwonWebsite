@@ -2,13 +2,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel='stylesheet' href='style.css'>
-    <body>
-        <header id="headerPage" style="padding:128px 16px">
+    <header id="headerPage" style="padding:128px 16px">
             <form id="signout" action="logout.php" method="POST">
                 <input type="submit" value="تسجيل خروج">
             </form> 
             <img src="logo.jpg" alt="logo" class="pageP"  >
         </header>
+    <body>
+        
         <div class="auth-content"> 
             <?php
             echo '<h1>نموذج تقديم المنظمات الخيرية</h1>';
@@ -58,7 +59,11 @@
                 </div>
 
 
-                <!-- Footer -->
+            
+
+
+                </body>
+    <!-- Footer -->
                 <footer class="footer">  
                     <div class="SOCIAL">
                         <br>
@@ -69,10 +74,6 @@
                     </div>
                     <p>&copy; KSU|Desigend by Aljawharah, Lamya, Rahaf, Sahar and Leen</p>
                 </footer>
-
-
-
-                </body>
 
 
                 </html>
