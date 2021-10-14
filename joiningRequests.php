@@ -23,7 +23,7 @@
 
                 <input type="text" name="username" id="username" class="name-input" placeholder="اسم المنظمة الخيرية" required>
                 <input type="text" name="username" id="username" class="name-input" placeholder="اسم المستخدم "required>
-                <input type="text" name="username" id="username" class="name-input" placeholder="" required>
+                <input type="text" name="username" id="username" class="name-input" placeholder="وصف المنظمة الخيرية" required>
                 <br><br>
                 <input type="email" name="username" id="username" class="name-input" placeholder="البريد الالكتروني "required>
                 <input type="password" name="pwd" class="password" id="password" placeholder="كلمة المرور" required >
