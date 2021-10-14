@@ -69,7 +69,7 @@
                     <a href="#"><i class="fab fa-youtube"></i></a>
                     <a href="#"><i class="fab fa-facebook"></i></a>
                 </div>
- <p>&copy; KSU|Desigend by Aljawharah , Lamya , Rahaf,Sahar and leen</p>
+ <p>&copy; KSU|Desigend by Aljawharah, Lamya, Rahaf, Sahar and Leen</p>
 </footer>
 
 
