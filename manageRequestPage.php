@@ -16,69 +16,93 @@ and open the template in the editor.
 
     </header>
     <body>
-        <?php
-        // put your code here
-        ?>
-        <!-- we will bring it from the database -->
-        <table id="manageJoiningRequest">
-            <tr>
-                <th><img src="src" alt="صورة المنظمة الخيرية"/> 
-            </th>
-                
-            <tr>
-                <!-- bring charity name from database  -->
-                <th><p> اسم المنظمة الخيرية </p>
-            </th>
-            
-            <tr>
-                <!-- bring charity username from database  -->
-                <th><p> اسم المستخدم </p>
-            </th>
+        <div class="auth-content"> 
+            <?php
+            // put your code here
+            ?>
+            <!-- we will bring it from the database -->
+            <table id="manageJoiningRequest">
+                <tr>
+                    <th><img src="src" alt="صورة المنظمة الخيرية"/> 
+                    </th>
 
-            <tr>
-                <!-- bring charity description from database  -->
-                <th><p>وصف المنظمة الخيرية</p>
-            </th>
+                </tr>
 
-            <tr>
-                <!-- bring charity email from database  -->
-                <th><p>البريد الالكتروني </p>
-            </th>
-            
-            <tr>
-                <!-- bring charity phone number from database  -->
-                <th><p>رقم الجوال </p>
-            </th>
-            
-            
+                <tr>
+                    <!-- bring charity name from database  -->
+                    <th><p> اسم المنظمة الخيرية </p>
+                    </th>
 
-            <tr>
-                <!-- bring charity liceane number from database  -->
-                <th><p>رقم الترخيص</p>
-            </th>
+                </tr>
 
-            <tr>
-                <!-- bring charity PICKUP number from database  -->
-                <th><p>توافر خدمة التوصيل</p>
-            </th> 
-            
-            <tr>
-                <!-- bring charity type of donation number from database  -->
-                <th><p>انواع التبرع التي تقبل به المنظمة الخيرية</p>
-            </th> 
-            
-            
-            <tr>
-                <!-- bring charity type of donation number from database  -->
-                <th><p>الموقع</p>
-            </th> 
-            
-            <br><br>
-            
-            <td><input type="button" value="قبول" onclick="">
-                <input type="button" value="رفض" onclick=""></td>
+                <tr>
+                    <!-- bring charity username from database  -->
+                    <th><p> اسم المستخدم </p>
+                    </th>
 
-        </table>
+                </tr>
+
+                <tr>
+                    <!-- bring charity liceane number from database  -->
+                    <th><p>رقم الترخيص</p>
+                    </th>
+
+                </tr>
+
+                <tr>
+                    <!-- bring charity email from database  -->
+                    <th><p>البريد الالكتروني </p>
+                    </th>
+
+                </tr>
+
+                <tr>
+                    <!-- bring charity type of donation number from database  -->
+                    <th><p>الموقع</p>
+                    </th> 
+
+                </tr>
+
+                <tr>
+                    <!-- bring charity phone number from database  -->
+                    <th><p>رقم الجوال </p>
+                    </th>
+
+                </tr>
+
+                <tr>
+                    <!-- bring charity description from database  -->
+                    <th><p>وصف المنظمة الخيرية</p>
+                    </th>
+
+                </tr>
+
+
+
+                <tr>
+                    <!-- bring charity PICKUP number from database  -->
+                    <th><p>توافر خدمة التوصيل</p>
+                    </th> 
+
+                </tr>
+
+                <tr>
+                    <!-- bring charity type of donation number from database  -->
+                    <th><p>انواع التبرع التي تقبل به المنظمة الخيرية</p>
+                    </th> 
+
+                </tr>
+
+
+                <br><br>
+                <tr>
+                    <td> <br><br><input type="button" value="قبول" onclick="">
+                        <input type="button" value="رفض" onclick=""></td>
+
+                </tr>
+
+            </table>
+        </div>
     </body>
     <!-- Footer -->
     <footer class="footer">  
