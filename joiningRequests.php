@@ -3,7 +3,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel='stylesheet' href='style.css'>
 <body>
-header id="headerPage" style="padding:128px 16px">
+<header id="headerPage" style="padding:128px 16px">
     <form id="signout" action="logout.php" method="POST">
 			<input type="submit" value="تسجيل خروج">
 		</form> 

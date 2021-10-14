@@ -17,9 +17,21 @@ and open the template in the editor.
        
       <div class="auth-content"> 
                     <?php
-echo '<h1> This is a test2 manage joining request</h1>';
+echo '<h1>Joining Requests</h1>';
+
                     ?>      
-   
+      <table id="manageJoiningRequest">
+                        <tr>
+                            <th>Charity Photo</th>
+                            <th>Charity Name</th>
+                            <th>Charity Request</th>
+                        <tr>
+                            <td><img src="pic_trulli.jpg" alt="Charity Photo"></td>
+                            <td><a href="" id="">Charity Name from database</a></td>
+                            <td><input type="button" value="Accept" onclick="deleteRow(this)">
+                            <input type="button" value="Reject" onclick="deleteRow(this)"></td>
+                        </tr>
+                    </table>
 
                   </div>
 
