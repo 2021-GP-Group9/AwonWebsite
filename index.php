@@ -12,7 +12,8 @@
 <br>
 <br>
 
-   <i id="bu"> <button class="bu1" onclick="login();return false;">تسجيل دخول </button> <button class="bu1"  onclick="signUp();return false;">طلب الإنضمام</button></i>
+   <i id="bu"> <button class="bu1" onclick="login();return false;">تسجيل دخول </button>
+       <button class="bu1"  onclick="signUp();return false;">طلب الإنضمام</button></i>
   
     
 </header>
@@ -59,7 +60,7 @@
             window.location = "login.php";
         }
         function signUp(){
-            window.location = "SignUp.php";
+            window.location = "RequestToJoin.php";
         }
         
         </script>
