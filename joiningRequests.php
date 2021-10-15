@@ -1,4 +1,14 @@
 
+<?php 
+//var_dump(password_hash("12345", PASSWORD_DEFAULT));
+
+session_start();
+
+	if(isset($_SESSION['role']))
+	{
+		if($_SESSION['role'] == 'admin') 
+		{
+		?>
 
 <html lang="en"><head>
     <meta charset="UTF-8">
@@ -6,7 +16,6 @@
     <link rel="stylesheet" href="style.css">
     <title>manage joining request</title>
     </head> 
-    <body data-new-gr-c-s-loaded="9.38.0">
         
         <header id="headerPage" style="padding:128px 16px">
             
@@ -15,6 +24,8 @@
 		</form> 
     <img src="logo.jpg" alt="logo" class="pageP">
     </header>
+        <body data-new-gr-c-s-loaded="9.38.0">
+
     <div class="auth-content"> 
         <h1>طلبات الاضافة</h1>      
             <?php
@@ -53,3 +64,9 @@
 <!--INSERT INTO charity_orgnization(`ID`,`name`,`username`,`email`,`phone_number`,`license_Number`,`location`,`pickup_servise`,`type_of_donation`,`photo`,`password`,`description`) VALUES ('1234','sahar','sand','itsaharcs@gmail.com','5555555555','12345','Riyadh','1','clothes','','1212','Im sahar')-->
    
 </html>
+<?php	
+		}
+		
+	}
+	
+?>
