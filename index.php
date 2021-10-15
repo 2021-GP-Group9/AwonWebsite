@@ -59,7 +59,7 @@
             window.location = "login.php";
         }
         function signUp(){
-            window.location = "SignUp.php";
+            window.location = "RequestToJoin.php";
         }
         
         </script>

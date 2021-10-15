@@ -59,7 +59,7 @@ session_start();
                     <input type="submit" class="bu1" value="تسجيل الدخول"/>
                     <br><br>
                     
-                  <p>جمعية جديدة? <a href ="signup.php" > تسجيل جديد </a></p> 
+                  <p>جمعية جديدة? <a href ="RequestToJoin.php" > تسجيل جديد </a></p> 
                   
                   <?php 
                   
