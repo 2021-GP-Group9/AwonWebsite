@@ -122,6 +122,12 @@ session_start();
 </body>
 
 
+
+
+
+</body>
+
+
 <!-- Footer -->
 <footer class="footer">  
  <div class="SOCIAL">
