@@ -27,7 +27,8 @@
                     }
                     echo "</tbody></table>";
                     ?>
-        </div>
+        </div> 
+    </body>
     <!-- Footer -->
     <footer class="footer">  
         <div class="SOCIAL">
@@ -42,3 +43,5 @@
 
 
 <!--INSERT INTO charity_orgnization(`ID`,`name`,`username`,`email`,`phone_number`,`license_Number`,`location`,`pickup_servise`,`type_of_donation`,`photo`,`password`,`description`) VALUES ('1234','sahar','sand','itsaharcs@gmail.com','966555555555','12345','Riyadh','1','clothes','','1212','Im sahar')-->
+   
+</html>
