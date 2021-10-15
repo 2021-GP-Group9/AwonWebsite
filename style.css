@@ -7,7 +7,10 @@ and open the template in the editor.
     Created on : Oct 12, 2021, 8:25:00 PM
     Author     : lamyahamad
 */
-
+*{
+   /*  <link href='https://fonts.googleapis.com/css?family=Amiri' rel='stylesheet'>*/
+    font-family: 'Amiri';
+}
 /* just home page  */
 #headerHome{
     

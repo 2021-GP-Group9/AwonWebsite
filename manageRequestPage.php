@@ -11,7 +11,7 @@ and open the template in the editor.
     <link rel='stylesheet' href='style.css'>
     <!-- Header -->
 
-    <header id="headerPage" style="padding:128px 16px">
+    <header id="headerPage" style="padding:28px 16px">
         <img src="logo.jpg" alt="logo" class="pageP"  >
 
     </header>

@@ -23,7 +23,7 @@ session_start();
 <link rel='stylesheet' href='style.css'>
 <!-- Header -->
 
-<header id="headerPage" style="padding:128px 16px">
+<header id="headerPage" style="padding:28px 16px">
    <img src="logo.jpg" alt="logo" class="pageP"  >
    
   
@@ -55,7 +55,6 @@ session_start();
                     <label class="name"><h3><input type="password" name="pwd" class="password" id="password">كلمة المرور: </label></h3>
                     <br>
                 
-                   
                     <input type="submit" class="bu1" value="تسجيل الدخول"/>
                     <br><br>
                     

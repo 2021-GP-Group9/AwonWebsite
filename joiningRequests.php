@@ -17,7 +17,7 @@ session_start();
     <title>manage joining request</title>
     </head> 
         
-        <header id="headerPage" style="padding:128px 16px">
+        <header id="headerPage" style="padding:28px 16px">
             
             <form id="signout" action="logout.php" method="POST">
 			<input type="submit" value="تسجيل خروج">
