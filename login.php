@@ -1,6 +1,19 @@
 
+<?php 
+//var_dump(password_hash("12345", PASSWORD_DEFAULT));
 
+session_start();
 
+	if(isset($_SESSION['role']))
+	{
+		if($_SESSION['role'] == 'admin') 
+		{
+			header('Location:joiningRequests.php');
+		}
+		
+	}
+	
+?>
 
 
 <html lang="en">
@@ -24,21 +37,10 @@
 </header>
 
 
-<?php
-
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
-
-
-?>
    <div class="auth-content"> 
   <form method="post" >
       
-   
+      <body>
       <h2> <br>تسجيل الدخول</h2>
                    <br>
                      <br>
@@ -58,8 +60,66 @@
                     
                   <p>جمعية جديدة? <a href ="signup.php" > تسجيل جديد </a></p> 
                   
+                  <?php 
+                  
+   
+	if(isset($_SESSION['errorC']))
+	{
+	echo "<span style='color:red'>".$_SESSION['errorC']."</span>";
+	}
+	$_SESSION['errorC']=null;
+	?>
+                  
+                  
+ <?php
+       
+                // put your code here
+        if($_SERVER['REQUEST_METHOD'] == 'POST')
+{
+	require('db_connecting.php');
+         
+	
+	$username = $_POST['username'];
+	$password   = $_POST['pwd'];
+	
+	$sql= "select * from admin where username = '$username' ";
+	
+    $result = $conn->query($sql);
+    
+	
+    if($result->num_rows > 0)
+    {
+		$row = mysqli_fetch_assoc($result);
+                
+              /// echo "<h1>"."useeeeer is".$row["username"]."</h1>";
+
+		
+		//if(password_verify($password, $row['password'])){
+		if(password_verify($password, $row['password'])){
+			$_SESSION['user_id'] = $row['id'];
+			$_SESSION['role'] = 'admin';
+			header('Location:joiningRequests.php');
+		}else{   
+			$_SESSION['errorC'] = 'UserName or password is not correct';
+			header('Location:login.php');
+		}
+		
+		
+		 
+	}
+	else{
+		$_SESSION['errorC'] = 'UserName or password is not correct';
+		header('Location:login.php');
+	}
+        
+ 	
+}
+
+       ?>
+                  
                   </div>
 
+</body>
 <!-- Footer -->
 <footer class="footer">  
  <div class="SOCIAL">

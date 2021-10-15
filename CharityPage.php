@@ -25,7 +25,7 @@
 </header>
 <div class="auth-content"> 
                     <?php
-echo '<h1> This is a test</h1>';
+echo '<h1>Wlcame :) </h1>';
                     ?>      
    
   
