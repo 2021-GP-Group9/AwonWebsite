@@ -1,10 +1,18 @@
+
+
 <html lang="en"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="style.css">
     <title>manage joining request</title>
     </head> 
-    <body data-new-gr-c-s-loaded="9.38.0"><header id="headerPage" style="padding:128px 16px">
+    <body data-new-gr-c-s-loaded="9.38.0">
+        
+        <header id="headerPage" style="padding:128px 16px">
+            
+            <form id="signout" action="logout.php" method="POST">
+			<input type="submit" value="تسجيل خروج">
+		</form> 
     <img src="logo.jpg" alt="logo" class="pageP">
     </header>
     <div class="auth-content"> 
