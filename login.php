@@ -21,11 +21,6 @@ session_start();
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel='stylesheet' href='style.css'>
-
-<body>
-
-
-
 <!-- Header -->
 
 <header id="headerPage" style="padding:128px 16px">
@@ -35,6 +30,12 @@ session_start();
    
   
 </header>
+
+<body>
+
+
+
+
 
 
    <div class="auth-content"> 
@@ -118,8 +119,9 @@ session_start();
        ?>
                   
                   </div>
-
 </body>
+
+
 <!-- Footer -->
 <footer class="footer">  
  <div class="SOCIAL">
@@ -131,11 +133,5 @@ session_start();
                 </div>
  <p>&copy; KSU|Desigend by Aljawharah, Lamya, Rahaf, Sahar and Leen</p>
 </footer>
-
-
-
-</body>
-
-
 </html>
 

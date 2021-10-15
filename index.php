@@ -4,21 +4,21 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel='stylesheet' href='style.css'>
-
-<body>
-
-
-
 <!-- Header Sahar & Aljawharah is heeeereeee -->
 
 <header id="headerHome"  style="padding:128px 16px">
    <img src="logo.jpg" alt="logo" class="homeP"  >
    
-  
+<br>
+<br>
+
    <i id="bu"> <button class="bu1" onclick="login();return false;">تسجيل دخول </button> <button class="bu1"  onclick="signUp();return false;">طلب الإنضمام</button></i>
   
     
 </header>
+
+<body>
+
 
 <!-- First Grid -->
 <div class="who">
@@ -36,6 +36,11 @@
 
 
 
+
+
+
+</body>
+
 <!-- Footer -->
 <footer class="footer">  
  <div class="SOCIAL">
@@ -47,10 +52,6 @@
                 </div>
  <p>&copy; KSU|Desigend by Aljawharah, Lamya, Rahaf, Sahar and Leen</p>
 </footer>
-
-
-
-</body>
 
 <script>
  
