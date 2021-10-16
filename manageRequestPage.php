@@ -21,87 +21,82 @@ and open the template in the editor.
             // put your code here
             ?>
             <!-- we will bring it from the database -->
-            <table id="manageJoiningRequest">
-                <tr>
-                    <th><img src="src" alt="صورة المنظمة الخيرية"/> 
-                    </th>
+            <div id="requestTable">
+                <table id="manageJoiningRequest" class="requestTable">
+                    <tr>
+                        <th><img src="src" alt="صورة المنظمة الخيرية"/> 
+                        </th>
 
-                </tr>
+                    </tr>
 
-                <tr>
-                    <!-- bring charity name from database  -->
-                    <th><p> اسم المنظمة الخيرية </p>
-                    </th>
+                    <tr>
+                        <!-- bring charity name from database  -->
+                        <th><p><!-- comment -->تجربة</p></th>
+                        <th><p> اسم المنظمة الخيرية </p>
+                        </th>
+                        <th><p><!-- comment -->تجربة</p></th>
+                        <!-- bring charity username from database  -->
+                        <th><p> اسم المستخدم </p>
+                        </th>
+                    </tr>
 
-                </tr>
 
-                <tr>
-                    <!-- bring charity username from database  -->
-                    <th><p> اسم المستخدم </p>
-                    </th>
+                    <tr>
+                        <!-- bring charity liceane number from database  -->
+                        <th><p><!-- comment -->تجربة</p></th>
+                        <th><p>رقم الترخيص</p>
+                        </th>
+                        <!-- bring charity email from database  -->
+                        <th><p><!-- comment -->تجربة</p></th>
+                        <th><p>البريد الالكتروني </p>
+                        </th>
 
-                </tr>
+                    </tr>
 
-                <tr>
-                    <!-- bring charity liceane number from database  -->
-                    <th><p>رقم الترخيص</p>
-                    </th>
 
-                </tr>
-
-                <tr>
-                    <!-- bring charity email from database  -->
-                    <th><p>البريد الالكتروني </p>
-                    </th>
-
-                </tr>
-
-                <tr>
-                    <!-- bring charity type of donation number from database  -->
-                    <th><p>الموقع</p>
-                    </th> 
-
-                </tr>
-
-                <tr>
-                    <!-- bring charity phone number from database  -->
-                    <th><p>رقم الجوال </p>
-                    </th>
-
-                </tr>
-
-                <tr>
-                    <!-- bring charity description from database  -->
-                    <th><p>وصف المنظمة الخيرية</p>
-                    </th>
-
-                </tr>
+                    <tr>
+                        <!-- bring charity type of donation number from database  -->
+                        <th><p><!-- comment -->تجربة</p></th>
+                        <th><p>الموقع</p>
+                        </th> 
+                        <!-- bring charity phone number from database  -->
+                        <th><p><!-- comment -->تجربة</p></th>
+                        <th><p>رقم الجوال </p>
+                        </th>
+                    </tr>
 
 
 
-                <tr>
-                    <!-- bring charity PICKUP number from database  -->
-                    <th><p>توافر خدمة التوصيل</p>
-                    </th> 
+                    <tr>
+                        <!-- bring charity PICKUP number from database  -->
+                        <th><p><!-- comment -->تجربة</p></th>
+                        <th><p>توافر خدمة التوصيل</p>
+                            <!-- bring charity description from database  -->
+                        <th><p><!-- comment -->تجربة</p></th>
+                        <th><p>وصف المنظمة الخيرية</p>
+                        </th>
 
-                </tr>
+                        </th> 
 
-                <tr>
-                    <!-- bring charity type of donation number from database  -->
-                    <th><p>انواع التبرع التي تقبل به المنظمة الخيرية</p>
-                    </th> 
-
-                </tr>
+                    </tr>
 
 
-                <br><br>
-                <tr>
-                    <td> <br><br><input type="button" value="قبول" onclick="">
-                        <input type="button" value="رفض" onclick=""></td>
+                    <tr>
+                        <!-- bring charity type of donation number from database  -->
+                        <th><p>انواع التبرع التي تقبل به المنظمة الخيرية</p>
+                        </th> 
 
-                </tr>
+                    </tr>
 
-            </table>
+
+                    <br><br>
+                    <tr>
+                        <td> <br><br><input type="button" value="قبول" onclick="">
+                            <input type="button" value="رفض" onclick=""></td>
+
+                    </tr>
+
+                </table></div>
         </div>
     </body>
     <!-- Footer -->
