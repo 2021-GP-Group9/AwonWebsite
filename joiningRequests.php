@@ -1,4 +1,3 @@
-
 <?php 
 //var_dump(password_hash("12345", PASSWORD_DEFAULT));
 
@@ -16,16 +15,13 @@ session_start();
     <link rel="stylesheet" href="style.css">
     <title>manage joining request</title>
     </head> 
-        
-        <header id="headerPage" style="padding:28px 16px">
-            
-            <form id="signout" action="logout.php" method="POST">
-			<input type="submit" value="تسجيل خروج">
-		</form> 
+    <header id="headerPage" style="padding:28px 16px">
+        <form id="signout" action="logout.php" method="POST">
+	<input type="submit" value="تسجيل خروج">
+	</form> 
     <img src="logo.jpg" alt="logo" class="pageP">
     </header>
-        <body data-new-gr-c-s-loaded="9.38.0">
-
+    <body data-new-gr-c-s-loaded="9.38.0">
     <div class="auth-content"> 
         <h1>طلبات الاضافة</h1>      
             <?php
@@ -46,7 +42,7 @@ session_start();
                     }
                     echo "</tbody></table>";
                     ?>
-        </div> 
+    </div> 
     </body>
     <!-- Footer -->
     <footer class="footer">  
@@ -61,8 +57,7 @@ session_start();
     </footer>
 
 
-<!--INSERT INTO charity_orgnization(`ID`,`name`,`username`,`email`,`phone_number`,`license_Number`,`location`,`pickup_servise`,`type_of_donation`,`photo`,`password`,`description`) VALUES ('1234','sahar','sand','itsaharcs@gmail.com','5555555555','12345','Riyadh','1','clothes','','1212','Im sahar')-->
-   
+<!--INSERT INTO charity_orgnization(`ID`,`name`,`username`,`email`,`phone_number`,`license_Number`,`location`,`pickup_servise`,`type_of_donation`,`photo`,`password`,`description`) VALUES ('1234','سحر','sand','itsaharcs@gmail.com','555555555','12345','Riyadh','1','clothes','','1212','سحر هي منظمة') -->   
 </html>
 <?php	
 		}
