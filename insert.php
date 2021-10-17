@@ -22,7 +22,8 @@ if (isset($_SESSION['role'])) {
         <?php
         // put your code here
         $connection = mysqli_connect("localhost", "root", "root", "awondb");
-        $id = $_GET['id'];
+        
+        $id = $_GET['ID'];
         $name = $_GET['name'];
         $username = $_GET['username'];
         $email = $_GET['email'];
@@ -35,8 +36,30 @@ if (isset($_SESSION['role'])) {
         $password = $_GET['password'];
         $description = $_GET['description'];
 
-        $sqli = "INSERT INTO `charity_orgnization`(`ID`, `name`, `username`, `email`, `phone_number`, `license_Number`, `location`, `pickup_servise`, `type_of_donation`, `photo`, `password`, `description`) "
-                . "VALUES (`$id`, `$name`, `$username`, `$email`, `$phone_number`, `$license_Number`, `$location`, `$pickup_servise`, `$type_of_donation`, `$photo`, `$password`, `$description`])";
+        $sqli = "INSERT INTO charity (`ID`, `name`, `username`, `email`, `phone_number`, `license_Number`, `location`, `pickup_servise`, `type_of_donation`, `photo`, `password`, `description`) VALUES (`$id`, `$name`, `$username`, `$email`, `$phone_number`, `$license_Number`, `$location`, `$pickup_servise`, `$type_of_donation`, `$photo`, `$password`, `$description`)";
+        
+       
+        mysqli_query($connection, $sqli);
+        if (mysqli_query($connection, $sqli)) {
+//            $to= $email ; 
+//            $subject = 'سيتم ارسال رسالة تحقق للايميل';
+//            // link to go to register page
+//            $message = "<a href='htpp;//localhost/registration/verfy.php?id=$id'></a>";
+//            // email to send the messages from ? need to be setup 
+//            $headers ="From: email \r\n" ;
+//            // he bring the next statement from old project! should we use it ?? 
+//            $headers .="MIME-Version: 1.0"."\r\n" ;
+//             $headers .="Content-type:text/html;charset:=UTF-8"."\r\n" ;
+//             mail($to, $subject, $message, $headers); 
+//             // we need to create thankyou page 
+//             header('location:thankyou.php');
+        } else {
+            echo "Error inserting record: ".mysqli_error($connection);
+            echo 'aaaaaa';
+        }
+        
+        
+        
         ?>
             </body>
         </html>
