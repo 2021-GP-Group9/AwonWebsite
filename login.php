@@ -1,6 +1,6 @@
 
 <?php 
-//var_dump(password_hash("12345", PASSWORD_DEFAULT));
+//var_dump(password_hash("12345A", PASSWORD_DEFAULT));
 
 session_start();
 
@@ -9,6 +9,15 @@ session_start();
 		if($_SESSION['role'] == 'admin') 
 		{
 			header('Location:joiningRequests.php');
+		}
+		
+	}
+
+	if(isset($_SESSION['role']))
+	{
+		if($_SESSION['role'] == 'charity') 
+		{
+			header('Location:CharityPage.php');
 		}
 		
 	}
@@ -31,7 +40,7 @@ session_start();
   
 </header>
 
-<body>
+
 
 
 
@@ -39,19 +48,21 @@ session_start();
 
 
    <div class="auth-content"> 
-  <form method="post" >
+       
+       
+       <form id="loginForm" method="post" > 
       
-      <body>
+     
       <h2> <br>تسجيل الدخول</h2>
                    <br>
                      <br>
-                   
+
 
                    <label class="name"><h3> <input type="text" name="username" id="username" class="name-input" required>اسم المستخدم:</label> </h3><br><br>
                     <br>
 
                     
-                   
+                  
                     <label class="name"><h3><input type="password" name="pwd" class="password" id="password">كلمة المرور: </label></h3>
                     <br>
                 
@@ -116,6 +127,57 @@ session_start();
 }
 
        ?>
+
+
+
+       <!-- charity page code -->
+
+<?php
+       
+                // put your code here
+        if($_SERVER['REQUEST_METHOD'] == 'POST')
+{
+	require('db_connecting.php');
+         
+	
+	$username = $_POST['username'];
+	$password   = $_POST['pwd'];
+	
+	$sql_charity= "select * from charity_orgnization where username = '$username' ";
+	
+    $result = $conn->query($sql_charity);
+    
+	
+    if($result->num_rows > 0)
+    {
+		$row = mysqli_fetch_assoc($result);
+                
+              /// echo "<h1>"."useeeeer is".$row["username"]."</h1>";
+
+		
+		//if(password_verify($password, $row['password'])){
+		if(password_verify($password, $row['password'])){
+			$_SESSION['user_id'] = $row['id'];
+			$_SESSION['role'] = 'charity';
+			header('Location:CharityPage.php');
+		}else{   
+			$_SESSION['errorC'] = 'UserName or password is not correct';
+			header('Location:login.php');
+		}
+		
+		
+		 
+	}
+	else{
+		$_SESSION['errorC'] = 'UserName or password is not correct';
+		header('Location:login.php');
+	}
+        
+ 	
+}
+
+       ?>
+
                   
                   </div>
 </body>
@@ -124,7 +186,7 @@ session_start();
 
 
 
-</body>
+
 
 
 <!-- Footer -->
