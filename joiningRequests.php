@@ -1,12 +1,22 @@
 <?php 
 	session_start();
 
+
 	if(!isset($_SESSION['role']))
 	{
 		header('Location:login.php');
 	}
 	
 ?>
+=======
+session_start();
+
+	if(isset($_SESSION['role']))
+	{
+		if($_SESSION['role'] == 'admin') 
+		{
+		?>
+>>>>>>> origin/master
 
 <html lang="en"><head>
     <meta charset="UTF-8">
