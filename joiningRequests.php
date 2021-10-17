@@ -1,34 +1,53 @@
+
+<?php 
+//var_dump(password_hash("12345", PASSWORD_DEFAULT));
+
+session_start();
+
+	if(isset($_SESSION['role']))
+	{
+		if($_SESSION['role'] == 'admin') 
+		{
+		?>
+
 <html lang="en"><head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="style.css">
-        <title>manage joining request</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+    <title>manage joining request</title>
     </head> 
-    <body data-new-gr-c-s-loaded="9.38.0"><header id="headerPage" style="padding:128px 16px">
-        <img src="logo.jpg" alt="logo" class="pageP">
+        
+        <header id="headerPage" style="padding:28px 16px">
+            
+            <form id="signout" action="logout.php" method="POST">
+			<input type="submit" value="تسجيل خروج">
+		</form> 
+    <img src="logo.jpg" alt="logo" class="pageP">
     </header>
-    
+        <body data-new-gr-c-s-loaded="9.38.0">
 
-        <div class="auth-content"> 
-            <h1>طلبات الاضافة</h1>      
-            <table id="manageJoiningRequest">
-                <tbody><tr>
-                    <th>قبول /رفض</th>
-                    <th>الجمعية الخيرية</th>
-                    
-                </tr><tr>  
-                    <td><button class="bu1" style="width: 100px;height:60px;" onclick=";return false;">قبول</button>
-                        <button class="bu1" style="width: 100px;height:60px;" onclick=";return false;">رفض</button>
-                    <td><a href="" id="">اسم المنظمة الخيرية</a>&emsp;<img src="pic_trulli.jpg" alt="صورة المنظمة الخيرية"></td>
-                  
-
-                </tr>
-            </tbody></table>
-
-        </div>
-
-
-    
+    <div class="auth-content"> 
+        <h1>طلبات الاضافة</h1>      
+            <?php
+            $connection = mysqli_connect("localhost", "root", "root", "awondb");
+            $sqli = "SELECT * FROM `charity_orgnization` ";
+                    $result = $connection->query($sqli);
+                    echo '<table id="manageJoiningRequest">';
+                    echo '<tbody><tr>';
+                    echo'<th>قبول / رفض</th>';
+                    echo '<th>الجمعية الخيرية</th>';
+                    echo '</tr>';                    
+                    while ($row = $result->fetch_assoc()) {
+                    echo'<tr>';
+                    // &nbsp; used for spaceing
+                    echo "<td><button class='bu1' style='width: 100px;height:60px;' onclick=';return false;'>قبول</button>"."<button class='bu1' style='width: 100px;height:60px;' onclick=';return false;'>رفض</button>";
+                    echo "<td>"."<a href='manageRequestPage.php?id={$row["ID"]}'>{$row["name"]}</a>"."&nbsp;&nbsp;&nbsp;&nbsp;".$image='<img src="data:image/jpeg;base64,'.base64_encode($row['photo']).'"width="50em"/>'."</td>";
+                    echo "</tr>";
+                    }
+                    echo "</tbody></table>";
+                    ?>
+        </div> 
+    </body>
     <!-- Footer -->
     <footer class="footer">  
         <div class="SOCIAL">
@@ -38,10 +57,16 @@
             <a href="#"><i class="fab fa-youtube"></i></a>
             <a href="#"><i class="fab fa-facebook"></i></a>
         </div>
-        <p>© KSU|Desigend by Aljawharah, Lamya, Rahaf, Sahar and Leen</p>
+        <p>&copy; KSU|Desigend by Aljawharah, Lamya, Rahaf, Sahar and Leen</p>
     </footer>
 
 
-
-
-</body><grammarly-desktop-integration data-grammarly-shadow-root="true"></grammarly-desktop-integration></html>
+<!--INSERT INTO charity_orgnization(`ID`,`name`,`username`,`email`,`phone_number`,`license_Number`,`location`,`pickup_servise`,`type_of_donation`,`photo`,`password`,`description`) VALUES ('1234','sahar','sand','itsaharcs@gmail.com','5555555555','12345','Riyadh','1','clothes','','1212','Im sahar')-->
+   
+</html>
+<?php	
+		}
+		
+	}
+	
+?>
