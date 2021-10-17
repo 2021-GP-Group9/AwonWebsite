@@ -1,107 +1,87 @@
-<!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
-<html lang="en">
+<?php 
+//var_dump(password_hash("12345", PASSWORD_DEFAULT));
 
+session_start();
+
+	if(isset($_SESSION['role']))
+	{
+		if($_SESSION['role'] == 'admin') 
+		{
+		?>
+
+<html lang="en">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel='stylesheet' href='style.css'>
     <!-- Header -->
-
-    <header id="headerPage" style="padding:128px 16px">
-        <img src="logo.jpg" alt="logo" class="pageP"  >
-
+    <header id="headerPage" style="padding:28px 16px">
+    <form id="signout" action="logout.php" method="POST">
+        <input type="submit" value="تسجيل خروج">
+    </form> 
+    <img src="logo.jpg" alt="logo" class="pageP">
     </header>
     <body>
         <div class="auth-content"> 
-            <?php
-            // put your code here
-            ?>
-            <!-- we will bring it from the database -->
-            <table id="manageJoiningRequest">
-                <tr>
-                    <th><img src="src" alt="صورة المنظمة الخيرية"/> 
-                    </th>
-
-                </tr>
-
-                <tr>
-                    <!-- bring charity name from database  -->
-                    <th><p> اسم المنظمة الخيرية </p>
-                    </th>
-
-                </tr>
-
-                <tr>
-                    <!-- bring charity username from database  -->
-                    <th><p> اسم المستخدم </p>
-                    </th>
-
-                </tr>
-
-                <tr>
-                    <!-- bring charity liceane number from database  -->
-                    <th><p>رقم الترخيص</p>
-                    </th>
-
-                </tr>
-
-                <tr>
-                    <!-- bring charity email from database  -->
-                    <th><p>البريد الالكتروني </p>
-                    </th>
-
-                </tr>
-
-                <tr>
-                    <!-- bring charity type of donation number from database  -->
-                    <th><p>الموقع</p>
-                    </th> 
-
-                </tr>
-
-                <tr>
-                    <!-- bring charity phone number from database  -->
-                    <th><p>رقم الجوال </p>
-                    </th>
-
-                </tr>
-
-                <tr>
-                    <!-- bring charity description from database  -->
-                    <th><p>وصف المنظمة الخيرية</p>
-                    </th>
-
-                </tr>
-
-
-
-                <tr>
-                    <!-- bring charity PICKUP number from database  -->
-                    <th><p>توافر خدمة التوصيل</p>
-                    </th> 
-
-                </tr>
-
-                <tr>
-                    <!-- bring charity type of donation number from database  -->
-                    <th><p>انواع التبرع التي تقبل به المنظمة الخيرية</p>
-                    </th> 
-
-                </tr>
-
-
-                <br><br>
-                <tr>
-                    <td> <br><br><input type="button" value="قبول" onclick="">
-                        <input type="button" value="رفض" onclick=""></td>
-
-                </tr>
-
-            </table>
+        <!-- we will bring it from the database -->
+        <div id="requestTable">
+        <?php
+        // To verify the license number the admin visits the website
+        echo "<a href =https://hrsd.gov.sa/ar/ngo-enquiry style='text-align:right;' target='_blank'>:للتحقق من رقم ترخيص وبيانات الجمعية</a>";
+        echo "<p style='color: gray; text-align:right;'>يرجى إدخال رقم الترخيص باللغة الإنجليزية</p>";
+        $connection = mysqli_connect("localhost", "root", "root", "awondb");
+        $id=$_GET['id'];
+        $sqli = "SELECT * FROM `charity_orgnization` WHERE ID= $id ";
+                   $result = $connection->query($sqli);
+                    while ($row = $result->fetch_assoc()) {
+                        echo "<table id='manageJoiningRequest' class='requestTable'>";
+                        echo "<tr>";
+                        echo "<th>".$image='<img src="data:image/jpeg;base64,'.base64_encode($row['photo']).'"width="50em"/>'."</td>";
+                        echo "</th></tr><tr>";
+                        // <!-- bring charity name from database  -->
+                        echo "<th><p>".$row['name']."</p></th>";
+                        echo "<th><p>:اسم المنظمة الخيرية</p>";
+                        echo "</th>";
+                        echo "<th><p>".$row['username']."</th>";
+                        //<!-- bring charity username from database  -->
+                        echo "<th><p>:اسم المستخدم</p>";
+                        echo "</th>";
+                        echo "</tr>";
+                        echo "<tr>";
+                        //<!-- bring charity liceane number from database  -->
+                        echo "<th><p>".$row['license_Number']."</p></th>";
+                        echo "<th><p>:رقم الترخيص</p>";
+                        echo "</th>";
+                        // <!-- bring charity email from database  -->
+                        echo "<th><p>".$row['email']."</p></th>";
+                        echo "<th><p>:البريد الإلكتروني</p>";
+                        echo "</th>";
+                        echo "</tr><tr>";
+                        //<!-- bring charity type of donation number from database  -->
+                        echo "<th><p>".$row['location']."</p></th>";
+                        echo "<th><p>:الموقع</p>";
+                        echo "</th>";
+                        //<!-- bring charity phone number from database  -->
+                        echo "<th><p>".$row['phone_number']."</p></th>";
+                        echo" <th><p>:رقم الجوال</p></th></tr>";
+                        echo "<tr>";
+                        // <!-- bring charity PICKUP number from database  -->
+                        echo "<th><p>".$row['pickup_servise']."</p></th>";
+                        echo "<th><p>:توافر خدمة التوصيل</p>";
+                        //<!-- bring charity description from database  -->
+                        echo "<th><p>".$row['description']."</p></th>";
+                        echo "<th><p>:وصف المنظمة الخيرية</p></th></th></tr>";
+                        echo "<tr>";
+                        //<!-- bring charity type of donation number from database  -->
+                        echo "<th><p>".$row['description']."</p></th>";
+                        echo "<th><p>:أنواع التبرعات التي تستقبلها المنظمة الخيرية</p></th></tr>";
+                        echo "<br><br>";
+                        echo "<tr>";
+                        echo "<td> <br><br><input type='button' class='bu1' style='width: 100px;height:60px;' value='قبول' onclick=''><input type='button'style='width: 100px;height:60px;' class='bu1' value='رفض' onclick=''></td>'";
+                        echo "</tr> </table>";
+                    }
+                     
+                    ?>
+            </div>
         </div>
     </body>
     <!-- Footer -->
@@ -116,3 +96,9 @@ and open the template in the editor.
         <p>&copy; KSU|Desigend by Aljawharah, Lamya, Rahaf, Sahar and Leen</p>
     </footer>
 </html>
+<?php	
+		}
+		
+	}
+	
+?>
