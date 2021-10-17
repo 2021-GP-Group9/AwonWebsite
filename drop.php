@@ -23,10 +23,17 @@ session_start();
     <body>
         <?php
         // put your code here
+        echo 'aaaaaa';
         $connection = mysqli_connect("localhost", "root", "root", "awondb");
         $id=$_GET['id'];
-        $sqli = "DELETE * FROM `charity_orgnization` WHERE ID= $id ";
-        
+        $sqli = "DELETE FROM charity_orgnization where ID = '$id' ";
+        mysqli_query($connection, $sqli);
+        if (mysqli_query($connection, $sqli)) {
+            echo "Record deleted successfully";
+                //header( "Location:traineePage.php" );
+        } else {
+            echo "Error deleting record: ".mysqli_error($connection);
+        }
         ?>
     </body>
 </html>
