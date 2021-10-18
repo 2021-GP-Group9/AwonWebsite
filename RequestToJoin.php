@@ -1,7 +1,11 @@
+
+
+
 <html lang="en">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel='stylesheet' href='style.css'>
+    <script src="webPro.js"></script>
     <header id="headerPage" style="padding:28px 16px">
             <form id="signout" action="logout.php" method="POST">
                 <input type="submit" value="تسجيل خروج">
@@ -12,58 +16,107 @@
         
         <div class="auth-content"> 
             <?php
-            echo '<h1>نموذج تقديم المنظمات الخيرية</h1>';
-            ?>      
-            <form method="post" id="JoiningRequestForm" >
+            echo '<h1>نموذج طلب انضمام المنظمات الخيرية</h1>';
+            ?> 
 
+   
+    <form method="POST">
+                <fieldset>
+                    <input type="text" name="name"  placeholder="اسم المنظمة الخيرية" required> <br>
+                <input type="text" name="username" placeholder="اسم المستخدم "required> <br>
+                <input type="textarea" name="descrption"  rows="5" cols="20" placeholder="وصف المنظمة الخيرية"><br>
+                <input type="email" name="email" placeholder="البريد الالكتروني "required><br>
+                <input type="password" name="passwod" placeholder="كلمة المرور" required ><br>
+                <input type="text" name="PhoneNumber" placeholder="رقم الجوال"required><br>  <br>
+                
+                    <label>هل تتوفر خدمة التوصيل ؟</label>
+              <ol>
+                  <il> <input id="yes" type="radio" name="option"  value="yes" checked>نعم </il>
+                  <il> <input id="no" type="radio" name="option"  value="no">لا</il>
+            </ol>
+              <br>
+               <label>انواع التبرع التي تقبل به المنظمة الخيرية؟</label>
+                <input type="checkbox" name="type[]" id="clothes" class="name-input" value ="ملابس">ملابس 
+                <input type="checkbox" name="type[]" id="furniture" class="name-input" value="اثاث"> اثاث
+                <input type="checkbox" name="type[]" id="electronic" class="name-input" value="الكترونيات"> الكترونيات
+                <input type="checkbox" name="type[]" id="books" class="name-input" value="كتب_ورق"> كتب وورق
+              
+                <br><br> 
+             
+                <input type="text" name="location" placeholder="الموقع"required>
+                <br>  <br> 
+                
+                <input type="text" name="LicenseNumber" placeholder="رقم الترخيص" required> <br> <br> 
+                
+                
+                <input type="file" name="picture" placeholder="صورة الملف التعريفي"required><br> <br> 
+        
+                <button type="submit" name="submit" class="bu1" >تسجيل</button>
+                </fieldset>
+            </form>
+            <?php
+           $server = "localhost";
+            $username = "root";
+            $password = "root";
+            $dbname = "awondb";
 
-                <h2> <br>التسجيل</h2>
-                <br>
-                <br>
-
-                <input type="text" name="username" id="username" class="name-input" placeholder="اسم المنظمة الخيرية" required>
-                <input type="text" name="username" id="username" class="name-input" placeholder="اسم المستخدم "required>
-                <input type="text" name="username" id="username" class="name-input" placeholder="وصف المنظمة الخيرية" required>
-                <br><br>
-                <input type="email" name="username" id="username" class="name-input" placeholder="البريد الالكتروني "required>
-                <input type="password" name="pwd" class="password" id="password" placeholder="كلمة المرور" required >
-                <br><br>
-
-                <input type="number" name="username" id="username" class="name-input" placeholder="رقم الجوال"required><!-- tel or number?  -->
-                <input type="number" name="username" id="username" class="name-input" placeholder="رقم الترخيص"required>
-                <input type="image" name="username" id="username" class="name-input" placeholder="صورة الملف التعريفي"required><!-- it is uploade not sure -->
-                <br><br>
-                <input type="url" name="username" id="username" class="name-input" placeholder="الموقع"required><!-- not sure if it is url maybe it is select -->
-               <label>هل تتوفر خدمة التوصيل ؟ </label>
-                  <input type="radio" name="username" id="username" class="name-input">
-                  <label for="نعم">نعم</label>
-                  <input type="radio" name="username" id="username" class="name-input">
-                  <label for="لا">لا</label>
-                <br><br>
-                <label>انواع التبرع التي تقبل به المنظمة الخيرية؟</label>
-                <input type="checkbox" name="username" id="username" class="name-input">
-                <label for="ملابس">ملابس</label>
-                <input type="checkbox" name="username" id="username" class="name-input">
-                <label for="اثاث">اثاث</label>
-                <input type="checkbox" name="username" id="username" class="name-input">
-                <label for="الكترونيات">الكترونيات</label>
-                <br>
-
-
-                <input type="submit" class="bu1" value="تسجيل"/>
-
-                <br><br>
-
-
-
-                </div>
-
-
+                    //define DB
+                $conn = mysqli_connect("$server" , "$username", "$password", "$dbname");
+                
+                $error =mysqli_connect_error();
+                          if ($error != null) {
+                          echo "<p>Eror!! could not connect to DB may not connect </p>";}
+                          else {    echo 'success connect';}
+             
+            if($_SERVER['REQUEST_METHOD']=="POST"){ 
+                
+               $name = $_POST['name'];
+               $username = $_POST['username'];
+               $descrption = $_POST['descrption'];
+               $email = $_POST['email'];
+               $passwod = $_POST['passwod'];
+               $PhoneNumber =$_POST['PhoneNumber'];
+               $option = $_POST['option'];
+               $type = $_POST['type'];
+                $typee="";
+              
+          for ($i=0; $i< sizeof ($type);$i++) {  
+          $typee.=$type[$i].","; }
+          
+              $location =$_POST['location'];
+              $LicenseNumber = $_POST['LicenseNumber'];
+              $picture=$_POST['picture'];
+                
+              $qr = "INSERT INTO `joiningrequest`(name , username, descrption, email , pass , phone, service, donatoionType,location,LicenseNumber,picture) VALUES ('$name', '$username', '$descrption' ,'$email', '$passwod', '$PhoneNumber','$option','$typee','$location','$LicenseNumber','$picture')";
+              $runn = mysqli_query($conn, $qr);
+                     
+       if($runn){
+           
+          echo '<script> alert("success Rigester");</script>';
+            echo
+           '<script>
+           window.location ="confirmationPage.php";
+           </script>';
+          
+       }
+                  
+              
+           else {    
+               echo '<script> alert("field Riggester");</script>';}
+                   
+} 
+                
             
+            
+            ?>
+        
+                 
+                            </div>
 
 
+   
                 </body>
-    <!-- Footer -->
+                <br><br>
                 <footer class="footer">  
                     <div class="SOCIAL">
                         <br>
@@ -74,7 +127,6 @@
                     </div>
                     <p>&copy; KSU|Desigend by Aljawharah, Lamya, Rahaf, Sahar and Leen</p>
                 </footer>
-
-
-                </html>
-
+  
+   
+    
