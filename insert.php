@@ -43,15 +43,15 @@ if (isset($_SESSION['role'])) {
         if (mysqli_query($connection, $sqli)) {
 //            $to= $email ; 
 //            $subject = 'سيتم ارسال رسالة تحقق للايميل';
-//            // link to go to register page
+//      // link to go to register page
 //            $message = "<a href='htpp;//localhost/registration/verfy.php?id=$id'></a>";
-//            // email to send the messages from ? need to be setup 
+//      // email to send the messages from ? need to be setup 
 //            $headers ="From: email \r\n" ;
-//            // he bring the next statement from old project! should we use it ?? 
+//      // he bring the next statement from old project! should we use it ?? 
 //            $headers .="MIME-Version: 1.0"."\r\n" ;
 //             $headers .="Content-type:text/html;charset:=UTF-8"."\r\n" ;
 //             mail($to, $subject, $message, $headers); 
-//             // we need to create thankyou page 
+//      // we need to create thankyou page 
 //             header('location:thankyou.php');
         } else {
             echo "Error inserting record: ".mysqli_error($connection);

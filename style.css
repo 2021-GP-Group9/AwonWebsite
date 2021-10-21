@@ -39,7 +39,7 @@ float:left;
   
 } 
     
-footer{
+.footer{
    position: fixed;
    left: 0;
    bottom: 0;
@@ -141,3 +141,36 @@ p.requestTable{
     font-family: Amiri;
     font-size: 14px;
 }
+
+.topnav {
+    background-color: #2aa7b0;
+    overflow: hidden;
+}
+
+/* Style the links inside the navigation bar */
+.topnav a {
+  font-family: Amiri;
+  float: right;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 12px;
+}
+
+/* Change the color of links on hover */
+.topnav a:hover {
+  background-color:blanchedalmond ;
+  color: black;
+}
+
+/* Add a color to the active/current link 
+.topnav a.active {
+  background-color: #2aa7b0;
+  color: white;
+}
+*/
+/* Right-aligned section inside the top navigation 
+.topnav-right {
+  float: right;
+}*/

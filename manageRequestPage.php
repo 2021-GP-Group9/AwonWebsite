@@ -15,9 +15,9 @@ session_start();
     <link rel='stylesheet' href='style.css'>
     <!-- Header -->
     <header id="headerPage" style="padding:28px 16px">
-    <form id="signout" action="logout.php" method="POST">
-        <input type="submit" value="تسجيل خروج">
-    </form> 
+     <div class="topnav">
+       <a href="index.php">تسجيل خروج</a>
+     </div>
     <img src="logo.jpg" alt="logo" class="pageP">
     </header>
     <body>
@@ -26,7 +26,7 @@ session_start();
         <div id="requestTable">
         <?php
         // To verify the license number the admin visits the website
-        echo "<a href =https://hrsd.gov.sa/ar/ngo-enquiry style='text-align:right;' target='_blank'>:للتحقق من رقم ترخيص وبيانات الجمعية</a>";
+        echo "<a href =https://hrsd.gov.sa/ar/ngo-enquiry style='text-align:right;'target='_blank'>:للتحقق من رقم ترخيص وبيانات الجمعية</a>";
         echo "<p style='color: gray; text-align:right;'>يرجى إدخال رقم الترخيص باللغة الإنجليزية</p>";
         $connection = mysqli_connect("localhost", "root", "root", "awondb");
         $id=$_GET['id'];

@@ -15,7 +15,7 @@ if (isset($_SESSION['role'])) {
                 <link rel="stylesheet" href="style.css">
                 <title>manage joining request</title>
             </head> 
-            <header id="headerPage" style="padding:28px 16px">
+            <header id="headerPage" style="padding:15px 8px">
                 <form id="signout" action="logout.php" method="POST">
                     <input type="submit" value="تسجيل خروج">
                 </form> 
