@@ -43,6 +43,7 @@ if (isset($_SESSION['role'])) {
             echo "</tr>";
         }
         echo "</tbody></table>";
+        //TEST
         ?>
                 </div> 
             </body>
