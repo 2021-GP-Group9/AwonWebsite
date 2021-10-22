@@ -12,31 +12,24 @@ session_start();
 if (isset($_SESSION['role'])) {
     if ($_SESSION['role'] == 'admin') {
         ?>
-
-        <html lang="en">
-            <head>
-                <meta charset="UTF-8">
-                <title></title>
-            </head>
-            <body>
         <?php
         // put your code here
         $connection = mysqli_connect("localhost", "root", "root", "awondb");
         
         $id = $_GET['ID'];
-        $name = $_GET['name'];
-        $username = $_GET['username'];
-        $email = $_GET['email'];
-        $phone_number = $_GET['phone_number'];
-        $license_Number = $_GET['license_Number'];
-        $location = $_GET['location'];
-        $pickup_servise = $_GET['pickup_servise'];
-        $type_of_donation = $_GET['type_of_donation'];
-        $photo = $_GET['photo'];
-        $password = $_GET['password'];
-        $description = $_GET['description'];
+       // $name = $_GET['name'];
+        //$username = $_GET['username'];
+        //  $email = $_GET['email'];
+        //$phone_number = $_GET['phone_number'];
+        //$license_Number = $_GET['license_Number'];
+        //$location = $_GET['location'];
+        //$pickup_servise = $_GET['pickup_servise'];
+        // $type_of_donation = $_GET['type_of_donation'];
+        // $photo = $_GET['photo'];
+        //$password = $_GET['password'];
+        // $description = $_GET['description'];
 
-        $sqli = "INSERT INTO charity (`ID`, `name`, `username`, `email`, `phone_number`, `license_Number`, `location`, `pickup_servise`, `type_of_donation`, `photo`, `password`, `description`) VALUES (`$id`, `$name`, `$username`, `$email`, `$phone_number`, `$license_Number`, `$location`, `$pickup_servise`, `$type_of_donation`, `$photo`, `$password`, `$description`)";
+        $sqli = "UPDATE charity SET status='Accepted' WHERE ID ='".$id."' ";
         
        
         mysqli_query($connection, $sqli);
@@ -61,8 +54,7 @@ if (isset($_SESSION['role'])) {
         
         
         ?>
-            </body>
-        </html>
+           
                 <?php
             }
         }
