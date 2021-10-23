@@ -27,7 +27,7 @@ if (isset($_SESSION['role'])) {
             $subject= "Email Verification"; 
             $message = 'Congratulation! Your charity has been Added successfully';
             //need to use such an admin email here!
-            $headers = "From:  \r\n ";
+            $headers = "From: awongp35@gmail.com \r\n ";
             $headers .= "MIME-Version: 1.0" . "\r\n";
             $headers .= "Content-type: text/html; charset=UTF-8" . "\r\n";
             
