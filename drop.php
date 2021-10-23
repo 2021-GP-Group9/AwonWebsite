@@ -26,10 +26,16 @@ session_start();
         echo 'aaaaaa';
         $connection = mysqli_connect("localhost", "root", "root", "awondb");
         $id=$_GET['id'];
-        $sqli = "DELETE FROM charity_orgnization where ID = '$id' ";
+        $state=$_GET['state'];
+        $sql = "UPDATE charity SET status='Rejected' WHERE ID ='".$id."' ";
+        mysql_query($connection, $sql);
+        $sqli = "DELETE FROM charity_orgnization where ID = '$id' AND state='Rejected' ";
         mysqli_query($connection, $sqli);
         if (mysqli_query($connection, $sqli)) {
+                 
             echo "Record deleted successfully";
+            //email verefication  
+            
                 //header( "Location:traineePage.php" );
         } else {
             echo "Error deleting record: ".mysqli_error($connection);
