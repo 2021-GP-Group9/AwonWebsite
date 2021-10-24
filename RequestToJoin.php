@@ -2,10 +2,12 @@
 
 
 <html lang="en">
+    <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel='stylesheet' href='style.css'>
-    <script src="webPro.js"></script>
+   
+    </head>
     <header id="headerPage" style="padding:28px 16px">
             <form id="signout" action="logout.php" method="POST">
                 <input type="submit" value="تسجيل خروج">
@@ -21,8 +23,10 @@
 
    
     <form method="POST">
+        
                 <fieldset>
-                    <input type="text" name="name"  placeholder="اسم المنظمة الخيرية" required> <br>
+                    
+                <input type="text" name="name"  placeholder="اسم المنظمة الخيرية" required> <br>
                 <input type="text" name="username" placeholder="اسم المستخدم "required> <br>
                 <input type="textarea" name="descrption"  rows="5" cols="20" placeholder="وصف المنظمة الخيرية"><br>
                 <input type="email" name="email" placeholder="البريد الالكتروني "required><br>
@@ -31,7 +35,7 @@
                 
                     <label>هل تتوفر خدمة التوصيل ؟</label>
               <ol>
-                  <il> <input id="yes" type="radio" name="option"  value="yes" checked>نعم </il>
+                  <il> <input id="yes" type="radio" name="option"  value="yes" >نعم </il>
                   <il> <input id="no" type="radio" name="option"  value="no">لا</il>
             </ol>
               <br>
@@ -49,9 +53,9 @@
                 <input type="text" name="LicenseNumber" placeholder="رقم الترخيص" required> <br> <br> 
                 
                 
-                <input type="file" name="picture" placeholder="صورة الملف التعريفي"required><br> <br> 
+                <input type="file" name="picture" placeholder="صورة الملف التعريفي"><br> <br> 
         
-                <button type="submit" name="submit" class="bu1" >تسجيل</button>
+                <button type="submit" name="submit" class="bu1" onclick="validate();return false;" >تسجيل</button>
                 </fieldset>
             </form>
             <?php
@@ -78,19 +82,19 @@
                $PhoneNumber =$_POST['PhoneNumber'];
                $option = $_POST['option'];
                $type = $_POST['type'];
-                $typee="";
+               $servicetype="";
               
           for ($i=0; $i< sizeof ($type);$i++) {  
-          $typee.=$type[$i].","; }
+          $servicetype.=$type[$i].","; }
           
               $location =$_POST['location'];
               $LicenseNumber = $_POST['LicenseNumber'];
               $picture=$_POST['picture'];
                 
-              $qr = "INSERT INTO `joiningrequest`(name , username, descrption, email , pass , phone, service, donatoionType,location,LicenseNumber,picture) VALUES ('$name', '$username', '$descrption' ,'$email', '$passwod', '$PhoneNumber','$option','$typee','$location','$LicenseNumber','$picture')";
-              $runn = mysqli_query($conn, $qr);
+              $query = "INSERT INTO `charity`(name , username, descrption, email , pass , phone, service, donatoionType,location,LicenseNumber,picture,status) VALUES ('$name', '$username', '$descrption' ,'$email', '$passwod', '$PhoneNumber','$option','$servicetype','$location','$LicenseNumber','$picture','null')";
+              $run = mysqli_query($conn, $query);
                      
-       if($runn){
+       if($run){
            
           echo '<script> alert("success Rigester");</script>';
             echo
