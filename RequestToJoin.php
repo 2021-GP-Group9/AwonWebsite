@@ -1,4 +1,28 @@
 
+<?php 
+
+
+session_start();
+
+	if(isset($_SESSION['role']))
+	{
+		if($_SESSION['role'] == 'admin') 
+		{
+			header('Location:joiningRequests.php');
+		}
+		
+	}
+
+	if(isset($_SESSION['role']))
+	{
+		if($_SESSION['role'] == 'charity') 
+		{
+			header('Location:CharityPage.php');
+		}
+		
+	}
+	
+?>
 
 
 <html lang="en">
@@ -57,7 +81,17 @@
                 <button type="submit" name="submit" class="bu1" onclick="validate();return false;" >تسجيل</button>
                 
                 </fieldset>
+        <?php 
+						if(isset($_SESSION['faild']))
+						{
+							echo "<span style='color:red'>".$_SESSION['faild']."</span>";
+						}
+                                                $_SESSION['faild']=null;
+	
+					?>
             </form>
+            
+            
             <?php
            $server = "localhost";
             $username = "root";
@@ -70,7 +104,7 @@
                 $error =mysqli_connect_error();
                           if ($error != null) {
                           echo "<p>Eror!! could not connect to DB may not connect </p>";}
-                          else {    echo 'success connect';}
+                         // else {    echo 'success connect';}
              
             if($_SERVER['REQUEST_METHOD']=="POST"){ 
                 
@@ -78,7 +112,7 @@
                $username = $_POST['username'];
                $descrption = $_POST['descrption'];
                $email = $_POST['email'];
-               $passwod = $_POST['passwod'];
+               $passwod = PASSWORD_HASH($_POST["passwod"], PASSWORD_DEFAULT);
                $PhoneNumber =$_POST['PhoneNumber'];
                $option = $_POST['service'];
                $type = $_POST['type'];
@@ -91,8 +125,47 @@
               $LicenseNumber = $_POST['LicenseNumber'];
               $picture=$_POST['picture'];
                 
+              
+                //cheack from email 
+	$sql_chk_email= "select * from charity where email = '$email' ";
+	
+    $result = $conn->query($sql_chk_email);
+              
+                if($result->num_rows > 0)
+    {
+		$_SESSION['faild'] = 'This email is already exists in our website';
+		header('Location:RequestToJoin.php');
+	}
+        
+        $sql_chk_email= "select * from charity where phone = '$PhoneNumber' ";
+	
+    $result = $conn->query($sql_chk_email);
+              
+                if($result->num_rows > 0)
+    {
+		$_SESSION['faild'] = 'This phone number is already exists in our website';
+		header('Location:RequestToJoin.php');
+	}
+                   
+  
+        //cheack from username
+	else 
+	{
+		
+		$sql_chk_username= "select * from charity where username = '$username' ";
+	
+		$res = $conn->query($sql_chk_username);
+		
+		if($res->num_rows > 0)
+		{
+			$_SESSION['faild'] = 'This username is already exists in our website';
+			header('Location:RequestToJoin.php');
+		}
+                
+ else {
               $query = "INSERT INTO `charity`(name , username, descrption, email , pass , phone, service, donatoionType,location,LicenseNumber,picture,status) VALUES ('$name', '$username', '$descrption' ,'$email', '$passwod', '$PhoneNumber','$option','$servicetype','$location','$LicenseNumber','$picture','null')";
               $run = mysqli_query($conn, $query);
+ }
                      
        if($run){
            
@@ -110,7 +183,7 @@
                    
 } 
                 
-            
+            }  
             
             ?>
         
@@ -171,3 +244,4 @@ if (Password.value == "") {
           this.form.submit();
     }
     </script>
+ 

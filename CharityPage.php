@@ -27,7 +27,7 @@
                     <?php
 
             $connection = mysqli_connect("localhost", "root", "root", "awondb");
-            $sqli = "SELECT * FROM `charity_orgnization` ";
+            $sqli = "SELECT * FROM `charity` ";
                     $result = $connection->query($sqli);
                     while ($row = $result->fetch_assoc()) {
                     // &nbsp; used for spaceing
@@ -41,7 +41,7 @@
 
 
 echo '<h1>Wlcame :) </h1>';
-                    echo "<p> <a style='font-size:30px;'>{$row["name"]}</a></p>";
+                    echo "<p> <a style='font-size:30px;'>{$row['name']}</a></p>";
 }
                     ?>      
    
