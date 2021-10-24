@@ -1,6 +1,6 @@
 
 <?php 
-//var_dump(password_hash("12345A", PASSWORD_DEFAULT));
+var_dump(password_hash("12345A", PASSWORD_DEFAULT));
 
 session_start();
 
@@ -143,7 +143,7 @@ session_start();
 	$username = $_POST['username'];
 	$password   = $_POST['pwd'];
 	
-	$sql_charity= "select * from charity_orgnization where username = '$username' ";
+	$sql_charity= "select * from joiningrequest where username = '$username' ";
 	
     $result = $conn->query($sql_charity);
     
