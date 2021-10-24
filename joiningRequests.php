@@ -6,7 +6,6 @@ session_start();
 if (isset($_SESSION['role'])) {
     if ($_SESSION['role'] == 'admin') {
         $error = NULL;
-                
         ?>
 
         <html lang="en"><head>
@@ -24,29 +23,48 @@ if (isset($_SESSION['role'])) {
             <body data-new-gr-c-s-loaded="9.38.0">
                 <div class="auth-content"> 
                     <h1>طلبات الاضافة</h1>      
-        <?php
-   
-        $connection = mysqli_connect("localhost", "root", "root", "awondb");
-        $sqli = "SELECT * FROM `charity_orgnization` ";
-        $result = $connection->query($sqli);
-        echo '<table id="manageJoiningRequest">';
-        echo '<tbody><tr>';
-        echo'<th>قبول / رفض</th>';
-        echo '<th>الجمعية الخيرية</th>';
-        echo '</tr>';
-        while ($row = $result->fetch_assoc()) {
-            echo'<tr>';
-            // &nbsp; used for spaceing
+                    <?php
+                    $connection = mysqli_connect("localhost", "root", "root", "awondb");
+                    $sqli = "SELECT * FROM `charity` ";
+                    $result = $connection->query($sqli);
+                    echo '<table id="manageJoiningRequest">';
+                    echo '<tbody><tr>';
+                    echo'<th>قبول / رفض</th>';
+                    echo '<th>الجمعية الخيرية</th>';
+                    echo '</tr>';
+                    $status = $_GET['status'];
+                    if ($status == 'null') {
+                        while ($row = $result->fetch_assoc()) {
+                            echo'<tr>';
+                            // &nbsp; used for spaceing
 
-            echo "<td><button class='bu1' style='width: 100px;height:60px;' onclick=';return false;' ><a href='insert.php?id={$row["ID"]}'>قبول</a></button>" . "<button class='bu1' style='width: 100px;height:60px;' onclick=';return false;'><a href='d.php?id={$row["ID"]}'>رفض</a></button>";
-            echo "<td>" . "<a href='manageRequestPage.php?id={$row["ID"]}'>{$row["name"]}</a>" . "&nbsp;&nbsp;&nbsp;&nbsp;" . $image = '<img src="data:image/jpeg;base64,' . base64_encode($row['photo']) . '"width="50em"/>' . "</td>";
-            echo "</tr>";
-        }
-        echo "</tbody></table>";
-        //TEST
-        ?>
+                            $id = $_GET['id'];
+                            echo "<td><button class='bu1' style='width: 100px;height:60px;' onclick='Accept($id);' >قبول</button>" . "<button class='bu1' style='width: 100px;height:60px;' onclick='Reject($id);'>رفض</button>";
+                            echo "<td>" . "<a href='manageRequestPage.php?id={$row["ID"]}'>{$row["name"]}</a>" . "&nbsp;&nbsp;&nbsp;&nbsp;" . $image = '<img src="data:image/jpeg;base64,' . base64_encode($row['photo']) . '"width="50em"/>' . "</td>";
+                            echo "</tr>";
+                        }
+                    } else {
+                        echo 'There is no requests';
+                    }
+                    echo "</tbody></table>";
+                    //TEST
+                    ?>
                 </div> 
+                <script>
+
+                    function Accept(id) {
+                        // <a href='accept.php?id={$row["ID"]}'></a>
+                        window.location.href = "accept.php?id=" + id;
+
+                    }
+                    function Reject(id) {
+                        //<a href='reject.php?id={$row["ID"]}'></a>
+                        window.location.href = "reject.php?id=" + id;
+                    }
+
+                </script>  
             </body>
+
             <!-- Footer -->
             <footer class="footer">  
                 <div class="SOCIAL">
