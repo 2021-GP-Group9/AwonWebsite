@@ -19,35 +19,46 @@ if (isset($_SESSION['role'])) {
                 <title></title>
             </head>
             <body>
-        <?php
-        // put your code here
-        echo 'aaaaaa';
-        $connection = mysqli_connect("localhost", "root", "root", "awondb");
-        $id = $_GET['id'];
-        $status = $_GET['status'];
-        $sql = "UPDATE charity SET status='Rejected' WHERE ID ='" . $id . "' ";
-        mysql_query($connection, $sql);
-        $sqli = "DELETE FROM charity where ID = '$id' AND status='Rejected' ";
-        mysqli_query($connection, $sqli);
-        if (mysqli_query($connection, $sqli)) {
+                <?php
+                // put your code here
+               // echo 'aaaaaa';
+                $connection = mysqli_connect("localhost", "root", "root", "awondb");
+                $error = mysqli_connect_error();
+                if ($error != null) {
+                    echo "<p>Eror!! could not connect to DB may not connect </p>";
+                } else {
+                    echo 'success connect ';
+                }
+              
+                $id = $_GET['id'];
+                
+                $status = $_GET['status'];
+               
+                
+                echo $email;
+                $sql = "UPDATE charity SET status='Rejected' WHERE ID = '$id'";
+                mysql_query($connection, $sql);
+                $sqli = "DELETE FROM charity where ID = '$id' AND status='Rejected' ";
+                mysqli_query($connection, $sqli);
+                echo '1aaaaaa';
+                if (mysqli_query($connection, $sqli)) {
 
-            //echo "Record deleted successfully";
-            //email Verification  
-            $email = $_GET['email'];
-            $to = $email;
-            $subject = "Email Verification";
-            $message = 'We are Sorry! Your charity has been Rejected';
-            //need to use such an admin email here!
-            $headers = "From: awongp35@gmail.com \r\n ";
-            $headers .= "MIME-Version: 1.0" . "\r\n";
-            $headers .= "Content-type: text/html; charset=UTF-8" . "\r\n";
-            
-            mail($to, $subject, $message, $headers );
-            
-        } else {
-            echo "Error deleting record: " . mysqli_error($connection);
-        }
-        ?>
+                    //echo "Record deleted successfully";
+                    //email Verification  
+                    $email = $_GET['email'];
+                    $to = $email;
+                    $subject = "Email Verification";
+                    $message = 'We are Sorry! Your charity has been Rejected';
+                    //need to use such an admin email here!
+                    $headers = "From: awongp35@gmail.com \r\n ";
+                    $headers .= "MIME-Version: 1.0" . "\r\n";
+                    $headers .= "Content-type: text/html; charset=UTF-8" . "\r\n";
+
+                    mail($to, $subject, $message, $headers);
+                } else {
+                    echo "Error deleting record: " . mysqli_error($connection);
+                }
+                ?>
             </body>
         </html>
         <?php
