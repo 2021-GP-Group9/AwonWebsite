@@ -40,7 +40,7 @@ session_start();
         echo "<p style='color: gray; text-align:right;'>يرجى إدخال رقم الترخيص باللغة الإنجليزية</p>";
         $connection = mysqli_connect("localhost", "root", "root", "awondb");
         $id=$_GET['id'];
-        $sqli = "SELECT * FROM `charity_orgnization` WHERE ID= $id ";
+        $sqli = "SELECT * FROM `charity` WHERE ID= $id ";
                    $result = $connection->query($sqli);
                     while ($row = $result->fetch_assoc()) {
                         echo "<table id='manageJoiningRequest' class='requestTable'>";
@@ -86,12 +86,35 @@ session_start();
                         echo "<th><p>:أنواع التبرعات التي تستقبلها المنظمة الخيرية</p></th></tr>";
                         echo "<br><br>";
                         echo "<tr>";
-                        echo "<td> <br><br><input type='button' class='bu1' style='width: 100px;height:60px;' value='قبول' onclick=''><input type='button'style='width: 100px;height:60px;' class='bu1' value='رفض' onclick=''></td>'";
+                        //<!-- bring charity status  from database  -->
+                        echo "<th><p>".$row['status']."</p></th>";
+                        echo "<th><p>:الحالة</p></th></tr>";
+                        echo "<br><br>";
+                        echo "<tr>";
+                         $id = $_GET['id'];
+                        echo "<td><button class='bu1' style='width: 100px;height:60px;' onclick='goAccept($id);' >قبول</button>" . "<button class='bu1' style='width: 100px;height:60px;' onclick='goReject($id);'>رفض</button>";
+                        
+                        //echo "<td><br><br><button class='bu1' style='width: 100px;height:60px;' onclick=';return false;' ><a href='accept.php?id={$row["ID"]}'>قبول</a></button>" . "<button class='bu1' style='width: 100px;height:60px;' onclick=';return false;'><a href='reject.php?id={$row["ID"]}'>رفض</a></button>";
+
+                       // echo "<td> <br><br><input type='button' class='bu1' style='width: 100px;height:60px;' value='قبول' onclick=''><input type='button'style='width: 100px;height:60px;' class='bu1' value='رفض' onclick=''></td>'";
                         echo "</tr> </table>";
                     }
                      
                     ?>
             </div>
+        <script>
+
+                    function goAccept(id) {
+                        // <a href='accept.php?id={$row["ID"]}'></a>
+                        window.location.href = "accept.php?id=" + id;
+
+                    }
+                    function goReject(id) {
+                        //<a href='reject.php?id={$row["ID"]}'></a>
+                        window.location.href = "reject.php?id=" + id;
+                    }
+
+                </script>  
         </div>
     </body>
     <!-- Footer -->
