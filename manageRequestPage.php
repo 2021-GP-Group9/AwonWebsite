@@ -10,17 +10,27 @@ session_start();
 		?>
 
 <html lang="en">
+    <head>
+    <title>طلب إنضمام</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel='stylesheet' href='style.css'>
-    <!-- Header -->
-    <header id="headerPage" style="padding:28px 16px">
-     <div class="topnav">
-       <a href="index.php">تسجيل خروج</a>
-     </div>
-    <img src="logo.jpg" alt="logo" class="pageP">
-    </header>
+    </head>
+    <!-- Header with navigation bar -->
     <body>
+        <!--
+        style="padding:2em 4ems"
+        -->
+    <header>
+    <div class="h1" style="padding:128px 16px"> 
+    <img src="log1.jpeg" alt="logo" class="logo" style="length:100px; width:100px; float: left;">
+    </div>
+    <nav class="topnav">
+             <a id="cta" href="index.php">تسجيل خروج</a>
+             <a href="joiningRequests.php">طلبات الإنضمام</a>
+        </nav>
+    
+    </header>
         <div class="auth-content"> 
         <!-- we will bring it from the database -->
         <div id="requestTable">

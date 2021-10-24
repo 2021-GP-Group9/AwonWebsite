@@ -38,11 +38,12 @@ if (isset($_SESSION['role'])) {
             echo'<tr>';
             // &nbsp; used for spaceing
 
-            echo "<td><a href='insert.php?id={$row["ID"]}'><button class='bu1' style='width: 100px;height:60px;' onclick=';return false;'>قبول</button></a>" . "<a href='d.php?id={$row["ID"]}'><button class='bu1' style='width: 100px;height:60px;' onclick=';return false;'>رفض</button></a>";
+            echo "<td><button class='bu1' style='width: 100px;height:60px;' onclick=';return false;' ><a href='insert.php?id={$row["ID"]}'>قبول</a></button>" . "<button class='bu1' style='width: 100px;height:60px;' onclick=';return false;'><a href='d.php?id={$row["ID"]}'>رفض</a></button>";
             echo "<td>" . "<a href='manageRequestPage.php?id={$row["ID"]}'>{$row["name"]}</a>" . "&nbsp;&nbsp;&nbsp;&nbsp;" . $image = '<img src="data:image/jpeg;base64,' . base64_encode($row['photo']) . '"width="50em"/>' . "</td>";
             echo "</tr>";
         }
         echo "</tbody></table>";
+        //TEST
         ?>
                 </div> 
             </body>
