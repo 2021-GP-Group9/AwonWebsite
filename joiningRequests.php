@@ -37,7 +37,7 @@ if (isset($_SESSION['role'])) {
                         while ($row = $result->fetch_assoc()) {
                             echo'<tr>';
                             // &nbsp; used for spaceing
-                            echo "<td><button id='acc' class='bu1' style='width: 100px;height:60px;' onclick='accept({$row["ID"]})'>قبول</button>" . "<button id='rej' class='bu1' value={$row['ID']}  style='width: 100px;height:60px;' onclick='reject({$row["ID"]}')>رفض</button>";
+                            echo "<td><button id='acc' class='bu1' style='width: 100px;height:60px;' onclick='accept({$row["ID"]})'>قبول</button>" . "<button id='rej' class='bu1' value={$row['ID']}  style='width: 100px;height:60px;' onclick='reject({$row["ID"]})'>رفض</button>";
                             echo "<td>"."<a href='manageRequestPage.php?id={$row["ID"]}'>{$row["name"]}</a>"."&nbsp;&nbsp;&nbsp;&nbsp;".$image = '<img src="data:image/jpeg;base64,'. base64_encode($row['picture']).'"width="50em"/>'. "</td>";
                             echo "</tr>";
                         }
@@ -96,8 +96,6 @@ function accept(id) {
 </script>
 <script>
 function reject(id) {
-    var charityID = $('#rej').val();
-    var data = "ID="+charityID;
     if(confirm('هل أنت متأكد من رفضك للجمعية؟')){
       $.ajax({
           type:'POST',
