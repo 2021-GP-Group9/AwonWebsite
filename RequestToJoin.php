@@ -104,6 +104,7 @@ session_start();
                 $error =mysqli_connect_error();
                           if ($error != null) {
                           echo "<p>Eror!! could not connect to DB may not connect </p>";}
+                          else {    echo 'success connect';}
                          // else {    echo 'success connect';}
              
             if($_SERVER['REQUEST_METHOD']=="POST"){ 
@@ -112,6 +113,7 @@ session_start();
                $username = $_POST['username'];
                $descrption = $_POST['descrption'];
                $email = $_POST['email'];
+               $passwod = $_POST['passwod'];
                $passwod = PASSWORD_HASH($_POST["passwod"], PASSWORD_DEFAULT);
                $PhoneNumber =$_POST['PhoneNumber'];
                $option = $_POST['service'];
@@ -136,6 +138,7 @@ session_start();
 		$_SESSION['faild'] = 'This email is already exists in our website';
 		header('Location:RequestToJoin.php');
 	}
+ else {
         
         $sql_chk_email= "select * from charity where phone = '$PhoneNumber' ";
 	
@@ -147,10 +150,7 @@ session_start();
 		header('Location:RequestToJoin.php');
 	}
                    
-  
-        //cheack from username
-	else 
-	{
+ 
 		
 		$sql_chk_username= "select * from charity where username = '$username' ";
 	
@@ -183,6 +183,7 @@ session_start();
                    
 } 
                 
+            
             }  
             
             ?>

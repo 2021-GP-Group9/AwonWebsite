@@ -92,6 +92,7 @@ session_start();
 	
 	$username = $_POST['username'];
 	$password   = $_POST['pwd'];
+    
 	
 	$sql= "select * from admin where username = '$username' ";
 	
@@ -142,8 +143,23 @@ session_start();
 	
 	$username = $_POST['username'];
 	$password   = $_POST['pwd'];
-	
-	$sql_charity= "select * from charity where username = '$username' ";
+        $status = $_GET['status']; 
+	    $id = $_GET['id'];
+            
+            
+                
+//        $sqli = "SELECT * FROM `charity` WHERE ID='$id' ";
+//       $result = $connection->query($sqli);
+// while ($row = $result->fetch_assoc()) {
+//
+//                         if($id=$row['id'] and $status !='Accepted'){
+//                             $_SESSION['errorC'] = 'the charity not Accepted yet';
+//			header('Location:login.php');
+//                         }
+//        
+// }
+            
+	$sql_charity= "select * from charity where username = '$username' and `status`='Accepted'";
 	
     $result = $conn->query($sql_charity);
     
@@ -154,25 +170,34 @@ session_start();
                 
               /// echo "<h1>"."useeeeer is".$row["username"]."</h1>";
 
-		
+//		if ($status !='Accepted'){
+//                             $_SESSION['errorC'] = 'the charity not Accepted yet';
+//			header('Location:login.php');
+//                         }
 		//if(password_verify($password, $row['password'])){
 		if(password_verify($password, $row['pass'])){
+                       
 			$_SESSION['user_id'] = $row['id'];
 			$_SESSION['role'] = 'charity';
 			header('Location:CharityPage.php');
+                        
+//                        
+                    
 		}else{   
-			$_SESSION['errorC'] = 'UserName or password is not correct';
+			$_SESSION['errorC'] = 'اسم المستخدم أو كلمة المرور غير صحيحة';
 			header('Location:login.php');
 		}
-		
-		
+                      
 		 
 	}
+  
 	else{
-		$_SESSION['errorC'] = 'UserName or password is not correct';
+		$_SESSION['errorC'] = 'هذه الجمعية لم تقبل بعد أو اسم المستخدم غير صحيح';
 		header('Location:login.php');
 	}
         
+     
+  
  	
 }
 
