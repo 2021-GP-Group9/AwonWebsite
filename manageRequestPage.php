@@ -91,7 +91,7 @@ session_start();
                         echo "<th><p>:الحالة</p></th></tr>";
                         echo "<br><br>";
                         echo "<tr>";
-                        echo "<td><button id='acc' class='bu1' style='width: 100px;height:60px;' onclick='accept({$row["ID"]})'>قبول</button>" . "<button id='rej' class='bu1'value={$row['ID']}  style='width: 100px;height:60px;' onclick='reject({$row["ID"]}')>رفض</button>";
+                        echo "<td><button id='acc' class='bu1' style='width: 100px;height:60px;' onclick='accept({$row["ID"]})'>قبول</button>" . "<button id='rej' class='bu1'value={$row['ID']}  style='width: 100px;height:60px;' onclick='reject({$row["ID"]})'>رفض</button>";
                         
                         //echo "<td><br><br><button class='bu1' style='width: 100px;height:60px;' onclick=';return false;' ><a href='accept.php?id={$row["ID"]}'>قبول</a></button>" . "<button class='bu1' style='width: 100px;height:60px;' onclick=';return false;'><a href='reject.php?id={$row["ID"]}'>رفض</a></button>";
 
@@ -124,42 +124,44 @@ session_start();
 <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 
 <script>
-                $(document).ready(function(){
-                $("#acc").click(function val(){
-                var charityID = $('#acc').val();
-                var data = "ID="+charityID;
-                $.ajax({type: "POST",
-                     url: "accept.php" ,
-                     data: data,
-                     success: function (data) {
-                     alert("تم قبول الجمعية الخيرية");
-                     window.location ='joiningRequests.php';
-                      }
-                      ,error:function (data){
+function accept(id) {
+    var charityID = $('#acc').val();
+    var data = "ID="+charityID;
+    if(confirm('هل أنت متأكد من قبولك للجمعية؟')){
+      $.ajax({
+          type:'POST',
+          url:'accept.php',
+          data:{ID:id},
+          success: function (data){
+              alert("تم قبول الجمعية الخيرية");
+              window.location ='joiningRequests.php';
+          }
+          ,error:function (data){
                       alert("حدث خطأ أعد المحاولة");
                      window.location ='joiningRequests.php';
-                  }
-                });
-            });
-        });
+          }
+      });
+    }
+}
+
 </script>
 <script>
-                $(document).ready(function(){
-                $("#rej").click(function val(){
-                var charityID = $('#rej').val();
-                var data = "ID="+charityID;
-                $.ajax({type: "POST",
-                     url: "reject.php" ,
-                     data: data,
-                     success: function (data) {
-                     alert("تم رفض الجمعية الخيرية");
-                     window.location ='joiningRequests.php';
-                      }
-                      ,error:function (data){
+function reject(id) {
+    if(confirm('هل أنت متأكد من رفضك للجمعية؟')){
+      $.ajax({
+          type:'POST',
+          url:'reject.php',
+          data:{ID:id},
+          success: function (data){
+              alert("تم رفض الجمعية الخيرية");
+              window.location ='joiningRequests.php';
+          }
+          ,error:function (data){
                       alert("حدث خطأ أعد المحاولة");
                      window.location ='joiningRequests.php';
-                  }
-                });
-            });
-        });
+          }
+      });
+    }
+}
+
 </script>
