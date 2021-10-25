@@ -25,44 +25,31 @@ if (isset($_SESSION['role'])) {
                     <h1>طلبات الاضافة</h1>      
                     <?php
                     $connection = mysqli_connect("localhost", "root", "root", "awondb");
-                    $sqli = "SELECT * FROM `charity` ";
+                    $sqli = "SELECT * FROM `charity` WHERE status='null'";
                     $result = $connection->query($sqli);
                     echo '<table id="manageJoiningRequest">';
                     echo '<tbody><tr>';
                     echo'<th>قبول / رفض</th>';
                     echo '<th>الجمعية الخيرية</th>';
                     echo '</tr>';
-                    $status = $_GET['status'];
-                    if ($status == 'null') {
+                   // $status = $_GET['status'];
+                  //  if ($status == 'null') {
                         while ($row = $result->fetch_assoc()) {
                             echo'<tr>';
                             // &nbsp; used for spaceing
-
-                            $id = $_GET['id'];
-                            echo "<td><button class='bu1' style='width: 100px;height:60px;' onclick='Accept($id);' >قبول</button>" . "<button class='bu1' style='width: 100px;height:60px;' onclick='Reject($id);'>رفض</button>";
-                            echo "<td>" . "<a href='manageRequestPage.php?id={$row["ID"]}'>{$row["name"]}</a>" . "&nbsp;&nbsp;&nbsp;&nbsp;" . $image = '<img src="data:image/jpeg;base64,' . base64_encode($row['photo']) . '"width="50em"/>' . "</td>";
+                            echo "<td><button id='acc' class='bu1'value={$row['ID']} style='width: 100px;height:60px;'>قبول</button>" . "<button id='rej' class='bu1'value={$row['ID']}  style='width: 100px;height:60px;'>رفض</button>";
+                            echo "<td>" . "<a href='manageRequestPage.php?id={$row["ID"]}'>{$row["name"]}</a>" . "&nbsp;&nbsp;&nbsp;&nbsp;" . $image = '<img src="data:image/jpeg;base64,' . base64_encode($row['picture']) . '"width="50em"/>' . "</td>";
                             echo "</tr>";
                         }
-                    } else {
-                        echo 'There is no requests';
-                    }
+                    //} else {
+                    //    echo 'There is no requests';
+                   // }
                     echo "</tbody></table>";
                     //TEST
                     ?>
                 </div> 
-                <script>
-
-                    function Accept(id) {
-                        // <a href='accept.php?id={$row["ID"]}'></a>
-                        window.location.href = "accept.php?id=" + id;
-
-                    }
-                    function Reject(id) {
-                        //<a href='reject.php?id={$row["ID"]}'></a>
-                        window.location.href = "reject.php?id=" + id;
-                    }
-
-                </script>  
+                
+               
             </body>
 
             <!-- Footer -->
@@ -84,3 +71,45 @@ if (isset($_SESSION['role'])) {
     }
 }
 ?>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+<script>
+                $(document).ready(function(){
+                $("#acc").click(function val(){
+                var charityID = $('#acc').val();
+                var data = "ID="+charityID;
+                $.ajax({type: "POST",
+                     url: "accept.php" ,
+                     data: data,
+                     success: function (data) {
+                     alert("تم قبول الجمعية الخيرية");
+                     window.location ='joiningRequests.php';
+                      }
+                      ,error:function (data){
+                      alert("حدث خطأ أعد المحاولة");
+                     window.location ='joiningRequests.php';
+                  }
+                });
+            });
+        });
+</script>
+<script>
+                $(document).ready(function(){
+                $("#rej").click(function val(){
+                var charityID = $('#rej').val();
+                var data = "ID="+charityID;
+                $.ajax({type: "POST",
+                     url: "reject.php" ,
+                     data: data,
+                     success: function (data) {
+                     alert("تم رفض الجمعية الخيرية");
+                     window.location ='joiningRequests.php';
+                      }
+                      ,error:function (data){
+                      alert("حدث خطأ أعد المحاولة");
+                     window.location ='joiningRequests.php';
+                  }
+                });
+            });
+        });
+</script>

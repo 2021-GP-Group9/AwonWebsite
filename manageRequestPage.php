@@ -45,7 +45,7 @@ session_start();
                     while ($row = $result->fetch_assoc()) {
                         echo "<table id='manageJoiningRequest' class='requestTable'>";
                         echo "<tr>";
-                        echo "<th>".$image='<img src="data:image/jpeg;base64,'.base64_encode($row['photo']).'"width="50em"/>'."</td>";
+                        echo "<th>".$image='<img src="data:image/jpeg;base64,'.base64_encode($row['picture']).'"width="50em"/>'."</td>";
                         echo "</th></tr><tr>";
                         // <!-- bring charity name from database  -->
                         echo "<th><p>".$row['name']."</p></th>";
@@ -58,7 +58,7 @@ session_start();
                         echo "</tr>";
                         echo "<tr>";
                         //<!-- bring charity liceane number from database  -->
-                        echo "<th><p>".$row['license_Number']."</p></th>";
+                        echo "<th><p>".$row['LicenseNumber']."</p></th>";
                         echo "<th><p>:رقم الترخيص</p>";
                         echo "</th>";
                         // <!-- bring charity email from database  -->
@@ -71,18 +71,18 @@ session_start();
                         echo "<th><p>:الموقع</p>";
                         echo "</th>";
                         //<!-- bring charity phone number from database  -->
-                        echo "<th><p>".$row['phone_number']."</p></th>";
+                        echo "<th><p>".$row['phone']."</p></th>";
                         echo" <th><p>:رقم الجوال</p></th></tr>";
                         echo "<tr>";
                         // <!-- bring charity PICKUP number from database  -->
-                        echo "<th><p>".$row['pickup_servise']."</p></th>";
+                        echo "<th><p>".$row['service']."</p></th>";
                         echo "<th><p>:توافر خدمة التوصيل</p>";
                         //<!-- bring charity description from database  -->
-                        echo "<th><p>".$row['description']."</p></th>";
+                        echo "<th><p>".$row['descrption']."</p></th>";
                         echo "<th><p>:وصف المنظمة الخيرية</p></th></th></tr>";
                         echo "<tr>";
                         //<!-- bring charity type of donation number from database  -->
-                        echo "<th><p>".$row['description']."</p></th>";
+                        echo "<th><p>".$row['donatoionType']."</p></th>";
                         echo "<th><p>:أنواع التبرعات التي تستقبلها المنظمة الخيرية</p></th></tr>";
                         echo "<br><br>";
                         echo "<tr>";
@@ -92,7 +92,7 @@ session_start();
                         echo "<br><br>";
                         echo "<tr>";
                          $id = $_GET['id'];
-                        echo "<td><button class='bu1' style='width: 100px;height:60px;' onclick='goAccept($id);' >قبول</button>" . "<button class='bu1' style='width: 100px;height:60px;' onclick='goReject($id);'>رفض</button>";
+                        echo "<td><button id='acc' class='bu1'value={$row['ID']} style='width: 100px;height:60px;'>قبول</button>" . "<button id='rej' class='bu1'value={$row['ID']}  style='width: 100px;height:60px;'>رفض</button>";
                         
                         //echo "<td><br><br><button class='bu1' style='width: 100px;height:60px;' onclick=';return false;' ><a href='accept.php?id={$row["ID"]}'>قبول</a></button>" . "<button class='bu1' style='width: 100px;height:60px;' onclick=';return false;'><a href='reject.php?id={$row["ID"]}'>رفض</a></button>";
 
@@ -101,20 +101,7 @@ session_start();
                     }
                      
                     ?>
-            </div>
-        <script>
-
-                    function goAccept(id) {
-                        // <a href='accept.php?id={$row["ID"]}'></a>
-                        window.location.href = "accept.php?id=" + id;
-
-                    }
-                    function goReject(id) {
-                        //<a href='reject.php?id={$row["ID"]}'></a>
-                        window.location.href = "reject.php?id=" + id;
-                    }
-
-                </script>  
+            </div> 
         </div>
     </body>
     <!-- Footer -->
@@ -135,3 +122,45 @@ session_start();
 	}
 	
 ?>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+<script>
+                $(document).ready(function(){
+                $("#acc").click(function val(){
+                var charityID = $('#acc').val();
+                var data = "ID="+charityID;
+                $.ajax({type: "POST",
+                     url: "accept.php" ,
+                     data: data,
+                     success: function (data) {
+                     alert("تم قبول الجمعية الخيرية");
+                     window.location ='joiningRequests.php';
+                      }
+                      ,error:function (data){
+                      alert("حدث خطأ أعد المحاولة");
+                     window.location ='joiningRequests.php';
+                  }
+                });
+            });
+        });
+</script>
+<script>
+                $(document).ready(function(){
+                $("#rej").click(function val(){
+                var charityID = $('#rej').val();
+                var data = "ID="+charityID;
+                $.ajax({type: "POST",
+                     url: "reject.php" ,
+                     data: data,
+                     success: function (data) {
+                     alert("تم رفض الجمعية الخيرية");
+                     window.location ='joiningRequests.php';
+                      }
+                      ,error:function (data){
+                      alert("حدث خطأ أعد المحاولة");
+                     window.location ='joiningRequests.php';
+                  }
+                });
+            });
+        });
+</script>

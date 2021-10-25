@@ -171,9 +171,9 @@ session_start();
            
           echo '<script> alert("success Rigester");</script>';
             echo
-           '<script>
-           window.location ="confirmationPage.php";
-           </script>';
+           "<script>
+           window.location ='confirmationPage.php';
+           </script>";
           
        }
                   
