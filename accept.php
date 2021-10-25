@@ -5,10 +5,8 @@ $connection = mysqli_connect("localhost", "root", "root", "awondb");
         $sql= "UPDATE charity SET status='Accepted' WHERE ID ='$charityID'";
 	$data="";
         $result = mysqli_query($connection, $sql);
-        
-
 if ($result) {
-    header('Location:joiningRequests.php');
+    header("Content-Type: text/html");
     echo 'added successfully';
     exit();
 } else {

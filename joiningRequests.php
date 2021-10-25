@@ -37,8 +37,8 @@ if (isset($_SESSION['role'])) {
                         while ($row = $result->fetch_assoc()) {
                             echo'<tr>';
                             // &nbsp; used for spaceing
-                            echo "<td><button id='acc' class='bu1'value={$row['ID']} style='width: 100px;height:60px;'>قبول</button>" . "<button id='rej' class='bu1'value={$row['ID']}  style='width: 100px;height:60px;'>رفض</button>";
-                            echo "<td>" . "<a href='manageRequestPage.php?id={$row["ID"]}'>{$row["name"]}</a>" . "&nbsp;&nbsp;&nbsp;&nbsp;" . $image = '<img src="data:image/jpeg;base64,' . base64_encode($row['picture']) . '"width="50em"/>' . "</td>";
+                            echo "<td><button id='acc' class='bu1' style='width: 100px;height:60px;' onclick='accept({$row["ID"]})'>قبول</button>" . "<button id='rej' class='bu1' value={$row['ID']}  style='width: 100px;height:60px;' onclick='reject({$row["ID"]}')>رفض</button>";
+                            echo "<td>"."<a href='manageRequestPage.php?id={$row["ID"]}'>{$row["name"]}</a>"."&nbsp;&nbsp;&nbsp;&nbsp;".$image = '<img src="data:image/jpeg;base64,'. base64_encode($row['picture']).'"width="50em"/>'. "</td>";
                             echo "</tr>";
                         }
                     //} else {
@@ -72,44 +72,47 @@ if (isset($_SESSION['role'])) {
 }
 ?>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-
 <script>
-                $(document).ready(function(){
-                $("#acc").click(function val(){
-                var charityID = $('#acc').val();
-                var data = "ID="+charityID;
-                $.ajax({type: "POST",
-                     url: "accept.php" ,
-                     data: data,
-                     success: function (data) {
-                     alert("تم قبول الجمعية الخيرية");
-                     window.location ='joiningRequests.php';
-                      }
-                      ,error:function (data){
+function accept(id) {
+    var charityID = $('#acc').val();
+    var data = "ID="+charityID;
+    if(confirm('هل أنت متأكد من قبولك للجمعية؟')){
+      $.ajax({
+          type:'POST',
+          url:'accept.php',
+          data:{ID:id},
+          success: function (data){
+              alert("تم قبول الجمعية الخيرية");
+              window.location ='joiningRequests.php';
+          }
+          ,error:function (data){
                       alert("حدث خطأ أعد المحاولة");
                      window.location ='joiningRequests.php';
-                  }
-                });
-            });
-        });
+          }
+      });
+    }
+}
+
 </script>
 <script>
-                $(document).ready(function(){
-                $("#rej").click(function val(){
-                var charityID = $('#rej').val();
-                var data = "ID="+charityID;
-                $.ajax({type: "POST",
-                     url: "reject.php" ,
-                     data: data,
-                     success: function (data) {
-                     alert("تم رفض الجمعية الخيرية");
-                     window.location ='joiningRequests.php';
-                      }
-                      ,error:function (data){
+function reject(id) {
+    var charityID = $('#rej').val();
+    var data = "ID="+charityID;
+    if(confirm('هل أنت متأكد من رفضك للجمعية؟')){
+      $.ajax({
+          type:'POST',
+          url:'reject.php',
+          data:{ID:id},
+          success: function (data){
+              alert("تم رفض الجمعية الخيرية");
+              window.location ='joiningRequests.php';
+          }
+          ,error:function (data){
                       alert("حدث خطأ أعد المحاولة");
                      window.location ='joiningRequests.php';
-                  }
-                });
-            });
-        });
+          }
+      });
+    }
+}
+
 </script>

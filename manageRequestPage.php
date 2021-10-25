@@ -91,8 +91,7 @@ session_start();
                         echo "<th><p>:الحالة</p></th></tr>";
                         echo "<br><br>";
                         echo "<tr>";
-                         $id = $_GET['id'];
-                        echo "<td><button id='acc' class='bu1'value={$row['ID']} style='width: 100px;height:60px;'>قبول</button>" . "<button id='rej' class='bu1'value={$row['ID']}  style='width: 100px;height:60px;'>رفض</button>";
+                        echo "<td><button id='acc' class='bu1' style='width: 100px;height:60px;' onclick='accept({$row["ID"]})'>قبول</button>" . "<button id='rej' class='bu1'value={$row['ID']}  style='width: 100px;height:60px;' onclick='reject({$row["ID"]}')>رفض</button>";
                         
                         //echo "<td><br><br><button class='bu1' style='width: 100px;height:60px;' onclick=';return false;' ><a href='accept.php?id={$row["ID"]}'>قبول</a></button>" . "<button class='bu1' style='width: 100px;height:60px;' onclick=';return false;'><a href='reject.php?id={$row["ID"]}'>رفض</a></button>";
 
