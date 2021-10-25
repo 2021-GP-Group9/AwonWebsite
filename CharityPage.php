@@ -40,7 +40,7 @@
 
 
 
-echo '<h1>Wlcame :) </h1>';
+echo '<h1>Welcome :) </h1>';
                     echo "<p> <a style='font-size:30px;'>{$row['name']}</a></p>";
 }
                     ?>      
