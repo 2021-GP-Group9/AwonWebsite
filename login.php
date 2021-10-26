@@ -1,8 +1,5 @@
-
-<?php 
-var_dump(password_hash("12345A", PASSWORD_DEFAULT));
-
-session_start();
+<?php session_start();
+////var_dump(password_hash("12345A", PASSWORD_DEFAULT));
 
 	if(isset($_SESSION['role']))
 	{
@@ -108,12 +105,13 @@ session_start();
 		
 		//if(password_verify($password, $row['password'])){
 		if(password_verify($password, $row['password'])){
-			$_SESSION['user_id'] = $row['ID'];
+			$_SESSION['ID'] = $row['ID'];
 			$_SESSION['role'] = 'admin';
-			header('Location:joiningRequests.php');
+            
+            echo '<META HTTP-EQUIV="Refresh" Content="1; URL=joiningRequests.php">';
 		}else{   
 			$_SESSION['errorC'] = 'UserName or password is not correct';
-			header('Location:login.php');
+        echo '<META HTTP-EQUIV="Refresh" Content="2; URL=login.php">';
 		}
 		
 		
@@ -121,7 +119,7 @@ session_start();
 	}
 	else{
 		$_SESSION['errorC'] = 'UserName or password is not correct';
-		header('Location:login.php');
+        echo '<META HTTP-EQUIV="Refresh" Content="2; URL=login.php">';
 	}
         
  	
@@ -142,8 +140,7 @@ session_start();
          
 	
 	$username = $_POST['username'];
-	$password   = $_POST['pwd'];
-        $status = $_GET['status']; 
+	$password   = $_POST['pwd']; 
 	    
             
             
@@ -177,15 +174,15 @@ session_start();
 		//if(password_verify($password, $row['password'])){
 		if(password_verify($password, $row['pass'])){
                        
-			$_SESSION['user_id'] = $row['ID'];
+			$_SESSION['ID'] = $row['ID'];
 			$_SESSION['role'] = 'charity';
-			header('Location:CharityPage.php');
-                        
+           echo '<META HTTP-EQUIV="Refresh" Content="2; URL=CharityPage.php">';             
 //                        
                     
 		}else{   
 			$_SESSION['errorC'] = 'اسم المستخدم أو كلمة المرور غير صحيحة';
-			header('Location:login.php');
+            echo '<META HTTP-EQUIV="Refresh" Content="2; URL=login.php">';
+
 		}
                       
 		 
@@ -193,7 +190,7 @@ session_start();
   
 	else{
 		$_SESSION['errorC'] = 'هذه الجمعية لم تقبل بعد أو اسم المستخدم غير صحيح';
-		header('Location:login.php');
+		echo '<META HTTP-EQUIV="Refresh" Content="2; URL=login.php">';
 	}
         
      
@@ -215,7 +212,7 @@ session_start();
 
 
 <!-- Footer -->
-<footer class="footer">  
+<footer class="footer" style="display:none">  
  <div class="SOCIAL">
                     <br>
                     <a href="#"><i class="fab fa-twitter"></i></a>

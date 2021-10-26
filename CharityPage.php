@@ -1,7 +1,4 @@
-
-
-<?php 
-	session_start();
+<?php session_start();
 
 	if(!isset($_SESSION['role']))
 	{
@@ -19,8 +16,12 @@
 
     
     <form id="signout" action="logout.php" method="POST">
-			<input type="submit" value="تسجيل خروج">
+	<input type="submit" value="تسجيل خروج">
+     
 		</form> 
+     <form id="profile" action="ProfilePage.php" method="POST">
+	<input type="submit" value="ملف التعريف الشخصي">
+                 </form> 
 <img src="logo.jpg" alt="logo" class="pageP"  >
 </header>
 <div class="auth-content"> 
@@ -28,7 +29,7 @@
 
         require('db_connecting.php');
         
-        $ID=$_SESSION['user_id'];
+        $ID=$_SESSION['ID'];
        
                  $sqli = "SELECT * FROM `charity` WHERE ID = '$ID'";
                  
