@@ -1,6 +1,6 @@
 
 <?php 
-//var_dump(password_hash("12345A", PASSWORD_DEFAULT));
+var_dump(password_hash("12345A", PASSWORD_DEFAULT));
 
 session_start();
 
@@ -108,7 +108,7 @@ session_start();
 		
 		//if(password_verify($password, $row['password'])){
 		if(password_verify($password, $row['password'])){
-			$_SESSION['user_id'] = $row['id'];
+			$_SESSION['user_id'] = $row['ID'];
 			$_SESSION['role'] = 'admin';
 			header('Location:joiningRequests.php');
 		}else{   
@@ -144,7 +144,7 @@ session_start();
 	$username = $_POST['username'];
 	$password   = $_POST['pwd'];
         $status = $_GET['status']; 
-	    $id = $_GET['id'];
+	    
             
             
                 
@@ -177,7 +177,7 @@ session_start();
 		//if(password_verify($password, $row['password'])){
 		if(password_verify($password, $row['pass'])){
                        
-			$_SESSION['user_id'] = $row['id'];
+			$_SESSION['user_id'] = $row['ID'];
 			$_SESSION['role'] = 'charity';
 			header('Location:CharityPage.php');
                         

@@ -26,9 +26,14 @@
 <div class="auth-content"> 
                     <?php
 
-            $connection = mysqli_connect("localhost", "root", "root", "awondb");
-            $sqli = "SELECT * FROM `charity` ";
-                    $result = $connection->query($sqli);
+        require('db_connecting.php');
+        
+        $ID=$_SESSION['user_id'];
+       
+                 $sqli = "SELECT * FROM `charity` WHERE ID = '$ID'";
+                 
+                  $result = $conn->query($sqli);
+                    
                     while ($row = $result->fetch_assoc()) {
                     // &nbsp; used for spaceing
 
@@ -41,10 +46,10 @@
 
 
 echo '<h1>Welcome :) </h1>';
-                    echo "<p> <a style='font-size:30px;'>{$row['name']}</a></p>";
+                    echo "<p> <a style='font-size:30px;'>{$row["name"]}</a></p>";
+              
 }
                     ?>      
-   
   
                    <br>
                      <br>
