@@ -150,7 +150,7 @@ session_start();
 		header('Location:RequestToJoin.php');
 	}
                    
- 
+ else{
 		
 		$sql_chk_username= "select * from charity where username = '$username' ";
 	
@@ -161,11 +161,12 @@ session_start();
 			$_SESSION['faild'] = 'This username is already exists in our website';
 			header('Location:RequestToJoin.php');
 		}
+
                 
  else {
               $query = "INSERT INTO `charity`(name , username, descrption, email , pass , phone, service, donatoionType,location,LicenseNumber,picture,status) VALUES ('$name', '$username', '$descrption' ,'$email', '$passwod', '$PhoneNumber','$option','$servicetype','$location','$LicenseNumber','$picture','null')";
               $run = mysqli_query($conn, $query);
- }
+ 
                      
        if($run){
            
@@ -180,8 +181,9 @@ session_start();
               
            else {    
                echo '<script> alert("field Riggester");</script>';}
-                   
-} 
+ }  
+}
+ }
                 
             
             }  
