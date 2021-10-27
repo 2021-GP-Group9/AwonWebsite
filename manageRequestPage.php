@@ -87,6 +87,8 @@ session_start();
                         echo "<br><br>";
                         echo "<tr>";
                         //<!-- bring charity status  from database  -->
+                        echo "<th><p>".$row['register_date']."</p></th>";
+                        echo "<th><p>:وقت الإنضمام</p></th></tr>";
                         echo "<th><p>".$row['status']."</p></th>";
                         echo "<th><p>:الحالة</p></th></tr>";
                         echo "<br><br>";

@@ -5,9 +5,7 @@
     <link rel='stylesheet' href='style.css'>
     <script src="webPro.js"></script>
     <header id="headerPage" style="padding:28px 16px">
-            <form id="signout" action="logout.php" method="POST">
-                <input type="submit" value="تسجيل خروج">
-            </form> 
+            
             <img src="logo.jpg" alt="logo" class="pageP"  >
         </header>
     <body>
@@ -15,9 +13,13 @@
         <div class="auth-content"> 
             <hr><br><br>
            
-            <h1> تم طلب الإنضمام بنجاح  </h1>  
-            
-            <hr><br><br>   
+            <h1>شكرا لإنضمامك لنا</h1>  
+            <h2>تم تسجيل طلبك بنجاح وسيتم التواصل معك خلال الإيميل المسجل لإعلامك بإمكانية الدخول</h2>  
+            <h4>فريق منصة عون</h4> 
+            <br><br> 
+            <form id="signout" action="logout.php" method="POST" style="float: none;">
+                <input type="submit" value="عودة للصفحة الرئسية">
+            </form> 
      </div>
 
 
