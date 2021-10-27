@@ -8,7 +8,7 @@
         <!-- Header Sahar & Aljawharah is heeeereeee -->
     <header> 
         <img src="log1.jpeg" alt="logo" class="logo" style="length:100px; width:100px; float: left;">
-        <div style="float: right;">
+      <!--  <div style="float: right;">
             <nav class="topnav">
                 <ul>
                     <li><a href="">الصفحة الرئيسية</a> </li>
@@ -27,31 +27,22 @@
        <i id="bu"> <button class="bu1" onclick="login();return false;">تسجيل دخول </button>
            <button class="bu1"  onclick="signUp();return false;">طلب الإنضمام</button></i>
       
-        
-    </header> --> 
+        --> 
+    </header> 
 </head> 
 <body>
-
-    <i id="bu"> <button class="bu1" onclick="login();return false;">تسجيل دخول </button>
-        <button class="bu1"  onclick="signUp();return false;">طلب الإنضمام</button></i>
+    <br><br>
+    <i id="bu"> 
+        <button class="indexPage" onclick="login();return false;">تسجيل دخول </button>
+        <button class="indexPage"  onclick="signUp();return false;">طلب الإنضمام</button>
+    </i>
     <!-- First Grid -->
     <div class="who">
         <h1>من نحن</h1>
-        <br
-            <h5 class="who">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</h5>
         <br>
-
-
-
-
+        <h5 class="who">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</h5>
+        <br>
     </div>
-
-
-
-
-
-
-
 
 </body>
 
