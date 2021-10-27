@@ -104,7 +104,7 @@ session_start();
                 $error =mysqli_connect_error();
                           if ($error != null) {
                           echo "<p>Eror!! could not connect to DB may not connect </p>";}
-                          else {    echo 'success connect';}
+                          //else {    echo 'success connect';}
                          // else {    echo 'success connect';}
              
             if($_SERVER['REQUEST_METHOD']=="POST"){ 

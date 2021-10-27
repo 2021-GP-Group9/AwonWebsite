@@ -180,7 +180,7 @@
 //                        
                     
 		}else{   
-			$_SESSION['errorC'] = 'اسم المستخدم أو كلمة المرور غير صحيحة';
+			$_SESSION['errorC'] = 'UserName or password is not correct';
             echo '<META HTTP-EQUIV="Refresh" Content="2; URL=login.php">';
 
 		}
@@ -189,7 +189,7 @@
 	}
   
 	else{
-		$_SESSION['errorC'] = 'هذه الجمعية لم تقبل بعد أو اسم المستخدم غير صحيح';
+		$_SESSION['errorC'] = 'Username not currect or the charity not accepted yet';
 		echo '<META HTTP-EQUIV="Refresh" Content="2; URL=login.php">';
 	}
         
