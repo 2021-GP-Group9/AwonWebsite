@@ -8,19 +8,32 @@ if (isset($_SESSION['role'])) {
         $error = NULL;
         ?>
 
-        <html lang="en"><head>
+        <html lang="en">
+            <head>
                 <meta charset="UTF-8">
                 <meta name="viewport" content="width=device-width, initial-scale=1">
                 <link rel="stylesheet" href="style.css">
                 <link rel="stylesheet" href="DesignPages.css">
                 <title>manage joining request</title>
+                <header> 
+        <img src="log1.jpeg" alt="logo" class="logo" style="length:100px; width:100px; float: left;">
+        <div style="float: right;">
+            <nav class="topnav">
+                <ul>
+                    <li><a href="">الصفحة الرئيسية</a> </li>
+                    <li><a href="">test</a></li>
+                    <li><a href="">test</a></li>
+                    <li><a href="index.php">تسجيل خروج</a></li>
+                </ul> </nav></div>
+
+    </header>
             </head> 
-            <header id="headerPage" style="padding:15px 8px">
+           <!-- <header id="headerPage" style="padding:15px 8px">
                 <form id="signout" action="logout.php" method="POST">
                     <input type="submit" value="تسجيل خروج">
                 </form> 
                 <img src="logo.jpg" alt="logo" class="pageP">
-            </header>
+            </header> --> 
             <body data-new-gr-c-s-loaded="9.38.0">
                 <div class="auth-content"> 
                     <h1>طلبات الاضافة</h1>      

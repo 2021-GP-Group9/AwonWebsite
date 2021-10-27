@@ -1,13 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
-
+    <head> 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel='stylesheet' href='style.css'>
 <link rel="stylesheet" href="DesignPages.css">
 <!-- Header Sahar & Aljawharah is heeeereeee -->
+<header> 
+        <img src="log1.jpeg" alt="logo" class="logo" style="length:100px; width:100px; float: left;">
+        <div style="float: right;">
+            <nav class="topnav">
+                <ul>
+                    <li><a href="">الصفحة الرئيسية</a> </li>
+                    <li><a href="">test</a></li>
+                    <li><a href="">test</a></li>
+                    <li><a href="index.php">تسجيل خروج</a></li>
+                </ul> </nav></div>
 
-<header id="headerHome"  style="padding:128px 16px">
+    </header>
+<!-- <header id="headerHome"  style="padding:128px 16px">
    <img src="logo.jpg" alt="logo" class="homeP"  >
    
 <br>
@@ -17,11 +28,12 @@
        <button class="bu1"  onclick="signUp();return false;">طلب الإنضمام</button></i>
   
     
-</header>
-
+</header> --> 
+</head> 
 <body>
 
-
+<i id="bu"> <button class="bu1" onclick="login();return false;">تسجيل دخول </button>
+       <button class="bu1"  onclick="signUp();return false;">طلب الإنضمام</button></i>
 <!-- First Grid -->
 <div class="who">
       <h1>من نحن</h1>

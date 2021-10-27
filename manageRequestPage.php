@@ -16,13 +16,25 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel='stylesheet' href='style.css'>
     <link rel="stylesheet" href="DesignPages.css">
+    <header> 
+        <img src="log1.jpeg" alt="logo" class="logo" style="length:100px; width:100px; float: left;">
+        <div style="float: right;">
+            <nav class="topnav">
+                <ul>
+                    <li><a href="">الصفحة الرئيسية</a> </li>
+                    <li><a href="">test</a></li>
+                    <li><a href="">test</a></li>
+                    <li><a href="index.php">تسجيل خروج</a></li>
+                </ul> </nav></div>
+
+    </header>
     </head>
     <!-- Header with navigation bar -->
     <body>
         <!--
         style="padding:2em 4ems"
         -->
-    <header>
+  <!--  <header>
     <div class="h1" style="padding:128px 16px"> 
     <img src="log1.jpeg" alt="logo" class="logo" style="length:100px; width:100px; float: left;">
     </div>
@@ -31,7 +43,7 @@ session_start();
              <a href="joiningRequests.php">طلبات الإنضمام</a>
         </nav>
     
-    </header>
+    </header> -->
         <div class="auth-content"> 
         <!-- we will bring it from the database -->
         <div id="requestTable">
