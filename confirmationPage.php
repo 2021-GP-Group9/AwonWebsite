@@ -33,7 +33,7 @@
             <h4>فريق منصة عون</h4> 
             <br><br> 
             <form id="signout" action="logout.php" method="POST" style="float: none;">
-                <input type="submit" value="عودة للصفحة الرئسية">
+                <input type="submit" class="conf" value="عودة للصفحة الرئسية">
             </form> 
         </div>
 

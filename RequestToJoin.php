@@ -51,33 +51,33 @@ if (isset($_SESSION['role'])) {
 
         <form method="POST">
 
-            <fieldset>
+            <fieldset class="requestToJoin">
 
-                <input type="text" name="name" id="name" class="name-input" placeholder="اسم المنظمة الخيرية" required> <br>
-                <input type="text" name="username" id="username" class="name-input" placeholder="اسم المستخدم "required> <br>
-                <input type="textarea" name="descrption" id="descrption" class="name-input"  rows="5" cols="20" placeholder="وصف المنظمة الخيرية"><br>
-                <input type="email" name="email" id="email" class="name-input" placeholder="البريد الالكتروني "required><br>
-                <input type="password" name="passwod" id="passwod" class="name-input" placeholder="كلمة المرور" required ><br>
-                <input type="text" name="PhoneNumber" id="PhoneNumber" class="name-input" placeholder="رقم الجوال"required><br>  <br>
+                <input type="text" name="name" id="name" class="input" placeholder="اسم المنظمة الخيرية" required> <br>
+                <input type="text" name="username" id="username" class="input" placeholder="اسم المستخدم "required> <br>
+                <input type="textarea" name="descrption" id="descrption" class="input"  rows="5" cols="20" placeholder="وصف المنظمة الخيرية"><br>
+                <input type="email" name="email" id="email" class="input" placeholder="البريد الالكتروني "required><br>
+                <input type="password" name="passwod" id="passwod" class="input" placeholder="كلمة المرور" required ><br>
+                <input type="text" name="PhoneNumber" id="PhoneNumber" class="input" placeholder="رقم الجوال"required><br>  <br>
 
                 <label>هل تتوفر خدمة التوصيل ؟</label>
                 <ol>
-                    <il> <input id="yes" type="radio" name="service" id="serviceY" class="name-input"  value="لا" >نعم </il>
-                    <il> <input id="no" type="radio" name="service" id="serviceN" class="name-input"  value="نعم">لا</il>
+                    <il> <input id="yes" type="radio" name="service" id="serviceY" class="input"  value="لا" >نعم </il>
+                    <il> <input id="no" type="radio" name="service" id="serviceN" class="input"  value="نعم">لا</il>
                 </ol>
                 <br>
                 <label>انواع التبرع التي تقبل به المنظمة الخيرية؟</label>
-                <input type="checkbox" name="type[]" id="clothes" class="name-input" value ="ملابس">ملابس 
-                <input type="checkbox" name="type[]" id="furniture" class="name-input" value="اثاث"> اثاث
-                <input type="checkbox" name="type[]" id="electronic" class="name-input" value="الكترونيات"> الكترونيات
-                <input type="checkbox" name="type[]" id="books" class="name-input" value="كتب_ورق"> كتب وورق
+                <input type="checkbox" name="type[]" id="clothes" class="input" value ="ملابس"> ملابس 
+                <input type="checkbox" name="type[]" id="furniture" class="input" value="اثاث"> اثاث
+                <input type="checkbox" name="type[]" id="electronic" class="input" value="الكترونيات"> الكترونيات
+                <input type="checkbox" name="type[]" id="books" class="input" value="كتب_ورق"> كتب وورق
 
                 <br><br> 
 
-                <input type="text" name="location" id="location" class="name-input" placeholder="الموقع"required>
+                <input type="text" name="location" id="location" class="input" placeholder="الموقع"required>
                 <br>  <br> 
 
-                <input type="text" name="LicenseNumber" id="LicenseNumber" class="name-input" placeholder="رقم الترخيص" required> <br> <br> 
+                <input type="text" name="LicenseNumber" id="LicenseNumber" class="input" placeholder="رقم الترخيص" required> <br> <br> 
 
 
                 <input type="file" name="picture"> صورة الملف التعريفي<br> <br> 
