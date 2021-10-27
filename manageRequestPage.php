@@ -48,9 +48,9 @@ if (isset($_SESSION['role'])) {
                 <div id="requestTable">
                     <?php
                     // To verify the license number the admin visits the website
+                    echo "<p style='color: gray; text-align:center;'>يرجى إدخال رقم الترخيص باللغة الإنجليزية</p>";
                     echo "<a href =https://hrsd.gov.sa/ar/ngo-enquiry style='text-align:right;'target='_blank'>:للتحقق من رقم ترخيص وبيانات الجمعية</a>";
-                    echo "<p style='color: gray; text-align:right;'>يرجى إدخال رقم الترخيص باللغة الإنجليزية</p>";
-                    $connection = mysqli_connect("localhost", "root", "root", "awondb");
+                                        $connection = mysqli_connect("localhost", "root", "root", "awondb");
                     $id = $_GET['id'];
                     $sqli = "SELECT * FROM `charity` WHERE ID= $id ";
                     $result = $connection->query($sqli);

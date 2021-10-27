@@ -47,13 +47,14 @@ if (isset($_SESSION['role'])) {
             <h2> <br>تسجيل الدخول</h2>
             <br>
             <br>
-            <label class="name"><h3> <input type="text" name="username" id="username" class="name-input" required>اسم المستخدم:</label> </h3><br><br>
+            <label class="name"><h3>   <input type="text" name="username" id="username" class="name-input" required>اسم المستخدم </label> </h3><br><br>
                 <br>
-                <label class="name"><h3><input type="password" name="pwd" class="password" id="password">كلمة المرور: </label></h3>
+                <label class="name"><h3>   <input type="password" name="pwd" class="password" id="password">كلمة المرور </label></h3>
                     <br>
                     <input type="submit" class="bu1" value="تسجيل الدخول"/>
                     <br><br>
                     <p>جمعية جديدة? <a href ="RequestToJoin.php" > تسجيل جديد </a></p> 
+                    <br><br><Br>
                     <?php
                     if (isset($_SESSION['errorC'])) {
                         echo "<span style='color:red'>" . $_SESSION['errorC'] . "</span>";

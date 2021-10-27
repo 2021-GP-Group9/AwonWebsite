@@ -64,7 +64,9 @@ float:left;
 }
 th {
     color: #582f0e ;
+    text-align: right;
 }
+
 #acc {
     display: inline-block;
     background-color:#D6DACA;
@@ -126,7 +128,7 @@ th {
 }
 
 .auth-content {
-           
+
     margin: auto;
     padding: 10px 0px 10px 0px;
     text-align: center;
@@ -136,9 +138,9 @@ th {
     margin-left: auto;
     margin-right: auto;
     font-size:  20px ;
-    border-spacing: 60px;
+    border-spacing: 100px;
     border: 0.9px solid #582f0e;
-    
+
 }
 
 #JoiningRequestForm{
@@ -160,6 +162,7 @@ th {
     width: 200px;
     height:80px;
 
+
 }
 /*
 charity 
@@ -173,12 +176,63 @@ p.requestTable{
     background-color: #2aa7b0;
     overflow: hidden;
 }
-h1{
-        text-align: center ;
-        color: #582f0e;
+h1 , h2 {
+    text-align: center ;
+    color: #582f0e;
 }
 
 
 ul{
     list-style-type:none;
 }
+p { 
+    text-indent: 5px;
+}
+.name { 
+    margin-left: 250px;
+    margin-top: 30px;
+    width: 125px;
+    color: #582f0e;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+#username{
+    position: relative;
+    left: -10px;
+    top: -1px;
+    line-height: 30px;
+    border-radius: 6px;
+    padding: 0 22px;
+    font-size: 14px;
+}
+#password{
+    position: relative;
+    left: -10px;
+    top: -1px;
+    line-height: 30px;
+    border-radius: 6px;
+    padding: 0 22px;
+    font-size: 14px;
+}
+
+.bu1 {
+
+    display: inline-block;
+    background-color:#D6DACA;
+    border-radius: 10px;
+    border: 4px double black;
+    color: #582f0e ;
+    text-align: center;
+    font-size: 20px;
+    padding: 20px;
+    width: 200px;
+    height:80px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 5px
+}
+
+/*
+
+*/
