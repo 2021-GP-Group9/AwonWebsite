@@ -75,12 +75,12 @@ if (isset($_SESSION['role'])) {
 
                     <p>جمعية جديدة? <a href ="RequestToJoin.php" > تسجيل جديد </a></p> 
 
-<?php
-if (isset($_SESSION['errorC'])) {
-    echo "<span style='color:red'>" . $_SESSION['errorC'] . "</span>";
-}
-$_SESSION['errorC'] = null;
-?>
+                    <?php
+                    if (isset($_SESSION['errorC'])) {
+                        echo "<span style='color:red'>" . $_SESSION['errorC'] . "</span>";
+                    }
+                    $_SESSION['errorC'] = null;
+                    ?>
 
 
                     <?php
@@ -189,15 +189,17 @@ $_SESSION['errorC'] = null;
 
 
                     <!-- Footer -->
-                    <footer class="footer" style="display:none">  
-                        <div class="SOCIAL">
+                    <footer>
+                        <!-- الفوتر فيه الكوبي رايت ويتغير شكله ولونه يصير أخضر عشبي 
+                    ويصير بالعربي وخليه فريق منصة عون بدل اسماءنا -->
+                        <!--<div class="SOCIAL">
                             <br>
                             <a href="#"><i class="fab fa-twitter"></i></a>
                             <a href="#"><i class="fab fa-instagram"></i></a>
                             <a href="#"><i class="fab fa-youtube"></i></a>
                             <a href="#"><i class="fab fa-facebook"></i></a>
-                        </div>
-                        <p>&copy; KSU|Desigend by Aljawharah, Lamya, Rahaf, Sahar and Leen</p>
+                        </div>-->
+                        <p>&copy; فريق منصة عون</p>
                     </footer>
                     </html>
 

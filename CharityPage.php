@@ -30,11 +30,11 @@ if (!isset($_SESSION['role'])) {
 
     <form id="signout" action="logout.php" method="POST">
         <input type="submit" value="تسجيل خروج">
-     
-                </form> 
-     <form id="profile" action="ProfilePage.php" method="POST">
+
+    </form> 
+    <form id="profile" action="ProfilePage.php" method="POST">
         <input type="submit" value="ملف التعريف الشخصي">
-                 </form> 
+    </form> 
 <!-- <img src="logo.jpg" alt="logo" class="pageP"  >
 </header> -->
     <div class="auth-content"> 
@@ -63,15 +63,17 @@ if (!isset($_SESSION['role'])) {
 
 
     <!-- Footer -->
-    <footer class="footer">  
-        <div class="SOCIAL">
+    <footer>
+        <!-- الفوتر فيه الكوبي رايت ويتغير شكله ولونه يصير أخضر عشبي 
+    ويصير بالعربي وخليه فريق منصة عون بدل اسماءنا -->
+        <!--<div class="SOCIAL">
             <br>
             <a href="#"><i class="fab fa-twitter"></i></a>
             <a href="#"><i class="fab fa-instagram"></i></a>
             <a href="#"><i class="fab fa-youtube"></i></a>
             <a href="#"><i class="fab fa-facebook"></i></a>
-        </div>
-        <p>&copy; KSU|Desigend by Aljawharah, Lamya, Rahaf, Sahar and Leen</p>
+        </div>-->
+        <p>&copy; فريق منصة عون</p>
     </footer>
 
 
