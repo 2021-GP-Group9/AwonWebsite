@@ -26,6 +26,11 @@ header{
     font-size: 30px;
 
 }
+
+
+
+
+
 .topnav {
     background-color: #D6DACA;
     overflow: hidden;
@@ -47,8 +52,6 @@ header{
     text-decoration: none;
     font-size: 20px;
 }
-
-
 /* Change the color of links on hover */
 .topnav a:hover {
     background-color:#e9edc9 ;
@@ -65,6 +68,31 @@ header{
 .topnav-right {
     float: right;
 }
+
+#cta.active{
+  background-color: red;
+  color: white;
+
+}
+#cta:hover {
+  background-color:#e9edc9 ;
+  color: black;
+} 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

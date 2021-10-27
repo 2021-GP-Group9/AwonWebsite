@@ -23,13 +23,14 @@ if ($error != null) {
     <header> 
         <img src="log1.jpeg" alt="logo" class="logo" style="length:100px; width:100px; float: left;">
         <div style="float: right;">
-            <nav class="topnav">
-                <ul>
-                    <li><a href="">الصفحة الرئيسية</a> </li>
-                    <li><a href="">test</a></li>
-                    <li><a href="">test</a></li>
-                    <li><a href="index.php">تسجيل خروج</a></li>
-                </ul> </nav></div>
+                    <nav class="topnav">
+                        <ul>
+                            <li><a href="charityPage.php">الصفحة الرئيسية</a> </li>
+                            <li><a id='cta' href="index.php">تسجيل خروج</a></li>
+                            <li><a href="">test</a></li>
+                        </ul>
+                    </nav>
+                </div>
 
     </header>
     <!-- <header id="headerPage" style="padding:28px 16px">

@@ -1,13 +1,10 @@
 <?php
 //var_dump(password_hash("12345", PASSWORD_DEFAULT));
-
 session_start();
-
 if (isset($_SESSION['role'])) {
     if ($_SESSION['role'] == 'admin') {
         $error = NULL;
         ?>
-
         <html lang="en">
             <head>
                 <meta charset="UTF-8">
@@ -20,12 +17,12 @@ if (isset($_SESSION['role'])) {
                 <div style="float: right;">
                     <nav class="topnav">
                         <ul>
-                            <li><a href="">الصفحة الرئيسية</a> </li>
+                            <li><a href="charityPage.php">الصفحة الرئيسية</a> </li>
+                            <li><a id='cta' href="index.php">تسجيل خروج</a></li>
                             <li><a href="">test</a></li>
-                            <li><a href="">test</a></li>
-                            <li><a href="index.php">تسجيل خروج</a></li>
-                        </ul> </nav></div>
-
+                        </ul>
+                    </nav>
+                </div>
             </header>
         </head> 
         <!-- <header id="headerPage" style="padding:15px 8px">

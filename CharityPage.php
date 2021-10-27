@@ -5,8 +5,6 @@ if (!isset($_SESSION['role'])) {
     header('Location:login.php');
 }
 ?>
-
-
 <html lang="en">
     <head>
         <meta charset="UTF-8">
@@ -16,25 +14,24 @@ if (!isset($_SESSION['role'])) {
     <header> 
         <img src="log1.jpeg" alt="logo" class="logo" style="length:100px; width:100px; float: left;">
         <div style="float: right;">
-            <nav class="topnav">
-                <ul>
-                    <li><a href="">الصفحة الرئيسية</a> </li>
-                    <li><a href="">test</a></li>
-                    <li><a href="">test</a></li>
-                    <li><a href="index.php">تسجيل خروج</a></li>
-                </ul> </nav></div>
-
+                    <nav class="topnav">
+                        <ul>
+                            <li><a href="charityPage.php">الصفحة الرئيسية</a> </li>
+                            <li><a id='cta' href="index.php">تسجيل خروج</a></li>
+                            <li><a href="">test</a></li>
+                        </ul>
+                    </nav>
+                </div>
     </header>
 </head>
 <body>
-
-    <form id="signout" action="logout.php" method="POST">
+     <form id="signout" action="logout.php" method="POST">
         <input type="submit" value="تسجيل خروج">
 
     </form> 
-    <form id="profile" action="ProfilePage.php" method="POST">
+   <!-- <form id="profile" action="ProfilePage.php" method="POST">
         <input type="submit" value="ملف التعريف الشخصي">
-    </form> 
+    </form> -->
 <!-- <img src="logo.jpg" alt="logo" class="pageP"  >
 </header> -->
     <div class="auth-content"> 
@@ -54,14 +51,7 @@ if (!isset($_SESSION['role'])) {
             echo "<p> <a style='font-size:30px;'>{$row["name"]}</a></p>";
         }
         ?>      
-
-
-
-
-
     </div>
-
-
     <!-- Footer -->
     <footer>
         <!-- الفوتر فيه الكوبي رايت ويتغير شكله ولونه يصير أخضر عشبي 

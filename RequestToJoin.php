@@ -24,14 +24,16 @@ if (isset($_SESSION['role'])) {
         <link rel="stylesheet" href="DesignPages.css">
     <header> 
         <img src="log1.jpeg" alt="logo" class="logo" style="length:100px; width:100px; float: left;">
-        <div style="float: right;">
+       <!-- <div style="float: right;">
             <nav class="topnav">
                 <ul>
                     <li><a href="">الصفحة الرئيسية</a> </li>
                     <li><a href="">test</a></li>
                     <li><a href="">test</a></li>
-                    <li><a href="index.php">تسجيل خروج</a></li>
-                </ul> </nav></div>
+                    <li><<form id="signout" action="logout.php" method="POST">
+                            <input type="submit" value="تسجيل خروج">
+                        </form></li>
+                </ul> </nav></div> -->
 
     </header>
 </head>
