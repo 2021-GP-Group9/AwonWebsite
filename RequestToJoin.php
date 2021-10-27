@@ -31,11 +31,23 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel='stylesheet' href='style.css'>
     <link rel="stylesheet" href="DesignPages.css">
+     <header> 
+        <img src="log1.jpeg" alt="logo" class="logo" style="length:100px; width:100px; float: left;">
+        <div style="float: right;">
+            <nav class="topnav">
+                <ul>
+                    <li><a href="">الصفحة الرئيسية</a> </li>
+                    <li><a href="">test</a></li>
+                    <li><a href="">test</a></li>
+                    <li><a href="index.php">تسجيل خروج</a></li>
+                </ul> </nav></div>
+
+    </header>
     </head>
-    <header id="headerPage" style="padding:28px 16px">
+   <!-- <header id="headerPage" style="padding:28px 16px">
             
             <img src="logo.jpg" alt="logo" class="pageP"  >
-        </header>
+        </header>-->
     <body>
         
         <div class="auth-content"> 
