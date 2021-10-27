@@ -1,0 +1,83 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Oct 27, 2021, 10:23:05 PM
+    Author     : aa
+*/
+
+
+*{
+
+    font-family: 'Amiri';
+
+}
+
+header{
+    height:300px ; 
+    /* fix the width */
+    padding: 30px;
+    width: 100%;
+    text-align: center;
+    background: #D6DACA;
+    color: white;
+    font-size: 30px;
+
+}
+.topnav {
+    background-color: #D6DACA;
+    overflow: hidden;
+    margin-top: 50px;
+    margin-bottom: 100px;
+    margin-right: 130px;
+    margin-left: 100px;
+
+}
+/*
+ Style the links inside the navigation bar*/ 
+.topnav a {
+    font-family: Amiri;
+    margin: auto;
+    float: right;
+    color: #582f0e ;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+
+/* Change the color of links on hover */
+.topnav a:hover {
+    background-color:#e9edc9 ;
+    color: black;
+}
+
+/* Add a color to the active/current link */
+.topnav a.active {
+    background-color: #FEFAE0;
+    color: white;
+}
+
+/* Right-aligned section inside the top navigation */
+.topnav-right {
+    float: right;
+}
+
+
+
+body{
+    background: #F5F6F2;
+}
+
+footer{
+    background: #D6DACA;
+    color: #582f0e ;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+}

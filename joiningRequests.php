@@ -12,6 +12,7 @@ if (isset($_SESSION['role'])) {
                 <meta charset="UTF-8">
                 <meta name="viewport" content="width=device-width, initial-scale=1">
                 <link rel="stylesheet" href="style.css">
+                <link rel="stylesheet" href="DesignPages.css">
                 <title>manage joining request</title>
             </head> 
             <header id="headerPage" style="padding:15px 8px">
