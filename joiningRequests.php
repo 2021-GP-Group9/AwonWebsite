@@ -25,10 +25,11 @@ if (isset($_SESSION['role'])) {
                     <h1>طلبات الاضافة</h1>      
                     <?php
                     $connection = mysqli_connect("localhost", "root", "root", "awondb");
-                    $sqli = "SELECT * FROM `charity` WHERE status='null'";
+                    $sqli = "SELECT * FROM `charity` WHERE status='null' ORDER BY 'register_date' ASC";
                     $result = $connection->query($sqli);
                     echo '<table id="manageJoiningRequest">';
                     echo '<tbody><tr>';
+                    echo '<th>تاريخ الإنضمام</th>';
                     echo'<th>قبول / رفض</th>';
                     echo '<th>الجمعية الخيرية</th>';
                     echo '</tr>';
@@ -37,6 +38,8 @@ if (isset($_SESSION['role'])) {
                         while ($row = $result->fetch_assoc()) {
                             echo'<tr>';
                             // &nbsp; used for spaceing
+                            echo "<td>".$row['register_date']."</td>";
+
                             echo "<td><button id='acc' class='bu1' style='width: 100px;height:60px;' onclick='accept({$row["ID"]})'>قبول</button>" . "<button id='rej' class='bu1' value={$row['ID']}  style='width: 100px;height:60px;' onclick='reject({$row["ID"]})'>رفض</button>";
                             echo "<td>"."<a href='manageRequestPage.php?id={$row["ID"]}'>{$row["name"]}</a>"."&nbsp;&nbsp;&nbsp;&nbsp;".$image = '<img src="data:image/jpeg;base64,'. base64_encode($row['picture']).'"width="50em"/>'. "</td>";
                             echo "</tr>";

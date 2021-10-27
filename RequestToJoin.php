@@ -32,9 +32,7 @@ session_start();
     <link rel='stylesheet' href='style.css'>
     </head>
     <header id="headerPage" style="padding:28px 16px">
-            <form id="signout" action="logout.php" method="POST">
-                <input type="submit" value="تسجيل خروج">
-            </form> 
+            
             <img src="logo.jpg" alt="logo" class="pageP"  >
         </header>
     <body>
@@ -58,8 +56,8 @@ session_start();
                 
                     <label>هل تتوفر خدمة التوصيل ؟</label>
               <ol>
-                  <il> <input id="yes" type="radio" name="service" id="serviceY" class="name-input"  value="yes" >نعم </il>
-                  <il> <input id="no" type="radio" name="service" id="serviceN" class="name-input"  value="no">لا</il>
+                  <il> <input id="yes" type="radio" name="service" id="serviceY" class="name-input"  value="لا" >نعم </il>
+                  <il> <input id="no" type="radio" name="service" id="serviceN" class="name-input"  value="نعم">لا</il>
             </ol>
               <br>
                <label>انواع التبرع التي تقبل به المنظمة الخيرية؟</label>
