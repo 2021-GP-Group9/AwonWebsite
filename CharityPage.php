@@ -1,5 +1,5 @@
 <?php session_start();
-//test
+//test21
 	if(!isset($_SESSION['role']))
 	{
 		header('Location:login.php');
