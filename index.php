@@ -1,4 +1,4 @@
-<!--  see comments in line 11 - 37 - 55  --> <!-- this is a home page we want special design here -->
+<!--  see comments in line 11 - 37 - 55  --> <!-- this is a home page we want special design here --><!-- also we want sweetalerts for all the project -->
 <!DOCTYPE html>
 <html lang="en">
     <head> 
