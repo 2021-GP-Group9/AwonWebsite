@@ -1,3 +1,4 @@
+<!-- see comments in line 19 - 22 - 28 - 35 - 127 --><!-- comment -->
 <?php
 //var_dump(password_hash("12345", PASSWORD_DEFAULT));
 
@@ -15,17 +16,20 @@ if (isset($_SESSION['role'])) {
                 <link rel='stylesheet' href='style.css'>
                 <link rel="stylesheet" href="DesignPages.css">
             <header> 
+                <!-- logo in the right -->
                 <img src="log1.jpeg" alt="logo" class="logo" style="length:100px; width:100px; float: left;">
-                <div style="float: right;">
-                    <nav class="topnav">
-                        <ul>
-                            <li><a href="charityPage.php">الصفحة الرئيسية</a> </li>
-                            <li><a id='cta' href="index.php">تسجيل خروج</a></li>
-                            <li><a href="">test</a></li>
-                        </ul>
-                    </nav>
-                </div>
 
+                <!-- navbar for charity should include 'طلبات الانضمام' which is call joiningRequests.php  --> 
+                <nav class="topnav">
+                    <ul>
+                        <li><a href=".php"></a> </li>
+                    </ul>
+                </nav>
+                <!-- log out  as button in the left-->
+                <form id="signout" action="logout.php" method="POST">
+                    <input type="submit" value="تسجيل خروج">
+
+                </form>
             </header>
         </head>
         <!-- Header with navigation bar -->
@@ -46,11 +50,12 @@ if (isset($_SESSION['role'])) {
             <div class="auth-content"> 
                 <!-- we will bring it from the database -->
                 <div id="requestTable">
+                    <!-- design --> 
                     <?php
                     // To verify the license number the admin visits the website
                     echo "<p style='color: gray; text-align:center;'>يرجى إدخال رقم الترخيص باللغة الإنجليزية</p>";
                     echo "<a href =https://hrsd.gov.sa/ar/ngo-enquiry style='text-align:right;'target='_blank'>:للتحقق من رقم ترخيص وبيانات الجمعية</a>";
-                                        $connection = mysqli_connect("localhost", "root", "root", "awondb");
+                    $connection = mysqli_connect("localhost", "root", "root", "awondb");
                     $id = $_GET['id'];
                     $sqli = "SELECT * FROM `charity` WHERE ID= $id ";
                     $result = $connection->query($sqli);
@@ -116,13 +121,13 @@ if (isset($_SESSION['role'])) {
             </div>
         </body>
         <!-- Footer -->
-        
-    <!-- Footer -->
-    <footer>
-        <!-- we want footer with  <p>&copy; فريق منصة عون</p>  -->
-       
-        <p>&copy; فريق منصة عون</p>
-    </footer>
+
+        <!-- Footer -->
+        <footer>
+            <!-- we want footer with  <p>&copy; فريق منصة عون</p>  -->
+
+            <p>&copy; فريق منصة عون</p>
+        </footer>
         </html>
         <?php
     }

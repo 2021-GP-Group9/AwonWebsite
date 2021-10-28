@@ -1,4 +1,4 @@
-
+<!--  see comments in line 10 - 13 - 19  --> 
 <html lang="en">
     <head>
         <meta charset="UTF-8">
@@ -7,16 +7,20 @@
         <link rel="stylesheet" href="DesignPages.css">
         <script src="webPro.js"></script>
     <header> 
+         <!-- logo in the right -->
         <img src="log1.jpeg" alt="logo" class="logo" style="length:100px; width:100px; float: left;">
-        <div style="float: right;">
-                    <nav class="topnav">
-                        <ul>
-                            <li><a href="charityPage.php">الصفحة الرئيسية</a> </li>
-                            <li><a id='cta' href="index.php">تسجيل خروج</a></li>
-                            <li><a href="">test</a></li>
-                        </ul>
-                    </nav>
-                </div>
+
+      <!-- navbar for charity should include 'الصفحة الرئيسية' which is call CharityPage.php  --> 
+        <nav class="topnav">
+            <ul>
+                <li><a href=".php"></a> </li>
+            </ul>
+        </nav>
+        <!-- log out  as button in the left-->
+        <form id="signout" action="logout.php" method="POST">
+            <input type="submit" value="تسجيل خروج">
+
+        </form>
     </header>
     <!-- <header id="headerPage" style="padding:28px 16px">
              

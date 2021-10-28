@@ -1,3 +1,4 @@
+<!--  see comments in line 11 - 37 - 55  --> <!-- this is a home page we want special design here -->
 <!DOCTYPE html>
 <html lang="en">
     <head> 
@@ -7,6 +8,7 @@
         <link rel="stylesheet" href="DesignPages.css">
         <!-- Header Sahar & Aljawharah is heeeereeee -->
     <header> 
+         <!-- logo in the right -->
         <img src="log1.jpeg" alt="logo" class="logo" style="length:100px; width:100px; float: left;">
       <!--  <div style="float: right;">
             <nav class="topnav">
@@ -32,6 +34,7 @@
 </head> 
 <body>
     <br><br>
+    <!-- design --> 
     <i id="bu"> 
         <button class="indexPage" onclick="login();return false;">تسجيل دخول </button>
         <button class="indexPage"  onclick="signUp();return false;">طلب الإنضمام</button>

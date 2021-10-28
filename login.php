@@ -1,3 +1,5 @@
+ <!-- see comments in line 26 - 30 - 47 - 144 -->
+
 <?php
 session_start();
 ////var_dump(password_hash("12345A", PASSWORD_DEFAULT));
@@ -21,16 +23,15 @@ if (isset($_SESSION['role'])) {
         <link rel='stylesheet' href='style.css'>
         <link rel="stylesheet" href="DesignPages.css">
     <header> 
-        <img src="log1.jpeg" alt="logo" class="logo" style="length:100px; width:100px; float: left;">
-      <!--  <div style="float: right;">
-            <nav class="topnav">
-                <ul>
-                    <li><a href="">الصفحة الرئيسية</a> </li>
-                    <li><a href="">test</a></li>
-                    <li><a href="">test</a></li>
-                    <li><a href="index.php">تسجيل خروج</a></li>
-                </ul> </nav></div> -->
+              <!-- logo in the right -->
+                <img src="log1.jpeg" alt="logo" class="logo" style="length:100px; width:100px; float: left;">
 
+                
+               <!-- log out  as button in the left-->
+                <form id="signout" action="logout.php" method="POST">
+                    <input type="submit" value="تسجيل خروج">
+
+                </form>
     </header>
     <!-- Header
     
@@ -43,6 +44,7 @@ if (isset($_SESSION['role'])) {
 
 <body>
     <div class="auth-content"> 
+        <!-- design --> 
         <form id="loginForm" method="post" > 
             <h2> <br>تسجيل الدخول</h2>
             <br>
@@ -135,6 +137,7 @@ if (isset($_SESSION['role'])) {
                     }
                     ?>
                     </div>
+    <br> <br> <br> 
                     </body>
        
     <!-- Footer -->

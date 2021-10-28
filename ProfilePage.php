@@ -32,7 +32,7 @@ if ($error != null) {
                 <li><a href=".php"></a> </li>
             </ul>
         </nav>
-        <!-- log out  as button -->
+       <!-- log out  as button in the left-->
         <form id="signout" action="logout.php" method="POST">
             <input type="submit" value="تسجيل خروج">
 

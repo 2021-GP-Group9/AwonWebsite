@@ -1,4 +1,5 @@
-<?php
+<!--  see comments in line 17 - 26 - 41 - 78 -->
+<?php 
 //var_dump(password_hash("12345", PASSWORD_DEFAULT));
 session_start();
 if (isset($_SESSION['role'])) {
@@ -13,16 +14,20 @@ if (isset($_SESSION['role'])) {
                 <link rel="stylesheet" href="DesignPages.css">
                 <title>manage joining request</title>
             <header> 
+                <!-- logo in the right -->
                 <img src="log1.jpeg" alt="logo" class="logo" style="length:100px; width:100px; float: left;">
-                <div style="float: right;">
-                    <nav class="topnav">
-                        <ul>
-                            <li><a href="charityPage.php">الصفحة الرئيسية</a> </li>
-                            <li><a id='cta' href="index.php">تسجيل خروج</a></li>
-                            <li><a href="">test</a></li>
-                        </ul>
-                    </nav>
-                </div>
+
+                <!-- 
+                <nav class="topnav">
+                    <ul>
+                        <li><a href=".php"></a> </li>
+                    </ul>
+                </nav> --> 
+               <!-- log out  as button in the left-->
+                <form id="signout" action="logout.php" method="POST">
+                    <input type="submit" value="تسجيل خروج">
+
+                </form>
             </header>
         </head> 
         <!-- <header id="headerPage" style="padding:15px 8px">
@@ -33,6 +38,7 @@ if (isset($_SESSION['role'])) {
          </header> --> 
         <body data-new-gr-c-s-loaded="9.38.0">
             <div class="auth-content"> 
+                <!-- design --> 
                 <h1>طلبات الاضافة</h1>      
                 <?php
                 $connection = mysqli_connect("localhost", "root", "root", "awondb");
@@ -66,13 +72,13 @@ if (isset($_SESSION['role'])) {
             <br><br><br><br><br><br>
         </body>
 
-       
-    <!-- Footer -->
-    <footer>
-        <!-- we want footer with  <p>&copy; فريق منصة عون</p>  -->
-       
-        <p>&copy; فريق منصة عون</p>
-    </footer>
+
+        <!-- Footer -->
+        <footer>
+            <!-- we want footer with  <p>&copy; فريق منصة عون</p>  -->
+
+            <p>&copy; فريق منصة عون</p>
+        </footer>
 
         <!--INSERT INTO charity_orgnization(`ID`,`name`,`username`,`email`,`phone_number`,`license_Number`,`location`,`pickup_servise`,`type_of_donation`,`photo`,`password`,`description`) VALUES ('1234','سحر','sand','itsaharcs@gmail.com','555555555','12345','Riyadh','1','clothes','','1212','سحر هي منظمة') -->   
         </html>
