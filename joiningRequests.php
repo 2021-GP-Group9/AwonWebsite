@@ -15,7 +15,7 @@ if (isset($_SESSION['role'])) {
                 <title>manage joining request</title>
             <header> 
                 <!-- logo in the right -->
-                <img src="log1.jpeg" alt="logo" class="logo" style="length:100px; width:100px; float: left;">
+                <img src="finalLogo.jpeg" alt="logo" class="logo" style="length:100px; width:100px; float: left;">
 
                 <!-- 
                 <nav class="topnav">
