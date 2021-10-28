@@ -14,28 +14,30 @@ if (!isset($_SESSION['role'])) {
     <header> 
         <!-- logo in the right -->
         <img src="log1.jpeg" alt="logo" class="logo" style="length:100px; width:100px; float: left;">
-        <div style="float: right;">
-            <!-- navbar for charity should include '' --> 
-                    <nav class="topnav">
-                        <ul>
-                            <li><a href="charityPage.php">الصفحة الرئيسية</a> </li>
-                            <li><a id='cta' href="ProfilePage.php">تسجيل خروج</a></li>
-                            <li><a href="">test</a></li>
-                        </ul>
-                    </nav>
-                </div>
+
+        <!-- navbar for charity should include 'تعديل الملف الشخصي'  --> 
+        <nav class="topnav">
+            <ul>
+                <li><a href=".php"></a> </li>
+            </ul>
+        </nav>
+        <!-- log out  as button -->
+        <form id="signout" action="logout.php" method="POST">
+            <input type="submit" value="تسجيل خروج">
+
+        </form>
     </header>
 </head>
 <body>
-     <form id="signout" action="logout.php" method="POST">
-        <input type="submit" value="تسجيل خروج">
-
-    </form> 
-   <!-- <form id="profile" action="ProfilePage.php" method="POST">
-        <input type="submit" value="ملف التعريف الشخصي">
-    </form> -->
-<!-- <img src="logo.jpg" alt="logo" class="pageP"  >
-</header> -->
+    <!-- <form id="signout" action="logout.php" method="POST">
+         <input type="submit" value="تسجيل خروج">
+ 
+     </form> 
+      <form id="profile" action="ProfilePage.php" method="POST">
+          <input type="submit" value="ملف التعريف الشخصي">
+      </form> -->
+  <!-- <img src="logo.jpg" alt="logo" class="pageP"  >
+  </header> -->
     <div class="auth-content"> 
         <?php
         require('db_connecting.php');
@@ -48,8 +50,8 @@ if (!isset($_SESSION['role'])) {
 
         while ($row = $result->fetch_assoc()) {
             // &nbsp; used for spaceing
-
-            echo '<h1>Welcome :) </h1>';
+// we want footer with  <p>&copy; فريق منصة عون</p>  -->
+            echo '<h1>مرحبا </h1>';
             echo "<p> <a style='font-size:30px;'>{$row["name"]}</a></p>";
         }
         ?>      
@@ -57,7 +59,7 @@ if (!isset($_SESSION['role'])) {
     <!-- Footer -->
     <footer>
         <!-- we want footer with  <p>&copy; فريق منصة عون</p>  -->
-       
+
         <p>&copy; فريق منصة عون</p>
     </footer>
 
