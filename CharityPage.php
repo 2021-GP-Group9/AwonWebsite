@@ -1,3 +1,4 @@
+<!--  see comments in line 16 - 19 - 25 - 62 --> 
 <?php
 session_start();
 //test21
@@ -15,7 +16,7 @@ if (!isset($_SESSION['role'])) {
         <!-- logo in the right -->
         <img src="log1.jpeg" alt="logo" class="logo" style="length:100px; width:100px; float: left;">
 
-        <!-- navbar for charity should include 'تعديل الملف الشخصي'  --> 
+        <!-- navbar for charity should include 'تعديل الملف الشخصي' which is call ProfilePage.php --> 
         <nav class="topnav">
             <ul>
                 <li><a href=".php"></a> </li>
@@ -50,7 +51,7 @@ if (!isset($_SESSION['role'])) {
 
         while ($row = $result->fetch_assoc()) {
             // &nbsp; used for spaceing
-// we want footer with  <p>&copy; فريق منصة عون</p>  -->
+
             echo '<h1>مرحبا </h1>';
             echo "<p> <a style='font-size:30px;'>{$row["name"]}</a></p>";
         }

@@ -1,3 +1,4 @@
+<!--  see comments in line 26 - 29 - 35 - 77 - 201 --> 
 <?php
 session_start();
 $ID = $_SESSION['ID'];
@@ -22,17 +23,20 @@ if ($error != null) {
         <link rel='stylesheet' href='style.css'>
         <link rel="stylesheet" href="DesignPages.css">
     <header> 
+        <!-- logo in the right -->
         <img src="log1.jpeg" alt="logo" class="logo" style="length:100px; width:100px; float: left;">
-        <div style="float: right;">
-                    <nav class="topnav">
-                        <ul>
-                            <li><a href="charityPage.php">الصفحة الرئيسية</a> </li>
-                            <li><a id='cta' href="index.php">تسجيل خروج</a></li>
-                            <li><a href="">test</a></li>
-                        </ul>
-                    </nav>
-                </div>
 
+        <!-- navbar for charity should include 'الصفحة الرئيسية' which is call CharityPage.php  --> 
+        <nav class="topnav">
+            <ul>
+                <li><a href=".php"></a> </li>
+            </ul>
+        </nav>
+        <!-- log out  as button -->
+        <form id="signout" action="logout.php" method="POST">
+            <input type="submit" value="تسجيل خروج">
+
+        </form>
     </header>
     <!-- <header id="headerPage" style="padding:28px 16px">
             <form id="signout" action="logout.php" method="POST">
@@ -70,7 +74,7 @@ $picture = $row['picture'];
         <?php
         echo '<h1>إدارة الملف الشخصي</h1>';
         ?>    
-
+<!--  design the form  -->
         <form method="post" id="ManageTheProfile" enctype="multipart/form-data" action="UpdateProfilePage.php">
 
 
@@ -141,20 +145,20 @@ $picture = $row['picture'];
             <label for="ملابس">ملابس</label>
 
             <input type="checkbox" name="types[]" id="type_of_donation"   value="اثاث"
-<?php
-if (in_array('اثاث', $headers)) {
-    echo " checked ";
-}
-?>
+            <?php
+            if (in_array('اثاث', $headers)) {
+                echo " checked ";
+            }
+            ?>
 
                    >
             <label for="اثاث">اثاث</label>
             <input type="checkbox" name="types[]" id="type_of_donation"  value="الكترونيات"
-<?php
-if (in_array('الكترونيات', $headers)) {
-    echo " checked ";
-}
-?>
+            <?php
+            if (in_array('الكترونيات', $headers)) {
+                echo " checked ";
+            }
+            ?>
 
                    >
 
@@ -163,21 +167,17 @@ if (in_array('الكترونيات', $headers)) {
             <input type="checkbox" name="type[]" id="books" class="name-input" value="كتب_ورق"
 
 
-<?php
-if (in_array('كتب_ورق', $headers)) {
-    echo " checked ";
-}
-?>
+                   <?php
+                   if (in_array('كتب_ورق', $headers)) {
+                       echo " checked ";
+                   }
+                   ?>
 
                    >
             <label for="كتب_ورق">كتب_ورق</label>
 
-
-
             <br>
             <br>
-
-
             <input type="file" id="img" name="img" accept="image/*"  >
             <label for="img">صورة الملف التعريفي</label>
 
@@ -191,27 +191,17 @@ if (in_array('كتب_ورق', $headers)) {
             <button class="bu1" id="Edit" type="submit" name="Edit" onclick="return validate();">حفظ</button>
 
         </form>
-
-
     </div>
-
-
-
-
 
 </body>
 
 
+<!-- Footer -->
+<footer>
+    <!-- we want footer with  <p>&copy; فريق منصة عون</p>  -->
 
-
-
-
-    <!-- Footer -->
-    <footer>
-        <!-- we want footer with  <p>&copy; فريق منصة عون</p>  -->
-       
-        <p>&copy; فريق منصة عون</p>
-    </footer>
+    <p>&copy; فريق منصة عون</p>
+</footer>
 
 <script>
 

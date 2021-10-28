@@ -1,4 +1,4 @@
-
+<!--  see comments in line 26 - 54 - 193  --> 
 <?php
 session_start();
 
@@ -23,17 +23,18 @@ if (isset($_SESSION['role'])) {
         <link rel='stylesheet' href='style.css'>
         <link rel="stylesheet" href="DesignPages.css">
     <header> 
+        <!-- logo in the right -->
         <img src="log1.jpeg" alt="logo" class="logo" style="length:100px; width:100px; float: left;">
-       <!-- <div style="float: right;">
-            <nav class="topnav">
-                <ul>
-                    <li><a href="">الصفحة الرئيسية</a> </li>
-                    <li><a href="">test</a></li>
-                    <li><a href="">test</a></li>
-                    <li><<form id="signout" action="logout.php" method="POST">
-                            <input type="submit" value="تسجيل خروج">
-                        </form></li>
-                </ul> </nav></div> -->
+        <!-- <div style="float: right;">
+             <nav class="topnav">
+                 <ul>
+                     <li><a href="">الصفحة الرئيسية</a> </li>
+                     <li><a href="">test</a></li>
+                     <li><a href="">test</a></li>
+                     <li><<form id="signout" action="logout.php" method="POST">
+                             <input type="submit" value="تسجيل خروج">
+                         </form></li>
+                 </ul> </nav></div> -->
 
     </header>
 </head>
@@ -50,7 +51,7 @@ if (isset($_SESSION['role'])) {
 
 
         <form method="POST">
-
+            <!--  design the fieldset  -->
             <fieldset class="requestToJoin">
 
                 <input type="text" name="name" id="name" class="input" placeholder="اسم المنظمة الخيرية" required> <br>
@@ -187,12 +188,12 @@ if (isset($_SESSION['role'])) {
 </body>
 <br><br>
 
-    <!-- Footer -->
-    <footer>
-        <!-- we want footer with  <p>&copy; فريق منصة عون</p>  -->
-       
-        <p>&copy; فريق منصة عون</p>
-    </footer>
+<!-- Footer -->
+<footer>
+    <!-- we want footer with  <p>&copy; فريق منصة عون</p>  -->
+
+    <p>&copy; فريق منصة عون</p>
+</footer>
 
 <script>
 
