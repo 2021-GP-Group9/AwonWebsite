@@ -12,12 +12,14 @@ if (!isset($_SESSION['role'])) {
         <link rel='stylesheet' href='style.css'>
         <link rel="stylesheet" href="DesignPages.css">
     <header> 
+        <!-- logo in the right -->
         <img src="log1.jpeg" alt="logo" class="logo" style="length:100px; width:100px; float: left;">
         <div style="float: right;">
+            <!-- navbar for charity should include '' --> 
                     <nav class="topnav">
                         <ul>
                             <li><a href="charityPage.php">الصفحة الرئيسية</a> </li>
-                            <li><a id='cta' href="index.php">تسجيل خروج</a></li>
+                            <li><a id='cta' href="ProfilePage.php">تسجيل خروج</a></li>
                             <li><a href="">test</a></li>
                         </ul>
                     </nav>
