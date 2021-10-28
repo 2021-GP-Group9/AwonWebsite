@@ -186,18 +186,13 @@ if (isset($_SESSION['role'])) {
 
 </body>
 <br><br>
-<footer>
-    <!-- الفوتر فيه الكوبي رايت ويتغير شكله ولونه يصير أخضر عشبي 
-ويصير بالعربي وخليه فريق منصة عون بدل اسماءنا -->
-    <!--<div class="SOCIAL">
-        <br>
-        <a href="#"><i class="fab fa-twitter"></i></a>
-        <a href="#"><i class="fab fa-instagram"></i></a>
-        <a href="#"><i class="fab fa-youtube"></i></a>
-        <a href="#"><i class="fab fa-facebook"></i></a>
-    </div>-->
-    <p>&copy; فريق منصة عون</p>
-</footer>
+
+    <!-- Footer -->
+    <footer>
+        <!-- we want footer with  <p>&copy; فريق منصة عون</p>  -->
+       
+        <p>&copy; فريق منصة عون</p>
+    </footer>
 
 <script>
 
