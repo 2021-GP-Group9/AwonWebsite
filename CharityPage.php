@@ -19,7 +19,7 @@ if (!isset($_SESSION['role'])) {
         <!-- navbar for charity should include 'تعديل الملف الشخصي' which is call ProfilePage.php --> 
         <nav class="topnav">
             <ul>
-                <li><a href=".php"></a> </li>
+                <li><a href=".php">تعديل الملف الشخصي</a> </li>
             </ul>
         </nav>
        <!-- log out  as button in the left-->
