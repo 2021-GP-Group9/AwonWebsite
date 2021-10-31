@@ -34,7 +34,7 @@ if (isset($_SESSION['role'])) {
                         </form>       
                     </div>
                     <!-- small devices logo --> 
-                    <a href="index.html"><img src="img/logo.jpeg" class="m-logo" alt="logo"></a> 
+                    <a href="index.php"><img src="finalLogo.jpeg"  class="m-logo" alt="logo"></a> 
                     <!-- small devices logo ends --> 
                 </div>
             </div>
@@ -49,7 +49,7 @@ if (isset($_SESSION['role'])) {
                         <div class="col-sm-4"></div>
                         <div class="col-sm-4" align="right">
                             <div class="dtr-header-right"> 
-                                <a class="logo-default dtr-scroll-link" href="index.html"><img src="img/logo.jpeg" alt="logo" width="108"></a></div>
+                                <a class="logo-default dtr-scroll-link" href="index.php"><img src="finalLogo.jpeg"  alt="logo" width="108"></a></div>
                         </div>
                     </div>
                 </div>
