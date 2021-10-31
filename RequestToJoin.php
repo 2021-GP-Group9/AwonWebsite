@@ -305,15 +305,15 @@ if (isset($_SESSION['role'])) {
                 </section>
 
 
-                ----------------------------------------------------------------------------------------
+             <!--      ----------------------------------------------------------------------------------------
                 <div class="auth-content"> 
                     <?php
-                    echo '<h1>نموذج طلب انضمام المنظمات الخيرية</h1>';
+                    //echo '<h1>نموذج طلب انضمام المنظمات الخيرية</h1>';
                     ?> 
 
-
+    
                     <form method="POST">
-                        <!--  design the fieldset  -->
+                   design the fieldset  
                         <fieldset class="requestToJoin">
 
                             <input type="text" name="name" id="name" class="input" placeholder="اسم المنظمة الخيرية" required> <br>
@@ -349,97 +349,97 @@ if (isset($_SESSION['role'])) {
 
                         </fieldset>
                         <?php
-                        if (isset($_SESSION['faild'])) {
-                            echo "<span style='color:red'>" . $_SESSION['faild'] . "</span>";
-                        }
-                        $_SESSION['faild'] = null;
+//                        if (isset($_SESSION['faild'])) {
+//                            echo "<span style='color:red'>" . $_SESSION['faild'] . "</span>";
+//                        }
+//                        $_SESSION['faild'] = null;
                         ?>
-                    </form>
+                    </form>-->
 
 
                     <?php
-                    $server = "localhost";
-                    $username = "root";
-                    $password = "root";
-                    $dbname = "awondb";
-
-                    //define DB
-                    $conn = mysqli_connect("$server", "$username", "$password", "$dbname");
-
-                    $error = mysqli_connect_error();
-                    if ($error != null) {
-                        echo "<p>Eror!! could not connect to DB may not connect </p>";
-                    }
-                    //else {    echo 'success connect';}
-                    // else {    echo 'success connect';}
-
-                    if ($_SERVER['REQUEST_METHOD'] == "POST") {
-
-                        $name = $_POST['name'];
-                        $username = $_POST['username'];
-                        $descrption = $_POST['descrption'];
-                        $email = $_POST['email'];
-                        $passwod = $_POST['passwod'];
-                        $passwod = PASSWORD_HASH($_POST["passwod"], PASSWORD_DEFAULT);
-                        $PhoneNumber = $_POST['PhoneNumber'];
-                        $option = $_POST['service'];
-                        $type = $_POST['type'];
-                        $servicetype = "";
-
-                        for ($i = 0; $i < sizeof($type); $i++) {
-                            $servicetype .= $type[$i] . ",";
-                        }
-
-                        $location = $_POST['location'];
-                        $LicenseNumber = $_POST['LicenseNumber'];
-                        $picture = $_POST['picture'];
-
-
-                        //cheack from email 
-                        $sql_chk_email = "select * from charity where email = '$email' ";
-
-                        $result = $conn->query($sql_chk_email);
-
-                        if ($result->num_rows > 0) {
-                            $_SESSION['faild'] = 'This email is already exists in our website';
-                            header('Location:RequestToJoin.php');
-                        } else {
-
-                            $sql_chk_email = "select * from charity where phone = '$PhoneNumber' ";
-
-                            $result = $conn->query($sql_chk_email);
-
-                            if ($result->num_rows > 0) {
-                                $_SESSION['faild'] = 'This phone number is already exists in our website';
-                                header('Location:RequestToJoin.php');
-                            } else {
-
-                                $sql_chk_username = "select * from charity where username = '$username' ";
-
-                                $res = $conn->query($sql_chk_username);
-
-                                if ($res->num_rows > 0) {
-                                    $_SESSION['faild'] = 'This username is already exists in our website';
-                                    header('Location:RequestToJoin.php');
-                                } else {
-                                    $query = "INSERT INTO `charity`(name , username, descrption, email , pass , phone, service, donatoionType,location,LicenseNumber,picture,status) VALUES ('$name', '$username', '$descrption' ,'$email', '$passwod', '$PhoneNumber','$option','$servicetype','$location','$LicenseNumber','$picture','null')";
-                                    $run = mysqli_query($conn, $query);
-
-
-                                    if ($run) {
-
-                                        echo '<script> alert("success Rigester");</script>';
-                                        echo
-                                        "<script>
-           window.location ='confirmationPage.php';
-           </script>";
-                                    } else {
-                                        echo '<script> alert("field Riggester");</script>';
-                                    }
-                                }
-                            }
-                        }
-                    }
+//                    $server = "localhost";
+//                    $username = "root";
+//                    $password = "root";
+//                    $dbname = "awondb";
+//
+//                    //define DB
+//                    $conn = mysqli_connect("$server", "$username", "$password", "$dbname");
+//
+//                    $error = mysqli_connect_error();
+//                    if ($error != null) {
+//                        echo "<p>Eror!! could not connect to DB may not connect </p>";
+//                    }
+//                    //else {    echo 'success connect';}
+//                    // else {    echo 'success connect';}
+//
+//                    if ($_SERVER['REQUEST_METHOD'] == "POST") {
+//
+//                        $name = $_POST['name'];
+//                        $username = $_POST['username'];
+//                        $descrption = $_POST['descrption'];
+//                        $email = $_POST['email'];
+//                        $passwod = $_POST['passwod'];
+//                        $passwod = PASSWORD_HASH($_POST["passwod"], PASSWORD_DEFAULT);
+//                        $PhoneNumber = $_POST['PhoneNumber'];
+//                        $option = $_POST['service'];
+//                        $type = $_POST['type'];
+//                        $servicetype = "";
+//
+//                        for ($i = 0; $i < sizeof($type); $i++) {
+//                            $servicetype .= $type[$i] . ",";
+//                        }
+//
+//                        $location = $_POST['location'];
+//                        $LicenseNumber = $_POST['LicenseNumber'];
+//                        $picture = $_POST['picture'];
+//
+//
+//                        //cheack from email 
+//                        $sql_chk_email = "select * from charity where email = '$email' ";
+//
+//                        $result = $conn->query($sql_chk_email);
+//
+//                        if ($result->num_rows > 0) {
+//                            $_SESSION['faild'] = 'This email is already exists in our website';
+//                            header('Location:RequestToJoin.php');
+//                        } else {
+//
+//                            $sql_chk_email = "select * from charity where phone = '$PhoneNumber' ";
+//
+//                            $result = $conn->query($sql_chk_email);
+//
+//                            if ($result->num_rows > 0) {
+//                                $_SESSION['faild'] = 'This phone number is already exists in our website';
+//                                header('Location:RequestToJoin.php');
+//                            } else {
+//
+//                                $sql_chk_username = "select * from charity where username = '$username' ";
+//
+//                                $res = $conn->query($sql_chk_username);
+//
+//                                if ($res->num_rows > 0) {
+//                                    $_SESSION['faild'] = 'This username is already exists in our website';
+//                                    header('Location:RequestToJoin.php');
+//                                } else {
+//                                    $query = "INSERT INTO `charity`(name , username, descrption, email , pass , phone, service, donatoionType,location,LicenseNumber,picture,status) VALUES ('$name', '$username', '$descrption' ,'$email', '$passwod', '$PhoneNumber','$option','$servicetype','$location','$LicenseNumber','$picture','null')";
+//                                    $run = mysqli_query($conn, $query);
+//
+//
+//                                    if ($run) {
+//
+//                                        echo '<script> alert("success Rigester");</script>';
+//                                        echo
+//                                        "<script>
+//           window.location ='confirmationPage.php';
+//           </script>";
+//                                    } else {
+//                                        echo '<script> alert("field Riggester");</script>';
+//                                    }
+//                                }
+//                            }
+//                        }
+//                    }
                     ?>
 
 

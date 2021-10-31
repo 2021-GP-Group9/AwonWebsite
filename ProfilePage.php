@@ -21,239 +21,509 @@ if ($error != null) {
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel='stylesheet' href='style.css'>
-        <link rel="stylesheet" href="DesignPages.css">
-    <header> 
-        <!-- logo in the right -->
-        <img src="finalLogo.jpeg" alt="logo" class="logo" style="length:100px; width:100px; float: left;">
+        <meta name="format-detection" content="telephone=no">
+        <link rel='stylesheet' href='design.css'>
+        <link rel="stylesheet" href="DesignBootstrap.css">
+    </head>
+    <body>
+        <div id="dtr-wrapper" class="clearfix"> 
 
-        <!-- navbar for charity should include 'الصفحة الرئيسية' which is call CharityPage.php  --> 
-        <nav class="topnav">
-            <ul>
-                <li><a href=".php"></a> </li>
-            </ul>
-        </nav>
-       <!-- log out  as button in the left-->
-        <form id="signout" action="logout.php" method="POST">
-            <input type="submit" value="تسجيل خروج">
+            <!-- preloader starts 
+            <div class="dtr-preloader">
+                <div class="dtr-preloader-inner">
+                    <div class="dtr-preloader-img"></div>
+                </div>
+            </div>-->
+            <!-- preloader ends --> 
 
-        </form>
-    </header>
-    <!-- <header id="headerPage" style="padding:28px 16px">
-            <form id="signout" action="logout.php" method="POST">
-         <input type="submit" value="تسجيل خروج">
-                 </form> 
-             </form> 
-             <img src="logo.jpg" alt="logo" class="pageP"  >
-         </header>-->
-</head>
+            <!-- Small Devices Header 
+        ============================================= -->
+            <div class="dtr-responsive-header">
+                <div class="container"> 
 
-<?php
-$option = "";
+                    <div class="dtr-header-left" style="float: left;"> 
+                        <form id="signout" action="logout.php" method="POST">
+                            <input type="submit" class="logoutbtn" value="تسجيل خروج">
+                        </form>       
+                    </div>
 
-$sqli = "SELECT * FROM `charity` WHERE ID = '$ID'";
+                    <!-- small devices logo --> 
+                    <a href="index.php"><img src="finalLogo.jpeg" class="m-logo" alt="logo"></a> 
+                    <!-- small devices logo ends --> 
+                </div>
+            </div>
+            <!-- Small Devices Header ends 
+        ============================================= --> 
+
+            <!-- Header 
+        ============================================= -->
+            <header id="dtr-header-global" class="">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <form id="signout" action="logout.php" method="POST">
+                                <input type="submit" class="logoutbtn" value="تسجيل خروج">
+                            </form>  
+                        </div>
+                        <div class="col-sm-4" align="center"><br>
+                            <div class="main-navigation dtr-menu-dark">
+                                <a class="nav-link" href="CharityPage.php">الصفحة الرئيسية</a>
+                            </div>
+                        </div>
+                        <div class="col-sm-4" align="right">
+                            <div class="dtr-header-right"> 
+                                <a class="logo-default dtr-scroll-link" href="index.php"><img src="finalLogo.jpeg" alt="logo" width="108"></a></div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <!-- header ends
+        ================================================== --> 
+
+            <!-- == main content area starts == -->
+            <div id="dtr-main-content"> 
+
+                <section id="about" class="dtr-section dtr-py-100 bg-light-blue">
+                    <div class="container mt-100 mb-100"> 
+
+                        <!--===== row 1 starts =====-->
+                        <div class="row d-flex align-items-center"> 
+                            <!-- column 2 starts -->
+                            <div class="col-1 col-md-2"></div> 
+                            <div class="col-12 col-md-8"> 
+
+                                <!-- heading starts -->
+                                <div class="dtr-styled-" align="center">
+
+                                    <?php
+                                    $option = "";
+
+                                    $sqli = "SELECT * FROM `charity` WHERE ID = '$ID'";
 ////echo $sqli;
-$result = $conn->query($sqli);
+                                    $result = $conn->query($sqli);
 
-$row = $result->fetch_assoc();
+                                    $row = $result->fetch_assoc();
 //define DB
-$name = $row['name'];
-$username = $row['username'];
-$pass = $row['pass'];
-$email = $row['email'];
-$PhoneNumber = $row['phone'];
-$LicenseNumber = $row['LicenseNumber'];
-$location = $row['location'];
-$descrption = $row['descrption'];
-$option = $row['service'];
-$type = $row['donatoionType'];
-$picture = $row['picture'];
-?>
+                                    $name = $row['name'];
+                                    $username = $row['username'];
+                                    $pass = $row['pass'];
+                                    $email = $row['email'];
+                                    $PhoneNumber = $row['phone'];
+                                    $LicenseNumber = $row['LicenseNumber'];
+                                    $location = $row['location'];
+                                    $descrption = $row['descrption'];
+                                    $option = $row['service'];
+                                    $type = $row['donatoionType'];
+                                    $picture = $row['picture'];
+                                    ?>
 
-<body>
-    <div class="auth-content"> 
-        <?php
-        echo '<h1>إدارة الملف الشخصي</h1>';
-        ?>    
-<!--  design the form  -->
-        <form method="post" id="ManageTheProfile" enctype="multipart/form-data" action="UpdateProfilePage.php">
+                                    <!-- heading starts -->
+                                    <div class="dtr-styled-heading">
+                                        <h2>إدارة الملف الشخصي</h2>
+                                    </div>
+                                    <!-- heading ends --> 
+
+                                    <!--== row starts ==-->
+                                    <div class="row"> 
+
+                                        <!-- column 1 starts -->
+                                        <div class="col-12 col-md-12"> 
+
+                                            <!-- form starts -->
+                                            <div class="dtr-form">
+                                                <form id="contactform" method="post" action="">
+                                                    <fieldset>
+                                                        <div class="dtr-form-row dtr-form-row-2col">
+                                                            <p class="dtr-form-column">
+                                                                <label for="username">اسم المستخدم</label>
+                                                                <input type="text" name="name" placeholder="اسم المستخدم" id="name" value= "<?php echo $name ?>" >
+                                                            </p>
+                                                            <p class="dtr-form-column">
+                                                                <label for="name" >اسم المنظمة الخيرية</label>  
+                                                                <input type="text" name="username" id="username" placeholder="اسم المنظمة الخيرية" required value= "<?php echo $username ?>">
+                                                            </p>
+                                                        </div>
+                                                    </fieldset>
+                                                    <fieldset>	
+                                                        <div class="dtr-form-row dtr-form-row-2col">
+                                                            <p class="dtr-form-column">
+                                                                <label for="password">البريد الالكتروني</label>
+                                                                <input type="email" name="email" id="email" placeholder="البريد الالكتروني" required value= "<?php echo $email ?>"  >
+                                                            </p>
+                                                            <p class="dtr-form-column">
+                                                                <label for="email">كلمةالمرور</label>
+                                                                <input type="password" name="pwd" placeholder="كلمةالمرور" class="password" id="password"  required value= "<?php echo $pass ?>">
+                                                            </p>
+                                                        </div>
+                                                    </fieldset>
+                                                    <fieldset>
+                                                        <div class="dtr-form-row dtr-form-row-2col">
+                                                            <p class="dtr-form-column">
+                                                                <label for="phone_number">رقم الجوال</label>
+                                                                <input type="tel" name="phone_number" placeholder="" id="phone_number" maxlength="10" required value= "<?php echo $PhoneNumber ?>">
+                                                            </p>
+                                                            <p class="dtr-form-column">
+                                                                <label  for="license_Number">رقم الترخيص</label>
+                                                                <input type="text" name="license_Number" placeholder="" id="license_Number" required value= "<?php echo $LicenseNumber ?>">
+                                                            </p>
+                                                        </div>
+                                                    </fieldset>
+                                                    <fieldset>	
+                                                        <p>
+                                                            <label  for="location">الموقع</label>
+                                                            <input type="text" name="location" id="location" placeholder="الموقع" required  value= "<?php echo $location ?>">
+                                                        </p>
+                                                        <p>
+                                                            <label  for="">هل تتوفر خدمة التوصيل ؟ </label>
+                                                        <div class="form-check-inline">
+                                                            <label class="form-check-label">
+                                                                <input type="radio" class="form-check-input" name="optradio" <?php if ($option == 'yes') echo " checked" ?> >نعم
+                                                            </label>
+                                                        </div>
+                                                        <div class="form-check-inline">
+                                                            <label class="form-check-label">
+                                                                <input type="radio" class="form-check-input" name="optradio" <?php if ($option == 'no') echo " checked" ?>>لا
+                                                            </label>
+                                                        </div>
+                                                        </p>
+                                                        <p>
+                                                            <label  for="">انواع التبرع التي تقبل به المنظمة الخيرية؟</label>
+                                                        <div class="form-check-inline">
+                                                            <label class="form-check-label">
+                                                                <input type="checkbox" class="form-check-input" value="ملابس"  <?php
+                                                                if (in_array('ملابس', $headers)) {
+                                                                    echo " checked ";
+                                                                }
+                                                                ?>
+                                                                       >
+                                                            </label>
+                                                        </div>
+                                                        <div class="form-check-inline">
+                                                            <label class="form-check-label">
+                                                                <input type="checkbox" class="form-check-input" value="اثاث"
+                                                                <?php
+                                                                if (in_array('اثاث', $headers)) {
+                                                                    echo " checked ";
+                                                                }
+                                                                ?>
+
+                                                                       >
+                                                            </label>
+                                                        </div>
+                                                        <div class="form-check-inline">
+                                                            <label class="form-check-label">
+                                                                <input type="checkbox" class="form-check-input" value="الكترونيات" <?php
+                                                                if (in_array('الكترونيات', $headers)) {
+                                                                    echo " checked ";
+                                                                }
+                                                                ?>  >
+
+                                                            </label>
+                                                        </div>
+                                                        <div class="form-check-inline">
+                                                            <label class="form-check-label">
+                                                                <input type="checkbox" class="form-check-input"value="كتب_ورق"
+
+                                                                       <?php
+                                                                       if (in_array('كتب_ورق', $headers)) {
+                                                                           echo " checked ";
+                                                                       }
+                                                                       ?>
+
+                                                                       >    </label>
+                                                        </div>
+                                                        </div>
+                                                        </p>
+                                                        <p>
+                                                            <label>صورة الملف التعريفي</label>
+                                                        <div class="custom-file">
+                                                            <input type="file" class="custom-file-input" id="customFile">
+                                                            <label class="custom-file-label" for="customFile">Choose file</label>
+                                                        </div>
+                                                        </p>
+                                                        <p>
+                                                            <label>وصف المنظمة الخيرية</label>
+                                                            <textarea rows="6" name="message" id="message" class="required"  placeholder="وصف المنظمة الخيرية" <?php echo $descrption ?>></textarea>
+                                                        </p><br>
+                                                        <p class="text-center">
+                                                            <button class="dtr-btn btn-blue" type="submit"  onclick="return validate();">حفظ</button>
+                                                        </p>
+                                                    </fieldset>
+                                                </form>
+                                            </div>
+                                            <!-- form ends --> 
+
+                                        </div>
+                                        <!-- column 1 ends --> 
+
+                                    </div>
+                                    <!--== row ends ==--> 
+                                    <!-- form ends --> 
+                                </div>
+                                <!-- heading ends --> 
+                            </div>
+                            <!-- column 2 ends --> 
+                        </div>
+                        <!--===== row 1 ends =====--> 
+                    </div>
+                </section>
 
 
 
-            <input type="text" name="name" id="name" required value= "<?php echo $name ?>" >
-            <label for="username">اسم المستخدم</label>
+                -----------------------------------------------------------------------------------------------------------------------------------------------------------
+                <!--  <header> 
+                       logo in the right 
+                      <img src="finalLogo.jpeg" alt="logo" class="logo" style="length:100px; width:100px; float: left;">-->
+
+                <!-- navbar for charity should include 'الصفحة الرئيسية' which is call CharityPage.php 
+                    <ul>
+                        <li><a href=".php"></a> </li>
+                    </ul>
+                </nav>
+                <!-- log out  as button in the left
+                <form id="signout" action="logout.php" method="POST">
+                    <input type="submit" value="تسجيل خروج">
+    
+                </form        </header>  >
+    
+                <nav class="topnav">-->
+                <!-- <header id="headerPage" style="padding:28px 16px">
+                        <form id="signout" action="logout.php" method="POST">
+                     <input type="submit" value="تسجيل خروج">
+                             </form> 
+                         </form> 
+                         <img src="logo.jpg" alt="logo" class="pageP"  >
+                     </header>-->
+
+
+                <?php
+//                $option = "";
+//
+//                $sqli = "SELECT * FROM `charity` WHERE ID = '$ID'";
+//////echo $sqli;
+//                $result = $conn->query($sqli);
+//
+//                $row = $result->fetch_assoc();
+////define DB
+//                $name = $row['name'];
+//                $username = $row['username'];
+//                $pass = $row['pass'];
+//                $email = $row['email'];
+//                $PhoneNumber = $row['phone'];
+//                $LicenseNumber = $row['LicenseNumber'];
+//                $location = $row['location'];
+//                $descrption = $row['descrption'];
+//                $option = $row['service'];
+//                $type = $row['donatoionType'];
+//                $picture = $row['picture'];
+                ?>
+
+
+                <!--     <div class="auth-content"> 
+                <?php
+                //echo '<h1>إدارة الملف الشخصي</h1>';
+                ?>    
+                <!--  design the form  
+                <form method="post" id="ManageTheProfile" enctype="multipart/form-data" action="UpdateProfilePage.php">
 
 
 
-            <input type="text" name="username" id="username" required value= "<?php echo $username ?>">
-            <label for="name" >اسم المنظمة الخيرية</label>  
+                    <input type="text" name="name" id="name" required value= "<?php // echo $name  ?>" >
+                    <label for="username">اسم المستخدم</label>
 
 
 
-            <br>
+                    <input type="text" name="username" id="username" required value= "<?php // echo $username  ?>">
+                    <label for="name" >اسم المنظمة الخيرية</label>  
 
 
-            <input type="email" name="email" id="email" required value= "<?php echo $email ?>" >
-            <label for="password">كلمةالمرور</label>
+
+                    <br
 
 
-            <input type="password" name="pwd" class="password" id="password"  required value= "<?php echo $pass ?>" >
-            <label for="email">البريد الالكتروني</label>
+                    <input type="email" name="email" id="email" required value= "<?php // echo $email  ?>" >
+                    <label for="password">كلمةالمرور</label>
 
 
-            <br>
-
-            <input type="tel" name="phone_number" id="phone_number" maxlength="10" required value= "<?php echo $PhoneNumber ?>"><!-- tel or number?  -->
-            <label  for="license_Number">رقم الترخيص</label> 
+                    <input type="password" name="pwd" class="password" id="password"  required value= "<?php // echo $pass  ?>" >
+                    <label for="email">البريد الالكتروني</label>
 
 
-            <input type="int" name="license_Number" id="license_Number" required value= "<?php echo $LicenseNumber ?>">
-            <label for="phone_number">رقم الجوال</label>
+                    <br>
+                -->
+                                   <!--      <input type="tel" name="phone_number" id="phone_number" maxlength="10" required value= "<?php //echo $PhoneNumber  ?>">tel or number? 
+                                        <label  for="license_Number">رقم الترخيص</label> 
+                
+                
+                                        <input type="int" name="license_Number" id="license_Number" required value= "<?php //echo $LicenseNumber  ?>">
+                                        <label for="phone_number">رقم الجوال</label>
+                
+                
+                                        <br>
+                -->
+
+             <!--           <input type="text" name="location" id="location" required value= "<?php //echo $location  ?>"> not sure if it is url maybe it is select 
+                        <label  for="location">الموقع</label>
+
+                        <br>
 
 
-            <br>
+                        <label>هل تتوفر خدمة التوصيل ؟ </label>
+                <?php ///echo " option : ", $option . "<br>"; ?>
+                          <input type="radio" name="pickup_servise" id="pickup_servise" value="yes"  <?php //if ($option == 'yes') echo " checked"  ?>>
+                          <label for="نعم">نعم</label>
+                          <input type="radio" name="pickup_servise" id="pickup_servise"  value="no"  <?php // if ($option == 'no') echo " checked"  ?>>
+                          <label for="لا">لا</label>    
+
+                        <br>
+
+                <?php
+                ///echo  $type;
+                //$headers = explode(',', $type);
+                ?>
+
+                        <label>انواع التبرع التي تقبل به المنظمة الخيرية؟</label>
+                        <input type="checkbox" name="types[]" id="type_of_donation"  value="ملابس"
+                <?php
+//                        if (in_array('ملابس', $headers)) {
+//                            echo " checked ";
+//                        }
+                ?>
+                               >
+                        <label for="ملابس">ملابس</label>
+
+                        <input type="checkbox" name="types[]" id="type_of_donation"   value="اثاث"
+                <?php
+//                        if (in_array('اثاث', $headers)) {
+//                            echo " checked ";
+//                        }
+                ?>
+
+                               >
+                        <label for="اثاث">اثاث</label>
+                        <input type="checkbox" name="types[]" id="type_of_donation"  value="الكترونيات"
+                <?php
+//                        if (in_array('الكترونيات', $headers)) {
+//                            echo " checked ";
+//                        }
+                ?>
+
+                               >
+
+                        <label for="الكترونيات">الكترونيات</label>
+
+                        <input type="checkbox" name="type[]" id="books" class="name-input" value="كتب_ورق"
 
 
-            <input type="text" name="location" id="location" required value= "<?php echo $location ?>"><!-- not sure if it is url maybe it is select -->
-            <label  for="location">الموقع</label>
+                <?php
+//                               if (in_array('كتب_ورق', $headers)) {
+//                                   echo " checked ";
+//                               }
+                ?>
 
-            <br>
+                               >
+                        <label for="كتب_ورق">كتب_ورق</label>
+
+                        <br>
+                        <br>
+                        <input type="file" id="img" name="img" accept="image/*"  >
+                        <label for="img">صورة الملف التعريفي</label>
+
+                        <br>
+
+                        <textarea rows="4" type="text" name="description" id="description" required > <?php //echo $descrption  ?> </textarea>
+                        <label for="description">وصف المنظمة الخيرية</label> 
+
+                        <br>
+
+                        <button class="bu1" id="Edit" type="submit" name="Edit" onclick="return validate();">حفظ</button>
+
+                    </form>
+                </div>-->
 
 
-            <label>هل تتوفر خدمة التوصيل ؟ </label>
-            <?php ///echo " option : ", $option . "<br>"; ?>
-              <input type="radio" name="pickup_servise" id="pickup_servise" value="yes"  <?php if ($option == 'yes') echo " checked" ?>>
-              <label for="نعم">نعم</label>
-              <input type="radio" name="pickup_servise" id="pickup_servise"  value="no"  <?php if ($option == 'no') echo " checked" ?>>
-              <label for="لا">لا</label>    
 
-            <br>
 
-            <?php
-            ///echo  $type;
+                <!-- Footer -->
+                <footer id="dtr-footer"> 
 
-            $headers = explode(',', $type);
-            ?>
+                    <!--== copyright starts ==-->
+                    <div class="dtr-copyright">
+                        <div class="container"> 
+                            <!--== row starts ==-->
+                            <div class="row"> 
+                                <!-- column 1 starts -->
+                                <div class="col-12 col-md-12" align="center">
+                                    <p>&copy; فريق منصة عون</p>
+                                </div>
+                            </div>
+                            <!--== row ends ==--> 
 
-            <label>انواع التبرع التي تقبل به المنظمة الخيرية؟</label>
-            <input type="checkbox" name="types[]" id="type_of_donation"  value="ملابس"
-            <?php
-            if (in_array('ملابس', $headers)) {
-                echo " checked ";
+                        </div>
+                    </div>
+                    <!--== copyright ends ==--> 
+
+                </footer>
+                <!-- footer section ends
+        ================================================== --> 
+
+            </div>
+            <!-- == main content area ends == --> 
+
+        </div>
+        <!-- #dtr-wrapper ends --> 
+    </body>
+    <script src="design.js"></script> 
+    <script>
+
+
+        function validate(form) {
+            ///alert("validate edit form");
+            var phone = document.getElementById("phone_number");
+            var digit = /^\d{10}$/; //to ensure the phone# input allow only correct address
+            //1-validate phone number
+            var checkPhone = phone.value.match(digit); // must be numbers
+            if (!checkPhone || phone.value.length < 10 || phone.value.length > 10)
+            {
+                alert("من فضلك ادخل رقم الجمعية بشكل صحيح");
+                phone.focus();
+                return false;
             }
-            ?>
-                   >
-            <label for="ملابس">ملابس</label>
 
-            <input type="checkbox" name="types[]" id="type_of_donation"   value="اثاث"
-            <?php
-            if (in_array('اثاث', $headers)) {
-                echo " checked ";
+            ///alert("phone done");
+            var myPassword = document.getElementById("password");
+            var newPass = document.getElementById("password").value;
+            ///alert("New Password : " + newPass);
+            var passworsChar = /^[a-zA-Z0-9!@#$%^&*]{8,}$/;
+            var cheackPass = document.getElementById("password").value.match(passworsChar);
+
+
+
+            //2-validate password
+            if (newPass == "") {
+                alert("من فضلك ادخل كلمة المرورة");
+                myPassword.focus();
+                return false;
             }
-            ?>
 
-                   >
-            <label for="اثاث">اثاث</label>
-            <input type="checkbox" name="types[]" id="type_of_donation"  value="الكترونيات"
-            <?php
-            if (in_array('الكترونيات', $headers)) {
-                echo " checked ";
+            if (newPass.length < 8) {
+
+                alert("كلمة المرور يجب ان تتكون من ثمان خانات فأكثر ");
+                myPassword.focus();
+                return false;
             }
-            ?>
 
-                   >
+            if (!cheackPass) {
+                alert("password should contain at least one number and one special character");
+                return false;
+            }
+            ///alert("Password done");
 
-            <label for="الكترونيات">الكترونيات</label>
-
-            <input type="checkbox" name="type[]" id="books" class="name-input" value="كتب_ورق"
-
-
-                   <?php
-                   if (in_array('كتب_ورق', $headers)) {
-                       echo " checked ";
-                   }
-                   ?>
-
-                   >
-            <label for="كتب_ورق">كتب_ورق</label>
-
-            <br>
-            <br>
-            <input type="file" id="img" name="img" accept="image/*"  >
-            <label for="img">صورة الملف التعريفي</label>
-
-            <br>
-
-            <textarea rows="4" type="text" name="description" id="description" required > <?php echo $descrption ?> </textarea>
-            <label for="description">وصف المنظمة الخيرية</label> 
-
-            <br>
-
-            <button class="bu1" id="Edit" type="submit" name="Edit" onclick="return validate();">حفظ</button>
-
-        </form>
-    </div>
-
-</body>
-
-
-<!-- Footer -->
-<footer>
-    <!-- we want footer with  <p>&copy; فريق منصة عون</p>  -->
-
-    <p>&copy; فريق منصة عون</p>
-</footer>
-
-<script>
-
-
-    function validate(form) {
-        ///alert("validate edit form");
-        var phone = document.getElementById("phone_number");
-        var digit = /^\d{10}$/; //to ensure the phone# input allow only correct address
-        //1-validate phone number
-        var checkPhone = phone.value.match(digit); // must be numbers
-        if (!checkPhone || phone.value.length < 10 || phone.value.length > 10)
-        {
-            alert("من فضلك ادخل رقم الجمعية بشكل صحيح");
-            phone.focus();
-            return false;
+            this.form.submit();
         }
 
-        ///alert("phone done");
-        var myPassword = document.getElementById("password");
-        var newPass = document.getElementById("password").value;
-        ///alert("New Password : " + newPass);
-        var passworsChar = /^[a-zA-Z0-9!@#$%^&*]{8,}$/;
-        var cheackPass = document.getElementById("password").value.match(passworsChar);
 
-
-
-        //2-validate password
-        if (newPass == "") {
-            alert("من فضلك ادخل كلمة المرورة");
-            myPassword.focus();
-            return false;
-        }
-
-        if (newPass.length < 8) {
-
-            alert("كلمة المرور يجب ان تتكون من ثمان خانات فأكثر ");
-            myPassword.focus();
-            return false;
-        }
-
-        if (!cheackPass) {
-            alert("password should contain at least one number and one special character");
-            return false;
-        }
-        ///alert("Password done");
-
-        this.form.submit();
-    }
-
-
-</script>
+    </script>
 </html>
 
 
