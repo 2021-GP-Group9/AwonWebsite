@@ -217,8 +217,8 @@ legend{
     padding:0;
     margin-bottom:.5rem;
     font-size:1.5rem;
-    line-height:inherit;c
-    olor:inherit;
+    line-height:inherit;
+    color:inherit;
     white-space:normal
 }
 progress{
@@ -2430,8 +2430,8 @@ input[type=button].btn-block,input[type=reset].btn-block,input[type=submit].btn-
     .navbar-expand-sm .navbar-nav .dropdown-menu{position:absolute}
     .navbar-expand-sm .navbar-nav .nav-link{
         padding-right:.5rem;
-        padding-left:.5rem}.
-    navbar-expand-sm>.container,.navbar-expand-sm>.container-fluid,.navbar-expand-sm>.container-lg,.navbar-expand-sm>.container-md,.navbar-expand-sm>.container-sm,.navbar-expand-sm>.container-xl{
+        padding-left:.5rem}
+    .navbar-expand-sm>.container,.navbar-expand-sm>.container-fluid,.navbar-expand-sm>.container-lg,.navbar-expand-sm>.container-md,.navbar-expand-sm>.container-sm,.navbar-expand-sm>.container-xl{
         -ms-flex-wrap:nowrap;
         flex-wrap:nowrap}
     .navbar-expand-sm .navbar-collapse{
