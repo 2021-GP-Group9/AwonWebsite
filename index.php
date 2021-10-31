@@ -4,68 +4,117 @@
     <head> 
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel='stylesheet' href='style.css'>
-        <link rel="stylesheet" href="DesignPages.css">
+        <meta name="format-detection" content="telephone=no">
+        <link rel='stylesheet' href='DesignBootstrap.css'>
+        <link rel="stylesheet" href="design.css">
         <!-- Header Sahar & Aljawharah is heeeereeee -->
-    <header> 
-         <!-- logo in the right -->
-        <img src="finalLogo.jpeg" alt="logo" class="logo" style="length:100px; width:100px; float: left;">
-      <!--  <div style="float: right;">
-            <nav class="topnav">
-                <ul>
-                    <li><a href="">الصفحة الرئيسية</a> </li>
-                    <li><a href="">test</a></li>
-                    <li><a href="">test</a></li>
-                    <li><a href="index.php">تسجيل خروج</a></li>
-                </ul> </nav></div>
+    </head> 
+    <body>
 
-    </header>
-    <!-- <header id="headerHome"  style="padding:128px 16px">
-       <img src="logo.jpg" alt="logo" class="homeP"  >
-       
-    <br>
-    <br>
-    
-       <i id="bu"> <button class="bu1" onclick="login();return false;">تسجيل دخول </button>
-           <button class="bu1"  onclick="signUp();return false;">طلب الإنضمام</button></i>
-      
-        --> 
-    </header> 
-</head> 
-<body>
-    <br><br>
-    <!-- design --> 
-    <i id="bu"> 
-        <button class="indexPage" onclick="login();return false;">تسجيل دخول </button>
-        <button class="indexPage"  onclick="signUp();return false;">طلب الإنضمام</button>
-    </i>
-    <!-- First Grid -->
-    <div class="who">
-        <h1>من نحن</h1>
-        <br>
-        <h5 class="who">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</h5>
-        <br>
-    </div>
+        <div id="dtr-wrapper" class="clearfix"> 
 
-</body>
+           
+            <!-- logo in the right -->
+            <div class="dtr-responsive-header">
+                <div class="container"> 
+
+                    <!-- small devices logo --> 
+                    <a href="index.php"><img src="finalLogo.jpeg" class="m-logo" alt="logo"></a> 
+                    <!-- small devices logo ends --> 
+                </div>
+            </div>
+            <header>
+                <header id="dtr-header-global" class="">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-sm-4"></div>
+                            <div class="col-sm-4"></div>
+                            <div class="col-sm-4" align="right">
+                                <div class="dtr-header-right"> 
+                                    <a class="logo-default dtr-scroll-link" href="index.php"><img src="finalLogo.jpeg" alt="logo" width="108"></a></div>
+                            </div>
+                        </div>
+                    </div>
+                </header>
+ 
+                <!-- == main content area starts == -->
+                <div id="dtr-main-content"> 
+
+                    <section id="about" class="dtr-section dtr-py-100 bg-light-blue">
+                        <div class="container mt-100 mb-100"> 
+
+                            <!--===== row 1 starts =====-->
+                            <div class="row d-flex align-items-center"> 
+
+                                <!-- column 1 starts -->
+                                <div class="col-12 col-md-6 small-device-space">
+                                    <div class="dtr-pr-30" align="center"> 
+                                        <a href="login.php" class="dtr-btn btn-blue dtr-mt-30 f25">تسجيل دخول</a>
+                                        <a href="RequestToJoin.php" class="dtr-btn btn-white dtr-mt-30 f25">طلب الإنضمام</a>
+                                    </div>
+                                </div>
+                                <!-- column 1 ends --> 
+
+                                <!-- column 2 starts -->
+                                <div class="col-12 col-md-6"> 
+
+                                    <!-- heading starts -->
+                                    <div class="dtr-styled-heading">
+                                        <h2>من نحن</h2>
+                                        <p>قد يكون الألم بحد ذاته شديدًا ، لكن السبب الرئيسي هو الألم ، لكنني أعطي الوقت للوقوع فيه مثل بعض الألم والألم الشديد. ولكي يأتي الأقل ، فماذا لنا أن نمارس أي مدرسة عمل إلا للاستفادة من أهدافها لتحقيقها.</p>
+                                    </div>
+                                    <!-- heading ends --> 
+                                </div>
+                                <!-- column 2 ends --> 
+                            </div>
+                            <!--===== row 1 ends =====--> 
+                        </div>
+                    </section>
 
 
-    <!-- Footer -->
-    <footer>
-        <!-- we want footer with  <p>&copy; فريق منصة عون</p>  -->
-       
-        <p>&copy; فريق منصة عون</p>
-    </footer>
+                    <br><br>
+          
+                    </body>
 
-<script>
 
-    function login() {
-        window.location = "login.php";
-    }
-    function signUp() {
-        window.location = "RequestToJoin.php";
-    }
+                    <!-- Footer -->
+                    <footer id="dtr-footer"> 
 
-</script>
+                        <!--== copyright starts ==-->
+                        <div class="dtr-copyright">
+                            <div class="container"> 
+                                <!--== row starts ==-->
+                                <div class="row"> 
+                                    <!-- column 1 starts -->
+                                    <div class="col-12 col-md-12" align="center">
+                                        <p>&copy; فريق منصة عون</p>
+                                    </div>
+                                </div>
+                                <!--== row ends ==--> 
+
+                            </div>
+                        </div>
+                        <!--== copyright ends ==--> 
+
+                    </footer>
+                    <!-- footer section ends
+            ================================================== --> 
+
+                </div>
+                <!-- == main content area ends == --> 
+
+        </div>
+        <script src="design.js"></script> 
+        <script>
+
+            function login() {
+                window.location = "login.php";
+            }
+            function signUp() {
+                window.location = "RequestToJoin.php";
+            }
+
+        </script>
+    </body>
 </html>
 
