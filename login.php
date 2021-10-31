@@ -310,7 +310,7 @@ if (isset($_SESSION['role'])) {
 
         </div>
     </body>
-
+<script src="design.js"></script> 
     <!-- Footer 
     <footer>
         <!-- we want footer with  <p>&copy; فريق منصة عون</p>  
