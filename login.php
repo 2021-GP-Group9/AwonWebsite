@@ -83,11 +83,11 @@ if (isset($_SESSION['role'])) {
                                                 <div class="dtr-form-row dtr-form-row-2col">
                                                     <p class="">
                                                         <label>اسم المستخدم</label>
-                                                        <input name="username"  type="text" placeholder="اسم المستخدم">
+                                                        <input name="username"  id="username" class="name-input" type="text" placeholder="اسم المستخدم">
                                                     </p>
                                                     <p class="">
                                                         <label>كلمة المرور</label>
-                                                        <input name="pwd"  class="required" type="password" placeholder="كلمة المرور">
+                                                        <input name="pwd"  class="required"  id="password" type="password" placeholder="كلمة المرور">
                                                     </p>
                                                 </div><br>
                                                 <p class="text-center">
