@@ -163,7 +163,7 @@ if ($error != null) {
                                             $type = $_POST['types'];
 
                                             $servicetype = implode(",", $type);
-                                            ;
+                                            
 
 
 
