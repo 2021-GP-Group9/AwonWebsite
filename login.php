@@ -175,7 +175,7 @@ if (isset($_SESSION['role'])) {
                                                     echo '<META HTTP-EQUIV="Refresh" Content="2; URL=login.php">';
                                                 }
                                             } else {
-                                                $_SESSION['errorC'] = 'Username not currect or the charity not accepted yet';
+                                                $_SESSION['errorC'] = 'اسم المستخدم غير صحيح أو الجمعية لم تقبل بعد';
                                                 echo '<META HTTP-EQUIV="Refresh" Content="2; URL=login.php">';
                                             }
                                         }
