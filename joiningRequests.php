@@ -12,7 +12,7 @@ if (isset($_SESSION['role'])) {
                 <meta name="format-detection" content="telephone=no">
                 <link rel='stylesheet' href='design.css'>
                 <link rel="stylesheet" href="DesignBootstrap.css">
-                <title>manage joining request</title>
+                <title>طلبات الإنضمام</title>
             </head>  
             <body data-new-gr-c-s-loaded="9.38.0">
                 <div id="dtr-wrapper" class="clearfix"> 
@@ -59,11 +59,11 @@ if (isset($_SESSION['role'])) {
                                     <div class="col-12 col-md-8"> 
                                         <!-- heading starts -->
                                         <div class="dtr-styled-" align="center">
-                                            <h2>طلبات الاضافة</h2>
+                                            <h2>طلبات الإنضمام</h2>
                                             <!-- form starts -->
                                             <?php
                                             $connection = mysqli_connect("localhost", "root", "root", "awondb");
-                                            $sqli = "SELECT * FROM `charity` WHERE status='null' ORDER BY 'register_date' ASC";
+                                            $sqli = "SELECT * FROM `charity` WHERE status='null'";
                                             $result = $connection->query($sqli);
                                             ?>
                                             <table width="100%" class="tab-requets">
@@ -73,19 +73,21 @@ if (isset($_SESSION['role'])) {
                                                     <th>الجمعية الخيرية</th>
                                                 </tr>
                                                 <?php
-                                                while ($row = $result->fetch_assoc()) {
+                                                if ($result->num_rows > 0) {
+                                                    while ($row = mysqli_fetch_assoc($result)) {
                                                     echo'<tr align="right">';
                                                     $dt =date("d-m-Y", strtotime($row['register_date']));
                                                     $image = '<img src="data:image/jpeg;base64,' . base64_encode($row['picture']) . '"width="50em"/>' ;                                                   // &nbsp; used for spaceing
                                                     echo "<td>" .$dt. "</td>";
-
                                                     echo "<td>"."<button id='rej' class='dtr-btn btn-blue btn-small' value={$row['ID']} onclick='reject({$row["ID"]})'>رفض</button>"."<button id='acc' class='dtr-btn btn-white btn-small' onclick='accept({$row["ID"]})'>قبول</button>" ."</td>";
                                                     // please check the img <img src="img/user.png" class="join-user">
-//                                                    
                                                     echo "<td>" . "<a href='manageRequestPage.php?id={$row["ID"]}'>{$row["name"]}</a>" . "&nbsp;&nbsp;&nbsp;&nbsp;" .'<img src="AwonWebsite/user.png" class="join-user">'. "</td>";
                                                     echo "</tr>";
-                                                }
                                                 
+                                                }//end while
+                                                    }//end if
+                                                 
+                                                 
                                                 ?>
                                            
                                             </table>
