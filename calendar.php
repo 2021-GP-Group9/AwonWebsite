@@ -130,7 +130,7 @@ if (isset($_POST['submit'])) {
             $week .= '</h2>';
         }
 
-        $week .= '<a href="filter_date_appointments.php?date=' . $date . '" title="Appointments">';
+        $week .= '<a href="filterDateAppointment.php?date=' . $date . '" title="Appointments">';
         $week .= '<span class="label label-info pull-left">' . $msg . '</span></a>';
 
         $week .= '<span class="label label-success pull-right">' . $msg2 . '</span></a>';

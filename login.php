@@ -62,7 +62,7 @@ if (isset($_SESSION['role'])) {
             </header>
             -->
 
-            <div id="dtr-main-content"> 
+            <div  id="dtr-main-content"> 
 
                 <section id="about" class="dtr-section dtr-py-100 bg-light-blue">
                     <div class="container mt-100 mb-100"> 
@@ -78,7 +78,7 @@ if (isset($_SESSION['role'])) {
                                     <h2>تسجيل الدخول</h2>
                                     <!-- form starts -->
                                     <div class="dtr-form">
-                                        <form id="contactform" method="post" action="">
+                                        <form  id="contactform" method="post" action="">
                                             <fieldset>
                                                 <div class="dtr-form-row dtr-form-row-2col">
                                                     <p class="">
