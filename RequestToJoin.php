@@ -109,28 +109,28 @@ if (isset($_SESSION['role'])) {
 
                                             <!-- form starts -->
                                             <div class="dtr-form">
-                                                <form id="contactform" method="post" action="">
+                                                <form id="contactform" method="POST">
                                                     <fieldset>
                                                         <div class="dtr-form-row dtr-form-row-2col">
                                                             <p class="dtr-form-column">
-                                                                <label for="username">اسم المنظمة الخيرية</label>
-                                                                <input type="text" name="name" placeholder="اسم المنظمة الخيرية" id="name" required value= "" >
+                                                                <label for="name">اسم الجمعية الخيرية</label>
+                                                                <input type="text" name="name" id="name"  placeholder="اسم الجمعية الخيرية"  required >
                                                             </p>
                                                             <p class="dtr-form-column">
-                                                                <label for="name" >اسم المستخدم</label>  
-                                                                <input type="text" name="username" id="username" placeholder="اسم المستخدم" required value= "">
+                                                                <label for="username" >اسم المستخدم</label>  
+                                                                <input type="text" name="username" id="username" placeholder="اسم المستخدم" required>
                                                             </p>
                                                         </div>
                                                     </fieldset>
                                                     <fieldset>	
                                                         <div class="dtr-form-row dtr-form-row-2col">
                                                             <p class="dtr-form-column">
-                                                                <label for="password">البريد الالكتروني</label>
-                                                                <input type="email" name="email" id="email" placeholder="البريد الالكتروني" required value= "" >
+                                                                <label for=" email">البريد الالكتروني</label>
+                                                                <input type="email" name="email" id="email" placeholder="البريد الالكتروني" required >
                                                             </p>
                                                             <p class="dtr-form-column">
-                                                                <label for="email">كلمةالمرور</label>
-                                                                <input type="password" name="pwd" placeholder="كلمةالمرور" class="password" id="password"  required value= "" >
+                                                                <label for=" password">كلمةالمرور</label>
+                                                                <input type="password" name="password" id="password" placeholder="كلمةالمرور" class="password"  required >
                                                             </p>
                                                         </div>
                                                     </fieldset>
@@ -138,65 +138,75 @@ if (isset($_SESSION['role'])) {
                                                         <div class="dtr-form-row dtr-form-row-2col">
                                                             <p class="dtr-form-column">
                                                                 <label for="phone_number">رقم الجوال</label>
-                                                                <input type="tel" name="phone_number" placeholder="" id="phone_number" maxlength="10" required value= "">
+                                                                <input type="tel"  name="phone_number" id="phone_number" placeholder="05xxxxxxxx" maxlength="10" required >
                                                             </p>
                                                             <p class="dtr-form-column">
                                                                 <label  for="license_Number">رقم الترخيص</label>
-                                                                <input type="text" name="license_Number" placeholder="" id="license_Number" required value= "">
+                                                                <input type="text" name="license_Number" id="license_Number" placeholder="xxx" required>
                                                             </p>
                                                         </div>
                                                     </fieldset>
                                                     <fieldset>	
                                                         <p>
-                                                            <label  for="location">الموقع</label>
-                                                            <input type="text" name="location" id="location" placeholder="الموقع" required value= "">
+                                                            <label  for="location">موقع الجمعية </label>
+                                                            <input type="text" name="location" id="location" placeholder="المدينة" required>
                                                         </p>
                                                         <p>
-                                                            <label  for="location">وصف الجمعية الخيرية</label>
-                                                            <input type="text" name="location" id="location" placeholder="وصف الجمعية الخيرية " required value= "">
-                                                        </p>
-                                                        <p>
-                                                            <label  for="">هل تتوفر خدمة التوصيل ؟ </label>
+                                                            <label>هل تتوفر خدمة استلام للتبرعات ؟ </label>
                                                         <div class="form-check-inline">
                                                             <label class="form-check-label">
-                                                                <input type="radio" class="form-check-input" name="optradio">نعم
+                                                                <input type="radio" class="form-check-input" id="yes" name="service" >نعم
                                                             </label>
                                                         </div>
                                                         <div class="form-check-inline">
                                                             <label class="form-check-label">
-                                                                <input type="radio" class="form-check-input" name="optradio">لا
+                                                                <input type="radio" class="form-check-input"id="no"  name="service">لا
                                                             </label>
                                                         </div>
                                                         </p>
                                                         <p>
-                                                            <label  for="">انواع التبرع التي تقبل به المنظمة الخيرية؟</label>
+                                                            <label>انواع التبرعات التي تقبل به المنظمة الخيرية؟</label>
                                                         <div class="form-check-inline">
                                                             <label class="form-check-label">
-                                                                <input type="checkbox" class="form-check-input" value="">ملابس
+                                                                <input type="checkbox" class="form-check-input" name="type[]" id="clothes" value="">ملابس
                                                             </label>
                                                         </div>
                                                         <div class="form-check-inline">
                                                             <label class="form-check-label">
-                                                                <input type="checkbox" class="form-check-input" value="">اثاث
+                                                                <input type="checkbox" class="form-check-input"  name="type[]" id="furniture" value="اثاث">اثاث
                                                             </label>
                                                         </div>
                                                         <div class="form-check-inline">
                                                             <label class="form-check-label">
-                                                                <input type="checkbox" class="form-check-input" value="">الكترونيات
+                                                                <input type="checkbox" class="form-check-input" name="type[]" id="electronic"  value="الكترونيات">الكترونيات
+                                                            </label>
+                                                        </div>
+                                                        
+                                                        <div class="form-check-inline">
+                                                            <label class="form-check-label">
+                                                                <input type="checkbox" class="form-check-input"  name="type[]" id="books" value="كتب_ورق">كتب وورق
                                                             </label>
                                                         </div>
                                                         </p>
                                                         <p>
                                                             <label>صورة الملف التعريفي</label>
                                                         <div class="custom-file">
-                                                            <input type="file" class="custom-file-input" id="customFile">
-                                                            <label class="custom-file-label" for="customFile">Choose file</label>
+                                                            <input type="file" class="custom-file-input" id="customFile" name="picture">
+                                                            <label class="custom-file-label" for="customFile">اختر ملف </label>
                                                         </div>
                                                         </p>
                                                         <br>
+                                                        <fieldset>	
+                                                        <p>
+                                                            <label>وصف الجمعية </label>
+                                                    <input type="textarea" name="descrption" id="descrption" placeholder="وصف المنظمة الخيرية">
+                                                        </p>
+                                                         </fieldset>	
+                                                
+                                                <br><br>
                                                         <p class="text-center">
-                                                            <!-- حفظ و لا تسجيل --> 
-                                                            <button class="dtr-btn btn-blue" type="submit" onclick="validate();return false;">حفظ</button>
+                  
+                                                            <button class="dtr-btn btn-blue" type="submit" name="submit" onclick="validate();return false;">تسجيل</button>
                                                         </p>
                                                     </fieldset>
                                                     <?php
@@ -208,29 +218,30 @@ if (isset($_SESSION['role'])) {
                                                 </form>
                                                 <?php
                                                 $server = "localhost";
-                                                $username = "root";
+                                                $username1 = "root";
                                                 $password = "root";
                                                 $dbname = "awondb";
 
                                                 //define DB
-                                                $conn = mysqli_connect("$server", "$username", "$password", "$dbname");
+                                                $conn = mysqli_connect("$server", "$username1", "$password", "$dbname");
 
                                                 $error = mysqli_connect_error();
                                                 if ($error != null) {
-                                                    echo "<p>Eror!! could not connect to DB may not connect </p>";
-                                                }
-                                                //else {    echo 'success connect';}
-                                                // else {    echo 'success connect';}
+                                                echo "<p>Eror!! could not connect to DB may not connect </p>";}
+                                               
+                                                else { echo 'success connect';}
+                                                
 
                                                 if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
                                                     $name = $_POST['name'];
                                                     $username = $_POST['username'];
-                                                    $descrption = $_POST['descrption'];
                                                     $email = $_POST['email'];
-                                                    $passwod = $_POST['passwod'];
-                                                    $passwod = PASSWORD_HASH($_POST["passwod"], PASSWORD_DEFAULT);
-                                                    $PhoneNumber = $_POST['PhoneNumber'];
+                                                    $password = $_POST['password'];
+                                                    $password = PASSWORD_HASH($_POST["password"], PASSWORD_DEFAULT);
+                                                    $phone_number = $_POST['phone_number'];
+                                                    $license_Number = $_POST['license_Number'];
+                                                    $location = $_POST['location'];
                                                     $option = $_POST['service'];
                                                     $type = $_POST['type'];
                                                     $servicetype = "";
@@ -238,11 +249,8 @@ if (isset($_SESSION['role'])) {
                                                     for ($i = 0; $i < sizeof($type); $i++) {
                                                         $servicetype .= $type[$i] . ",";
                                                     }
-
-                                                    $location = $_POST['location'];
-                                                    $LicenseNumber = $_POST['LicenseNumber'];
                                                     $picture = $_POST['picture'];
-
+                                                    $descrption = $_POST['descrption'];
 
                                                     //cheack from email 
                                                     $sql_chk_email = "select * from charity where email = '$email' ";
@@ -254,7 +262,7 @@ if (isset($_SESSION['role'])) {
                                                         header('Location:RequestToJoin.php');
                                                     } else {
 
-                                                        $sql_chk_email = "select * from charity where phone = '$PhoneNumber' ";
+                                                        $sql_chk_email = "select * from charity where phone = '$phone_number' ";
 
                                                         $result = $conn->query($sql_chk_email);
 
@@ -271,16 +279,18 @@ if (isset($_SESSION['role'])) {
                                                                 $_SESSION['faild'] = 'This username is already exists in our website';
                                                                 header('Location:RequestToJoin.php');
                                                             } else {
-                                                                $query = "INSERT INTO `charity`(name , username, descrption, email , pass , phone, service, donatoionType,location,LicenseNumber,picture,status) VALUES ('$name', '$username', '$descrption' ,'$email', '$passwod', '$PhoneNumber','$option','$servicetype','$location','$LicenseNumber','$picture','null')";
+                                                                
+                                                                                                                                                                                                                        
+                                                                $query = "INSERT INTO `charity`(name, username, descrption, email, pass, phone, service, donatoionType, location, LicenseNumber, picture, status) VALUES ('$name', '$username', '$descrption' ,'$email', '$password', '$phone_number','$option','$servicetype','$location','$license_Number','$picture','null')";
                                                                 $run = mysqli_query($conn, $query);
 
 
                                                                 if ($run) {
 
                                                                     echo '<script> alert("success Rigester");</script>';
-                                                                    echo
-                                                                    "<script>window.location ='confirmationPage.php';</script>";
-                                                                } else {
+                                                                    echo "<script>window.location ='confirmationPage.php';</script>";
+                                                                } 
+                                                                else {
                                                                     echo '<script> alert("field Riggester");</script>';
                                                                 }
                                                             }
@@ -309,224 +319,76 @@ if (isset($_SESSION['role'])) {
                 </section>
 
 
-                <!--      ----------------------------------------------------------------------------------------
-                <div class="auth-content"> 
-                <?php
-                //echo '<h1>نموذج طلب انضمام المنظمات الخيرية</h1>';
-                ?> 
+                    <!--== copyright starts ==-->
+                    <div class="dtr-copyright">
+                        <div class="container"> 
+                            <!--== row starts ==-->
+                            <div class="row"> 
+                                <!-- column 1 starts -->
+                                <div class="col-12 col-md-12" align="center">
+                                    <p>&copy; فريق منصة عون</p>
+                                </div>
+                            </div>
+                            <!--== row ends ==--> 
 
-    
-                    <form method="POST">
-                   design the fieldset  
-                        <fieldset class="requestToJoin">
-
-                            <input type="text" name="name" id="name" class="input" placeholder="اسم المنظمة الخيرية" required> <br>
-                            <input type="text" name="username" id="username" class="input" placeholder="اسم المستخدم "required> <br>
-                            <input type="textarea" name="descrption" id="descrption" class="input"  rows="5" cols="20" placeholder="وصف المنظمة الخيرية"><br>
-                            <input type="email" name="email" id="email" class="input" placeholder="البريد الالكتروني "required><br>
-                            <input type="password" name="passwod" id="passwod" class="input" placeholder="كلمة المرور" required ><br>
-                            <input type="text" name="PhoneNumber" id="PhoneNumber" class="input" placeholder="رقم الجوال"required><br>  <br>
-
-                            <label>هل تتوفر خدمة التوصيل ؟</label>
-                            <ol>
-                                <il> <input id="yes" type="radio" name="service" id="serviceY" class="input"  value="لا" >نعم </il>
-                                <il> <input id="no" type="radio" name="service" id="serviceN" class="input"  value="نعم">لا</il>
-                            </ol>
-                            <br>
-                            <label>انواع التبرع التي تقبل به المنظمة الخيرية؟</label>
-                            <input type="checkbox" name="type[]" id="clothes" class="input" value ="ملابس"> ملابس 
-                            <input type="checkbox" name="type[]" id="furniture" class="input" value="اثاث"> اثاث
-                            <input type="checkbox" name="type[]" id="electronic" class="input" value="الكترونيات"> الكترونيات
-                            <input type="checkbox" name="type[]" id="books" class="input" value="كتب_ورق"> كتب وورق
-
-                            <br><br> 
-
-                            <input type="text" name="location" id="location" class="input" placeholder="الموقع"required>
-                            <br>  <br> 
-
-                            <input type="text" name="LicenseNumber" id="LicenseNumber" class="input" placeholder="رقم الترخيص" required> <br> <br> 
-
-
-                            <input type="file" name="picture"> صورة الملف التعريفي<br> <br> 
-
-                            <button type="submit" name="submit" class="bu1" onclick="validate();return false;" >تسجيل</button>
-
-                        </fieldset>
-                <?php
-//                        if (isset($_SESSION['faild'])) {
-//                            echo "<span style='color:red'>" . $_SESSION['faild'] . "</span>";
-//                        }
-//                        $_SESSION['faild'] = null;
-                ?>
-                    </form>-->
-
-
-                <?php
-//                    $server = "localhost";
-//                    $username = "root";
-//                    $password = "root";
-//                    $dbname = "awondb";
-//
-//                    //define DB
-//                    $conn = mysqli_connect("$server", "$username", "$password", "$dbname");
-//
-//                    $error = mysqli_connect_error();
-//                    if ($error != null) {
-//                        echo "<p>Eror!! could not connect to DB may not connect </p>";
-//                    }
-//                    //else {    echo 'success connect';}
-//                    // else {    echo 'success connect';}
-//
-//                    if ($_SERVER['REQUEST_METHOD'] == "POST") {
-//
-//                        $name = $_POST['name'];
-//                        $username = $_POST['username'];
-//                        $descrption = $_POST['descrption'];
-//                        $email = $_POST['email'];
-//                        $passwod = $_POST['passwod'];
-//                        $passwod = PASSWORD_HASH($_POST["passwod"], PASSWORD_DEFAULT);
-//                        $PhoneNumber = $_POST['PhoneNumber'];
-//                        $option = $_POST['service'];
-//                        $type = $_POST['type'];
-//                        $servicetype = "";
-//
-//                        for ($i = 0; $i < sizeof($type); $i++) {
-//                            $servicetype .= $type[$i] . ",";
-//                        }
-//
-//                        $location = $_POST['location'];
-//                        $LicenseNumber = $_POST['LicenseNumber'];
-//                        $picture = $_POST['picture'];
-//
-//
-//                        //cheack from email 
-//                        $sql_chk_email = "select * from charity where email = '$email' ";
-//
-//                        $result = $conn->query($sql_chk_email);
-//
-//                        if ($result->num_rows > 0) {
-//                            $_SESSION['faild'] = 'This email is already exists in our website';
-//                            header('Location:RequestToJoin.php');
-//                        } else {
-//
-//                            $sql_chk_email = "select * from charity where phone = '$PhoneNumber' ";
-//
-//                            $result = $conn->query($sql_chk_email);
-//
-//                            if ($result->num_rows > 0) {
-//                                $_SESSION['faild'] = 'This phone number is already exists in our website';
-//                                header('Location:RequestToJoin.php');
-//                            } else {
-//
-//                                $sql_chk_username = "select * from charity where username = '$username' ";
-//
-//                                $res = $conn->query($sql_chk_username);
-//
-//                                if ($res->num_rows > 0) {
-//                                    $_SESSION['faild'] = 'This username is already exists in our website';
-//                                    header('Location:RequestToJoin.php');
-//                                } else {
-//                                    $query = "INSERT INTO `charity`(name , username, descrption, email , pass , phone, service, donatoionType,location,LicenseNumber,picture,status) VALUES ('$name', '$username', '$descrption' ,'$email', '$passwod', '$PhoneNumber','$option','$servicetype','$location','$LicenseNumber','$picture','null')";
-//                                    $run = mysqli_query($conn, $query);
-//
-//
-//                                    if ($run) {
-//
-//                                        echo '<script> alert("success Rigester");</script>';
-//                                        echo
-//                                        "<script>
-//           window.location ='confirmationPage.php';
-//           </script>";
-//                                    } else {
-//                                        echo '<script> alert("field Riggester");</script>';
-//                                    }
-//                                }
-//                            }
-//                        }
-//                    }
-                ?>
-
-
-            </div>
-
-
-
-    </body>
-    <script src="design.js"></script> 
-    <br><br>
-
-    <!-- Footer 
-    <footer>
-        <!-- we want footer with  <p>&copy; فريق منصة عون</p> 
-        <p>&copy; فريق منصة عون</p>
-    </footer>--> -->
-
-    <footer id="dtr-footer"> 
-
-        <!--== copyright starts ==-->
-        <div class="dtr-copyright">
-            <div class="container"> 
-                <!--== row starts ==-->
-                <div class="row"> 
-                    <!-- column 1 starts -->
-                    <div class="col-12 col-md-12" align="center">
-                        <p>&copy; فريق منصة عون</p>
+                        </div>
                     </div>
-                </div>
-                <!--== row ends ==--> 
+                    <!--== copyright ends ==--> 
+
+                </footer>
+                <!-- footer section ends
+        ================================================== --> 
 
             </div>
+            <!-- == main content area ends == --> 
+
         </div>
-        <!--== copyright ends ==--> 
+        <script>
 
-    </footer>
-    <!-- footer section ends
-================================================== --> 
+                                function validate(form) {
 
-</div>
-<!-- == main content area ends == --> 
-
-</div>
-<script>
-
-                                                                function validate(form) {
-
-                                                                    var phone = document.getElementById("PhoneNumber");
-                                                                    var digit = /^\d{10}$/; //to ensure the phone# input allow only correct address
-                                                                    //1-validate phone number
-                                                                    var checkPhone = phone.value.match(digit); // must be numbers
-                                                                    if (!checkPhone || phone.value.length < 10 || phone.value.length > 10)
-                                                                    {
-                                                                        alert("من فضلك ادخل رقم الجمعية بشكل صحيح");
-                                                                        phone.focus();
-                                                                        return false;
-                                                                    }
+                                    var phone = document.getElementById("PhoneNumber");
+                                    var digit = /^\d{10}$/; //to ensure the phone# input allow only correct address
+                                    //1-validate phone number
+                                    var checkPhone = phone.value.match(digit); // must be numbers
+                                    if (!checkPhone || phone.value.length < 10 || phone.value.length > 10)
+                                    {
+                                        alert("من فضلك ادخل رقم الجمعية بشكل صحيح");
+                                        phone.focus();
+                                        return false;
+                                    }
 
 
-                                                                    var Password = document.getElementById("passwod");
-                                                                    var passworsChar = /^[a-zA-Z0-9!@#$%^&*]{8,}$/;
-                                                                    var cheackPass = Password.value.match(passworsChar);
-                                                                    //2-validate password
-                                                                    if (Password.value == "") {
-                                                                        alert("من فضلك ادخل كلمة المرورة");
-                                                                        Password.focus();
-                                                                        return false;
-                                                                    }
+                                    var Password = document.getElementById("passwod");
+                                    var passworsChar = /^[a-zA-Z0-9!@#$%^&*]{8,}$/;
+                                    var cheackPass = Password.value.match(passworsChar);
+                                    //2-validate password
+                                    if (Password.value == "") {
+                                        alert("من فضلك ادخل كلمة المرورة");
+                                        Password.focus();
+                                        return false;
+                                    }
 
-                                                                    if (Password.value.length < 8) {
+                                    if (Password.value.length < 8) {
 
-                                                                        alert("كلمة المرور يجب ان تتكون من ثمان خانات فأكثر ");
-                                                                        Password.focus();
-                                                                        return false;
-                                                                    }
+                                        alert("كلمة المرور يجب ان تتكون من ثمان خانات فأكثر ");
+                                        Password.focus();
+                                        return false;
+                                    }
 
-                                                                    if (!cheackPass) {
-                                                                        alert("password should contain atleast one number and one special character");
-                                                                        return false;
-                                                                    }
+        if (!cheackPass) {
+            alert("password should contain atleast one number and one special character");
+            return false;
+        }
+ if(!confirm("هل أنت متأكد من معلومات التسجيل؟")) {
+                  return false;}
+              
+              else{
+                  return window.location = "confirmationPage.php";
+              }   
 
 
-                                                                    this.form.submit();
-                                                                }
-</script>
+                                    this.form.submit();
+                                }
+        </script>
 </html>
