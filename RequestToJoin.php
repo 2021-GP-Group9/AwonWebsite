@@ -196,14 +196,14 @@ if (isset($_SESSION['role'])) {
                                                         </div>
                                                         </p>
                                                         <br>
-                                                        <fieldset>	
-                                                        <p>
-                                                            <label>وصف الجمعية </label>
-                                                    <input type="textarea" name="descrption" id="descrption" placeholder="وصف المنظمة الخيرية">
-                                                        </p>
-                                                         </fieldset>	
+                                                        
+                                                         <p>
+                                                       <label>وصف المنظمة الخيرية</label>
+                                             <textarea rows="6" name="descrption" id="descrption" class="required"  placeholder="وصف المنظمة الخيرية"></textarea>
+                                                        </p><br>
+                                   	
                                                 
-                                                <br><br>
+                                                         <br>
                                                         <p class="text-center">
                   
                                                             <button class="dtr-btn btn-blue" type="submit" name="submit" onclick="validate();return false;">تسجيل</button>
