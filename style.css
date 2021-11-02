@@ -1,0 +1,281 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Nov 2, 2021, 4:32:35 PM
+    Author     : aa
+*/
+
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Oct 12, 2021, 8:25:00 PM
+    Author     : lamyahamad
+*/
+/* *{
+     <link href='https://fonts.googleapis.com/css?family=Amiri' rel='stylesheet'>
+    font-family: 'Amiri';
+}*/
+/* just home page  
+#headerHome{
+    
+    background-color:#286B73 ; 
+     height:200px ; 
+      width:100% ;
+     
+}
+#signout{
+float:left;
+
+}
+ .homeP{
+      align-items: center ;
+      margin-left: auto  ; 
+      margin-right: auto  ;
+      display:  block ; 
+      height:200px ; 
+      width:200px ;
+     
+ }
+/* all page 
+#headerPage{
+    
+     background-color:#286B73 ; 
+  
+} 
+    
+.footer{
+   position: fixed;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   background-color:#F4F3F3 ; 
+   text-align: center;
+  }
+
+ .pageP { 
+      
+     align-items: center ;
+      margin-left: auto  ; 
+      margin-right: auto  ;
+      display:  block ; 
+     height:220px ; 
+      width:220px ;
+
+ }*/
+/*end format for pages */
+#bu{
+    margin-left: 37%;
+}
+th {
+    color: #582f0e ;
+    text-align: right;
+}
+
+#acc {
+    display: inline-block;
+    background-color:#D6DACA;
+    border-radius: 10px;
+    border: 4px double black;
+    color: #582f0e ;
+    text-align: center;
+    font-size: 20px;
+    padding: 20px;
+    width: 20px;
+    height:8px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 5px
+}
+#rej {
+    display: inline-block;
+    background-color:#D6DACA;
+    border-radius: 10px;
+    border: 4px double black;
+    color: #582f0e ;
+    text-align: center;
+    font-size: 20px;
+    padding: 20px;
+    width: 200px;
+    height:80px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 5px
+}
+
+.indexPage{
+
+    display: inline-block;
+    background-color:#D6DACA;
+    border-radius: 10px;
+    border: 4px double black;
+    color: #582f0e ;
+    text-align: center;
+    font-size: 20px;
+    padding: 20px;
+    width: 200px;
+    height:80px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 5px;
+
+}
+
+.indexPage :hover{
+    background-color:#EDEBEB;
+    left: 0;
+    top: 0;
+}
+
+.who{
+    text-align: center;
+    color: #582f0e;
+}
+
+.auth-content {
+
+    margin: auto;
+    padding: 10px 0px 10px 0px;
+    text-align: center;
+}
+
+#manageJoiningRequest {
+    margin-left: auto;
+    margin-right: auto;
+    font-size:  20px ;
+    border-spacing: 100px;
+    border: 0.9px solid #582f0e;
+
+}
+
+#JoiningRequestForm{
+    font-size:  20px ;
+    border-spacing: 30px;
+    border: 3px solid black;
+}
+#ManageTheProfile{
+    font-size:  20px ;
+    border-spacing: 30px;
+    border: 3px solid black;
+}
+#requestTable {
+
+}
+.requestTable { 
+    align-items: center ;
+    text-align: center;
+    width: 200px;
+    height:80px;
+
+
+}
+/*
+charity 
+*/
+p.requestTable{
+    font-family: Amiri;
+    font-size: 14px;
+}
+
+.topnav {
+    background-color: #2aa7b0;
+    overflow: hidden;
+}
+h1 , h2 {
+    text-align: center ;
+    color: #582f0e;
+}
+
+
+ul{
+    list-style-type:none;
+}
+p { 
+    text-indent: 5px;
+}
+.name { 
+    margin-left: 250px;
+    margin-top: 30px;
+    width: 125px;
+    color: #582f0e;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+#username{
+    position: relative;
+    left: -10px;
+    top: -1px;
+    line-height: 30px;
+    border-radius: 6px;
+    padding: 0 22px;
+    font-size: 14px;
+}
+#password{
+    position: relative;
+    left: -10px;
+    top: -1px;
+    line-height: 30px;
+    border-radius: 6px;
+    padding: 0 22px;
+    font-size: 14px;
+}
+
+.bu1 {
+
+    display: inline-block;
+    background-color:#D6DACA;
+    border-radius: 10px;
+    border: 4px double black;
+    color: #582f0e ;
+    text-align: center;
+    font-size: 20px;
+    padding: 20px;
+    width: 200px;
+    height:80px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 5px
+} 
+.conf{ 
+    display: inline-block;
+    background-color:#D6DACA;
+    border-radius: 10px;
+    border: 4px double black;
+    color: #582f0e ;
+    text-align: center;
+    font-size: 20px;
+    padding: 20px;
+    width: 200px;
+    height:80px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 5px
+}
+.input{ 
+    position: relative;
+    left: -10px;
+    top: -1px;
+    line-height: 30px;
+    border-radius: 6px;
+    padding: 0 22px;
+    font-size: 14px;
+}
+
+
+.requestToJoin{
+  margin-left: auto;
+    margin-right: auto;
+    font-size:  20px ;
+    border-spacing: 80px;
+    border: 0.9px solid #582f0e;  
+    width: 700px;
+}
+/*
+
+*/
