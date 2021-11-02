@@ -131,7 +131,7 @@ if ($error != null) {
 
                                             <!-- form starts -->
                                             <div class="dtr-form">
-                                                <form id="contactform" method="post" action="">
+                                                <form id="contactform" method="POST" >
                                                     <fieldset>
                                                         <div class="dtr-form-row dtr-form-row-2col">
                                                             <p class="dtr-form-column">
@@ -177,12 +177,12 @@ if ($error != null) {
                                                             <label  for="">هل تتوفر خدمة التوصيل ؟ </label>
                                                         <div class="form-check-inline">
                                                             <label class="form-check-label">
-                                                                <input type="radio" class="form-check-input" name="optradio" <?php if ($option == 'yes') echo " checked" ?> >نعم
+                                                                <input type="radio" class="form-check-input" name="pickup_servise" <?php if ($option == 'yes') echo " checked" ?> >نعم
                                                             </label>
                                                         </div>
                                                         <div class="form-check-inline">
                                                             <label class="form-check-label">
-                                                                <input type="radio" class="form-check-input" name="optradio" <?php if ($option == 'no') echo " checked" ?>>لا
+                                                                <input type="radio" class="form-check-input" name="pickup_servise" <?php if ($option == 'no') echo " checked" ?>>لا
                                                             </label>
                                                         </div>
                                                         </p>
@@ -190,7 +190,7 @@ if ($error != null) {
                                                             <label  for="">انواع التبرع التي تقبل به المنظمة الخيرية؟</label>
                                                         <div class="form-check-inline">
                                                             <label class="form-check-label">
-                                                                <input type="checkbox" class="form-check-input" value="ملابس"  <?php
+                                                                <input type="checkbox" class="form-check-input" name="types[]" id="type_of_donation"  value="ملابس"  <?php
                                                                 if (in_array('ملابس', $headers)) {
                                                                     echo " checked ";
                                                                 }
@@ -200,7 +200,7 @@ if ($error != null) {
                                                         </div>
                                                         <div class="form-check-inline">
                                                             <label class="form-check-label">
-                                                                <input type="checkbox" class="form-check-input" value="اثاث"
+                                                                <input type="checkbox" class="form-check-input" name="types[]" id="type_of_donation"  value="اثاث"
                                                                 <?php
                                                                 if (in_array('اثاث', $headers)) {
                                                                     echo " checked ";
@@ -212,7 +212,7 @@ if ($error != null) {
                                                         </div>
                                                         <div class="form-check-inline">
                                                             <label class="form-check-label">
-                                                                <input type="checkbox" class="form-check-input" value="الكترونيات" <?php
+                                                                <input type="checkbox" class="form-check-input" name="types[]" id="type_of_donation" value="الكترونيات" <?php
                                                                 if (in_array('الكترونيات', $headers)) {
                                                                     echo " checked ";
                                                                 }
@@ -222,7 +222,7 @@ if ($error != null) {
                                                         </div>
                                                         <div class="form-check-inline">
                                                             <label class="form-check-label">
-                                                                <input type="checkbox" class="form-check-input"value="كتب_ورق"
+                                                                <input type="checkbox" name="types[]" id="type_of_donation" class="form-check-input"value="كتب_ورق"
 
                                                                        <?php
                                                                        if (in_array('كتب_ورق', $headers)) {
@@ -237,16 +237,16 @@ if ($error != null) {
                                                         <p>
                                                             <label>صورة الملف التعريفي</label>
                                                         <div class="custom-file">
-                                                            <input type="file" class="custom-file-input" id="customFile">
+                                                            <input type="file" class="custom-file-input"  name="img" id="customFile">
                                                             <label class="custom-file-label" for="customFile">Choose file</label>
                                                         </div>
                                                         </p>
                                                         <p>
                                                             <label>وصف المنظمة الخيرية</label>
-                                                            <textarea rows="6" name="message" id="message" class="required"  placeholder="وصف المنظمة الخيرية" <?php echo $descrption ?>></textarea>
+                                                            <textarea rows="6" name="description" id="message" class="required"  placeholder="وصف المنظمة الخيرية" <?php echo $descrption ?>></textarea>
                                                         </p><br>
                                                         <p class="text-center">
-                                                            <button class="dtr-btn btn-blue" type="submit"  onclick="return validate();">حفظ</button>
+                                                            <button class="dtr-btn btn-blue" id="Edit" name="Edit"  type="submit"  onclick="return validate();">حفظ</button>
                                                         </p>
                                                     </fieldset>
                                                 </form>

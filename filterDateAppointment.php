@@ -127,7 +127,7 @@ if (!isset($_SESSION['role'])) {
                                     <form method="post">
                                         <div class="form-group">
                                             <label>التاريخ</label>
-                                            <input type="date" name="date" class="form-control" value="<?php echo $_GET['date'] ?>" value="<?php echo $current_time ?>">
+                                            <input type="date" name="date" class="form-control" value="<?php echo $_GET['date'] ?>" >
                                         </div>
                                         <div class="form-group">
                                             <label>حدد الوقت</label>
@@ -179,15 +179,7 @@ if (!isset($_SESSION['role'])) {
                     <th align="center">
                     <center>الوقت</center>
                     </th>
-                    <th align="center">
-                    <center>اسم المستخدم</center>
-                    </th>
-                    <th align="center">
-                    <center>حالة الموعد</center>
-                    </th>
-                    <th align="center">
-                    <center>خيارات</center>
-                    </th>
+                   
                     </tr>
                     <?php
                     $ID = $_SESSION['ID'];
@@ -205,17 +197,10 @@ if (!isset($_SESSION['role'])) {
                             <td>
                                 <?php echo $row['appointment_time'] ?>
                             </td>
-                            <td>
-                                <?php echo $row['user_id'] ?>
-                            </td>
-                            <td>
-                                <?php
-                                if ($row['status'] == 0)
-                                    echo "متاح";
-                                else
-                                    echo "محجوز";
-                                ?>
-                            </td>
+<!--                            <td>
+                              <?php echo $row['user_id'] ?>
+                            </td>-->
+                           
                             <td>
                                 <a href="?q=edit&appointment_id=<?php echo $row['id'] ?>&date=<?php echo $row['appointment_date'] ?>&time=<?php echo $row['appointment_time'] ?>" class="btn btn-success btn-xs">تعديل</a>
                                 <a href="#" onClick="RemoveAppoiment(<?php echo $row['id'] ?>)" class="btn btn-danger btn-xs">حذف</a>
@@ -234,12 +219,12 @@ if (!isset($_SESSION['role'])) {
                     if (confirm("هل تريد حذف هذا الموعد؟"))
                     {
                         $.ajax({
-                            url: "RemoveAppoiment.php",
+                            url: "RemoveAppointment.php",
                             method: "GET",
                             data: {appointment_id: appointment_id},
                             success: function (data)
                             {
-                                alert(data);
+                                alert("تم حذف الموعد بنجاح");
                                 window.location.replace("CharityPage.php");
                             }
                         });
