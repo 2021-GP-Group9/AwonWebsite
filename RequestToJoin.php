@@ -151,6 +151,10 @@ if (isset($_SESSION['role'])) {
                                                             <label  for="location">الموقع</label>
                                                             <input type="text" name="location" id="location" placeholder="الموقع" required value= "">
                                                         </p>
+                                                         <p>
+                                                            <label  for="location">وصف الجمعية الخيرية</label>
+                                                            <input type="text" name="location" id="location" placeholder="وصف الجمعية الخيرية " required value= "">
+                                                        </p>
                                                         <p>
                                                             <label  for="">هل تتوفر خدمة التوصيل ؟ </label>
                                                         <div class="form-check-inline">
