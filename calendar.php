@@ -30,7 +30,7 @@ if (isset($_POST['submit'])) {
 </h3>
 
 <div id="mainContent1" style="padding: 20px 10px;">
-<?php if (isset($_GET['q'])) { ?>
+    <?php if (isset($_GET['q'])) { ?>
         <div class="row">
             <div class="container">
                 <div class="col-md-4"></div>
@@ -55,7 +55,7 @@ if (isset($_POST['submit'])) {
                 <div class="col-md-4"></div>
             </div>
         </div>
-<?php } ?>
+    <?php } ?>
     <?php
 // Set your timezone
     date_default_timezone_set('Asia/Riyadh');
@@ -163,11 +163,11 @@ if (isset($_POST['submit'])) {
             <th>الجمعة</th>
             <th>السبت</th>
         </tr>
-<?php
-foreach ($weeks as $week) {
-    echo $week;
-}
-?>
+        <?php
+        foreach ($weeks as $week) {
+            echo $week;
+        }
+        ?>
     </table>
 </div>
 
