@@ -155,12 +155,12 @@ if (isset($_SESSION['role'])) {
                                                             <label>هل تتوفر خدمة استلام للتبرعات ؟ </label>
                                                         <div class="form-check-inline">
                                                             <label class="form-check-label">
-                                                                <input type="radio" class="form-check-input" id="yes" name="service" >نعم
+                                                                <input type="radio" class="form-check-input" id="yes" name="service" value="نعم">نعم
                                                             </label>
                                                         </div>
                                                         <div class="form-check-inline">
                                                             <label class="form-check-label">
-                                                                <input type="radio" class="form-check-input"id="no"  name="service">لا
+                                                                <input type="radio" class="form-check-input"id="no"  name="service"value="لا">لا
                                                             </label>
                                                         </div>
                                                         </p>
