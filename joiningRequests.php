@@ -79,7 +79,7 @@ if (isset($_SESSION['role'])) {
                                                         $dt = date("d-m-Y", strtotime($row['register_date']));
                                                         $image = '<img src="data:image/jpeg;base64,' . base64_encode($row['picture']) . '"width="50em"/>';                                                   // &nbsp; used for spaceing
                                                         echo "<td>" . $dt . "</td>";
-                                                        echo "<td>" . "<button id='rej' class='dtr-btn btn-blue btn-small' value={$row['ID']} onclick='reject({$row["ID"]})'>رفض</button>" . "<button id='acc' class='dtr-btn btn-white btn-small' onclick='accept({$row["ID"]})'>قبول</button>" . "</td>";
+                                                        echo "<td>" . "<button id='rej' class='btn btn-danger btn-xs' value={$row['ID']} onclick='reject({$row["ID"]})'>رفض</button>" . "<button id='acc' class='btn btn-success btn-xs' onclick='accept({$row["ID"]})'>قبول</button>" . "</td>";
                                                         // please check the img <img src="img/user.png" class="join-user">
                                                         echo "<td>" . "<a href='manageRequestPage.php?id={$row["ID"]}'>{$row["name"]}</a>" . "&nbsp;&nbsp;&nbsp;&nbsp;" . '<img src="AwonWebsite/user.png" class="join-user">' . "</td>";
                                                         echo "</tr>";

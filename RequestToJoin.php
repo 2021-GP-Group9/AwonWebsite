@@ -258,7 +258,7 @@ if (isset($_SESSION['role'])) {
 
                                                     if ($result->num_rows > 0) {
                                                         $_SESSION['faild'] = 'This email is already exists in our website';
-                                                        header('Location:RequestToJoin.php');
+                                                         echo '<META HTTP-EQUIV="Refresh" Content="2; URL=RequestToJoin.php">';
                                                     } else {
 
                                                         $sql_chk_email = "select * from charity where phone = '$phone_number' ";
@@ -267,7 +267,7 @@ if (isset($_SESSION['role'])) {
 
                                                         if ($result->num_rows > 0) {
                                                             $_SESSION['faild'] = 'This phone number is already exists in our website';
-                                                            header('Location:RequestToJoin.php');
+                                                               echo '<META HTTP-EQUIV="Refresh" Content="2; URL=RequestToJoin.php">';
                                                         } else {
 
                                                             $sql_chk_username = "select * from charity where username = '$username' ";
@@ -276,7 +276,7 @@ if (isset($_SESSION['role'])) {
 
                                                             if ($res->num_rows > 0) {
                                                                 $_SESSION['faild'] = 'This username is already exists in our website';
-                                                                header('Location:RequestToJoin.php');
+                                                                 echo '<META HTTP-EQUIV="Refresh" Content="2; URL=RequestToJoin.php">';
                                                             } else {
                                                                 
                                                                                                                                                                                                                         

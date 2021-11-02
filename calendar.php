@@ -46,7 +46,7 @@ if (isset($_POST['submit'])) {
                                 <input type="time" class="form-control" name="time" required>
                             </div>
                             <div class="form-group">
-                                <button type="submit" name="submit" class="btn btn-primary">حفظ الموعد</button>
+                                <button type="submit" name="submit" class="dtr-btn btn-blue btn-small">حفظ الموعد</button>
 
                             </div>
                         </form>
@@ -136,7 +136,7 @@ if (isset($_POST['submit'])) {
         $week .= '<span class="label label-success pull-right">' . $msg2 . '</span></a>';
 
 
-        $week .= '<a href="?q=show_time&date=' . $date . '" style="border:none;position: absolute;top: 3px;right: 10px;" class="btn btn-primary">+</a>';
+        $week .= '<a href="?q=show_time&date=' . $date . '" style="border:none;position: absolute;top: 3px;right: 5px;" class="dtr-btn btn-blue btn-small">+</a>';
 
         $week .= '</td>';
 
