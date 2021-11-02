@@ -8,7 +8,7 @@
         <link rel="stylesheet" href="DesignBootstrap.css">
         <script src="webPro.js"></script>
     </head> 
-    ]<body>
+    <body>
         <div id="dtr-wrapper" class="clearfix"> 
 
             <!-- preloader starts 

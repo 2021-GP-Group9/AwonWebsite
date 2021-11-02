@@ -13,7 +13,7 @@
 
         <div id="dtr-wrapper" class="clearfix"> 
 
-           
+
             <!-- logo in the right -->
             <div class="dtr-responsive-header">
                 <div class="container"> 
@@ -36,7 +36,7 @@
                         </div>
                     </div>
                 </header>
- 
+
                 <!-- == main content area starts == -->
                 <div id="dtr-main-content"> 
 
@@ -74,7 +74,7 @@
 
 
                     <br><br>
-          
+
                     </body>
 
 

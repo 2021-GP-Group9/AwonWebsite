@@ -90,7 +90,7 @@ if ($error != null) {
                     $type = $_POST['types'];
 
                     $servicetype = implode(",", $type);
-                   
+
 
 
 
@@ -136,19 +136,19 @@ if ($error != null) {
                     }
                 }
                 ?> 
-             <!--   <section id="about" class="dtr-section dtr-py-100 bg-light-blue">
-                    <div class="container mt-100 mb-100"> 
+<!--   <section id="about" class="dtr-section dtr-py-100 bg-light-blue">
+<div class="container mt-100 mb-100"> 
 
-                        <!--===== row 1 starts =====-
-                        <div class="row d-flex align-items-center"> 
-                            <!-- column 2 starts 
-                            <div class="col-1 col-md-2"></div> 
-                            <div class="col-12 col-md-8"> 
+                <!--===== row 1 starts =====-
+                <div class="row d-flex align-items-center"> 
+                <!-- column 2 starts 
+                <div class="col-1 col-md-2"></div> 
+                <div class="col-12 col-md-8"> 
 
-                                <!-- heading starts 
-                                <div class="dtr-styled-" align="center">
-                                    <div class="dtr-styled-heading">
-                                        <?php
+                <!-- heading starts 
+                <div class="dtr-styled-" align="center">
+                    <div class="dtr-styled-heading">
+                <?php
 //                                        if (isset($_POST["Edit"])) {
 //                                            echo "  <h2>تعديل بيانات الحساب</h2><br>";
 //                                            $name = $_POST['name'];
@@ -200,62 +200,63 @@ if ($error != null) {
 //
 //                                                if ($conn->query($query) === TRUE) {
 //                                                    echo '<h2 class="c-g">تم الحفظ</h2>';
-//                                                    ?>
-                                                    <META HTTP-EQUIV="Refresh" Content="3; URL=CharityPage.php">-->
-                                                    //<?php
+//                                                    
+                ?>
+                                    <META HTTP-EQUIV="Refresh" Content="3; URL=CharityPage.php">-->
+                //<?php
 //                                                } else {
 //                                                    echo "الرجاء اعادة المحاولة: ";
 //                                                }
 //                                            }
 //                                        }
-                                        ?> 
-                                        <!-- heading starts
-                                        <div class="dtr-styled-heading">
-                                            <h2>تعديل بيانات الحساب</h2><br>
-                                            <br>
-                                            <h2 class="c-g">تم الحفظ</h2> -->
-                                    </div>
-                                    <!-- heading ends --> 
+                ?> 
+                <!-- heading starts
+                <div class="dtr-styled-heading">
+                    <h2>تعديل بيانات الحساب</h2><br>
+                    <br>
+                    <h2 class="c-g">تم الحفظ</h2> -->
+            </div>
+            <!-- heading ends --> 
 
 
-                                    <!-- form ends --> 
-                                </div>
-                                <!-- heading ends --> 
-                            </div>
-                            <!-- column 2 ends --> 
-                        </div>
-                        <!--===== row 1 ends =====--> 
-                    </div>
-                </section>
+            <!-- form ends --> 
+        </div>
+        <!-- heading ends --> 
+    </div>
+    <!-- column 2 ends --> 
+</div>
+<!--===== row 1 ends =====--> 
+</div>
+</section>
 
 
-                <!--    -----------------------------------------------------------
-                <header> 
-                    logo in the right
-                    <img src="finalLogo.jpeg" alt="logo" class="logo" style="length:100px; width:100px; float: left;">
-    
-                <!-- navbar for charity should include 'الصفحة الرئيسية' which is call CharityPage.php 
-                <nav class="topnav">
-                    <ul>
-                        <li><a href=".php"></a> </li>
-                    </ul>
-                </nav> -->
-                <!-- log out  as button in the left
-                <form id="signout" action="logout.php" method="POST">
-                    <input type="submit" value="تسجيل خروج">
+<!--    -----------------------------------------------------------
+<header> 
+    logo in the right
+    <img src="finalLogo.jpeg" alt="logo" class="logo" style="length:100px; width:100px; float: left;">
 
-                </form>
-            </header>-->
-                <!-- <header id="headerPage" style="padding:28px 16px">
-                         <form id="signout" action="logout.php" method="POST">
-                             <button type="submit" onclick="index();return false;">تسجيل الخروج</button>
-                         </form> 
-                         <img src="logo.jpg" alt="logo" class="pageP"  >
-                     </header
+<!-- navbar for charity should include 'الصفحة الرئيسية' which is call CharityPage.php 
+<nav class="topnav">
+    <ul>
+        <li><a href=".php"></a> </li>
+    </ul>
+</nav> -->
+<!-- log out  as button in the left
+<form id="signout" action="logout.php" method="POST">
+    <input type="submit" value="تسجيل خروج">
 
-                <div class="auth-content">
+</form>
+</header>-->
+<!-- <header id="headerPage" style="padding:28px 16px">
+         <form id="signout" action="logout.php" method="POST">
+             <button type="submit" onclick="index();return false;">تسجيل الخروج</button>
+         </form> 
+         <img src="logo.jpg" alt="logo" class="pageP"  >
+     </header
+
+<div class="auth-content">
 > -->
-                <?php
+<?php
 //                    if (isset($_POST["Edit"])) {
 //                        echo "<h1>تعديل بيانات الحساب</h1>";
 //                        $name = $_POST['name'];
@@ -308,48 +309,48 @@ if ($error != null) {
 //                            if ($conn->query($query) === TRUE) {
 //                                echo '<h1 style="color:green; text-align:center">تم الحفظ</h1>';
 //                                
-                ?>
-                <!--    <META HTTP-EQUIV="Refresh" Content="3; URL=CharityPage.php">-->
-                //<?php
+?>
+<!--    <META HTTP-EQUIV="Refresh" Content="3; URL=CharityPage.php">-->
+//<?php
 //                            } else {
 //                                echo "الرجاء اعادة المحاولة: ";
 //                            }
 //                        }
 //                    }
-                ?> 
-                <!--     </div>
-    
-                    Footer                 <footer>
-                        <!-- we want footer with  <p>&copy; فريق منصة عون</p>  
-    
-                        <p>&copy; فريق منصة عون</p>
-                    </footer>-->
-                <footer id="dtr-footer"> 
+?> 
+<!--     </div>
 
-                    <!--== copyright starts ==-->
-                    <div class="dtr-copyright">
-                        <div class="container"> 
-                            <!--== row starts ==-->
-                            <div class="row"> 
-                                <!-- column 1 starts -->
-                                <div class="col-12 col-md-12" align="center">
-                                    <p>&copy; فريق منصة عون</p>
-                                </div>
-                            </div>
-                            <!--== row ends ==--> 
+    Footer                 <footer>
+        <!-- we want footer with  <p>&copy; فريق منصة عون</p>  
 
-                        </div>
-                    </div>
-                    <!--== copyright ends ==--> 
+        <p>&copy; فريق منصة عون</p>
+    </footer>-->
+<footer id="dtr-footer"> 
 
-                </footer>
-                <!-- footer section ends
-        ================================================== --> 
-
+    <!--== copyright starts ==-->
+    <div class="dtr-copyright">
+        <div class="container"> 
+            <!--== row starts ==-->
+            <div class="row"> 
+                <!-- column 1 starts -->
+                <div class="col-12 col-md-12" align="center">
+                    <p>&copy; فريق منصة عون</p>
+                </div>
             </div>
-            <!-- == main content area ends == --> 
+            <!--== row ends ==--> 
 
         </div>
-    </body>
-    <script src="design.js"></script> 
+    </div>
+    <!--== copyright ends ==--> 
+
+</footer>
+<!-- footer section ends
+================================================== --> 
+
+</div>
+<!-- == main content area ends == --> 
+
+</div>
+</body>
+<script src="design.js"></script> 
 </html><!-- comment -->

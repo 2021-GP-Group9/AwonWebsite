@@ -270,10 +270,10 @@ if ($error != null) {
 
 
 
-            <!--           -----------------------------------------------------------------------------------------------------------------------------------------------------------
-           <header> 
-                       logo in the right 
-                      <img src="finalLogo.jpeg" alt="logo" class="logo" style="length:100px; width:100px; float: left;">-->
+                <!--           -----------------------------------------------------------------------------------------------------------------------------------------------------------
+                <header> 
+                            logo in the right 
+                           <img src="finalLogo.jpeg" alt="logo" class="logo" style="length:100px; width:100px; float: left;">-->
 
                 <!-- navbar for charity should include 'الصفحة الرئيسية' which is call CharityPage.php 
                     <ul>
@@ -328,12 +328,12 @@ if ($error != null) {
 
 
 
-                    <input type="text" name="name" id="name" required value= "<?php // echo $name    ?>" >
+                    <input type="text" name="name" id="name" required value= "<?php // echo $name     ?>" >
                     <label for="username">اسم المستخدم</label>
 
 
 
-                    <input type="text" name="username" id="username" required value= "<?php // echo $username    ?>">
+                    <input type="text" name="username" id="username" required value= "<?php // echo $username     ?>">
                     <label for="name" >اسم المنظمة الخيرية</label>  
 
 
@@ -341,28 +341,28 @@ if ($error != null) {
                     <br
 
 
-                    <input type="email" name="email" id="email" required value= "<?php // echo $email    ?>" >
+                    <input type="email" name="email" id="email" required value= "<?php // echo $email     ?>" >
                     <label for="password">كلمةالمرور</label>
 
 
-                    <input type="password" name="pwd" class="password" id="password"  required value= "<?php // echo $pass    ?>" >
+                    <input type="password" name="pwd" class="password" id="password"  required value= "<?php // echo $pass     ?>" >
                     <label for="email">البريد الالكتروني</label>
 
 
                     <br>
                 -->
-                                   <!--      <input type="tel" name="phone_number" id="phone_number" maxlength="10" required value= "<?php //echo $PhoneNumber    ?>">tel or number? 
+                                   <!--      <input type="tel" name="phone_number" id="phone_number" maxlength="10" required value= "<?php //echo $PhoneNumber     ?>">tel or number? 
                                         <label  for="license_Number">رقم الترخيص</label> 
                 
                 
-                                        <input type="int" name="license_Number" id="license_Number" required value= "<?php //echo $LicenseNumber    ?>">
+                                        <input type="int" name="license_Number" id="license_Number" required value= "<?php //echo $LicenseNumber     ?>">
                                         <label for="phone_number">رقم الجوال</label>
                 
                 
                                         <br>
                 -->
 
-             <!--           <input type="text" name="location" id="location" required value= "<?php //echo $location    ?>"> not sure if it is url maybe it is select 
+             <!--           <input type="text" name="location" id="location" required value= "<?php //echo $location     ?>"> not sure if it is url maybe it is select 
                         <label  for="location">الموقع</label>
 
                         <br>
@@ -370,9 +370,9 @@ if ($error != null) {
 
                         <label>هل تتوفر خدمة التوصيل ؟ </label>
                 <?php ///echo " option : ", $option . "<br>"; ?>
-                          <input type="radio" name="pickup_servise" id="pickup_servise" value="yes"  <?php //if ($option == 'yes') echo " checked"    ?>>
+                          <input type="radio" name="pickup_servise" id="pickup_servise" value="yes"  <?php //if ($option == 'yes') echo " checked"     ?>>
                           <label for="نعم">نعم</label>
-                          <input type="radio" name="pickup_servise" id="pickup_servise"  value="no"  <?php // if ($option == 'no') echo " checked"    ?>>
+                          <input type="radio" name="pickup_servise" id="pickup_servise"  value="no"  <?php // if ($option == 'no') echo " checked"     ?>>
                           <label for="لا">لا</label>    
 
                         <br>
@@ -431,7 +431,7 @@ if ($error != null) {
 
                         <br>
 
-                        <textarea rows="4" type="text" name="description" id="description" required > <?php //echo $descrption    ?> </textarea>
+                        <textarea rows="4" type="text" name="description" id="description" required > <?php //echo $descrption     ?> </textarea>
                         <label for="description">وصف المنظمة الخيرية</label> 
 
                         <br>

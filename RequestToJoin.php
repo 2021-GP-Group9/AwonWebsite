@@ -151,7 +151,7 @@ if (isset($_SESSION['role'])) {
                                                             <label  for="location">الموقع</label>
                                                             <input type="text" name="location" id="location" placeholder="الموقع" required value= "">
                                                         </p>
-                                                         <p>
+                                                        <p>
                                                             <label  for="location">وصف الجمعية الخيرية</label>
                                                             <input type="text" name="location" id="location" placeholder="وصف الجمعية الخيرية " required value= "">
                                                         </p>
@@ -309,11 +309,11 @@ if (isset($_SESSION['role'])) {
                 </section>
 
 
-             <!--      ----------------------------------------------------------------------------------------
+                <!--      ----------------------------------------------------------------------------------------
                 <div class="auth-content"> 
-                    <?php
-                    //echo '<h1>نموذج طلب انضمام المنظمات الخيرية</h1>';
-                    ?> 
+                <?php
+                //echo '<h1>نموذج طلب انضمام المنظمات الخيرية</h1>';
+                ?> 
 
     
                     <form method="POST">
@@ -352,16 +352,16 @@ if (isset($_SESSION['role'])) {
                             <button type="submit" name="submit" class="bu1" onclick="validate();return false;" >تسجيل</button>
 
                         </fieldset>
-                        <?php
+                <?php
 //                        if (isset($_SESSION['faild'])) {
 //                            echo "<span style='color:red'>" . $_SESSION['faild'] . "</span>";
 //                        }
 //                        $_SESSION['faild'] = null;
-                        ?>
+                ?>
                     </form>-->
 
 
-                    <?php
+                <?php
 //                    $server = "localhost";
 //                    $username = "root";
 //                    $password = "root";
@@ -444,89 +444,89 @@ if (isset($_SESSION['role'])) {
 //                            }
 //                        }
 //                    }
-                    ?>
+                ?>
 
-
-                </div>
-
-
-
-                </body>
-                <script src="design.js"></script> 
-                <br><br>
-
-                <!-- Footer 
-                <footer>
-                    <!-- we want footer with  <p>&copy; فريق منصة عون</p> 
-                    <p>&copy; فريق منصة عون</p>
-                </footer>--> -->
-
-                <footer id="dtr-footer"> 
-
-                    <!--== copyright starts ==-->
-                    <div class="dtr-copyright">
-                        <div class="container"> 
-                            <!--== row starts ==-->
-                            <div class="row"> 
-                                <!-- column 1 starts -->
-                                <div class="col-12 col-md-12" align="center">
-                                    <p>&copy; فريق منصة عون</p>
-                                </div>
-                            </div>
-                            <!--== row ends ==--> 
-
-                        </div>
-                    </div>
-                    <!--== copyright ends ==--> 
-
-                </footer>
-                <!-- footer section ends
-        ================================================== --> 
 
             </div>
-            <!-- == main content area ends == --> 
 
+
+
+    </body>
+    <script src="design.js"></script> 
+    <br><br>
+
+    <!-- Footer 
+    <footer>
+        <!-- we want footer with  <p>&copy; فريق منصة عون</p> 
+        <p>&copy; فريق منصة عون</p>
+    </footer>--> -->
+
+    <footer id="dtr-footer"> 
+
+        <!--== copyright starts ==-->
+        <div class="dtr-copyright">
+            <div class="container"> 
+                <!--== row starts ==-->
+                <div class="row"> 
+                    <!-- column 1 starts -->
+                    <div class="col-12 col-md-12" align="center">
+                        <p>&copy; فريق منصة عون</p>
+                    </div>
+                </div>
+                <!--== row ends ==--> 
+
+            </div>
         </div>
-        <script>
+        <!--== copyright ends ==--> 
 
-                                function validate(form) {
+    </footer>
+    <!-- footer section ends
+================================================== --> 
 
-                                    var phone = document.getElementById("PhoneNumber");
-                                    var digit = /^\d{10}$/; //to ensure the phone# input allow only correct address
-                                    //1-validate phone number
-                                    var checkPhone = phone.value.match(digit); // must be numbers
-                                    if (!checkPhone || phone.value.length < 10 || phone.value.length > 10)
-                                    {
-                                        alert("من فضلك ادخل رقم الجمعية بشكل صحيح");
-                                        phone.focus();
-                                        return false;
-                                    }
+</div>
+<!-- == main content area ends == --> 
 
+</div>
+<script>
 
-                                    var Password = document.getElementById("passwod");
-                                    var passworsChar = /^[a-zA-Z0-9!@#$%^&*]{8,}$/;
-                                    var cheackPass = Password.value.match(passworsChar);
-                                    //2-validate password
-                                    if (Password.value == "") {
-                                        alert("من فضلك ادخل كلمة المرورة");
-                                        Password.focus();
-                                        return false;
-                                    }
+                                                                function validate(form) {
 
-                                    if (Password.value.length < 8) {
-
-                                        alert("كلمة المرور يجب ان تتكون من ثمان خانات فأكثر ");
-                                        Password.focus();
-                                        return false;
-                                    }
-
-                                    if (!cheackPass) {
-                                        alert("password should contain atleast one number and one special character");
-                                        return false;
-                                    }
+                                                                    var phone = document.getElementById("PhoneNumber");
+                                                                    var digit = /^\d{10}$/; //to ensure the phone# input allow only correct address
+                                                                    //1-validate phone number
+                                                                    var checkPhone = phone.value.match(digit); // must be numbers
+                                                                    if (!checkPhone || phone.value.length < 10 || phone.value.length > 10)
+                                                                    {
+                                                                        alert("من فضلك ادخل رقم الجمعية بشكل صحيح");
+                                                                        phone.focus();
+                                                                        return false;
+                                                                    }
 
 
-                                    this.form.submit();
-                                }
-        </script>
+                                                                    var Password = document.getElementById("passwod");
+                                                                    var passworsChar = /^[a-zA-Z0-9!@#$%^&*]{8,}$/;
+                                                                    var cheackPass = Password.value.match(passworsChar);
+                                                                    //2-validate password
+                                                                    if (Password.value == "") {
+                                                                        alert("من فضلك ادخل كلمة المرورة");
+                                                                        Password.focus();
+                                                                        return false;
+                                                                    }
+
+                                                                    if (Password.value.length < 8) {
+
+                                                                        alert("كلمة المرور يجب ان تتكون من ثمان خانات فأكثر ");
+                                                                        Password.focus();
+                                                                        return false;
+                                                                    }
+
+                                                                    if (!cheackPass) {
+                                                                        alert("password should contain atleast one number and one special character");
+                                                                        return false;
+                                                                    }
+
+
+                                                                    this.form.submit();
+                                                                }
+</script>
 </html>

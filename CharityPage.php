@@ -97,7 +97,7 @@ if (!isset($_SESSION['role'])) {
                                         echo "<h3> <a style='font-size:30px;'>{$row["name"]}</a></h3>";
                                     }
                                     ?>  
-                                    
+
                                     <?php include("calendar.php") ?>
                                     <!-- form starts 
                                     <H3>Aljawharahds Aljawharahds</H3>-->
