@@ -68,10 +68,10 @@ if (!isset($_SESSION['role'])) {
         ================================================== --> 
 
             <!-- == main content area starts == -->
-            <div id="dtr-main-content"> 
+<!--            <div id="dtr-main-content"> 
 
                 <section id="about" class="dtr-section dtr-py-100 bg-light-blue">
-                    <div class="container mt-100 mb-100"> 
+                    <div class="container mt-100 mb-100"> -->
 
                         <!--===== row 1 starts =====-->
                         <div class="row d-flex align-items-center"> 
