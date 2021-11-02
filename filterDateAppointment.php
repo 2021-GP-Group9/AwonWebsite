@@ -8,28 +8,82 @@ if (!isset($_SESSION['role'])) {
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel='stylesheet' href='style.css'>
-        <link rel="stylesheet" href="bootstrap.min.css">
-        <link rel="stylesheet" href="DesignPages.css">
-		<script src="jquery.min.js"></script>
+        <meta name="format-detection" content="telephone=no">
+        <link rel='stylesheet' href='design.css'>
+        <link rel="stylesheet" href="DesignBootstrap.css">
+		<script src="jquery.js"></script>
+                 </head>
+    <body>
+        <div id="dtr-wrapper" class="clearfix"> 
+
+            <!-- preloader starts 
+            <div class="dtr-preloader">
+                <div class="dtr-preloader-inner">
+                    <div class="dtr-preloader-img"></div>
+                </div>
+            </div>-->
+            <!-- preloader ends --> 
+
+            <!-- Small Devices Header 
+        ============================================= -->
+            <div class="dtr-responsive-header">
+                <div class="container"> 
+
+                    <div class="dtr-header-left" style="float: left;"> 
+                        <form id="signout" action="logout.php" method="POST">
+                            <input type="submit" class="logoutbtn" value="تسجيل خروج">
+                        </form>       
+                    </div>
+
+                    <!-- small devices logo --> 
+                    <a href="index.php"><img src="finalLogo.jpeg" class="m-logo" alt="logo"></a> 
+                    <!-- small devices logo ends --> 
+                </div>
+            </div>
+            <!-- Small Devices Header ends 
+        ============================================= --> 
+
+            <!-- Header 
+        ============================================= -->
+            <header id="dtr-header-global" class="">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <form id="signout" action="logout.php" method="POST">
+                                <input type="submit" class="logoutbtn" value="تسجيل خروج">
+                            </form>  
+                        </div>
+                        <div class="col-sm-4" align="center"><br>
+                            <div class="main-navigation dtr-menu-dark">
+                                <a class="nav-link" href="CharityPage.php">الصفحة الرئيسية</a>
+                            </div>
+                        </div>
+                        <div class="col-sm-4" align="right">
+                            <div class="dtr-header-right"> 
+                                <a class="logo-default dtr-scroll-link" href="index.php"><img src="finalLogo.jpeg" alt="logo" width="108"></a></div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+           <!--     --------------------------------------
     <header> 
-        <!-- logo in the right -->
+        <!-- logo in the right 
         <img src="finalLogo.jpeg" alt="logo" class="logo" style="length:100px; width:100px; float: left;">
 
-        <!-- navbar for charity should include 'تعديل الملف الشخصي' which is call ProfilePage.php --> 
+        <!-- navbar for charity should include 'تعديل الملف الشخصي' which is call ProfilePage.php  
         <nav class="topnav">
             <ul>
                 <li><a href="CharityPage.php">رجوع</a> </li>
             </ul>
         </nav>
-       <!-- log out  as button in the left-->
+       <!-- log out  as button in the left
         <form id="signout" action="logout.php" method="POST">
             <input type="submit" value="تسجيل خروج" class="btn btn-default btn-sm">
 
         </form>
     </header>
 </head>
-<body>
+<body>-->
     <!-- <form id="signout" action="logout.php" method="POST">
          <input type="submit" value="تسجيل خروج">
  
