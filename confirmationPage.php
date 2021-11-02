@@ -77,7 +77,7 @@
                                     <h4>فريق منصة عون</h4>
                                     <br>
                                     <p class="text-center">
-                                        <a class="dtr-btn btn-blue" href="index.html" >عودة للصفحة الرئسية</a>
+                                        <a class="dtr-btn btn-blue" href="index.php" >عودة للصفحة الرئسية</a>
                                     </p>
                                     <!-- form ends --> 
                                 </div>
