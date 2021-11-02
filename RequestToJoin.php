@@ -37,7 +37,7 @@ if (isset($_SESSION['role'])) {
 
             <!-- Small Devices Header 
         ============================================= -->
-            <div class="dtr-responsive-header">
+              <div class="dtr-responsive-header">
                 <div class="container"> 
 
                     <div class="dtr-header-left" style="float: left;"> 
@@ -45,7 +45,6 @@ if (isset($_SESSION['role'])) {
                             <input type="submit" class="logoutbtn" value="تسجيل خروج">
                         </form>       
                     </div>
-
                     <!-- small devices logo --> 
                     <a href="index.php"><img src="finalLogo.jpeg" class="m-logo" alt="logo"></a> 
                     <!-- small devices logo ends --> 
