@@ -90,7 +90,7 @@ if ($error != null) {
                     $type = $_POST['types'];
 
                     $servicetype = implode(",", $type);
-                    ;
+                   
 
 
 
@@ -136,78 +136,78 @@ if ($error != null) {
                     }
                 }
                 ?> 
-                <section id="about" class="dtr-section dtr-py-100 bg-light-blue">
+             <!--   <section id="about" class="dtr-section dtr-py-100 bg-light-blue">
                     <div class="container mt-100 mb-100"> 
 
-                        <!--===== row 1 starts =====-->
+                        <!--===== row 1 starts =====-
                         <div class="row d-flex align-items-center"> 
-                            <!-- column 2 starts -->
+                            <!-- column 2 starts 
                             <div class="col-1 col-md-2"></div> 
                             <div class="col-12 col-md-8"> 
 
-                                <!-- heading starts -->
+                                <!-- heading starts 
                                 <div class="dtr-styled-" align="center">
                                     <div class="dtr-styled-heading">
                                         <?php
-                                        if (isset($_POST["Edit"])) {
-                                            echo "  <h2>تعديل بيانات الحساب</h2><br>";
-                                            $name = $_POST['name'];
-                                            $username = $_POST['username'];
-                                            $passwod = PASSWORD_HASH($_POST["pwd"], PASSWORD_DEFAULT);
-                                            $email = $_POST['email'];
-                                            $PhoneNumber = $_POST['phone_number'];
-                                            $LicenseNumber = $_POST['license_Number'];
-                                            $location = $_POST['location'];
-                                            $description = $_POST['description'];
-                                            $option = $_POST['pickup_servise'];
-                                            $type = $_POST['types'];
-
-                                            $servicetype = implode(",", $type);
-                                            
-
-
-
-                                            $picture = $_FILES['img']['name'];
-
-                                            $sql = "select * from charity where (username='$username' or email='$email' or phone='$PhoneNumber') AND ID<>$ID";
-
-                                            $res = mysqli_query($conn, $sql);
-
-                                            if (mysqli_num_rows($res) > 0) {
-
-
-                                                $row = mysqli_fetch_assoc($res);
-                                                if ($email == isset($row['email'])) {
-                                                    echo "<h3 style='color:red; text-align:center'>email already exists</h3>";
-                                                    echo '<META HTTP-EQUIV="Refresh" Content="2; URL=ProfilePage.php">';
-                                                }
-
-                                                if ($username == isset($row['username'])) {
-                                                    echo "<h3 style='color:red; text-align:center'>username already exists</h3>";
-                                                    echo '<META HTTP-EQUIV="Refresh" Content="2; URL=ProfilePage.php">';
-                                                }
-
-                                                if ($PhoneNumber == isset($row['PhoneNumber'])) {
-                                                    echo "<h3 style='color:red; text-align:center'>phone number already exists</h3>";
-                                                    echo '<META HTTP-EQUIV="Refresh" Content="2; URL=ProfilePage.php">';
-                                                }
-                                            } else {
-
-                                                ///die("Update query");
-                                                $query = "UPDATE charity SET name='" . $name . "', username='" . $username . "', pass='" . $passwod . "', email='" . $email . "',
-                     phone='" . $PhoneNumber . "', LicenseNumber='" . $LicenseNumber . "', service='" . $option . "', donatoionType='" . $servicetype . "', location='" . $location . "', descrption='" . $description . "' WHERE ID='" . $ID . "'";
-                                                ///echo $query;
-
-                                                if ($conn->query($query) === TRUE) {
-                                                    echo '<h2 class="c-g">تم الحفظ</h2>';
-                                                    ?>
-                                                    <META HTTP-EQUIV="Refresh" Content="3; URL=CharityPage.php">
-                                                    <?php
-                                                } else {
-                                                    echo "الرجاء اعادة المحاولة: ";
-                                                }
-                                            }
-                                        }
+//                                        if (isset($_POST["Edit"])) {
+//                                            echo "  <h2>تعديل بيانات الحساب</h2><br>";
+//                                            $name = $_POST['name'];
+//                                            $username = $_POST['username'];
+//                                            $passwod = PASSWORD_HASH($_POST["pwd"], PASSWORD_DEFAULT);
+//                                            $email = $_POST['email'];
+//                                            $PhoneNumber = $_POST['phone_number'];
+//                                            $LicenseNumber = $_POST['license_Number'];
+//                                            $location = $_POST['location'];
+//                                            $description = $_POST['description'];
+//                                            $option = $_POST['pickup_servise'];
+//                                            $type = $_POST['types'];
+//
+//                                            $servicetype = implode(",", $type);
+//                                            
+//
+//
+//
+//                                            $picture = $_FILES['img']['name'];
+//
+//                                            $sql = "select * from charity where (username='$username' or email='$email' or phone='$PhoneNumber') AND ID<>$ID";
+//
+//                                            $res = mysqli_query($conn, $sql);
+//
+//                                            if (mysqli_num_rows($res) > 0) {
+//
+//
+//                                                $row = mysqli_fetch_assoc($res);
+//                                                if ($email == isset($row['email'])) {
+//                                                    echo "<h3 style='color:red; text-align:center'>email already exists</h3>";
+//                                                    echo '<META HTTP-EQUIV="Refresh" Content="2; URL=ProfilePage.php">';
+//                                                }
+//
+//                                                if ($username == isset($row['username'])) {
+//                                                    echo "<h3 style='color:red; text-align:center'>username already exists</h3>";
+//                                                    echo '<META HTTP-EQUIV="Refresh" Content="2; URL=ProfilePage.php">';
+//                                                }
+//
+//                                                if ($PhoneNumber == isset($row['PhoneNumber'])) {
+//                                                    echo "<h3 style='color:red; text-align:center'>phone number already exists</h3>";
+//                                                    echo '<META HTTP-EQUIV="Refresh" Content="2; URL=ProfilePage.php">';
+//                                                }
+//                                            } else {
+//
+//                                                ///die("Update query");
+//                                                $query = "UPDATE charity SET name='" . $name . "', username='" . $username . "', pass='" . $passwod . "', email='" . $email . "',
+//                     phone='" . $PhoneNumber . "', LicenseNumber='" . $LicenseNumber . "', service='" . $option . "', donatoionType='" . $servicetype . "', location='" . $location . "', descrption='" . $description . "' WHERE ID='" . $ID . "'";
+//                                                ///echo $query;
+//
+//                                                if ($conn->query($query) === TRUE) {
+//                                                    echo '<h2 class="c-g">تم الحفظ</h2>';
+//                                                    ?>
+                                                    <META HTTP-EQUIV="Refresh" Content="3; URL=CharityPage.php">-->
+                                                    //<?php
+//                                                } else {
+//                                                    echo "الرجاء اعادة المحاولة: ";
+//                                                }
+//                                            }
+//                                        }
                                         ?> 
                                         <!-- heading starts
                                         <div class="dtr-styled-heading">
