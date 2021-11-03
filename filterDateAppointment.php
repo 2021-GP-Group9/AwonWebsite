@@ -251,26 +251,29 @@ if (!isset($_SESSION['role'])) {
 
             </div>
             <script src="design.js"></script>
-            <script>
-                                                    function RemoveAppoiment(appointment_id) {
+            <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 
-                                                        var appointment_id = appointment_id;
-                                                        if (confirm("هل تريد حذف هذا الموعد؟"))
-                                                        {
-                                                            $.ajax({
-                                                                url: "RemoveAppointment.php",
-                                                                method: "GET",
-                                                                data: {appointment_id: appointment_id},
-                                                                success: function (data)
-                                                                {
-                                                                    alert("تم حذف الموعد بنجاح");
-                                                                    window.location.replace("CharityPage.php");
-                                                                }
-                                                            });
-                                                        } else {
-                                                            return false;
-                                                        }
-                                                    }
+            <script>
+
+                                                 
+         function RemoveAppoiment(appointment_id) {
+                    var  appointmentid = appointment_id;   
+        if (confirm('هل أنت متأكد من حذف الموعد؟')) {
+            $.ajax({
+                type: 'POST',
+                url: 'RemoveAppointment.php',
+                data: {appointmentid: appointment_id},
+                success: function (data) {
+                    alert("تم حذف الموعد بنجاح");
+                    window.location = 'CharityPage.php';
+                }
+                , error: function (data) {
+                    alert("حدث خطأ أعد المحاولة");
+                    window.location = 'filterDateAppointment.php';
+                }
+            });
+        }
+    }
             </script>
 
 
