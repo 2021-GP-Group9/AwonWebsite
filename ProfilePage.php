@@ -131,7 +131,7 @@ if ($error != null) {
 
                                             <!-- form starts -->
                                             <div class="dtr-form">
-                                                <form id="contactform" method="POST" >
+<form method="post" id="ManageTheProfile" enctype="multipart/form-data" action="UpdateProfilePage.php">
                                                     <fieldset>
                                                         <div class="dtr-form-row dtr-form-row-2col">
                                                             <p class="dtr-form-column">

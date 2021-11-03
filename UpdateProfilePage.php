@@ -135,6 +135,7 @@ if ($error != null) {
                         }
                     }
                 }
+                
                 ?> 
 <!--   <section id="about" class="dtr-section dtr-py-100 bg-light-blue">
 <div class="container mt-100 mb-100"> 
@@ -353,4 +354,4 @@ if ($error != null) {
 </div>
 </body>
 <script src="design.js"></script> 
-</html><!-- comment -->
+</html>
