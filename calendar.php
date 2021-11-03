@@ -1,10 +1,9 @@
-
 <link href="https://fonts.googleapis.com/css?family=Noto+Sans" rel="stylesheet">
 <link href="calendar.css" rel="stylesheet" type="text/css">
 <?php
 if (isset($_POST['submit'])) {
     $ID = $_SESSION['ID'];
-    $date = $_POST['date'];
+    $date = $_GET['date'];
     $time = $_POST['time'];
 
     $sqli = "SELECT * FROM appointment WHERE charity_id = '$ID' AND appointment_date='$date' AND appointment_time='$time'";
@@ -39,7 +38,7 @@ if (isset($_POST['submit'])) {
                         <form method="post">
                             <div class="form-group">
                                 <label>التاريخ</label>
-                                <input type="date" name="date" class="form-control" readonly value="<?php echo $_GET['date'] ?>">
+                                <input type="text" name="date" class="form-control" readonly value="<?php echo date("d/m/Y",strtotime($_GET['date'])) ?>">
                             </div>
                             <div class="form-group">
                                 <label>حدد الوقت</label>
@@ -170,5 +169,3 @@ if (isset($_POST['submit'])) {
         ?>
     </table>
 </div>
-
-
