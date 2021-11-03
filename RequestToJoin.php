@@ -23,7 +23,10 @@ if (isset($_SESSION['role'])) {
         <meta name="format-detection" content="telephone=no">
         <link rel='stylesheet' href='design.css'>
         <link rel="stylesheet" href="DesignBootstrap.css">
+         <script src="alert/dist/sweetalert-dev.js"></script>
+  <link rel="stylesheet" href="alert/dist/sweetalert.css">
     </head>
+                       
     <body>
         <div id="dtr-wrapper" class="clearfix"> 
 
@@ -98,6 +101,7 @@ if (isset($_SESSION['role'])) {
                                     <div class="dtr-styled-heading">
                                         <h2>نموذج طلب انضمام المنظمات الخيرية</h2>
                                     </div>
+                                    
                                     <!-- heading ends --> 
 
                                     <!--== row starts ==-->
@@ -129,7 +133,7 @@ if (isset($_SESSION['role'])) {
                                                             </p>
                                                             <p class="dtr-form-column">
                                                                 <label for=" password">كلمةالمرور</label>
-                                                                <input type="password" name="password" id="password" placeholder="كلمةالمرور" class="password"  required >
+                                                                <input type="password" name="password" id="password" placeholder="كلمةالمرور" class="password" required >
                                                             </p>
                                                         </div>
                                                     </fieldset>
@@ -205,9 +209,10 @@ if (isset($_SESSION['role'])) {
                                                          <br>
                                                         <p class="text-center">
                   
-                                                            <button class="dtr-btn btn-blue" type="submit" name="submit" onclick="validate();return false;">تسجيل</button>
+                                                            <button class="dtr-btn btn-blue" type="submit" name="submit" onclick="validate(); return false;">تسجيل</button>
                                                         </p>
                                                     </fieldset>
+
                                                     <?php
                                                     if (isset($_SESSION['faild'])) {
                                                         echo "<span style='color:red'>" . $_SESSION['faild'] . "</span>";
@@ -232,7 +237,7 @@ if (isset($_SESSION['role'])) {
                                                 
 
                                                 if ($_SERVER['REQUEST_METHOD'] == "POST") {
-
+                                                                                        
                                                     $name = $_POST['name'];
                                                     $username = $_POST['username'];
                                                     $email = $_POST['email'];
@@ -286,9 +291,11 @@ if (isset($_SESSION['role'])) {
 
                                                                 if ($run) {
 
-                                                                    echo '<script> alert("success Rigester");</script>';
+                                                                   echo '<script> alert("success Rigester");</script>';
+                                                                
                                                                     echo "<script>window.location ='confirmationPage.php';</script>";
                                                                 } 
+                                                                
                                                                 else {
                                                                     echo '<script> alert("field Riggester");</script>';
                                                                 }
@@ -342,15 +349,15 @@ if (isset($_SESSION['role'])) {
             <!-- == main content area ends == --> 
 
         </div>
-        <script>
 
-                                function validate(form) {
+         <script>
+                                        function validate() {
 
-                                    var phone = document.getElementById("PhoneNumber");
+                                    var phone = document.getElementById("phone_number").value;
                                     var digit = /^\d{10}$/; //to ensure the phone# input allow only correct address
                                     //1-validate phone number
-                                    var checkPhone = phone.value.match(digit); // must be numbers
-                                    if (!checkPhone || phone.value.length < 10 || phone.value.length > 10)
+                                    var checkPhone = phone.match(digit); // must be numbers
+                                    if (!checkPhone || phone.length < 10 || phone.length > 10)
                                     {
                                         alert("من فضلك ادخل رقم الجمعية بشكل صحيح");
                                         phone.focus();
@@ -358,15 +365,10 @@ if (isset($_SESSION['role'])) {
                                     }
 
 
-                                    var Password = document.getElementById("passwod");
+                                    var Password = document.getElementById("password").value;
                                     var passworsChar = /^[a-zA-Z0-9!@#$%^&*]{8,}$/;
-                                    var cheackPass = Password.value.match(passworsChar);
+                                    var cheackPass = Password.match(passworsChar);
                                     //2-validate password
-                                    if (Password.value == "") {
-                                        alert("من فضلك ادخل كلمة المرورة");
-                                        Password.focus();
-                                        return false;
-                                    }
 
                                     if (Password.value.length < 8) {
 
@@ -375,19 +377,14 @@ if (isset($_SESSION['role'])) {
                                         return false;
                                     }
 
-        if (!cheackPass) {
-            alert("password should contain atleast one number and one special character");
-            return false;
-        }
- if(!confirm("هل أنت متأكد من معلومات التسجيل؟")) {
-                  return false;}
-              
-              else{
-                  return window.location = "confirmationPage.php";
-              }   
-
-
-                                    this.form.submit();
+                                if (!cheackPass) {
+                                    alert("password should contain atleast one number and one special character");
+                                    return false;
                                 }
-        </script>
+                                
+                         if(! swal("Congrats!", ", هل انت متأكد من معلوماتك؟", "success")) {
+                                                    return false;}
+                        </script>
+                        
+     
 </html>
