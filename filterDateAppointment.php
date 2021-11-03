@@ -94,144 +94,183 @@ if (!isset($_SESSION['role'])) {
                   <input type="submit" value="ملف التعريف الشخصي">
               </form> -->
           <!-- <img src="logo.jpg" alt="logo" class="pageP"  >
-          </header> -->
-            <div class="auth-content" style="width: 90%; height: 400px; display: block;"> 
-                <?php
-                require('db_connecting.php');
+          </header>
+            <div class="auth-content" style="width: 90%; height: 400px; display: block;">  -->
+            <div id="dtr-main-content"> 
 
-                $ID = $_SESSION['ID'];
+                <section id="about" class="dtr-section dtr-py-100 bg-light-blue">
+                    <div class="container mt-100 mb-100"> 
 
-                $sqli = "SELECT * FROM `charity` WHERE ID = '$ID'";
+                        <!--===== row 1 starts =====-->
+                        <div class="row d-flex align-items-center"> 
+                            <!-- column 2 starts -->
+                            <div class="col-1 col-md-3"></div> 
+                            <div class="col-10 col-md-6"> 
+                                <div class="dtr-styled-" align="center">
+                                    <?php
+                                    require('db_connecting.php');
 
-                $result = $conn->query($sqli);
+                                    $ID = $_SESSION['ID'];
 
-                while ($row = $result->fetch_assoc()) {
-                    // &nbsp; used for spaceing
+                                    $sqli = "SELECT * FROM `charity` WHERE ID = '$ID'";
 
-                    echo '<h1>مرحبا </h1>';
-                    echo "<p> <a style='font-size:30px;'>{$row["name"]}</a></p>";
-                }
-                ?> 
-                <hr>  
-                <?php
-                if (isset($_GET['q']) AND $_GET['q'] == "edit") {
-                    $appointment_id = $_GET['appointment_id'];
-                    $current_date = $_GET['date'];
-                    $current_time = $_GET['time'];
-                    ?>
-                    <div class="row">
-                        <div class="container">
-                            <div class="col-md-4"></div>
-                            <div class="col-md-4">
-                                <div class="well">
-                                    <form method="post">
-                                        <div class="form-group">
-                                            <label>التاريخ</label>
-                                            <input type="date" name="date" class="form-control" value="<?php echo $_GET['date'] ?>" >
+                                    $result = $conn->query($sqli);
+
+                                    while ($row = $result->fetch_assoc()) {
+                                        // &nbsp; used for spaceing
+
+                                        echo '<h1>مرحبا </h1>';
+                                        echo "<p> <a style='font-size:30px;'>{$row["name"]}</a></p>";
+                                    }
+                                    ?> 
+                                    <hr>  
+                                    <?php
+                                    if (isset($_GET['q']) AND $_GET['q'] == "edit") {
+                                        $appointment_id = $_GET['appointment_id'];
+                                        $current_date = $_GET['date'];
+                                        $current_time = $_GET['time'];
+                                        ?>
+                                        <div class="row">
+                                            <div class="container">
+                                                <div class="col-md-4"></div>
+                                                <div class="col-md-4">
+                                                    <div class="well">
+                                                        <form method="post">
+                                                            <div class="form-group">
+                                                                <label>التاريخ</label>
+                                                                <input type="date" name="date" class="form-control" value="<?php echo $_GET['date'] ?>" >
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label>حدد الوقت</label>
+                                                                <input type="time" class="form-control" name="time" required value="<?php echo $current_time ?>">
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <button type="submit" name="edit_submit" class="btn btn-primary">حفظ الموعد</button>
+
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4"></div>
+                                            </div>
                                         </div>
-                                        <div class="form-group">
-                                            <label>حدد الوقت</label>
-                                            <input type="time" class="form-control" name="time" required value="<?php echo $current_time ?>">
-                                        </div>
-                                        <div class="form-group">
-                                            <button type="submit" name="edit_submit" class="btn btn-primary">حفظ الموعد</button>
+                                    <?php } ?>
+                                    <?php
+                                    if (isset($_POST['edit_submit'])) {
+                                        $appointment_id = $_GET['appointment_id'];
+                                        $ID = $_SESSION['ID'];
+                                        $date = $_POST['date'];
+                                        $time = $_POST['time'];
 
-                                        </div>
-                                    </form>
+                                        $sqli = "SELECT * FROM appointment WHERE charity_id = '$ID' AND appointment_date='$date' AND appointment_time='$time'";
+                                        ////echo $sqli;
+                                        $result = $conn->query($sqli);
+                                        $no = $result->num_rows;
+
+                                        if ($no == 0) {
+                                            $sqli2 = "UPDATE appointment SET appointment_date='$date', appointment_time='$time' WHERE id=$appointment_id";
+
+                                            $result2 = $conn->query($sqli2);
+                                            if ($result2) {
+                                                echo '<META HTTP-EQUIV="Refresh" Content="0;CharityPage.php">';
+                                                exit();
+                                            }
+                                        } else {
+                                            echo "<h2 style='text-align:center; color:red'>يوجد موعد في نفس هذا التاريخ $date ونفس الوقت $time</h2>";
+                                        }
+                                    }
+                                    ?>
+                                    <hr>
+                                    <h3 align="center">عرض المواعيد</h3>
+                                    <table dir="rtl" class="table table-bordered" style="max-width: 600px;margin: 10px auto; background: #FFF">
+                                        <tr class="active">
+                                            <th align="center">
+                                        <center>تاريخ الموعد</center>
+                                        </th>
+                                        <th align="center">
+                                        <center>الوقت</center>
+                                        </th>
+
+                                        </tr>
+                                        <?php
+                                        $ID = $_SESSION['ID'];
+                                        $date = $_GET['date'];
+                                        $sqli = "SELECT * FROM appointment WHERE charity_id = '$ID' AND appointment_date='$date'";
+                                        ////echo $sqli;
+                                        $result = $conn->query($sqli);
+                                        $no = $result->num_rows;
+                                        while ($row = mysqli_fetch_assoc($result)) {
+                                            ?>
+                                            <tr>
+                                                <td>
+                                                    <?php echo $row['appointment_date'] ?>
+                                                </td>
+                                                <td>
+                                                    <?php echo $row['appointment_time'] ?>
+                                                </td>
+                    <!--                            <td>
+                                                <?php echo $row['user_id'] ?>
+                                                </td>-->
+
+                                                <td>
+                                                    <a href="?q=edit&appointment_id=<?php echo $row['id'] ?>&date=<?php echo $row['appointment_date'] ?>&time=<?php echo $row['appointment_time'] ?>" class="btn btn-success btn-xs">تعديل</a>
+                                                    <a href="#" onClick="RemoveAppoiment(<?php echo $row['id'] ?>)" class="btn btn-danger btn-xs">حذف</a>
+                                                </td>
+                                            </tr>
+                                            <?php
+                                        }
+                                        ?>
+                                    </table>
                                 </div>
                             </div>
-                            <div class="col-md-4"></div>
-                        </div>
+                            </section><!-- comment -->
+                        </div>    <footer id="dtr-footer"> 
+
+                            <!--== copyright starts ==-->
+                            <div class="dtr-copyright">
+                                <div class="container"> 
+                                    <!--== row starts ==-->
+                                    <div class="row"> 
+                                        <!-- column 1 starts -->
+                                        <div class="col-12 col-md-12" align="center">
+                                            <p>&copy; فريق منصة عون</p>
+                                        </div>
+                                    </div>
+                                    <!--== row ends ==--> 
+
+                                </div>
+                            </div>
+                            <!--== copyright ends ==--> 
+
+                        </footer>
+                        <!-- footer section ends
+                ================================================== --> 
+
                     </div>
-                <?php } ?>
-                <?php
-                if (isset($_POST['edit_submit'])) {
-                    $appointment_id = $_GET['appointment_id'];
-                    $ID = $_SESSION['ID'];
-                    $date = $_POST['date'];
-                    $time = $_POST['time'];
+                    <!-- == main content area ends == --> 
 
-                    $sqli = "SELECT * FROM appointment WHERE charity_id = '$ID' AND appointment_date='$date' AND appointment_time='$time'";
-                    ////echo $sqli;
-                    $result = $conn->query($sqli);
-                    $no = $result->num_rows;
-
-                    if ($no == 0) {
-                        $sqli2 = "UPDATE appointment SET appointment_date='$date', appointment_time='$time' WHERE id=$appointment_id";
-
-                        $result2 = $conn->query($sqli2);
-                        if ($result2) {
-                            echo '<META HTTP-EQUIV="Refresh" Content="0;CharityPage.php">';
-                            exit();
-                        }
-                    } else {
-                        echo "<h2 style='text-align:center; color:red'>يوجد موعد في نفس هذا التاريخ $date ونفس الوقت $time</h2>";
-                    }
-                }
-                ?>
-                <hr>
-                <h3 align="center">عرض المواعيد</h3>
-                <table dir="rtl" class="table table-bordered" style="max-width: 600px;margin: 10px auto; background: #FFF">
-                    <tr class="active">
-                        <th align="center">
-                    <center>تاريخ الموعد</center>
-                    </th>
-                    <th align="center">
-                    <center>الوقت</center>
-                    </th>
-                   
-                    </tr>
-                    <?php
-                    $ID = $_SESSION['ID'];
-                    $date = $_GET['date'];
-                    $sqli = "SELECT * FROM appointment WHERE charity_id = '$ID' AND appointment_date='$date'";
-                    ////echo $sqli;
-                    $result = $conn->query($sqli);
-                    $no = $result->num_rows;
-                    while ($row = mysqli_fetch_assoc($result)) {
-                        ?>
-                        <tr>
-                            <td>
-                                <?php echo $row['appointment_date'] ?>
-                            </td>
-                            <td>
-                                <?php echo $row['appointment_time'] ?>
-                            </td>
-<!--                            <td>
-                              <?php echo $row['user_id'] ?>
-                            </td>-->
-                           
-                            <td>
-                                <a href="?q=edit&appointment_id=<?php echo $row['id'] ?>&date=<?php echo $row['appointment_date'] ?>&time=<?php echo $row['appointment_time'] ?>" class="btn btn-success btn-xs">تعديل</a>
-                                <a href="#" onClick="RemoveAppoiment(<?php echo $row['id'] ?>)" class="btn btn-danger btn-xs">حذف</a>
-                            </td>
-                        </tr>
-                        <?php
-                    }
-                    ?>
-                </table>
             </div>
-
+            <script src="design.js"></script>
             <script>
-                function RemoveAppoiment(appointment_id) {
+                                                    function RemoveAppoiment(appointment_id) {
 
-                    var appointment_id = appointment_id;
-                    if (confirm("هل تريد حذف هذا الموعد؟"))
-                    {
-                        $.ajax({
-                            url: "RemoveAppointment.php",
-                            method: "GET",
-                            data: {appointment_id: appointment_id},
-                            success: function (data)
-                            {
-                                alert("تم حذف الموعد بنجاح");
-                                window.location.replace("CharityPage.php");
-                            }
-                        });
-                    } else {
-                        return false;
-                    }
-                }
+                                                        var appointment_id = appointment_id;
+                                                        if (confirm("هل تريد حذف هذا الموعد؟"))
+                                                        {
+                                                            $.ajax({
+                                                                url: "RemoveAppointment.php",
+                                                                method: "GET",
+                                                                data: {appointment_id: appointment_id},
+                                                                success: function (data)
+                                                                {
+                                                                    alert("تم حذف الموعد بنجاح");
+                                                                    window.location.replace("CharityPage.php");
+                                                                }
+                                                            });
+                                                        } else {
+                                                            return false;
+                                                        }
+                                                    }
             </script>
 
 
