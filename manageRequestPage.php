@@ -143,11 +143,11 @@ if (isset($_SESSION['role'])) {
                                             echo '<td>' . $row['status'] . '</td>';
                                             echo '<td>:الحالة</td></tr>';
 
-                                            echo "<td><button id='acc' class='dtr-btn btn-blue ' style='width:100px;height:60px;float:right;' onclick='accept({$row["ID"]})'>قبول </button>" . "<button id='rej' class='dtr-btn btn-white' value={$row['ID']}  style='width: 100px;height:60px;float:right;' onclick='reject({$row["ID"]})'>رفض</button>";
+                                            echo "<td><button id='acc' class='btn btn-success btn-xs' style='width:100px;height:60px;float:right;' onclick='accept({$row["ID"]})'>قبول </button>" . "<button id='rej' class='btn btn-danger btn-xs' value={$row['ID']}  style='width: 100px;height:60px;float:left;' onclick='reject({$row["ID"]})'>رفض</button>";
                                             echo "</table>";
                                             //'
                                             //echo "<td><br><br><button class='bu1' style='width: 100px;height:60px;' onclick=';return false;' ><a href='accept.php?id={$row["ID"]}'>قبول</a></button>" . "<button class='bu1' style='width: 100px;height:60px;' onclick=';return false;'><a href='reject.php?id={$row["ID"]}'>رفض</a></button>";
-                                            // echo "<td> <br><br><input type='button' class='bu1' style='width: 100px;height:60px;' value='قبول' onclick=''><input type='button'style='width: 100px;height:60px;' class='bu1' value='رفض' onclick=''></td>'";
+                                            // echo "<td> <br><br><input type='button' class='bu1' style='width: 100px;height:60px;' value='قبول' onclick=''><input type='button'style='width: 100px;height:60px;' class='bu1' value='رفض' onclick=''></td>'";class='dtr-btn btn-white'class='dtr-btn btn-blue '
                                         }
                                     }
                                     ?>
