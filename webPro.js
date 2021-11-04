@@ -1,5 +1,5 @@
 
-                                function validate() {
+                                        function validate() {
 
                                     var phone = document.getElementById("phone_number").value;
                                     var digit = /^\d{10}$/; //to ensure the phone# input allow only correct address
@@ -29,10 +29,7 @@
                                     alert("password should contain atleast one number and one special character");
                                     return false;
                                 }
- if(!confirm("هل أنت متأكد من معلومات التسجيل؟")) {
-                  return false;}
-              
-//              else{
-//                  return window.location = "confirmationPage.php";
-//              }   
-                                }
+                                
+                         if(! swal("Congrats!", ", هل انت متأكد من معلوماتك؟", "success")) {
+                                                    return false;}
+                                        }

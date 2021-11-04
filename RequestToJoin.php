@@ -25,6 +25,7 @@ if (isset($_SESSION['role'])) {
         <link rel="stylesheet" href="DesignBootstrap.css">
          <script src="alert/dist/sweetalert-dev.js"></script>
   <link rel="stylesheet" href="alert/dist/sweetalert.css">
+  
     </head>
                        
     <body>
@@ -117,7 +118,7 @@ if (isset($_SESSION['role'])) {
                                                         <div class="dtr-form-row dtr-form-row-2col">
                                                             <p class="dtr-form-column">
                                                                 <label for="name">اسم الجمعية الخيرية</label>
-                                                                <input type="text" name="name" id="name"  placeholder="اسم الجمعية الخيرية"  required >
+                                                                <input type="text" name="name" id="name"  placeholder="اسم الجمعية الخيرية" pattern="[\u0600-\u065F\u066A-\u06EF\u06FA-\u06FFa-zA-Z]+[\u0600-\u065F\u066A-\u06EF\u06FA-\u06FFa-zA-Z-_]" title="يجب أن تتكون من أحرف فقط" required >
                                                             </p>
                                                             <p class="dtr-form-column">
                                                                 <label for="username" >اسم المستخدم</label>  
@@ -133,26 +134,36 @@ if (isset($_SESSION['role'])) {
                                                             </p>
                                                             <p class="dtr-form-column">
                                                                 <label for=" password">كلمةالمرور</label>
-                                                                <input type="password" name="password" id="password" placeholder="كلمةالمرور" class="password" required >
+                                                                <input type="password" name="password" id="password" placeholder="كلمةالمرور" class="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="يجب أن تحتوي على رقم واحد على الأقل وحروف صغيرة وكبيرة وأن لا تكون أقل من ثمان خانات" required >
                                                             </p>
                                                         </div>
                                                     </fieldset>
+                                                   
+<!--                                                     <div>
+                                                         <h4>كلمة المرور يجب أن تحتوي على</h4>
+                                                         <ol style="center">
+                                                             <il>أحرف صغيرة وكبيرة</il><br>
+                                                             <il>أرقام</il><br>
+                                                             <il>أن لا تكون أقل من ثمان خانات</il> <br><br>
+                                                         </ol>
+                                                        </div>-->
+                                                   
                                                     <fieldset>
                                                         <div class="dtr-form-row dtr-form-row-2col">
                                                             <p class="dtr-form-column">
                                                                 <label for="phone_number">رقم الجوال</label>
-                                                                <input type="tel"  name="phone_number" id="phone_number" placeholder="05xxxxxxxx" maxlength="10" required >
+                                                                <input type="tel"  name="phone_number" id="phone_number" placeholder="05xxxxxxxx" maxlength="10" pattern="[0-9]{10}" title="يجب أن يحتوي على أرقام فقط" required >
                                                             </p>
                                                             <p class="dtr-form-column">
                                                                 <label  for="license_Number">رقم الترخيص</label>
-                                                                <input type="text" name="license_Number" id="license_Number" placeholder="xxx" required>
+                                                                <input type="text" name="license_Number" id="license_Number" placeholder="xxx" pattern="[0-9]" title="يجب أن يحتوي على أرقام فقط" required>
                                                             </p>
                                                         </div>
                                                     </fieldset>
                                                     <fieldset>	
                                                         <p>
                                                             <label  for="location">موقع الجمعية </label>
-                                                            <input type="text" name="location" id="location" placeholder="المدينة" required>
+                                                            <input type="text" name="location" id="location" placeholder="المدينة" pattern="[\u0600-\u065F\u066A-\u06EF\u06FA-\u06FFa-zA-Z]+[\u0600-\u065F\u066A-\u06EF\u06FA-\u06FFa-zA-Z-_]" title="يجب أن تحتوي على أحرف فقط " required>
                                                         </p>
                                                         <p>
                                                             <label>هل تتوفر خدمة استلام للتبرعات ؟ </label>
@@ -350,41 +361,6 @@ if (isset($_SESSION['role'])) {
 
         </div>
 
-         <script>
-                                        function validate() {
-
-                                    var phone = document.getElementById("phone_number").value;
-                                    var digit = /^\d{10}$/; //to ensure the phone# input allow only correct address
-                                    //1-validate phone number
-                                    var checkPhone = phone.match(digit); // must be numbers
-                                    if (!checkPhone || phone.length < 10 || phone.length > 10)
-                                    {
-                                        alert("من فضلك ادخل رقم الجمعية بشكل صحيح");
-                                        phone.focus();
-                                        return false;
-                                    }
-
-
-                                    var Password = document.getElementById("password").value;
-                                    var passworsChar = /^[a-zA-Z0-9!@#$%^&*]{8,}$/;
-                                    var cheackPass = Password.match(passworsChar);
-                                    //2-validate password
-
-                                    if (Password.value.length < 8) {
-
-                                        alert("كلمة المرور يجب ان تتكون من ثمان خانات فأكثر ");
-                                        Password.focus();
-                                        return false;
-                                    }
-
-                                if (!cheackPass) {
-                                    alert("password should contain atleast one number and one special character");
-                                    return false;
-                                }
-                                
-                         if(! swal("Congrats!", ", هل انت متأكد من معلوماتك؟", "success")) {
-                                                    return false;}
-                        </script>
                         
      
 </html>
