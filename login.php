@@ -42,9 +42,9 @@ if (isset($_SESSION['role'])) {
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-4">
-                            <form id="signout" action="logout.php" method="POST">
+<!--                            <form id="signout" action="logout.php" method="POST">
                                 <input type="submit" class="logoutbtn" value="تسجيل خروج">
-                            </form>  
+                            </form>  -->
                         </div>
                         <div class="col-sm-4"></div>
                         <div class="col-sm-4" align="right">

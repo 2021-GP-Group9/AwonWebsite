@@ -165,6 +165,8 @@ if (isset($_SESSION['role'])) {
                                                             <label  for="location">موقع الجمعية </label>
                                                             <input type="text" name="location" id="location" placeholder="المدينة" pattern="[\u0600-\u065F\u066A-\u06EF\u06FA-\u06FFa-zA-Z]+[\u0600-\u065F\u066A-\u06EF\u06FA-\u06FFa-zA-Z-_]" title="يجب أن تحتوي على أحرف فقط " required>
                                                         </p>
+                                                        <p><label>وصف المنظمة الخيرية</label> <textarea rows="6" name="descrption" id="message" class="required" placeholder="وصف المنظمة الخيرية"></textarea> </p> 
+                                                         
                                                         <p>
                                                             <label>هل تتوفر خدمة استلام للتبرعات ؟ </label>
                                                         <div class="form-check-inline">
@@ -211,10 +213,7 @@ if (isset($_SESSION['role'])) {
                                                         </p>
                                                         <br>
                                                         
-                                                         <p>
-                                                       <label>وصف المنظمة الخيرية</label>
-                                             <textarea rows="6" name="descrption" id="descrption" class="required"  placeholder="وصف المنظمة الخيرية"></textarea>
-                                                        </p><br>
+                                                       
                                    	
                                                 
                                                          <br>

@@ -63,7 +63,7 @@ if (isset($_SESSION['role'])) {
                                             <!-- form starts -->
                                             <?php
                                             $connection = mysqli_connect("localhost", "root", "root", "awondb");
-                                            $sqli = "SELECT * FROM `charity` WHERE status='بالانتظار'";
+                                            $sqli = "SELECT * FROM `charity` WHERE status='null'";
                                             $result = $connection->query($sqli);
                                             ?>
                                             <table width="100%" class="tab-requets">
