@@ -121,13 +121,13 @@ if (isset($_SESSION['role'])) {
                                                     $_SESSION['ID'] = $row['ID'];
                                                     $_SESSION['role'] = 'admin';
 
-                                                    echo '<META HTTP-EQUIV="Refresh" Content="1; URL=joiningRequests.php">';
+                                                    echo '<META HTTP-EQUIV="Refresh" Content="0; URL=joiningRequests.php">';
                                                 } else {
-                                                    $_SESSION['errorC'] = 'UserName or password is not correct';
+                                                    $_SESSION['errorC'] = 'اسم المستخدم أو كلمة المرور غير صحيحة';
                                                     echo '<META HTTP-EQUIV="Refresh" Content="2; URL=login.php">';
                                                 }
                                             } else {
-                                                $_SESSION['errorC'] = 'UserName or password is not correct';
+                                                $_SESSION['errorC'] = 'اسم المستخدم أو كلمة المرور غير صحيحة';
                                                 echo '<META HTTP-EQUIV="Refresh" Content="2; URL=login.php">';
                                             }
                                         }
@@ -169,11 +169,11 @@ if (isset($_SESSION['role'])) {
                                                     echo '<META HTTP-EQUIV="Refresh" Content="2; URL=charityHome.php">';
 //                        
                                                 } else {
-                                                    $_SESSION['errorC'] = 'UserName or password is not correct';
+                                                    $_SESSION['errorC'] = 'اسم المستخدم أو كلمة المرور غير صحيحة أو لم تقبل الجمعية بعد';
                                                     echo '<META HTTP-EQUIV="Refresh" Content="2; URL=login.php">';
                                                 }
                                             } else {
-                                                $_SESSION['errorC'] = 'اسم المستخدم غير صحيح أو الجمعية لم تقبل بعد';
+                                                $_SESSION['errorC'] = 'اسم المستخدم أو كلمة المرور غير صحيحة أو لم تقبل الجمعية بعد';
                                                 echo '<META HTTP-EQUIV="Refresh" Content="2; URL=login.php">';
                                             }
                                         }
