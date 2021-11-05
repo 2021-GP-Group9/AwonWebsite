@@ -1,4 +1,4 @@
-<!--  see comments in line 26 - 54 - 193  --> 
+
 <?php
 session_start();
 
@@ -115,10 +115,10 @@ if (isset($_SESSION['role'])) {
                                             <div class="dtr-form">
                                                 <form id="contactform" method="POST">
                                                     <fieldset>
-                                                        <div class="dtr-form-row dtr-form-row-2col">
+                                                        <div class="dtr-form-row dtr-form-row-2col"> <!-- [\u0600-\u065F\u066A-\u06EF\u06FA-\u06FFa-zA-Z]+[\u0600-\u065F\u066A-\u06EF\u06FA-\u06FFa-zA-Z-_] -->
                                                             <p class="dtr-form-column">
-                                                                <label for="name">اسم الجمعية الخيرية</label>
-                                                                <input type="text" name="name" id="name"  placeholder="اسم الجمعية الخيرية" pattern="[\u0600-\u065F\u066A-\u06EF\u06FA-\u06FFa-zA-Z]+[\u0600-\u065F\u066A-\u06EF\u06FA-\u06FFa-zA-Z-_]" title="يجب أن تتكون من أحرف فقط" required >
+                                                                <label for="name">اسم الجمعية الخيرية</label> 
+                                                                <input type="text" name="name" id="name"  placeholder="اسم الجمعية الخيرية" pattern="^[\p{InArabic}\p{Latin}-,]+(\s?[\p{InArabic}\p{Latin}-, ])*$" title="يجب أن تتكون من أحرف فقط" required >
                                                             </p>
                                                             <p class="dtr-form-column">
                                                                 <label for="username" >اسم المستخدم</label>  
@@ -156,7 +156,7 @@ if (isset($_SESSION['role'])) {
                                                             </p>
                                                             <p class="dtr-form-column">
                                                                 <label  for="license_Number">رقم الترخيص</label>
-                                                                <input type="text" name="license_Number" id="license_Number" placeholder="xxx" pattern="[0-9]" title="يجب أن يحتوي على أرقام فقط" required>
+                                                                <input type="text" name="license_Number" id="license_Number" placeholder="xxx" pattern="[0-9]{,10}" title="يجب أن يحتوي على أرقام فقط" required>
                                                             </p>
                                                         </div>
                                                     </fieldset>
