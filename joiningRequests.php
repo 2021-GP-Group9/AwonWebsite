@@ -1,5 +1,4 @@
 <?php
-//var_dump(password_hash("12345", PASSWORD_DEFAULT));
 session_start();
 if (isset($_SESSION['role'])) {
     if ($_SESSION['role'] == 'admin') {
@@ -14,11 +13,10 @@ if (isset($_SESSION['role'])) {
                 <link rel="stylesheet" href="DesignBootstrap.css">
                 <title>طلبات الإنضمام</title>
             </head>  
-            <body data-new-gr-c-s-loaded="9.38.0">
+            <body>
                 <div id="dtr-wrapper" class="clearfix"> 
                     <div class="dtr-responsive-header">
                         <div class="container"> 
-
                             <div class="dtr-header-left" style="float: left;"> 
                                 <form id="signout" action="logout.php" method="POST">
                                     <input type="submit" class="logoutbtn" value="تسجيل خروج">
@@ -27,6 +25,7 @@ if (isset($_SESSION['role'])) {
                             <a href="index.php"><img src="finalLogo.jpeg" class="m-logo" alt="logo"></a> 
                         </div>
                     </div>
+                     <!-- header starts--> 
                     <header id="dtr-header-global" class="">
                         <div class="container">
                             <div class="row">
@@ -49,10 +48,9 @@ if (isset($_SESSION['role'])) {
 
                     <!--main content area starts-->
                     <div id="dtr-main-content"> 
-
                         <section id="about" class="dtr-section dtr-py-100 bg-light-blue">
                             <div class="container mt-100 mb-100"> 
-                                <!--===== row 1 starts =====-->
+                                <!-- row 1 starts -->
                                 <div class="row d-flex align-items-center"> 
                                     <!-- column 2 starts -->
                                     <div class="col-1 col-md-2"></div> 
@@ -60,10 +58,10 @@ if (isset($_SESSION['role'])) {
                                         <!-- heading starts -->
                                         <div class="dtr-styled-" align="center">
                                             <h2>طلبات الإنضمام</h2>
-                                            <!-- form starts -->
+                                            <!-- table starts -->
                                             <?php
                                             $connection = mysqli_connect("localhost", "root", "root", "awondb");
-                                            $sqli = "SELECT * FROM `charity` WHERE status='null'";
+                                            $sqli = "SELECT * FROM `charity` WHERE status='بالانتظار'";
                                             $result = $connection->query($sqli);
                                             ?>
                                             <table width="100%" class="tab-requets">
@@ -80,11 +78,16 @@ if (isset($_SESSION['role'])) {
                                                         $image = '<img src="data:image/jpeg;base64,' . base64_encode($row['picture']) . '"width="50em"/>';                                                   // &nbsp; used for spaceing
                                                         echo "<td>" . $dt . "</td>";
                                                         echo "<td>" . "<button id='rej' class='btn btn-danger btn-xs' value={$row['ID']} onclick='reject({$row["ID"]})'>رفض</button>" . "<button id='acc' class='btn btn-success btn-xs' onclick='accept({$row["ID"]})'>قبول</button>" . "</td>";
-                                                        // please check the img <img src="img/user.png" class="join-user">
                                                         echo "<td>" . "<a href='manageRequestPage.php?id={$row["ID"]}'>{$row["name"]}</a>" . "&nbsp;&nbsp;&nbsp;&nbsp;" . '<img src="AwonWebsite/user.png" class="join-user">' . "</td>";
                                                         echo "</tr>";
                                                     }//end while
-                                                }//end if
+                                                }//end if 
+                                                else {
+                                                   echo'<tr align="right">';
+                                                   echo "<td>"."</td>"."<td>"."لا يوجد طلبات إنضمام جديدة"."</td>"; 
+                                                    echo "<td>"."</td>"."<td>"."</td>"; 
+
+                                                }
                                                 ?>
 
                                             </table>
