@@ -498,7 +498,9 @@ img.m-logo {
 /*----------------------------------------*/
 /*===== 12 Footer =====*/
 /*----------------------------------------*/
-.dtr-footer-columns { padding: 30px 0; }
+.dtr-footer-columns {
+    position: fixed;
+    padding: 30px 0; }
 .dtr-copyright { padding: 20px 0; }
 /*----------------------------------------*/
 /*===== 13 Blog =====*/

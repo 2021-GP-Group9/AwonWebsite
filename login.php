@@ -12,7 +12,7 @@ if (isset($_SESSION['role'])) {
 
 if (isset($_SESSION['role'])) {
     if ($_SESSION['role'] == 'charity') {
-        header('Location:CharityPage.php');
+        header('Location:charityHome.php');
     }
 }
 ?>
@@ -29,9 +29,7 @@ if (isset($_SESSION['role'])) {
             <div class="dtr-responsive-header">
                 <div class="container"> 
                     <div class="dtr-header-left" style="float: left;"> 
-                        <form id="signout" action="logout.php" method="POST">
-                            <input type="submit" class="logoutbtn" value="تسجيل خروج">
-                        </form>       
+                             
                     </div>
                     <!-- small devices logo --> 
                     <a href="index.php"><img src="finalLogo.jpeg"  class="m-logo" alt="logo"></a> 
@@ -168,7 +166,7 @@ if (isset($_SESSION['role'])) {
 
                                                     $_SESSION['ID'] = $row['ID'];
                                                     $_SESSION['role'] = 'charity';
-                                                    echo '<META HTTP-EQUIV="Refresh" Content="2; URL=CharityPage.php">';
+                                                    echo '<META HTTP-EQUIV="Refresh" Content="2; URL=charityHome.php">';
 //                        
                                                 } else {
                                                     $_SESSION['errorC'] = 'UserName or password is not correct';

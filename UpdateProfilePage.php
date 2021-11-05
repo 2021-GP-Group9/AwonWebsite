@@ -1,4 +1,4 @@
-<!--  see comments in line 24 - 27 - 33 - 114 --> <?php
+  see comments in line 24 - 27 - 33 - 114  <?php
 session_start();
 $ID = $_SESSION['ID'];
 $server = "localhost";
@@ -25,16 +25,16 @@ if ($error != null) {
     <body>
         <div id="dtr-wrapper" class="clearfix"> 
 
-            <!-- preloader starts 
+             preloader starts 
             <div class="dtr-preloader">
                 <div class="dtr-preloader-inner">
                     <div class="dtr-preloader-img"></div>
                 </div>
             </div>
-            <!-- preloader ends ---->> 
+            <!-- preloader ends --> 
 
-            <!-- Small Devices Header 
-        ============================================= -->
+             Small Devices Header 
+        ============================================= 
             <div class="dtr-responsive-header">
                 <div class="container"> 
 
@@ -44,16 +44,16 @@ if ($error != null) {
                         </form>       
                     </div>
 
-                    <!-- small devices logo --> 
+                     small devices logo  
                     <a href="index.php"><img src="finalLogo.jpeg" class="m-logo" alt="logo"></a> 
-                    <!-- small devices logo ends --> 
+                     small devices logo ends  
                 </div>
             </div>
-            <!-- Small Devices Header ends 
-        ============================================= --> 
+             Small Devices Header ends 
+        =============================================  
 
-            <!-- Header 
-        ============================================= -->
+             Header 
+        ============================================= 
             <header id="dtr-header-global" class="">
                 <div class="container">
                     <div class="row">
@@ -105,17 +105,17 @@ if ($error != null) {
 
                         $row = mysqli_fetch_assoc($res);
                         if ($email == isset($row['email'])) {
-                            echo "<h3 style='color:red; text-align:center'>email already exists</h3>";
+                            echo "<h3 style='color:red; text-align:center'>الايميل موجود بالفعل</h3>";
                             echo '<META HTTP-EQUIV="Refresh" Content="2; URL=ProfilePage.php">';
                         }
 
                         if ($username == isset($row['username'])) {
-                            echo "<h3 style='color:red; text-align:center'>username already exists</h3>";
+                            echo "<h3 style='color:red; text-align:center'>اسم المستخدم موجود بالفعل</h3>";
                             echo '<META HTTP-EQUIV="Refresh" Content="2; URL=ProfilePage.php">';
                         }
 
                         if ($PhoneNumber == isset($row['PhoneNumber'])) {
-                            echo "<h3 style='color:red; text-align:center'>phone number already exists</h3>";
+                            echo "<h3 style='color:red; text-align:center'>رقم الجوال مستخدم بالفعل</h3>";
                             echo '<META HTTP-EQUIV="Refresh" Content="2; URL=ProfilePage.php">';
                         }
                     } else {
@@ -137,7 +137,7 @@ if ($error != null) {
                 }
                 
                 ?> 
-<!--   <section id="about" class="dtr-section dtr-py-100 bg-light-blue">
+   <section id="about" class="dtr-section dtr-py-100 bg-light-blue">
 <div class="container mt-100 mb-100"> 
 
                 <!--===== row 1 starts =====-
@@ -203,7 +203,7 @@ if ($error != null) {
 //                                                    echo '<h2 class="c-g">تم الحفظ</h2>';
 //                                                    
                 ?>
-                                    <META HTTP-EQUIV="Refresh" Content="3; URL=CharityPage.php">-->
+                                    <META HTTP-EQUIV="Refresh" Content="3; URL=CharityPage.php">
                 //<?php
 //                                                } else {
 //                                                    echo "الرجاء اعادة المحاولة: ";
@@ -211,27 +211,27 @@ if ($error != null) {
 //                                            }
 //                                        }
                 ?> 
-                <!-- heading starts
+                 heading starts
                 <div class="dtr-styled-heading">
                     <h2>تعديل بيانات الحساب</h2><br>
                     <br>
-                    <h2 class="c-g">تم الحفظ</h2> -->
+                    <h2 class="c-g">تم الحفظ</h2> 
             </div>
-            <!-- heading ends --> 
+             heading ends  
 
 
-            <!-- form ends --> 
+             form ends  
         </div>
-        <!-- heading ends --> 
+         heading ends  
     </div>
-    <!-- column 2 ends --> 
+     column 2 ends  
 </div>
-<!--===== row 1 ends =====--> 
+===== row 1 ends ===== 
 </div>
 </section>
 
 
-<!--    -----------------------------------------------------------
+    -----------------------------------------------------------
 <header> 
     logo in the right
     <img src="finalLogo.jpeg" alt="logo" class="logo" style="length:100px; width:100px; float: left;">
@@ -241,14 +241,14 @@ if ($error != null) {
     <ul>
         <li><a href=".php"></a> </li>
     </ul>
-</nav> -->
-<!-- log out  as button in the left
+</nav> 
+ log out  as button in the left
 <form id="signout" action="logout.php" method="POST">
     <input type="submit" value="تسجيل خروج">
 
 </form>
-</header>-->
-<!-- <header id="headerPage" style="padding:28px 16px">
+</header>
+ <header id="headerPage" style="padding:28px 16px">
          <form id="signout" action="logout.php" method="POST">
              <button type="submit" onclick="index();return false;">تسجيل الخروج</button>
          </form> 
@@ -256,7 +256,7 @@ if ($error != null) {
      </header
 
 <div class="auth-content">
-> -->
+> 
 <?php
 //                    if (isset($_POST["Edit"])) {
 //                        echo "<h1>تعديل بيانات الحساب</h1>";
@@ -311,7 +311,7 @@ if ($error != null) {
 //                                echo '<h1 style="color:green; text-align:center">تم الحفظ</h1>';
 //                                
 ?>
-<!--    <META HTTP-EQUIV="Refresh" Content="3; URL=CharityPage.php">-->
+    <META HTTP-EQUIV="Refresh" Content="3; URL=CharityPage.php">
 //<?php
 //                            } else {
 //                                echo "الرجاء اعادة المحاولة: ";
@@ -319,37 +319,37 @@ if ($error != null) {
 //                        }
 //                    }
 ?> 
-<!--     </div>
+     </div>
 
     Footer                 <footer>
         <!-- we want footer with  <p>&copy; فريق منصة عون</p>  
 
         <p>&copy; فريق منصة عون</p>
-    </footer>-->
+    </footer>
 <footer id="dtr-footer"> 
 
-    <!--== copyright starts ==-->
+    == copyright starts ==
     <div class="dtr-copyright">
         <div class="container"> 
-            <!--== row starts ==-->
+            == row starts ==
             <div class="row"> 
-                <!-- column 1 starts -->
+                 column 1 starts 
                 <div class="col-12 col-md-12" align="center">
                     <p>&copy; فريق منصة عون</p>
                 </div>
             </div>
-            <!--== row ends ==--> 
+            == row ends == 
 
         </div>
     </div>
-    <!--== copyright ends ==--> 
+    == copyright ends == 
 
 </footer>
-<!-- footer section ends
-================================================== --> 
+ footer section ends
+==================================================  
 
 </div>
-<!-- == main content area ends == --> 
+ == main content area ends ==  
 
 </div>
 </body>

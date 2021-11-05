@@ -18,14 +18,6 @@ if (!isset($_SESSION['role'])) {
         <section>
         <div id="dtr-wrapper" class="clearfix"> 
 
-            <!-- preloader starts 
-            <div class="dtr-preloader">
-                <div class="dtr-preloader-inner">
-                    <div class="dtr-preloader-img"></div>
-                </div>
-            </div>-->
-            <!-- preloader ends --> 
-
             <!-- Small Devices Header 
         ============================================= -->
             <div class="dtr-responsive-header">
@@ -55,8 +47,8 @@ if (!isset($_SESSION['role'])) {
                         </div>
                         <div class="col-sm-4" align="center"><br>
                             <div class="main-navigation dtr-menu-dark">
-                                <a class="nav-link" href="charityHome.php" style="float: right;">الصفحة الرئيسية</a>
-                                <a class="nav-link" href="ProfilePage.php">تعديل الملف الشخصي</a>
+                                <a class="nav-link" href="ProfilePage.php" style="float: right;">تعديل الملف الشخصي</a>
+                                <a class="nav-link" href="CharityPage.php?">المواعيد</a>
                             </div>
                         </div>
                         <div class="col-sm-4" align="right">
@@ -83,8 +75,25 @@ if (!isset($_SESSION['role'])) {
 
                                 <!-- heading starts -->
                                 <div class="dtr--" align="center">
+                                    <h2 style="float: right;">مرحبا </h2>
+                                    <?php
+                                    require('db_connecting.php');
+
+                                    $ID = $_SESSION['ID'];
+
+                                    $sqli = "SELECT * FROM `charity` WHERE ID = '$ID'";
+
+                                    $result = $conn->query($sqli);
+
+                                    while ($row = $result->fetch_assoc()) {
+                                       
+                                       // echo '<h1>مرحبا </h1>';
+                                        echo "&nbsp;"."<h3> <a style='font-size:30px; float:right;'>{$row["name"]}</a></h3><br>";
+                                        echo "<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>";
+                                    }
+                                    ?>  
+
                                     
-                                    <?php include("calendar.php") ?>
                                     <!-- form starts 
                                     <H3>Aljawharahds Aljawharahds</H3>-->
                                     <!-- form ends --> 
@@ -98,58 +107,6 @@ if (!isset($_SESSION['role'])) {
                 </section>
 
 
-                <!--    --------------------------------------------------------------- 
-                  <header> 
-                     logo in the right 
-                      <img src="finalLogo.jpeg" alt="logo" class="logo" style="length:100px; width:100px; float: left;">
-  
-                <!-- navbar for charity should include 'تعديل الملف الشخصي' which is call ProfilePage.php 
-                <nav class="topnav">
-                    <ul>
-                        <li><a href=".php">تعديل الملف الشخصي</a> </li>
-                    </ul>
-                </nav>--> 
-                <!-- log out  as button in the left
-                <form id="signout" action="logout.php" method="POST">
-                    <input type="submit" value="تسجيل خروج">
-
-                </form>
-            </header>
-                -->
-                <!-- <form id="signout" action="logout.php" method="POST">
-                     <input type="submit" value="تسجيل خروج">
-             
-                 </form> 
-                  <form id="profile" action="ProfilePage.php" method="POST">
-                      <input type="submit" value="ملف التعريف الشخصي">
-                  </form> -->
-              <!-- <img src="logo.jpg" alt="logo" class="pageP"  >
-              </header> 
-                <div class="auth-content"> -->
-                <?php
-//                    require('db_connecting.php');
-//
-//                    $ID = $_SESSION['ID'];
-//
-//                    $sqli = "SELECT * FROM `charity` WHERE ID = '$ID'";
-//
-//                    $result = $conn->query($sqli);
-//
-//                    while ($row = $result->fetch_assoc()) {
-//                        // &nbsp; used for spaceing
-//
-//                        echo '<h1>مرحبا </h1>';
-//                        echo "<p> <a style='font-size:30px;'>{$row["name"]}</a></p>";
-//                    }
-                ?>      
-                <!--     </div>
-                Footer 
-                  <footer>
-                      <!-- we want footer with  <p>&copy; فريق منصة عون</p> 
-  
-                      <p>&copy; فريق منصة عون</p>
-                  </footer>
-                -->
                 <footer id="dtr-footer"> 
 
                     <!--== copyright starts ==-->
@@ -176,9 +133,7 @@ if (!isset($_SESSION['role'])) {
             <!-- == main content area ends == --> 
 
         </div>
-        <script src="design.js"></script> 
     </body>
 
 
 </html>
-

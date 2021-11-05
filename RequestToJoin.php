@@ -1,4 +1,4 @@
-<!--  see comments in line 26 - 54 - 193  --> 
+
 <?php
 session_start();
 
@@ -45,10 +45,9 @@ if (isset($_SESSION['role'])) {
                 <div class="container"> 
 
                     <div class="dtr-header-left" style="float: left;"> 
-                        <form id="signout" action="logout.php" method="POST">
-                            <input type="submit" class="logoutbtn" value="تسجيل خروج">
-                        </form>       
+                              
                     </div>
+
                     <!-- small devices logo --> 
                     <a href="index.php"><img src="finalLogo.jpeg" class="m-logo" alt="logo"></a> 
                     <!-- small devices logo ends --> 
@@ -63,14 +62,16 @@ if (isset($_SESSION['role'])) {
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-4">
-
+                            
                         </div>
                         <div class="col-sm-4" align="center"><br>
-
+                            <div class="main-navigation dtr-menu-dark">
+                                <a class="nav-link" href="index.php"">الصفحة الرئيسية</a>
+                            </div>
                         </div>
                         <div class="col-sm-4" align="right">
                             <div class="dtr-header-right"> 
-                                <a class="logo-default dtr-scroll-link" href="index.php"><img src="finalLogo.jpeg"  alt="logo" width="108"></a></div>
+                                <a class="logo-default dtr-scroll-link" href="index.php"><img src="finalLogo.jpeg" alt="logo" width="108"></a></div>
                         </div>
                     </div>
                 </div>
@@ -115,10 +116,10 @@ if (isset($_SESSION['role'])) {
                                             <div class="dtr-form">
                                                 <form id="contactform" method="POST">
                                                     <fieldset>
-                                                        <div class="dtr-form-row dtr-form-row-2col">
+                                                        <div class="dtr-form-row dtr-form-row-2col"> <!-- [\u0600-\u065F\u066A-\u06EF\u06FA-\u06FFa-zA-Z]+[\u0600-\u065F\u066A-\u06EF\u06FA-\u06FFa-zA-Z-_] -->
                                                             <p class="dtr-form-column">
-                                                                <label for="name">اسم الجمعية الخيرية</label>
-                                                                <input type="text" name="name" id="name"  placeholder="اسم الجمعية الخيرية" pattern="[\u0600-\u065F\u066A-\u06EF\u06FA-\u06FFa-zA-Z]+[\u0600-\u065F\u066A-\u06EF\u06FA-\u06FFa-zA-Z-_]" title="يجب أن تتكون من أحرف فقط" required >
+                                                                <label for="name">اسم الجمعية الخيرية</label> 
+                                                                <input type="text" name="name" id="name"  placeholder="اسم الجمعية الخيرية" pattern="^[\p{InArabic}\p{Latin}-,]+(\s?[\p{InArabic}\p{Latin}-, ])*$" title="يجب أن تتكون من أحرف فقط" required >
                                                             </p>
                                                             <p class="dtr-form-column">
                                                                 <label for="username" >اسم المستخدم</label>  
@@ -156,7 +157,7 @@ if (isset($_SESSION['role'])) {
                                                             </p>
                                                             <p class="dtr-form-column">
                                                                 <label  for="license_Number">رقم الترخيص</label>
-                                                                <input type="text" name="license_Number" id="license_Number" placeholder="xxx" pattern="[0-9]" title="يجب أن يحتوي على أرقام فقط" required>
+                                                                <input type="text" name="license_Number" id="license_Number" placeholder="xxx" pattern="[0-9]{,10}" title="يجب أن يحتوي على أرقام فقط" required>
                                                             </p>
                                                         </div>
                                                     </fieldset>

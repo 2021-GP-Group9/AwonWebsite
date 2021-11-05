@@ -57,7 +57,9 @@ if (!isset($_SESSION['role'])) {
                         </div>
                         <div class="col-sm-4" align="center"><br>
                             <div class="main-navigation dtr-menu-dark">
-                                <a class="nav-link" href="CharityPage.php">الصفحة الرئيسية</a>
+                                <a class="nav-link" href="charityHome.php" style="float: right;">الصفحة الرئيسية</a>
+                                <a class="nav-link" href="ProfilePage.php">تعديل الملف الشخصي</a>
+
                             </div>
                         </div>
                         <div class="col-sm-4" align="right">
@@ -104,26 +106,17 @@ if (!isset($_SESSION['role'])) {
                         <!--===== row 1 starts =====-->
                         <div class="row d-flex align-items-center"> 
                             <!-- column 2 starts -->
+                            <section>
                             <div class="col-1 col-md-3"></div> 
                             <div class="col-10 col-md-6"> 
                                 <div class="dtr-styled-" align="center">
                                     <?php
                                     require('db_connecting.php');
 
-                                    $ID = $_SESSION['ID'];
-
-                                    $sqli = "SELECT * FROM `charity` WHERE ID = '$ID'";
-
-                                    $result = $conn->query($sqli);
-
-                                    while ($row = $result->fetch_assoc()) {
-                                        // &nbsp; used for spaceing
-
-                                        echo '<h1>مرحبا </h1>';
-                                        echo "<p> <a style='font-size:30px;'>{$row["name"]}</a></p>";
-                                    }
+                                    
+                                    
                                     ?> 
-                                    <hr>  
+                                    <hr>
                                     <?php
                                     if (isset($_GET['q']) AND $_GET['q'] == "edit") {
                                         $appointment_id = $_GET['appointment_id'];
