@@ -25,7 +25,7 @@ if (isset($_SESSION['role'])) {
                             <a href="index.php"><img src="finalLogo.jpeg" class="m-logo" alt="logo"></a> 
                         </div>
                     </div>
-                     <!-- header starts--> 
+                    <!-- header starts--> 
                     <header id="dtr-header-global" class="">
                         <div class="container">
                             <div class="row">
@@ -75,18 +75,18 @@ if (isset($_SESSION['role'])) {
                                                     while ($row = mysqli_fetch_assoc($result)) {
                                                         echo'<tr align="right">';
                                                         $dt = date("d-m-Y", strtotime($row['register_date']));
-                                                        $image = '<img src="data:image/jpeg;base64,' . base64_encode($row['picture']) . '"width="50em"/>';                                                   // &nbsp; used for spaceing
+                                                        $image = '<img src="data:image/jpeg;base64,' . base64_encode($row['picture']) . '"width="50em"/>';
                                                         echo "<td>" . $dt . "</td>";
                                                         echo "<td>" . "<button id='rej' class='btn btn-danger btn-xs' value={$row['ID']} onclick='reject({$row["ID"]})'>رفض</button>" . "<button id='acc' class='btn btn-success btn-xs' onclick='accept({$row["ID"]})'>قبول</button>" . "</td>";
-                                                        echo "<td>" . "<a href='manageRequestPage.php?id={$row["ID"]}'>{$row["name"]}</a>" . "&nbsp;&nbsp;&nbsp;&nbsp;" . '<img src="AwonWebsite/user.png" class="join-user">' . "</td>";
+                                                        // &nbsp; used for spaceing
+                                                        echo "<td>" . "<a href='manageRequestPage.php?id={$row["ID"]}'>{$row["name"]}</a>" . "&nbsp;&nbsp;&nbsp;&nbsp;" . $image . "</td>";
                                                         echo "</tr>";
                                                     }//end while
                                                 }//end if 
                                                 else {
-                                                   echo'<tr align="right">';
-                                                   echo "<td>"."</td>"."<td>"."لا يوجد طلبات إنضمام جديدة"."</td>"; 
-                                                    echo "<td>"."</td>"."<td>"."</td>"; 
-
+                                                    echo'<tr align="right">';
+                                                    echo "<td>" . "</td>" . "<td>" . "لا يوجد طلبات إنضمام جديدة" . "</td>";
+                                                    echo "<td>" . "</td>" . "<td>" . "</td>";
                                                 }
                                                 ?>
 
@@ -121,9 +121,7 @@ if (isset($_SESSION['role'])) {
                 </div>
                 <!--main content area ends--> 
             </div> 
-            <!-- footer section ends
 
-            <!--INSERT INTO charity_orgnization(`ID`,`name`,`username`,`email`,`phone_number`,`license_Number`,`location`,`pickup_servise`,`type_of_donation`,`photo`,`password`,`description`) VALUES ('1234','سحر','sand','itsaharcs@gmail.com','555555555','12345','Riyadh','1','clothes','','1212','سحر هي منظمة') -->   
         </body>  </html>
         <?php
     }
@@ -172,4 +170,3 @@ if (isset($_SESSION['role'])) {
     }
 
 </script>
-<script src="design.js"></script> 
