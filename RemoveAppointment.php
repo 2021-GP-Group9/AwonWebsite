@@ -6,7 +6,7 @@ require('db_connecting.php');
 $charityID = $_SESSION['ID'];
 $appointment_id = $_POST['appointmentid'];
 
-$sql = "DELETE FROM appointment  WHERE id ='$appointment_id' AND charity_id = '$charityID' ";
+$sql = "DELETE FROM appointment  WHERE appointmentId ='$appointment_id' AND charityId = '$charityID' ";
 $result = $conn->query($sql);
 if ($result) {
     echo 'deleted successfully';

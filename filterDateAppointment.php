@@ -160,7 +160,7 @@ if (!isset($_SESSION['role'])) {
                                         $no = $result->num_rows;
 
                                         if ($no == 0) {
-                                            $sqli2 = "UPDATE appointment SET appointmentDate='$date', appointmentTime='$time' WHERE id=$appointment_id";
+                                            $sqli2 = "UPDATE appointment SET appointmentDate='$date', appointmentTime='$time' WHERE appointmentId=$appointment_id";
 
                                             $result2 = $conn->query($sqli2);
                                             if ($result2) {
@@ -205,8 +205,8 @@ if (!isset($_SESSION['role'])) {
                                                 </td>-->
 
                                                 <td>
-                                                    <a href="?q=edit&appointment_id=<?php echo $row['id'] ?>&date=<?php echo $row['appointmentDate'] ?>&time=<?php echo $row['appointmentTime'] ?>" class="btn btn-success btn-xs">تعديل</a>
-                                                    <a href="#" onClick="RemoveAppoiment(<?php echo $row['id'] ?>)" class="btn btn-danger btn-xs">حذف</a>
+                                                    <a href="?q=edit&appointment_id=<?php echo $row['appointmentId'] ?>&date=<?php echo $row['appointmentDate'] ?>&time=<?php echo $row['appointmentTime'] ?>" class="btn btn-success btn-xs">تعديل</a>
+                                                    <a href="#" onClick="RemoveAppoiment(<?php echo $row['appointmentId'] ?>)" class="btn btn-danger btn-xs">حذف</a>
                                                 </td>
                                             </tr>
                                             <?php
