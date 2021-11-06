@@ -25,7 +25,6 @@ if (isset($_POST['submit'])) {
 ?>
 <br>
 <i class="fa fa-calendar"></i> مذكرة المواعيد
-
 </h3>
 <!-- filter form -->
 <div id="mainContent1" style="padding: 20px 10px;">
@@ -38,7 +37,7 @@ if (isset($_POST['submit'])) {
                         <form method="post">
                             <div class="form-group">
                                 <label>التاريخ</label>
-                                <input type="text" name="date" class="form-control" readonly value="<?php echo date("d/m/Y",strtotime($_GET['date'])) ?>">
+                                <input type="text" name="date" class="form-control" readonly value="<?php echo date("d/m/Y", strtotime($_GET['date'])) ?>">
                             </div>
                             <div class="form-group">
                                 <label>حدد الوقت</label>
@@ -75,40 +74,28 @@ if (isset($_POST['submit'])) {
     $today = date('Y-m-j', time());
 // For H3 title
     $html_title = date('Y / m', $timestamp);
-// Create prev & next month link     mktime(hour,minute,second,month,day,year)
-    $prev = date('Y-m', mktime(0, 0, 0, date('m', $timestamp) - 1, 1, date('Y', $timestamp)));
-    $next = date('Y-m', mktime(0, 0, 0, date('m', $timestamp) + 1, 1, date('Y', $timestamp)));
-// You can also use strtotime!
-// $prev = date('Y-m', strtotime('-1 month', $timestamp));
-// $next = date('Y-m', strtotime('+1 month', $timestamp));
+// Create prev & next month link mktime(hour,minute,second,month,day,year)
+    $prev = date('Y-m', strtotime('-1 month', $timestamp));
+    $next = date('Y-m', strtotime('+1 month', $timestamp));
 // Number of days in the month
     $day_count = date('t', $timestamp);
 
 // 0:Sun 1:Mon 2:Tue ...
     $str = date('w', mktime(0, 0, 0, date('m', $timestamp), 1, date('Y', $timestamp)));
 //$str = date('w', $timestamp);
-// Create Calendar!!
+// Create Calendar
     $weeks = array();
     $week = '';
 // Add empty cell
     $week .= str_repeat('<td></td>', $str);
-
     $msg = '';
     $msg2 = '';
-
     $forLoopDate = '';
-
     for ($day = 1; $day <= $day_count; $day++, $str++) {
-
         $date = $ym . '-' . $day;
-
         $forLoopDate = $date;
-        //echo $forLoopDate . "<p>";
-
-
         $this_date = date("Y-m-d");
         $query1 = "SELECT * FROM appointment WHERE appointment_date='$date' and charity_id = {$ID}";
-
         $result1 = mysqli_query($conn, $query1);
         $count = mysqli_num_rows($result1);
         if ($count == 0) {
@@ -118,25 +105,16 @@ if (isset($_POST['submit'])) {
             $count = $count;
             $msg = '<div class="pull-left">عدد المواعيد : ' . $count . "</div>";
         }
-
-
         if ($today == $date) {
             $week .= '<td class="text-center" style="background-color:#CAD3C8;position:relative"><h2 class="text-center;">' . $day . '</h2>';
         } else {
-            ///$week .= '<td>' . $date . " ==> ". $day;
-
             $week .= '<td class="text-center" style="position:relative" ><h2 class="text-center;">' . $day;
             $week .= '</h2>';
         }
-
         $week .= '<a href="filterDateAppointment.php?date=' . $date . '" title="Appointments">';
         $week .= '<span class="label label-info pull-left">' . $msg . '</span></a>';
-
         $week .= '<span class="label label-success pull-right">' . $msg2 . '</span></a>';
-
-
         $week .= '<a href="?q=show_time&date=' . $date . '" style="border:none;position: absolute;top: 3px;right: 5px;" class="dtr-btn btn-blue btn-small">+</a>';
-
         $week .= '</td>';
 
         // End of the week OR End of the month
