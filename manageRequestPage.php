@@ -124,7 +124,7 @@ if (isset($_SESSION['role'])) {
                                             echo '<td>:أنواع التبرعات التي تستقبلها المنظمة الخيرية</td></tr>';
 
                                             echo '<tr align="right">';
-                                            echo '<td>' . $row['register_date'] . '</td>';
+                                            echo '<td>' . $row['registerDate'] . '</td>';
                                             echo '<td>:وقت الإنضمام</td></tr>';
 
                                             echo '<tr align="right">';
