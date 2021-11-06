@@ -241,12 +241,12 @@ if ($error != null) {
                                                             <label  for="">هل تتوفر خدمة التوصيل ؟ </label>
                                                         <div class="form-check-inline">
                                                             <label class="form-check-label">
-                                                                <input type="radio" class="form-check-input" name="pickup_servise" <?php if ($option == 'yes') echo " checked" ?> >نعم
+                                                                <input type="radio" class="form-check-input" value="نعم" name="pickup_servise" <?php if ($option == 'yes') echo " checked" ?> >نعم
                                                             </label>
                                                         </div>
                                                         <div class="form-check-inline">
                                                             <label class="form-check-label">
-                                                                <input type="radio" class="form-check-input" name="pickup_servise" <?php if ($option == 'no') echo " checked" ?>>لا
+                                                                <input type="radio" class="form-check-input" value="لا" name="pickup_servise" <?php if ($option == 'no') echo " checked" ?>>لا
                                                             </label>
                                                         </div>
                                                         </p>
