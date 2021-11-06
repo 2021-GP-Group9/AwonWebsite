@@ -6,13 +6,13 @@ if (isset($_POST['submit'])) {
     $date = $_GET['date'];
     $time = $_POST['time'];
 
-    $sqli = "SELECT * FROM appointment WHERE charity_id = '$ID' AND appointment_date='$date' AND appointment_time='$time'";
+    $sqli = "SELECT * FROM appointment WHERE charityId = '$ID' AND appointmentDate='$date' AND appointmentTime='$time'";
     ////echo $sqli;
     $result = $conn->query($sqli);
     $no = $result->num_rows;
 
     if ($no == 0) {
-        $sqli2 = "INSERT INTO appointment VALUES(NULL, '$date', '$time', NULL, $ID, 0)";
+        $sqli2 = "INSERT INTO appointment VALUES(NULL ,'$date', '$time', $ID)";
         $result2 = $conn->query($sqli2);
         if ($result2) {
             echo '<META HTTP-EQUIV="Refresh" Content="0;CharityPage.php">';
@@ -95,7 +95,7 @@ if (isset($_POST['submit'])) {
         $date = $ym . '-' . $day;
         $forLoopDate = $date;
         $this_date = date("Y-m-d");
-        $query1 = "SELECT * FROM appointment WHERE appointment_date='$date' and charity_id = {$ID}";
+        $query1 = "SELECT * FROM appointment WHERE appointmentDate='$date' and charityId = {$ID}";
         $result1 = mysqli_query($conn, $query1);
         $count = mysqli_num_rows($result1);
         if ($count == 0) {

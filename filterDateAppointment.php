@@ -154,13 +154,13 @@ if (!isset($_SESSION['role'])) {
                                         $date = $_POST['date'];
                                         $time = $_POST['time'];
 
-                                        $sqli = "SELECT * FROM appointment WHERE charity_id = '$ID' AND appointment_date='$date' AND appointment_time='$time'";
+                                        $sqli = "SELECT * FROM appointment WHERE charityId = '$ID' AND appointmentDate='$date' AND appointmentTime='$time'";
                                         ////echo $sqli;
                                         $result = $conn->query($sqli);
                                         $no = $result->num_rows;
 
                                         if ($no == 0) {
-                                            $sqli2 = "UPDATE appointment SET appointment_date='$date', appointment_time='$time' WHERE id=$appointment_id";
+                                            $sqli2 = "UPDATE appointment SET appointmentDate='$date', appointmentTime='$time' WHERE id=$appointment_id";
 
                                             $result2 = $conn->query($sqli2);
                                             if ($result2) {
@@ -187,7 +187,7 @@ if (!isset($_SESSION['role'])) {
                                         <?php
                                         $ID = $_SESSION['ID'];
                                         $date = $_GET['date'];
-                                        $sqli = "SELECT * FROM appointment WHERE charity_id = '$ID' AND appointment_date='$date'";
+                                        $sqli = "SELECT * FROM appointment WHERE charityId = '$ID' AND appointmentDate='$date'";
                                         ////echo $sqli;
                                         $result = $conn->query($sqli);
                                         $no = $result->num_rows;
@@ -195,17 +195,17 @@ if (!isset($_SESSION['role'])) {
                                             ?>
                                             <tr>
                                                 <td>
-                                                    <?php echo $row['appointment_date'] ?>
+                                                    <?php echo $row['appointmentDate'] ?>
                                                 </td>
                                                 <td>
-                                                    <?php echo $row['appointment_time'] ?>
+                                                    <?php echo $row['appointmentTime'] ?>
                                                 </td>
                     <!--                            <td>
                                                 <?php echo $row['user_id'] ?>
                                                 </td>-->
 
                                                 <td>
-                                                    <a href="?q=edit&appointment_id=<?php echo $row['id'] ?>&date=<?php echo $row['appointment_date'] ?>&time=<?php echo $row['appointment_time'] ?>" class="btn btn-success btn-xs">تعديل</a>
+                                                    <a href="?q=edit&appointment_id=<?php echo $row['id'] ?>&date=<?php echo $row['appointmentDate'] ?>&time=<?php echo $row['appointmentTime'] ?>" class="btn btn-success btn-xs">تعديل</a>
                                                     <a href="#" onClick="RemoveAppoiment(<?php echo $row['id'] ?>)" class="btn btn-danger btn-xs">حذف</a>
                                                 </td>
                                             </tr>
