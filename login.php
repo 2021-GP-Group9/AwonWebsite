@@ -87,8 +87,10 @@ if (isset($_SESSION['role'])) {
                                         <br>
                                         <p>جمعية جديدة؟ <a href="RequestToJoin.php">تسجيل جديد</a></p>
                                         <?php
+                                        
+                                        // to show Error messages
                                         if (isset($_SESSION['errorC'])) {
-                                            echo "<span style='color:red'>" . $_SESSION['errorC'] . "</span>";
+                                           echo "<span style='color:red'>" . $_SESSION['errorC'] . "</span>";
                                         }
                                         $_SESSION['errorC'] = null;
                                         ?>
@@ -112,14 +114,19 @@ if (isset($_SESSION['role'])) {
 
                                                     echo '<META HTTP-EQUIV="Refresh" Content="0; URL=joiningRequests.php">';
                                                 } else {
+
                                                     //if password for admin not correct 
                                                     $_SESSION['errorC'] = 'اسم المستخدم أو كلمة المرور غير صحيحة';
+
+                                                    echo "<span style='color:red'>" .'اسم المستخدم أو كلمة المرور غير صحيحة'. "</span>"; 
+
                                                     echo '<META HTTP-EQUIV="Refresh" Content="2; URL=login.php">';
                                                 }
                                             } else {
                                                 ?>
                                                 <!-- login for charity -->
                                                 <?php
+                                                 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                                 require('db_connecting.php');
                                                 $username = $_POST['username'];
                                                 $password = $_POST['pwd'];
@@ -146,6 +153,7 @@ if (isset($_SESSION['role'])) {
                                                     $_SESSION['errorC'] = 'اسم المستخدم  غير صحيح أو الجمعية لم تقبل بعد  ';
                                                     echo '<META HTTP-EQUIV="Refresh" Content="2; URL=login.php">';
                                                 }
+                                            }
                                             }
                                         }
                                         ?>
