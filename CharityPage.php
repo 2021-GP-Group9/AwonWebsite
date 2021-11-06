@@ -15,7 +15,7 @@ if (!isset($_SESSION['role'])) {
         <link rel="stylesheet" href="DesignBootstrap.css">
     </head>
     <body>
-        <section>
+       
         <div id="dtr-wrapper" class="clearfix"> 
 
             <!-- preloader starts 
@@ -84,7 +84,24 @@ if (!isset($_SESSION['role'])) {
                                 <!-- heading starts -->
                                 <div class="dtr--" align="center">
                                     
-                                    <?php include("calendar.php") ?>
+                                     <?php
+                                     require('db_connecting.php');
+
+                                     $ID = $_SESSION['ID'];
+
+                                     $sqli = "SELECT * FROM `charity` WHERE ID = '$ID'";
+
+                                     $result = $conn->query($sqli);
+
+                                     while ($row = $result->fetch_assoc()) {
+                                         // &nbsp; used for spaceing
+                                         //echo '<h1>مرحبا </h1>';
+                                         //echo "<h3> <a style='font-size:30px;'>{$row["name"]}</a></h3>";
+                                     }
+                                     ?> 
+                                    <?php 
+                                    
+                                    include("calendar.php") ?>
                                     <!-- form starts 
                                     <H3>Aljawharahds Aljawharahds</H3>-->
                                     <!-- form ends --> 

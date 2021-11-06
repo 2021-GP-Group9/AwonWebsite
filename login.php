@@ -1,4 +1,3 @@
-<!-- see comments in line 26 - 30 - 47 - 144 -->
 
 <?php
 session_start();
@@ -98,10 +97,10 @@ if (isset($_SESSION['role'])) {
                                         <br>
                                         <p>جمعية جديدة؟ <a href="RequestToJoin.php">تسجيل جديد</a></p>
                                         <?php
-                                        if (isset($_SESSION['errorC'])) {
-                                            echo "<span style='color:red'>" . $_SESSION['errorC'] . "</span>";
-                                        }
-                                        $_SESSION['errorC'] = null;
+                                        //if (isset($_SESSION['errorC'])) {
+                                       //     echo "<span style='color:red'>" . $_SESSION['errorC'] . "</span>";
+                                        //}
+                                       // $_SESSION['errorC'] = null;
                                         ?>
 
 
@@ -123,7 +122,7 @@ if (isset($_SESSION['role'])) {
 
                                                     echo '<META HTTP-EQUIV="Refresh" Content="0; URL=joiningRequests.php">';
                                                 } else {
-                                                    $_SESSION['errorC'] = 'اسم المستخدم أو كلمة المرور غير صحيحة';
+                                                    echo "<span style='color:red'>" .'اسم المستخدم أو كلمة المرور غير صحيحة'. "</span>"; 
                                                     echo '<META HTTP-EQUIV="Refresh" Content="2; URL=login.php">';
                                                 }
                                             } else {
