@@ -136,7 +136,7 @@ if (isset($_SESSION['role'])) {
                                                     $row = mysqli_fetch_assoc($result);
 
 
-                                                    if (password_verify($password, $row['pass'])) {
+                                                    if (password_verify($password, $row['password'])) {
                                                         //If login is successful ، password and usrname is correct 
 
                                                         $_SESSION['ID'] = $row['ID'];

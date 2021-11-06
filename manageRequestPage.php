@@ -47,7 +47,7 @@ if (isset($_SESSION['role'])) {
                                 </div>
                                 <div class="col-sm-4" align="center"><br>
                                     <div class="main-navigation dtr-menu-dark">
-                                        <a class="nav-link" href="joiningRequests.php">الصفحة الرئيسية</a>
+                                        <a class="nav-link" href="joiningRequests.php">طلبات الإنضمام</a>
                                     </div>
                                 </div>
                                 <div class="col-sm-4" align="right">
@@ -74,7 +74,7 @@ if (isset($_SESSION['role'])) {
                                         <a href =https://hrsd.gov.sa/ar/ngo-enquiry style='text-align:center;float:right;'target='_blank'>:للتحقق من رقم ترخيص وبيانات الجمعية</a>
                                         <p style='color:gray; text-align:center;'>يرجى إدخال رقم الترخيص باللغة الإنجليزية</p>
 
-                                        <br><br><br><br>
+                                        
                                         <?php
                                         $connection = mysqli_connect("localhost", "root", "root", "awondb");
                                         $id = $_GET['id'];
@@ -96,7 +96,7 @@ if (isset($_SESSION['role'])) {
                                             echo '<td>:اسم المستخدم</td></tr>';
 
                                             echo '<tr align="right">';
-                                            echo '<td>' . $row['LicenseNumber'] . '</td>';
+                                            echo '<td>' . $row['licenseNumber'] . '</td>';
                                             echo '<td>:رقم الترخيص</td></tr>';
 
                                             echo '<tr align="right">';

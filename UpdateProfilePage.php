@@ -1,4 +1,4 @@
-  see comments in line 24 - 27 - 33 - 114  <?php
+<!--  see comments in line 24 - 27 - 33 - 114  <?php
 session_start();
 $ID = $_SESSION['ID'];
 $server = "localhost";
@@ -31,7 +31,7 @@ if ($error != null) {
                     <div class="dtr-preloader-img"></div>
                 </div>
             </div>
-            <!-- preloader ends --> 
+             preloader ends  
 
              Small Devices Header 
         ============================================= 
@@ -354,4 +354,4 @@ if ($error != null) {
 </div>
 </body>
 <script src="design.js"></script> 
-</html>
+</html>-->

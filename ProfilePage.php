@@ -107,10 +107,10 @@ if ($error != null) {
 //define DB
                                     $name = $row['name'];
                                     $username = $row['username'];
-                                    $pass = $row['pass'];
+                                    $pass = $row['password'];
                                     $email = $row['email'];
                                     $PhoneNumber = $row['phone'];
-                                    $LicenseNumber = $row['LicenseNumber'];
+                                    $LicenseNumber = $row['licenseNumber'];
                                     $location = $row['location'];
                                     $descrption = $row['descrption'];
                                     $option = $row['service'];
@@ -178,8 +178,8 @@ if ($error != null) {
                     } else {
 
                         ///die("Update query");
-                        $query = "UPDATE charity SET name='" . $name . "', username='" . $username . "', pass='" . $passwod . "', email='" . $email . "',
-                     phone='" . $PhoneNumber . "', LicenseNumber='" . $LicenseNumber . "', service='" . $option . "', donatoionType='" . $servicetype . "', location='" . $location . "', descrption='" . $description . "' WHERE ID='" . $ID . "'";
+                        $query = "UPDATE charity SET name='" . $name . "', username='" . $username . "', password='" . $passwod . "', email='" . $email . "',
+                     phone='" . $PhoneNumber . "', licenseNumber='" . $LicenseNumber . "', service='" . $option . "', donatoionType='" . $servicetype . "', location='" . $location . "', descrption='" . $description . "' WHERE ID='" . $ID . "'";
                         ///echo $query;
 
                         if ($conn->query($query) === TRUE) {

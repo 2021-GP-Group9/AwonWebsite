@@ -296,7 +296,7 @@ if (isset($_SESSION['role'])) {
                                                             } else {
                                                                 
                                                                                                                                                                                                                         
-                                                                $query = "INSERT INTO `charity`(name, username, descrption, email, pass, phone, service, donatoionType, location, LicenseNumber, picture, status) VALUES ('$name', '$username', '$descrption' ,'$email', '$password', '$phone_number','$option','$servicetype','$location','$license_Number','$picture','بالانتظار')";
+                                                                $query = "INSERT INTO `charity`(name, username, descrption, email, password, phone, service, donatoionType, location, licenseNumber, picture, status) VALUES ('$name', '$username', '$descrption' ,'$email', '$password', '$phone_number','$option','$servicetype','$location','$license_Number','$picture','بالانتظار')";
                                                                 $run = mysqli_query($conn, $query);
 
 
