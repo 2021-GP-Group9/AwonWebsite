@@ -9,14 +9,12 @@ $sqli = "SELECT * FROM `charity` WHERE ID = '$charityID'";
 $result = $conn->query($sqli);
 $row = $result->fetch_assoc();
 $email = $row['email'];
-
 $data = "";
 $result = mysqli_query($conn, $sql);
 if ($result) {
-    echo 'added successfully';
     $to = $email;
-    $subject = "Email Verification";
-    $message = 'Your charity has been accepted ';
+    $subject = "تأكيد قبول الجمعية";
+    $message = 'تم قبول الجمعية الخيرية بإمكانك الدخول باستخدام اسم المستخدم وكلمة المرور التي تم التسجيل بها ';
     mail($to, $subject, $message);
     exit();
 } else {

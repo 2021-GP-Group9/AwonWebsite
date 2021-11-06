@@ -14,10 +14,9 @@ $email = $row['email'];
 
 if ($result) {
     header("Content-Type: text/html");
-    echo 'added successfully';
     $to = $email;
-    $subject = "Email Verification";
-    $message = 'sorry :( Your charity has been rejected ';
+    $subject = "رفض الجمعية الخيرية";
+    $message = 'نأسف فقد تم رفض الجمعية الخيرية بإمكانك المحاولة مرة آخرى';
     mail($to, $subject, $message);
     exit();
 } else {
