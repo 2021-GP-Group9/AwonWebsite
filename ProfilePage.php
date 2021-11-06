@@ -68,7 +68,7 @@ if ($error != null) {
                         <div class="col-sm-4" align="center"><br>
                             <div class="main-navigation dtr-menu-dark">
                                 <a class="nav-link" href="charityHome.php" style="float: right;">الصفحة الرئيسية</a>
-                                 <a class="nav-link" href="CharityPage.php?">المواعيد</a>
+                                <a class="nav-link" href="CharityPage.php?">المواعيد</a>
                             </div>
                         </div>
                         <div class="col-sm-4" align="right">
@@ -131,71 +131,67 @@ if ($error != null) {
                                         <div class="col-12 col-md-12"> 
 
                                             <!-- form starts -->
-                                            
-<?php
-                if (isset($_POST["Edit"])) {
-                    echo "<h1>تعديل بيانات الحساب</h1>";
-                    $name = $_POST['name'];
-                    $username = $_POST['username'];
-                    $passwod = PASSWORD_HASH($_POST["pwd"], PASSWORD_DEFAULT);
-                    $email = $_POST['email'];
-                    $PhoneNumber = $_POST['phone_number'];
-                    $LicenseNumber = $_POST['license_Number'];
-                    $location = $_POST['location'];
-                    $description = $_POST['description'];
-                    $option = $_POST['pickup_servise'];
-                    $type = $_POST['types'];
 
-                    $servicetype = implode(",", $type);
+                                            <?php
+                                            if (isset($_POST["Edit"])) {
+                                                echo "<h1>تعديل بيانات الحساب</h1>";
+                                                $name = $_POST['name'];
+                                                $username = $_POST['username'];
+                                                $passwod = PASSWORD_HASH($_POST["pwd"], PASSWORD_DEFAULT);
+                                                $email = $_POST['email'];
+                                                $PhoneNumber = $_POST['phone_number'];
+                                                $LicenseNumber = $_POST['license_Number'];
+                                                $location = $_POST['location'];
+                                                $description = $_POST['descrption'];
+                                                $option = $_POST['pickup_servise'];
+                                                $type = $_POST['types'];
 
+                                                $servicetype = implode(",", $type);
 
+                                                $picture = $_FILES['img']['name'];
 
+                                                $sql = "select * from charity where (username='$username' or email='$email' or phone='$PhoneNumber') AND charityId<>$ID";
 
-                    $picture = $_FILES['img']['name'];
+                                                $res = mysqli_query($conn, $sql);
 
-                    $sql = "select * from charity where (username='$username' or email='$email' or phone='$PhoneNumber') AND charityId<>$ID";
-
-                    $res = mysqli_query($conn, $sql);
-
-                    if (mysqli_num_rows($res) > 0) {
+                                                if (mysqli_num_rows($res) > 0) {
 
 
-                        $row = mysqli_fetch_assoc($res);
-                        if ($email == isset($row['email'])) {
-                            echo "<h3 style='color:red; text-align:center'>الايميل موجود بالفعل</h3>";
-                            echo '<META HTTP-EQUIV="Refresh" Content="10; URL=ProfilePage.php">';
-                        }
+                                                    $row = mysqli_fetch_assoc($res);
+                                                    if ($email == isset($row['email'])) {
+                                                        echo "<h3 style='color:red; text-align:center'>الايميل موجود بالفعل</h3>";
+                                                        echo '<META HTTP-EQUIV="Refresh" Content="10; URL=ProfilePage.php">';
+                                                    }
 
-                        if ($username == isset($row['username'])) {
-                            echo "<h3 style='color:red; text-align:center'>اسم المستخدم موجود بالفعل</h3>";
-                            echo '<META HTTP-EQUIV="Refresh" Content="10; URL=ProfilePage.php">';
-                        }
+                                                    if ($username == isset($row['username'])) {
+                                                        echo "<h3 style='color:red; text-align:center'>اسم المستخدم موجود بالفعل</h3>";
+                                                        echo '<META HTTP-EQUIV="Refresh" Content="10; URL=ProfilePage.php">';
+                                                    }
 
-                        if ($PhoneNumber == isset($row['PhoneNumber'])) {
-                            echo "<h3 style='color:red; text-align:center'>رقم الجوال مستخدم بالفعل</h3>";
-                            echo '<META HTTP-EQUIV="Refresh" Content="10; URL=ProfilePage.php">';
-                        }
-                    } else {
+                                                    if ($PhoneNumber == isset($row['PhoneNumber'])) {
+                                                        echo "<h3 style='color:red; text-align:center'>رقم الجوال مستخدم بالفعل</h3>";
+                                                        echo '<META HTTP-EQUIV="Refresh" Content="10; URL=ProfilePage.php">';
+                                                    }
+                                                } else {
 
-                        ///die("Update query");
-                        $query = "UPDATE charity SET name='" . $name . "', username='" . $username . "', password='" . $passwod . "', email='" . $email . "',
+                                                    ///die("Update query");
+                                                    $query = "UPDATE charity SET name='" . $name . "', username='" . $username . "', password='" . $passwod . "', email='" . $email . "',
                      phone='" . $PhoneNumber . "', licenseNumber='" . $LicenseNumber . "', service='" . $option . "', donatoionType='" . $servicetype . "', location='" . $location . "', descrption='" . $description . "' WHERE charityId='" . $ID . "'";
-                        ///echo $query;
+                                                    ///echo $query;
 
-                        if ($conn->query($query) === TRUE) {
-                            echo '<h1 style="color:green; text-align:center">تم الحفظ</h1>';
-                            ?>
-                            <META HTTP-EQUIV="Refresh" Content="3; URL=CharityPage.php">
-                            <?php
-                        } else {
-                            echo "الرجاء اعادة المحاولة: ";
-                        }
-                    }
-                }
-                
-                ?> 
+                                                    if ($conn->query($query) === TRUE) {
+                                                        echo '<h1 style="color:green; text-align:center">تم الحفظ</h1>';
+                                                        ?>
+                                                        <META HTTP-EQUIV="Refresh" Content="3; URL=charityHome.php">
+                                                        <?php
+                                                    } else {
+                                                        echo "الرجاء اعادة المحاولة: ";
+                                                    }
+                                                }
+                                            }
+                                            ?> 
                                             <div class="dtr-form">
-<form method="post" id="ManageTheProfile" enctype="multipart/form-data" ">
+                                                <form method="post" id="ManageTheProfile" enctype="multipart/form-data" ">
                                                     <fieldset>
                                                         <div class="dtr-form-row dtr-form-row-2col">
                                                             <p class="dtr-form-column">
@@ -241,35 +237,39 @@ if ($error != null) {
                                                             <label  for="">هل تتوفر خدمة التوصيل ؟ </label>
                                                         <div class="form-check-inline">
                                                             <label class="form-check-label">
-                                                                <input type="radio" class="form-check-input" value="نعم" name="pickup_servise" <?php if ($option == 'yes') echo " checked" ?> >نعم
+                                                                <input type="radio" class="form-check-input" value="نعم" name="pickup_servise" <?php if ($option == 'نعم') echo " checked" ?> >نعم
                                                             </label>
                                                         </div>
                                                         <div class="form-check-inline">
                                                             <label class="form-check-label">
-                                                                <input type="radio" class="form-check-input" value="لا" name="pickup_servise" <?php if ($option == 'no') echo " checked" ?>>لا
+                                                                <input type="radio" class="form-check-input" value="لا" name="pickup_servise" <?php if ($option == 'لا') echo " checked" ?>>لا
                                                             </label>
                                                         </div>
                                                         </p>
                                                         <p>
+<?php
+//echo  $type;
+$headers = explode(',', $type);
+?>                                                             
                                                             <label  for="">انواع التبرع التي تقبل به المنظمة الخيرية؟</label>
                                                         <div class="form-check-inline">
                                                             <label class="form-check-label">
-                                                                <input type="checkbox" class="form-check-input" name="types[]" id="type_of_donation"  value="ملابس"  <?php
-                                                                if (in_array('ملابس', $headers)) {
-                                                                    echo " checked ";
-                                                                }
-                                                                ?>
+                                                                <input type="checkbox" class="form-check-input" name="types[]" id="type_of_donation"  value="ملابس" <?php
+if (in_array('ملابس', $headers)) {
+    echo "checked ";
+}
+?>
                                                                        >ملابس
                                                             </label>
                                                         </div>
                                                         <div class="form-check-inline">
                                                             <label class="form-check-label">
                                                                 <input type="checkbox" class="form-check-input" name="types[]" id="type_of_donation"  value="اثاث"
-                                                                <?php
-                                                                if (in_array('اثاث', $headers)) {
-                                                                    echo " checked ";
-                                                                }
-                                                                ?>
+<?php
+if (in_array('اثاث', $headers)) {
+    echo "checked ";
+}
+?>
 
                                                                        >اثاث
                                                             </label>
@@ -280,7 +280,7 @@ if ($error != null) {
                                                                 if (in_array('الكترونيات', $headers)) {
                                                                     echo " checked ";
                                                                 }
-                                                                ?>  >الكترونيات
+?>  >الكترونيات
 
                                                             </label>
                                                         </div>
@@ -288,13 +288,15 @@ if ($error != null) {
                                                             <label class="form-check-label">
                                                                 <input type="checkbox" name="types[]" id="type_of_donation" class="form-check-input"value="كتب_ورق"
 
-                                                                       <?php
-                                                                       if (in_array('كتب_ورق', $headers)) {
-                                                                           echo " checked ";
-                                                                       }
-                                                                       ?>
+<?php
+if (in_array('كتب_ورق', $headers)) {
+    echo " checked ";
+}
+?>
 
                                                                        >   كتب ورق </label>
+
+
                                                         </div>
                                                         </div>
                                                         </p>
@@ -307,7 +309,7 @@ if ($error != null) {
                                                         </p>
                                                         <p>
                                                             <label>وصف المنظمة الخيرية</label>
-                                                            <textarea rows="6" name="description" id="message" class="required"  placeholder="وصف المنظمة الخيرية" <?php echo $descrption ?>></textarea>
+                                                            <textarea rows="6" name="description" id="message" class="required"  placeholder="وصف المنظمة الخيرية"> <?php echo $descrption ?></textarea>
                                                         </p><br>
                                                         <p class="text-center">
                                                             <button class="dtr-btn btn-blue" id="Edit" name="Edit"  type="submit"  onclick="return validate();">حفظ</button>
@@ -360,7 +362,7 @@ if ($error != null) {
                      </header>-->
 
 
-                <?php
+<?php
 //                $option = "";
 //
 //                $sqli = "SELECT * FROM `charity` WHERE ID = '$ID'";
@@ -380,7 +382,7 @@ if ($error != null) {
 //                $option = $row['service'];
 //                $type = $row['donatoionType'];
 //                $picture = $row['picture'];
-                ?>
+?>
 
 
                 <!--     <div class="auth-content"> 
@@ -392,12 +394,12 @@ if ($error != null) {
 
 
 
-                    <input type="text" name="name" id="name" required value= "<?php // echo $name     ?>" >
+                    <input type="text" name="name" id="name" required value= "<?php // echo $name      ?>" >
                     <label for="username">اسم المستخدم</label>
 
 
 
-                    <input type="text" name="username" id="username" required value= "<?php // echo $username     ?>">
+                    <input type="text" name="username" id="username" required value= "<?php // echo $username      ?>">
                     <label for="name" >اسم المنظمة الخيرية</label>  
 
 
@@ -405,46 +407,46 @@ if ($error != null) {
                     <br
 
 
-                    <input type="email" name="email" id="email" required value= "<?php // echo $email     ?>" >
+                    <input type="email" name="email" id="email" required value= "<?php // echo $email      ?>" >
                     <label for="password">كلمةالمرور</label>
 
 
-                    <input type="password" name="pwd" class="password" id="password"  required value= "<?php // echo $pass     ?>" >
+                    <input type="password" name="pwd" class="password" id="password"  required value= "<?php // echo $pass      ?>" >
                     <label for="email">البريد الالكتروني</label>
 
 
                     <br>
                 -->
-                                   <!--      <input type="tel" name="phone_number" id="phone_number" maxlength="10" required value= "<?php //echo $PhoneNumber     ?>">tel or number? 
+                                   <!--      <input type="tel" name="phone_number" id="phone_number" maxlength="10" required value= "<?php //echo $PhoneNumber      ?>">tel or number? 
                                         <label  for="license_Number">رقم الترخيص</label> 
                 
                 
-                                        <input type="int" name="license_Number" id="license_Number" required value= "<?php //echo $LicenseNumber     ?>">
+                                        <input type="int" name="license_Number" id="license_Number" required value= "<?php //echo $LicenseNumber      ?>">
                                         <label for="phone_number">رقم الجوال</label>
                 
                 
                                         <br>
                 -->
 
-             <!--           <input type="text" name="location" id="location" required value= "<?php //echo $location     ?>"> not sure if it is url maybe it is select 
+             <!--           <input type="text" name="location" id="location" required value= "<?php //echo $location      ?>"> not sure if it is url maybe it is select 
                         <label  for="location">الموقع</label>
 
                         <br>
 
 
                         <label>هل تتوفر خدمة التوصيل ؟ </label>
-                <?php ///echo " option : ", $option . "<br>"; ?>
-                          <input type="radio" name="pickup_servise" id="pickup_servise" value="yes"  <?php //if ($option == 'yes') echo " checked"     ?>>
+<?php ///echo " option : ", $option . "<br>";  ?>
+                          <input type="radio" name="pickup_servise" id="pickup_servise" value="yes"  <?php //if ($option == 'yes') echo " checked"      ?>>
                           <label for="نعم">نعم</label>
-                          <input type="radio" name="pickup_servise" id="pickup_servise"  value="no"  <?php // if ($option == 'no') echo " checked"     ?>>
+                          <input type="radio" name="pickup_servise" id="pickup_servise"  value="no"  <?php // if ($option == 'no') echo " checked"      ?>>
                           <label for="لا">لا</label>    
 
                         <br>
 
-                <?php
-                ///echo  $type;
-                //$headers = explode(',', $type);
-                ?>
+<?php
+///echo  $type;
+//$headers = explode(',', $type);
+?>
 
                         <label>انواع التبرع التي تقبل به المنظمة الخيرية؟</label>
                         <input type="checkbox" name="types[]" id="type_of_donation"  value="ملابس"
@@ -457,20 +459,20 @@ if ($error != null) {
                         <label for="ملابس">ملابس</label>
 
                         <input type="checkbox" name="types[]" id="type_of_donation"   value="اثاث"
-                <?php
+<?php
 //                        if (in_array('اثاث', $headers)) {
 //                            echo " checked ";
 //                        }
-                ?>
+?>
 
                                >
                         <label for="اثاث">اثاث</label>
                         <input type="checkbox" name="types[]" id="type_of_donation"  value="الكترونيات"
-                <?php
+<?php
 //                        if (in_array('الكترونيات', $headers)) {
 //                            echo " checked ";
 //                        }
-                ?>
+?>
 
                                >
 
@@ -479,11 +481,11 @@ if ($error != null) {
                         <input type="checkbox" name="type[]" id="books" class="name-input" value="كتب_ورق"
 
 
-                <?php
+<?php
 //                               if (in_array('كتب_ورق', $headers)) {
 //                                   echo " checked ";
 //                               }
-                ?>
+?>
 
                                >
                         <label for="كتب_ورق">كتب_ورق</label>
@@ -495,7 +497,7 @@ if ($error != null) {
 
                         <br>
 
-                        <textarea rows="4" type="text" name="description" id="description" required > <?php //echo $descrption     ?> </textarea>
+                        <textarea rows="4" type="text" name="description" id="description" required > <?php //echo $descrption      ?> </textarea>
                         <label for="description">وصف المنظمة الخيرية</label> 
 
                         <br>
