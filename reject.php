@@ -3,11 +3,11 @@
 require('db_connecting.php');
 
 $charityID = $_POST['ID'];
-$sql = "DELETE FROM charity WHERE ID ='$charityID'";
+$sql = "DELETE FROM charity WHERE charityId ='$charityID'";
 $data = "";
 $result = mysqli_query($conn, $sql);
 
-$sqli = "SELECT * FROM `charity` WHERE ID = '$charityID'";
+$sqli = "SELECT * FROM `charity` WHERE charityId = '$charityID'";
 $result = $conn->query($sqli);
 $row = $result->fetch_assoc();
 $email = $row['email'];

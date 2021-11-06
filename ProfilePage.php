@@ -99,7 +99,7 @@ if ($error != null) {
                                     <?php
                                     $option = "";
 
-                                    $sqli = "SELECT * FROM `charity` WHERE ID = '$ID'";
+                                    $sqli = "SELECT * FROM `charity` WHERE charityId = '$ID'";
 ////echo $sqli;
                                     $result = $conn->query($sqli);
 
@@ -153,7 +153,7 @@ if ($error != null) {
 
                     $picture = $_FILES['img']['name'];
 
-                    $sql = "select * from charity where (username='$username' or email='$email' or phone='$PhoneNumber') AND ID<>$ID";
+                    $sql = "select * from charity where (username='$username' or email='$email' or phone='$PhoneNumber') AND charityId<>$ID";
 
                     $res = mysqli_query($conn, $sql);
 
@@ -179,7 +179,7 @@ if ($error != null) {
 
                         ///die("Update query");
                         $query = "UPDATE charity SET name='" . $name . "', username='" . $username . "', password='" . $passwod . "', email='" . $email . "',
-                     phone='" . $PhoneNumber . "', licenseNumber='" . $LicenseNumber . "', service='" . $option . "', donatoionType='" . $servicetype . "', location='" . $location . "', descrption='" . $description . "' WHERE ID='" . $ID . "'";
+                     phone='" . $PhoneNumber . "', licenseNumber='" . $LicenseNumber . "', service='" . $option . "', donatoionType='" . $servicetype . "', location='" . $location . "', descrption='" . $description . "' WHERE charityId='" . $ID . "'";
                         ///echo $query;
 
                         if ($conn->query($query) === TRUE) {

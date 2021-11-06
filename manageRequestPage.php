@@ -78,7 +78,7 @@ if (isset($_SESSION['role'])) {
                                         <?php
                                         $connection = mysqli_connect("localhost", "root", "root", "awondb");
                                         $id = $_GET['id'];
-                                        $sqli = "SELECT * FROM `charity` WHERE ID= $id ";
+                                        $sqli = "SELECT * FROM `charity` WHERE charityId= $id ";
                                         $result = $connection->query($sqli);
                                         while ($row = $result->fetch_assoc()) {
                                             echo "<table width='100%' class='tab-requets'>";
@@ -131,7 +131,7 @@ if (isset($_SESSION['role'])) {
                                             echo '<td>' . $row['status'] . '</td>';
                                             echo '<td>:الحالة</td></tr>';
 
-                                            echo "<td><button id='acc' class='btn btn-success btn-xs' style='width:100px;height:60px;float:right;' onclick='accept({$row["ID"]})'>قبول </button>" . "<button id='rej' class='btn btn-danger btn-xs' value={$row['ID']}  style='width: 100px;height:60px;float:left;' onclick='reject({$row["ID"]})'>رفض</button>";
+                                            echo "<td><button id='acc' class='btn btn-success btn-xs' style='width:100px;height:60px;float:right;' onclick='accept({$row["charityId"]})'>قبول </button>" . "<button id='rej' class='btn btn-danger btn-xs' value={$row['charityId']}  style='width: 100px;height:60px;float:left;' onclick='reject({$row["charityId"]})'>رفض</button>";
                                             echo "</table>";
                                         }
                                     }

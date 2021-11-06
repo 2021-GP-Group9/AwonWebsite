@@ -139,7 +139,7 @@ if (isset($_SESSION['role'])) {
                                                     if (password_verify($password, $row['password'])) {
                                                         //If login is successful ، password and usrname is correct 
 
-                                                        $_SESSION['ID'] = $row['ID'];
+                                                        $_SESSION['ID'] = $row['charityId'];
                                                         $_SESSION['role'] = 'charity';
                                                         echo '<META HTTP-EQUIV="Refresh" Content="2; URL=charityHome.php">';
                                                         //if password not correct 

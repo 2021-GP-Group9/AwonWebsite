@@ -89,7 +89,7 @@ if (!isset($_SESSION['role'])) {
 
                                      $ID = $_SESSION['ID'];
 
-                                     $sqli = "SELECT * FROM `charity` WHERE ID = '$ID'";
+                                     $sqli = "SELECT * FROM `charity` WHERE charityId = '$ID'";
 
                                      $result = $conn->query($sqli);
 

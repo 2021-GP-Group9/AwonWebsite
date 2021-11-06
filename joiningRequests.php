@@ -77,9 +77,9 @@ if (isset($_SESSION['role'])) {
                                                         $dt = date("d-m-Y", strtotime($row['registerDate']));
                                                         $image = '<img src="data:image/jpeg;base64,' . base64_encode($row['picture']) . '"width="50em"/>';
                                                         echo "<td>" . $dt . "</td>";
-                                                        echo "<td>" . "<button id='rej' class='btn btn-danger btn-xs' value={$row['ID']} onclick='reject({$row["ID"]})'>رفض</button>" . "<button id='acc' class='btn btn-success btn-xs' onclick='accept({$row["ID"]})'>قبول</button>" . "</td>";
+                                                        echo "<td>" . "<button id='rej' class='btn btn-danger btn-xs' value={$row['charityId']} onclick='reject({$row["charityId"]})'>رفض</button>" . "<button id='acc' class='btn btn-success btn-xs' onclick='accept({$row["charityId"]})'>قبول</button>" . "</td>";
                                                         // &nbsp; used for spaceing
-                                                        echo "<td>" . "<a href='manageRequestPage.php?id={$row["ID"]}'>{$row["name"]}</a>" . "&nbsp;&nbsp;&nbsp;&nbsp;" . $image . "</td>";
+                                                        echo "<td>" . "<a href='manageRequestPage.php?id={$row["charityId"]}'>{$row["name"]}</a>" . "&nbsp;&nbsp;&nbsp;&nbsp;" . $image . "</td>";
                                                         echo "</tr>";
                                                     }//end while
                                                 }//end if 

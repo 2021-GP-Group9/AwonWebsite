@@ -3,9 +3,9 @@
 require('db_connecting.php');
 
 $charityID = $_POST['ID'];
-$sql = "UPDATE charity SET status='Accepted' WHERE ID ='$charityID'";
+$sql = "UPDATE charity SET status='Accepted' WHERE charityId ='$charityID'";
 
-$sqli = "SELECT * FROM `charity` WHERE ID = '$charityID'";
+$sqli = "SELECT * FROM `charity` WHERE charityId = '$charityID'";
 $result = $conn->query($sqli);
 $row = $result->fetch_assoc();
 $email = $row['email'];
