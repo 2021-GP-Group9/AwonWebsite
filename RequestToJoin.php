@@ -1,13 +1,13 @@
 
 <?php
 session_start();
-
+// if the admin loggedin
 if (isset($_SESSION['role'])) {
     if ($_SESSION['role'] == 'admin') {
         header('Location:joiningRequests.php');
     }
 }
-
+// if the admin loggedin
 if (isset($_SESSION['role'])) {
     if ($_SESSION['role'] == 'charity') {
         header('Location:CharityPage.php');
