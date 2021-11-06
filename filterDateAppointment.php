@@ -106,7 +106,6 @@ if (!isset($_SESSION['role'])) {
                         <!--===== row 1 starts =====-->
                         <div class="row d-flex align-items-center"> 
                             <!-- column 2 starts -->
-                            <section>
                             <div class="col-1 col-md-3"></div> 
                             <div class="col-10 col-md-6"> 
                                 <div class="dtr-styled-" align="center">
