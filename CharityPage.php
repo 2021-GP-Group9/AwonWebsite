@@ -15,7 +15,6 @@ if (!isset($_SESSION['role'])) {
     </head>
     <body>
         <div id="dtr-wrapper" class="clearfix"> 
-            <!-- Header  -->
             <header id="dtr-header-global" class="">
                 <div class="container">
                     <div class="row">
@@ -59,93 +58,24 @@ if (!isset($_SESSION['role'])) {
                                 }
                                 ?> 
                                 <?php include("calendar.php") ?>
-                                                            </div>
-                                                   </div>
-                                           </div>
-                                    </section>
-
-
-                <!--    --------------------------------------------------------------- 
-                  <header> 
-                     logo in the right 
-                      <img src="finalLogo.jpeg" alt="logo" class="logo" style="length:100px; width:100px; float: left;">
-            
-                <!-- navbar for charity should include 'تعديل الملف الشخصي' which is call ProfilePage.php 
-                <nav class="topnav">
-                    <ul>
-                        <li><a href=".php">تعديل الملف الشخصي</a> </li>
-                    </ul>
-                </nav>--> 
-                <!-- log out  as button in the left
-                <form id="signout" action="logout.php" method="POST">
-                    <input type="submit" value="تسجيل خروج">
-            
-                </form>
-            </header>
-                -->
-                <!-- <form id="signout" action="logout.php" method="POST">
-                     <input type="submit" value="تسجيل خروج">
-             
-                 </form> 
-                  <form id="profile" action="ProfilePage.php" method="POST">
-                      <input type="submit" value="ملف التعريف الشخصي">
-                  </form> -->
-              <!-- <img src="logo.jpg" alt="logo" class="pageP"  >
-              </header> 
-                <div class="auth-content"> -->
-                <?php
-//                    require('db_connecting.php');
-//
-//                    $ID = $_SESSION['ID'];
-//
-//                    $sqli = "SELECT * FROM `charity` WHERE ID = '$ID'";
-//
-//                    $result = $conn->query($sqli);
-//
-//                    while ($row = $result->fetch_assoc()) {
-//                        // &nbsp; used for spaceing
-//
-//                        echo '<h1>مرحبا </h1>';
-//                        echo "<p> <a style='font-size:30px;'>{$row["name"]}</a></p>";
-//                    }
-                ?>      
-                <!--     </div>
-                Footer 
-                  <footer>
-                      <!-- we want footer with  <p>&copy; فريق منصة عون</p> 
-            
-                      <p>&copy; فريق منصة عون</p>
-                  </footer>
-                -->
+                            </div>
+                        </div>
+                    </div>
+                </section>
+ </body>
+                <!-- Footer -->
                 <footer id="dtr-footer"> 
-
-                    <!--== copyright starts ==-->
                     <div class="dtr-copyright">
                         <div class="container"> 
-                            <!--== row starts ==-->
                             <div class="row"> 
-                                <!-- column 1 starts -->
                                 <div class="col-12 col-md-12" align="center">
                                     <p>&copy; فريق منصة عون</p>
                                 </div>
                             </div>
-                            <!--== row ends ==--> 
-
                         </div>
                     </div>
-                    <!--== copyright ends ==--> 
-
                 </footer>
-                <!-- footer section ends
-            ================================================== --> 
-
             </div>
-            <!-- == main content area ends == --> 
-
-
-            <script src="design.js"></script> 
-    </body>
-
-
+        </div>
 </html>
 
