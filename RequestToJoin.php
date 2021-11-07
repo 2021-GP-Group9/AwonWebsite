@@ -223,16 +223,13 @@ if (isset($_SESSION['role'])) {
                                                             } else {
 
                                                                 //insert data from form to DB                                                                                                                                                      
-                                                                $query = "INSERT INTO `charity`(name, username, descrption, email, password, phone, service, donatoionType, location, licenseNumber, picture, status) VALUES ('$name', '$username', '$descrption' ,'$email', '$password', '$phone_number','$option','$servicetype','$location','$license_Number','$picture','بالانتظار')";
+                                                                $query = "INSERT INTO `charity`(name, username, descrption, email, password, phone, service, donationType, location, licenseNumber, picture, status) VALUES ('$name', '$username', '$descrption' ,'$email', '$password', '$phone_number','$option','$servicetype','$location','$license_Number','$picture','بالانتظار')";
                                                                 $run = mysqli_query($conn, $query);
 
                                                                 if ($run) {
 
-                                                                    echo '<script> alert("success Rigester");</script>';
-
                                                                     echo "<script>window.location ='confirmationPage.php';</script>";
                                                                 } else {
-                                                                    echo '<script> alert("field Riggester");</script>';
                                                                 }
                                                             }
                                                         }

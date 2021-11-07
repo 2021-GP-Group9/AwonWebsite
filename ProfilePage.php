@@ -59,11 +59,8 @@ if ($error != null) {
                                     $option = "";
 
                                     $sqli = "SELECT * FROM `charity` WHERE charityId = '$ID'";
-////echo $sqli;
                                     $result = $conn->query($sqli);
-
                                     $row = $result->fetch_assoc();
-//define DB
                                     $name = $row['name'];
                                     $username = $row['username'];
                                     $pass = $row['password'];
@@ -81,6 +78,7 @@ if ($error != null) {
                                     </div>
                                     <div class="row"> 
                                         <div class="col-12 col-md-12"> 
+                                            <!-- Form entered data -->
                                             <?php
                                             if (isset($_POST["Edit"])) {
                                                 echo "<h1>تعديل بيانات الحساب</h1>";
@@ -112,24 +110,24 @@ if ($error != null) {
                                                     // To compare charity info with entered info
                                                     if ($email == isset($row['email']) && $email != $row1['email']) {
                                                         echo "<h3 style='color:red; text-align:center'>الايميل موجود بالفعل</h3>";
-                                                        echo '<META HTTP-EQUIV="Refresh" Content="10; URL=ProfilePage.php">';
+                                                        echo '<META HTTP-EQUIV="Refresh" Content="2; URL=ProfilePage.php">';
                                                     }
 
                                                     if ($username == isset($row['username']) && $username != $row1['username']) {
                                                         echo "<h3 style='color:red; text-align:center'>اسم المستخدم موجود بالفعل</h3>";
-                                                        echo '<META HTTP-EQUIV="Refresh" Content="10; URL=ProfilePage.php">';
+                                                        echo '<META HTTP-EQUIV="Refresh" Content="2; URL=ProfilePage.php">';
                                                     }
 
                                                     if ($PhoneNumber == isset($row['phone']) && $PhoneNumber != $row1['phone']) {
                                                         echo "<h3 style='color:red; text-align:center'>رقم الجوال مستخدم بالفعل</h3>";
-                                                        echo '<META HTTP-EQUIV="Refresh" Content="10; URL=ProfilePage.php">';
+                                                        echo '<META HTTP-EQUIV="Refresh" Content="2; URL=ProfilePage.php">';
                                                     }
                                                 } else {
 
-                                                    ///die("Update query");
+                                                    // Update query
+
                                                     $query = "UPDATE charity SET name='" . $name . "', username='" . $username . "', email='" . $email . "',
                      phone='" . $PhoneNumber . "', licenseNumber='" . $LicenseNumber . "', service='" . $option . "', donationType='" . $servicetype . "', location='" . $location . "', descrption='" . $description . "' WHERE charityId='" . $ID . "'";
-                                                    ///echo $query;
 
                                                     if ($conn->query($query) === TRUE) {
                                                         echo '<h1 style="color:green; text-align:center">تم الحفظ</h1>';
@@ -137,18 +135,21 @@ if ($error != null) {
                                                         <META HTTP-EQUIV="Refresh" Content="3; URL=charityHome.php">
                                                         <?php
                                                     } else {
-                                                        echo "الرجاء اعادة المحاولة: ";
+                                                        echo "الرجاء اعادة المحاولة ";
                                                     }
                                                 }
                                             }
                                             ?> 
+                                            <!-- Profile form -->
+
                                             <div class="dtr-form">
+
                                                 <form method="post" id="ManageTheProfile" enctype="multipart/form-data" ">
                                                     <fieldset>
                                                         <div class="dtr-form-row dtr-form-row-2col">
                                                             <p class="dtr-form-column">
                                                                 <label for="name" >اسم المنظمة الخيرية</label> 
-                                                                <input type="text" name="name" placeholder="اسم المستخدم" id="name" value= "<?php echo $name ?>" >
+                                                                <input type="text" name="name" placeholder="اسم المستخدم" id="name" pattern="^[\p{InArabic}\p{Latin}-,]+(\s?[\p{InArabic}\p{Latin}-, ])*$" title="يجب أن تتكون من أحرف فقط"  value= "<?php echo $name ?>" >
                                                             </p>
                                                             <p class="dtr-form-column">
 
@@ -165,7 +166,7 @@ if ($error != null) {
                                                             </p>
                                                             <p class="dtr-form-column">
                                                                 <label  for="location">الموقع</label>
-                                                                <input type="text" name="location" id="location" placeholder="الموقع" required  value= "<?php echo $location ?>">
+                                                                <input type="text" name="location" id="location" placeholder="الموقع" pattern="[\u0600-\u065F\u066A-\u06EF\u06FA-\u06FFa-zA-Z]+[\u0600-\u065F\u066A-\u06EF\u06FA-\u06FFa-zA-Z-_]" title="يجب أن تحتوي على أحرف فقط " required  value= "<?php echo $location ?>">
                                                             </p>
                                                         </div>
                                                     </fieldset>
@@ -173,11 +174,11 @@ if ($error != null) {
                                                         <div class="dtr-form-row dtr-form-row-2col">
                                                             <p class="dtr-form-column">
                                                                 <label for="phone_number">رقم الجوال</label>
-                                                                <input type="tel" name="phone_number" placeholder="" id="phone_number" maxlength="10" required value= "0<?php echo $PhoneNumber ?>">
+                                                                <input type="tel" name="phone_number" placeholder="" id="phone_number" maxlength="10" pattern="[0-9]{,15}" title="يجب أن يحتوي على أرقام فقط" required value= "0<?php echo $PhoneNumber ?>">
                                                             </p>
                                                             <p class="dtr-form-column">
                                                                 <label  for="license_Number">رقم الترخيص</label>
-                                                                <input type="text" name="license_Number" placeholder="" id="license_Number" required value= "<?php echo $LicenseNumber ?>">
+                                                                <input type="text" name="license_Number" placeholder="" id="license_Number" pattern="[0-9]{,10}" title="يجب أن يحتوي على أرقام فقط" required value= "<?php echo $LicenseNumber ?>">
                                                             </p>
                                                         </div>
                                                     </fieldset>
@@ -198,7 +199,6 @@ if ($error != null) {
                                                         </p>
                                                         <p>
                                                             <?php
-//echo  $type;
                                                             $headers = explode(',', $type);
                                                             ?>                                                             
                                                             <label  for="">انواع التبرع التي تقبل به المنظمة الخيرية؟</label>
@@ -296,7 +296,7 @@ if ($error != null) {
 
 
             function validate(form) {
-                ///alert("validate edit form");
+                // validate entered phone number
                 var phone = document.getElementById("phone_number");
                 var digit = /^\d{10}$/; //to ensure the phone# input allow only correct address
                 //1-validate phone number
@@ -308,34 +308,10 @@ if ($error != null) {
                     return false;
                 }
 
-                ///alert("phone done");
                 var myPassword = document.getElementById("password");
                 var newPass = document.getElementById("password").value;
-                ///alert("New Password : " + newPass);
                 var passworsChar = /^[a-zA-Z0-9!@#$%^&*]{8,}$/;
                 var cheackPass = document.getElementById("password").value.match(passworsChar);
-
-
-
-                //2-validate password
-                if (newPass == "") {
-                    alert("من فضلك ادخل كلمةالمرور");
-                    myPassword.focus();
-                    return false;
-                }
-
-                if (newPass.length < 8) {
-
-                    alert("كلمة المرور يجب ان تتكون من ثمان خانات فأكثر ");
-                    myPassword.focus();
-                    return false;
-                }
-
-                if (!cheackPass) {
-                    alert("password should contain at least one number and one special character");
-                    return false;
-                }
-                ///alert("Password done");
 
                 this.form.submit();
             }

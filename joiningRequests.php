@@ -47,6 +47,7 @@ if (isset($_SESSION['role'])) {
 
                                             <?php
                                             $connection = mysqli_connect("localhost", "root", "root", "awondb");
+                                            // Get the Unaccepted charities
                                             $sqli = "SELECT * FROM `charity` WHERE status='بالانتظار'";
                                             $result = $connection->query($sqli);
                                             ?>
@@ -60,7 +61,9 @@ if (isset($_SESSION['role'])) {
                                                 if ($result->num_rows > 0) {
                                                     while ($row = mysqli_fetch_assoc($result)) {
                                                         echo'<tr align="right">';
+                                                        // Bring the date with specific format
                                                         $dt = date("d-m-Y", strtotime($row['registerDate']));
+                                                        // Retrive the image from database
                                                         $image = '<img src="data:image/jpeg;base64,' . base64_encode($row['picture']) . '"width="50em"/>';
                                                         echo "<td>" . $dt . "</td>";
                                                         echo "<td>" . "<button id='rej' class='btn btn-danger btn-xs' value={$row['charityId']} onclick='reject({$row["charityId"]})'>رفض</button>" . "<button id='acc' class='btn btn-success btn-xs' onclick='accept({$row["charityId"]})'>قبول</button>" . "</td>";
@@ -70,6 +73,7 @@ if (isset($_SESSION['role'])) {
                                                     }//end while
                                                 }//end if 
                                                 else {
+                                                    // If there is no request, the system will display appropraite message
                                                     echo'<tr align="right">';
                                                     echo "<td>" . "</td>" . "<td>" . "لا يوجد طلبات إنضمام جديدة" . "</td>";
                                                     echo "<td>" . "</td>" . "<td>" . "</td>";

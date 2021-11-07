@@ -43,12 +43,14 @@ if (isset($_SESSION['role'])) {
                             <div class="container mt-100 mb-100"> 
                                 <div class="row d-flex align-items-center"> 
                                     <div class="col-1 col-md-2"> </div> 
-                                    <div class="col-10 col-md-8"> <!--// To verify the license number the admin visits the website-->
+                                    <div class="col-10 col-md-8"> 
+                                        <!--// To verify the license number, the admin visits the website who verified by government-->
                                         <a href =https://hrsd.gov.sa/ar/ngo-enquiry style='text-align:center;float:right;'target='_blank'>:للتحقق من رقم ترخيص وبيانات الجمعية</a>
                                         <p style='color:gray; text-align:center;'>يرجى إدخال رقم الترخيص باللغة الإنجليزية</p>
                                         <?php
                                         $connection = mysqli_connect("localhost", "root", "root", "awondb");
                                         $id = $_GET['id'];
+                                        // Get each row data who is not accepted
                                         $sqli = "SELECT * FROM `charity` WHERE charityId= $id ";
                                         $result = $connection->query($sqli);
                                         while ($row = $result->fetch_assoc()) {
@@ -91,7 +93,7 @@ if (isset($_SESSION['role'])) {
                                             echo '<td>:وصف المنظمة الخيرية</td></tr>';
 
                                             echo '<tr align="right">';
-                                            echo '<td>' . $row['donatoionType'] . '</td>';
+                                            echo '<td>' . $row['donationType'] . '</td>';
                                             echo '<td>:أنواع التبرعات التي تستقبلها المنظمة الخيرية</td></tr>';
 
                                             echo '<tr align="right">';
