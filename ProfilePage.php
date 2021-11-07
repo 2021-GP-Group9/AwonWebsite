@@ -87,7 +87,7 @@ if ($error != null) {
                                     $location = $row['location'];
                                     $descrption = $row['descrption'];
                                     $option = $row['service'];
-                                    $type = $row['donatoionType'];
+                                    $type = $row['donationType'];
                                     $picture = $row['picture'];
                                     ?>
 
@@ -152,7 +152,7 @@ if ($error != null) {
 
                                                     ///die("Update query");
                                                     $query = "UPDATE charity SET name='" . $name . "', username='" . $username . "', email='" . $email . "',
-                     phone='" . $PhoneNumber . "', licenseNumber='" . $LicenseNumber . "', service='" . $option . "', donatoionType='" . $servicetype . "', location='" . $location . "', descrption='" . $description . "' WHERE charityId='" . $ID . "'";
+                     phone='" . $PhoneNumber . "', licenseNumber='" . $LicenseNumber . "', service='" . $option . "', donationType='" . $servicetype . "', location='" . $location . "', descrption='" . $description . "' WHERE charityId='" . $ID . "'";
                                                     ///echo $query;
 
                                                     if ($conn->query($query) === TRUE) {
@@ -283,7 +283,7 @@ if ($error != null) {
                                                         </p>
                                                         <p>
                                                             <label>وصف المنظمة الخيرية</label>
-                                                            <textarea rows="6" name="description" id="message" class="required"  placeholder="وصف المنظمة الخيرية"> <?php echo $descrption ?></textarea>
+                                                            <textarea rows="6" name="description" id="message" class="required"  placeholder="وصف المنظمة الخيرية" value="<?php echo $descrption ?>"> <?php echo $descrption ?></textarea>
                                                         </p><br>
                                                         <p class="text-center">
                                                             <button class="dtr-btn btn-blue" id="Edit" name="Edit"  type="submit"  onclick="return validate();">حفظ</button>
