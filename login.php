@@ -24,16 +24,7 @@ if (isset($_SESSION['role'])) {
     </head>
     <body>
         <div id="dtr-wrapper" class="clearfix"> 
-            <div class="dtr-responsive-header">
-                <div class="container"> 
-                    <div class="dtr-header-left" style="float: left;"> 
-
-                    </div>
-
-                    <a href="index.php"><img src="finalLogo.jpeg"  class="m-logo" alt="logo"></a> 
-
-                </div>
-            </div>
+            
             <header id="dtr-header-global" class="">
                 <div class="container">
                     <div class="row">
