@@ -175,7 +175,7 @@ if ($error != null) {
                                                 } else {
 
                                                     ///die("Update query");
-                                                    $query = "UPDATE charity SET name='" . $name . "', username='" . $username . "', password='" . $passwod . "', email='" . $email . "',
+                                                    $query = "UPDATE charity SET name='" . $name . "', username='" . $username . "', email='" . $email . "',
                      phone='" . $PhoneNumber . "', licenseNumber='" . $LicenseNumber . "', service='" . $option . "', donatoionType='" . $servicetype . "', location='" . $location . "', descrption='" . $description . "' WHERE charityId='" . $ID . "'";
                                                     ///echo $query;
 
@@ -211,9 +211,9 @@ if ($error != null) {
                                                                 <input type="email" name="email" id="email" placeholder="البريد الالكتروني" required value= "<?php echo $email ?>"  >
                                                             </p>
                                                             <p class="dtr-form-column">
-                                                                <label for="email">كلمةالمرور</label>
-                                                                <input type="password" name="pwd" placeholder="كلمةالمرور" class="password" id="password"  required value= "<?php echo $pass ?>">
-                                                            </p>
+                                                            <label  for="location">الموقع</label>
+                                                            <input type="text" name="location" id="location" placeholder="الموقع" required  value= "<?php echo $location ?>">
+                                                        </p>
                                                         </div>
                                                     </fieldset>
                                                     <fieldset>
@@ -229,10 +229,7 @@ if ($error != null) {
                                                         </div>
                                                     </fieldset>
                                                     <fieldset>	
-                                                        <p>
-                                                            <label  for="location">الموقع</label>
-                                                            <input type="text" name="location" id="location" placeholder="الموقع" required  value= "<?php echo $location ?>">
-                                                        </p>
+                                                        
                                                         <p>
                                                             <label  for="">هل تتوفر خدمة التوصيل ؟ </label>
                                                         <div class="form-check-inline">
@@ -391,30 +388,15 @@ if (in_array('كتب_ورق', $headers)) {
                 ?>    
                 <!--  design the form  
                 <form method="post" id="ManageTheProfile" enctype="multipart/form-data" action="UpdateProfilePage.php">
-
-
-
                     <input type="text" name="name" id="name" required value= "<?php // echo $name      ?>" >
                     <label for="username">اسم المستخدم</label>
-
-
-
                     <input type="text" name="username" id="username" required value= "<?php // echo $username      ?>">
                     <label for="name" >اسم المنظمة الخيرية</label>  
-
-
-
                     <br
-
-
                     <input type="email" name="email" id="email" required value= "<?php // echo $email      ?>" >
                     <label for="password">كلمةالمرور</label>
-
-
                     <input type="password" name="pwd" class="password" id="password"  required value= "<?php // echo $pass      ?>" >
                     <label for="email">البريد الالكتروني</label>
-
-
                     <br>
                 -->
                                    <!--      <input type="tel" name="phone_number" id="phone_number" maxlength="10" required value= "<?php //echo $PhoneNumber      ?>">tel or number? 
@@ -430,24 +412,18 @@ if (in_array('كتب_ورق', $headers)) {
 
              <!--           <input type="text" name="location" id="location" required value= "<?php //echo $location      ?>"> not sure if it is url maybe it is select 
                         <label  for="location">الموقع</label>
-
                         <br>
-
-
                         <label>هل تتوفر خدمة التوصيل ؟ </label>
 <?php ///echo " option : ", $option . "<br>";  ?>
-                          <input type="radio" name="pickup_servise" id="pickup_servise" value="yes"  <?php //if ($option == 'yes') echo " checked"      ?>>
-                          <label for="نعم">نعم</label>
-                          <input type="radio" name="pickup_servise" id="pickup_servise"  value="no"  <?php // if ($option == 'no') echo " checked"      ?>>
-                          <label for="لا">لا</label>    
-
+                          <input type="radio" name="pickup_servise" id="pickup_servise" value="yes"  <?php //if ($option == 'yes') echo " checked"      ?>>
+                          <label for="نعم">نعم</label>
+                          <input type="radio" name="pickup_servise" id="pickup_servise"  value="no"  <?php // if ($option == 'no') echo " checked"      ?>>
+                          <label for="لا">لا</label>    
                         <br>
-
 <?php
 ///echo  $type;
 //$headers = explode(',', $type);
 ?>
-
                         <label>انواع التبرع التي تقبل به المنظمة الخيرية؟</label>
                         <input type="checkbox" name="types[]" id="type_of_donation"  value="ملابس"
                 <?php
@@ -457,14 +433,12 @@ if (in_array('كتب_ورق', $headers)) {
                 ?>
                                >
                         <label for="ملابس">ملابس</label>
-
                         <input type="checkbox" name="types[]" id="type_of_donation"   value="اثاث"
 <?php
 //                        if (in_array('اثاث', $headers)) {
 //                            echo " checked ";
 //                        }
 ?>
-
                                >
                         <label for="اثاث">اثاث</label>
                         <input type="checkbox" name="types[]" id="type_of_donation"  value="الكترونيات"
@@ -473,37 +447,25 @@ if (in_array('كتب_ورق', $headers)) {
 //                            echo " checked ";
 //                        }
 ?>
-
                                >
-
                         <label for="الكترونيات">الكترونيات</label>
-
                         <input type="checkbox" name="type[]" id="books" class="name-input" value="كتب_ورق"
-
-
 <?php
 //                               if (in_array('كتب_ورق', $headers)) {
 //                                   echo " checked ";
 //                               }
 ?>
-
                                >
                         <label for="كتب_ورق">كتب_ورق</label>
-
                         <br>
                         <br>
                         <input type="file" id="img" name="img" accept="image/*"  >
                         <label for="img">صورة الملف التعريفي</label>
-
                         <br>
-
                         <textarea rows="4" type="text" name="description" id="description" required > <?php //echo $descrption      ?> </textarea>
                         <label for="description">وصف المنظمة الخيرية</label> 
-
                         <br>
-
                         <button class="bu1" id="Edit" type="submit" name="Edit" onclick="return validate();">حفظ</button>
-
                     </form>
                 </div>-->
 
@@ -598,4 +560,3 @@ if (in_array('كتب_ورق', $headers)) {
 
 
 <!-- UPDATE -->
-

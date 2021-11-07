@@ -164,7 +164,9 @@ if (!isset($_SESSION['role'])) {
 
                                             $result2 = $conn->query($sqli2);
                                             if ($result2) {
-                                                echo '<META HTTP-EQUIV="Refresh" Content="0;CharityPage.php">';
+                                                echo '<h1 style="color:green; text-align:center">تم تعديل الموعد بنجاح</h1>';
+
+                                                echo '<META HTTP-EQUIV="Refresh" Content="2;CharityPage.php">';
                                                 exit();
                                             }
                                         } else {

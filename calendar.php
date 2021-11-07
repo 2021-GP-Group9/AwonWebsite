@@ -13,9 +13,11 @@ if (isset($_POST['submit'])) {
 
     if ($no == 0) {
         $sqli2 = "INSERT INTO appointment VALUES(NULL ,'$date', '$time', $ID)";
+
         $result2 = $conn->query($sqli2);
         if ($result2) {
-            echo '<META HTTP-EQUIV="Refresh" Content="0;CharityPage.php">';
+            echo '<h1 style="color:green; text-align:center">تم إضافة الموعد بنجاح</h1>';
+            echo '<META HTTP-EQUIV="Refresh" Content="2;CharityPage.php">';
             exit();
         }
     } else {
