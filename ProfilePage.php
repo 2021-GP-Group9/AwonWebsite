@@ -1,5 +1,3 @@
-<!--  see comments in line 26 - 29 - 35 - 77 - 201 
-TEST --> 
 <?php
 session_start();
 $ID = $_SESSION['ID'];
@@ -126,24 +124,27 @@ if ($error != null) {
                                                 $picture = $_FILES['img']['name'];
 
                                                 $sql = "select * from charity where (username='$username' or email='$email' or phone='$PhoneNumber') AND charityId<>$ID";
-
+                                                // To retrive charity info
+                                                $sql1= "Select * from charity WHERE charityId='$ID'";
+                                                $res1 = mysqli_query($conn, $sql1);
+                                                $row1 = mysqli_fetch_assoc($res1);
+                                                
                                                 $res = mysqli_query($conn, $sql);
 
                                                 if (mysqli_num_rows($res) > 0) {
-
-
                                                     $row = mysqli_fetch_assoc($res);
-                                                    if ($email == isset($row['email'])) {
+                                                    // To compare charity info with entered info
+                                                    if ($email == isset($row['email'])&& $email !=$row1['email']) {
                                                         echo "<h3 style='color:red; text-align:center'>الايميل موجود بالفعل</h3>";
                                                         echo '<META HTTP-EQUIV="Refresh" Content="10; URL=ProfilePage.php">';
                                                     }
 
-                                                    if ($username == isset($row['username'])) {
+                                                    if ($username == isset($row['username'])&& $username !=$row1['username']) {
                                                         echo "<h3 style='color:red; text-align:center'>اسم المستخدم موجود بالفعل</h3>";
                                                         echo '<META HTTP-EQUIV="Refresh" Content="10; URL=ProfilePage.php">';
                                                     }
 
-                                                    if ($PhoneNumber == isset($row['PhoneNumber'])) {
+                                                    if ($PhoneNumber == isset($row['phone']) && $PhoneNumber !=$row1['phone']) {
                                                         echo "<h3 style='color:red; text-align:center'>رقم الجوال مستخدم بالفعل</h3>";
                                                         echo '<META HTTP-EQUIV="Refresh" Content="10; URL=ProfilePage.php">';
                                                     }
@@ -170,11 +171,12 @@ if ($error != null) {
                                                     <fieldset>
                                                         <div class="dtr-form-row dtr-form-row-2col">
                                                             <p class="dtr-form-column">
-                                                                <label for="username">اسم المستخدم</label>
+                                                                <label for="name" >اسم المنظمة الخيرية</label> 
                                                                 <input type="text" name="name" placeholder="اسم المستخدم" id="name" value= "<?php echo $name ?>" >
                                                             </p>
                                                             <p class="dtr-form-column">
-                                                                <label for="name" >اسم المنظمة الخيرية</label>  
+                                                                 
+                                                                <label for="username">اسم المستخدم</label>
                                                                 <input type="text" name="username" id="username" placeholder="اسم المنظمة الخيرية" required value= "<?php echo $username ?>">
                                                             </p>
                                                         </div>
