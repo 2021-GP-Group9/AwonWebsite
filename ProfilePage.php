@@ -391,11 +391,3 @@ if ($error != null) {
 
     </script>
 </html>
-
-
-<!-- VALIDATE -->
-
-
-
-<!-- UPDATE -->
-?>
