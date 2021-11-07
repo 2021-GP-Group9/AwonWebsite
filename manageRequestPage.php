@@ -17,24 +17,7 @@ if (isset($_SESSION['role'])) {
             <body>
                 <div id="dtr-wrapper" class="clearfix"> 
 
-                    <!-- Small Devices Header 
-                ============================================= -->
-                    <div class="dtr-responsive-header">
-                        <div class="container"> 
-
-                            <div class="dtr-header-left" style="float: left;"> 
-                                <form id="signout" action="logout.php" method="POST">
-                                    <input type="submit" class="logoutbtn" value="تسجيل خروج">
-                                </form>       
-                            </div>
-
-                            <!-- small devices logo --> 
-                            <a href="index.php"><img src="finalLogo.jpeg" class="m-logo" alt="logo"></a> 
-                            <!-- small devices logo ends --> 
-                        </div>
-                    </div>
-                    <!-- Small Devices Header ends 
-                ============================================= --> 
+              
                     <!-- Header 
                 ============================================= -->
                     <header id="dtr-header-global" class="">

@@ -13,16 +13,6 @@
 
         <div id="dtr-wrapper" class="clearfix"> 
 
-
-            <!-- logo in the right -->
-            <div class="dtr-responsive-header">
-                <div class="container"> 
-
-                    <!-- small devices logo --> 
-                    <a href="index.php"><img src="finalLogo.jpeg" class="m-logo" alt="logo"></a> 
-                    <!-- small devices logo ends --> 
-                </div>
-            </div>
             <header>
                 <header id="dtr-header-global" class="">
                     <div class="container">
