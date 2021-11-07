@@ -28,32 +28,7 @@ if ($error != null) {
     <body>
         <div id="dtr-wrapper" class="clearfix"> 
 
-            <!-- preloader starts 
-            <div class="dtr-preloader">
-                <div class="dtr-preloader-inner">
-                    <div class="dtr-preloader-img"></div>
-                </div>
-            </div>-->
-            <!-- preloader ends --> 
-
-            <!-- Small Devices Header 
-        ============================================= -->
-            <div class="dtr-responsive-header">
-                <div class="container"> 
-
-                    <div class="dtr-header-left" style="float: left;"> 
-                        <form id="signout" action="logout.php" method="POST">
-                            <input type="submit" class="logoutbtn" value="تسجيل خروج">
-                        </form>       
-                    </div>
-
-                    <!-- small devices logo --> 
-                    <a href="index.php"><img src="finalLogo.jpeg" class="m-logo" alt="logo"></a> 
-                    <!-- small devices logo ends --> 
-                </div>
-            </div>
-            <!-- Small Devices Header ends 
-        ============================================= --> 
+           
 
             <!-- Header 
         ============================================= -->
@@ -247,29 +222,29 @@ if ($error != null) {
                                                         </div>
                                                         </p>
                                                         <p>
-<?php
+                                                            <?php
 //echo  $type;
-$headers = explode(',', $type);
-?>                                                             
+                                                            $headers = explode(',', $type);
+                                                            ?>                                                             
                                                             <label  for="">انواع التبرع التي تقبل به المنظمة الخيرية؟</label>
                                                         <div class="form-check-inline">
                                                             <label class="form-check-label">
                                                                 <input type="checkbox" class="form-check-input" name="types[]" id="type_of_donation"  value="ملابس" <?php
-if (in_array('ملابس', $headers)) {
-    echo "checked ";
-}
-?>
+                                                                if (in_array('ملابس', $headers)) {
+                                                                    echo "checked ";
+                                                                }
+                                                                ?>
                                                                        >ملابس
                                                             </label>
                                                         </div>
                                                         <div class="form-check-inline">
                                                             <label class="form-check-label">
                                                                 <input type="checkbox" class="form-check-input" name="types[]" id="type_of_donation"  value="اثاث"
-<?php
-if (in_array('اثاث', $headers)) {
-    echo "checked ";
-}
-?>
+                                                                <?php
+                                                                if (in_array('اثاث', $headers)) {
+                                                                    echo "checked ";
+                                                                }
+                                                                ?>
 
                                                                        >اثاث
                                                             </label>
@@ -280,7 +255,7 @@ if (in_array('اثاث', $headers)) {
                                                                 if (in_array('الكترونيات', $headers)) {
                                                                     echo " checked ";
                                                                 }
-?>  >الكترونيات
+                                                                ?>  >الكترونيات
 
                                                             </label>
                                                         </div>
@@ -288,11 +263,11 @@ if (in_array('اثاث', $headers)) {
                                                             <label class="form-check-label">
                                                                 <input type="checkbox" name="types[]" id="type_of_donation" class="form-check-input"value="كتب_ورق"
 
-<?php
-if (in_array('كتب_ورق', $headers)) {
-    echo " checked ";
-}
-?>
+                                                                       <?php
+                                                                       if (in_array('كتب_ورق', $headers)) {
+                                                                           echo " checked ";
+                                                                       }
+                                                                       ?>
 
                                                                        >   كتب ورق </label>
 
@@ -362,7 +337,7 @@ if (in_array('كتب_ورق', $headers)) {
                      </header>-->
 
 
-<?php
+                <?php
 //                $option = "";
 //
 //                $sqli = "SELECT * FROM `charity` WHERE ID = '$ID'";
@@ -382,7 +357,7 @@ if (in_array('كتب_ورق', $headers)) {
 //                $option = $row['service'];
 //                $type = $row['donatoionType'];
 //                $picture = $row['picture'];
-?>
+                ?>
 
 
                 <!--     <div class="auth-content"> 
@@ -394,12 +369,12 @@ if (in_array('كتب_ورق', $headers)) {
 
 
 
-                    <input type="text" name="name" id="name" required value= "<?php // echo $name      ?>" >
+                    <input type="text" name="name" id="name" required value= "<?php // echo $name        ?>" >
                     <label for="username">اسم المستخدم</label>
 
 
 
-                    <input type="text" name="username" id="username" required value= "<?php // echo $username      ?>">
+                    <input type="text" name="username" id="username" required value= "<?php // echo $username        ?>">
                     <label for="name" >اسم المنظمة الخيرية</label>  
 
 
@@ -407,46 +382,46 @@ if (in_array('كتب_ورق', $headers)) {
                     <br
 
 
-                    <input type="email" name="email" id="email" required value= "<?php // echo $email      ?>" >
+                    <input type="email" name="email" id="email" required value= "<?php // echo $email        ?>" >
                     <label for="password">كلمةالمرور</label>
 
 
-                    <input type="password" name="pwd" class="password" id="password"  required value= "<?php // echo $pass      ?>" >
+                    <input type="password" name="pwd" class="password" id="password"  required value= "<?php // echo $pass        ?>" >
                     <label for="email">البريد الالكتروني</label>
 
 
                     <br>
                 -->
-                                   <!--      <input type="tel" name="phone_number" id="phone_number" maxlength="10" required value= "<?php //echo $PhoneNumber      ?>">tel or number? 
+                                   <!--      <input type="tel" name="phone_number" id="phone_number" maxlength="10" required value= "<?php //echo $PhoneNumber        ?>">tel or number? 
                                         <label  for="license_Number">رقم الترخيص</label> 
                 
                 
-                                        <input type="int" name="license_Number" id="license_Number" required value= "<?php //echo $LicenseNumber      ?>">
+                                        <input type="int" name="license_Number" id="license_Number" required value= "<?php //echo $LicenseNumber        ?>">
                                         <label for="phone_number">رقم الجوال</label>
                 
                 
                                         <br>
                 -->
 
-             <!--           <input type="text" name="location" id="location" required value= "<?php //echo $location      ?>"> not sure if it is url maybe it is select 
+             <!--           <input type="text" name="location" id="location" required value= "<?php //echo $location        ?>"> not sure if it is url maybe it is select 
                         <label  for="location">الموقع</label>
 
                         <br>
 
 
                         <label>هل تتوفر خدمة التوصيل ؟ </label>
-<?php ///echo " option : ", $option . "<br>";  ?>
-                          <input type="radio" name="pickup_servise" id="pickup_servise" value="yes"  <?php //if ($option == 'yes') echo " checked"      ?>>
+                <?php ///echo " option : ", $option . "<br>";  ?>
+                          <input type="radio" name="pickup_servise" id="pickup_servise" value="yes"  <?php //if ($option == 'yes') echo " checked"        ?>>
                           <label for="نعم">نعم</label>
-                          <input type="radio" name="pickup_servise" id="pickup_servise"  value="no"  <?php // if ($option == 'no') echo " checked"      ?>>
+                          <input type="radio" name="pickup_servise" id="pickup_servise"  value="no"  <?php // if ($option == 'no') echo " checked"        ?>>
                           <label for="لا">لا</label>    
 
                         <br>
 
-<?php
+                <?php
 ///echo  $type;
 //$headers = explode(',', $type);
-?>
+                ?>
 
                         <label>انواع التبرع التي تقبل به المنظمة الخيرية؟</label>
                         <input type="checkbox" name="types[]" id="type_of_donation"  value="ملابس"
@@ -459,20 +434,20 @@ if (in_array('كتب_ورق', $headers)) {
                         <label for="ملابس">ملابس</label>
 
                         <input type="checkbox" name="types[]" id="type_of_donation"   value="اثاث"
-<?php
+                <?php
 //                        if (in_array('اثاث', $headers)) {
 //                            echo " checked ";
 //                        }
-?>
+                ?>
 
                                >
                         <label for="اثاث">اثاث</label>
                         <input type="checkbox" name="types[]" id="type_of_donation"  value="الكترونيات"
-<?php
+                <?php
 //                        if (in_array('الكترونيات', $headers)) {
 //                            echo " checked ";
 //                        }
-?>
+                ?>
 
                                >
 
@@ -481,11 +456,11 @@ if (in_array('كتب_ورق', $headers)) {
                         <input type="checkbox" name="type[]" id="books" class="name-input" value="كتب_ورق"
 
 
-<?php
+                <?php
 //                               if (in_array('كتب_ورق', $headers)) {
 //                                   echo " checked ";
 //                               }
-?>
+                ?>
 
                                >
                         <label for="كتب_ورق">كتب_ورق</label>
@@ -497,7 +472,7 @@ if (in_array('كتب_ورق', $headers)) {
 
                         <br>
 
-                        <textarea rows="4" type="text" name="description" id="description" required > <?php //echo $descrption      ?> </textarea>
+                        <textarea rows="4" type="text" name="description" id="description" required > <?php //echo $descrption        ?> </textarea>
                         <label for="description">وصف المنظمة الخيرية</label> 
 
                         <br>
