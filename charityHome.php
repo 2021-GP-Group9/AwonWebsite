@@ -13,10 +13,8 @@ if (!isset($_SESSION['role'])) {
         <link rel="stylesheet" href="DesignBootstrap.css">
     </head>
     <body>
-
         <div id="dtr-wrapper" class="clearfix"> 
-            <!-- Header 
-  ============================================= -->
+            <!-- Header  -->
             <header id="dtr-header-global" class="">
                 <div class="container">
                     <div class="row">
@@ -38,16 +36,8 @@ if (!isset($_SESSION['role'])) {
                     </div>
                 </div>
             </header>
-            <!-- header ends
-        ================================================== --> 
-
             <!-- == main content area starts == -->
-            <!--            <div id="dtr-main-content"> 
-            
-                            <section id="about" class="dtr-section dtr-py-100 bg-light-blue">
-                                <div class="container mt-100 mb-100"> -->
 
-            <!--===== row 1 starts =====-->
             <div  id="dtr-main-content"> 
 
                 <section id="about" class="dtr-section dtr-py-100 bg-light-blue">

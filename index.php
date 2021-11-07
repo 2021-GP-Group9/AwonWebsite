@@ -7,12 +7,10 @@
         <meta name="format-detection" content="telephone=no">
         <link rel='stylesheet' href='DesignBootstrap.css'>
         <link rel="stylesheet" href="design.css">
-        <!-- Header Sahar & Aljawharah is heeeereeee -->
+
     </head> 
     <body>
-
         <div id="dtr-wrapper" class="clearfix"> 
-
             <header>
                 <header id="dtr-header-global" class="">
                     <div class="container">

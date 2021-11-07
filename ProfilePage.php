@@ -25,11 +25,7 @@ if ($error != null) {
     </head>
     <body>
         <div id="dtr-wrapper" class="clearfix"> 
-
-           
-
-            <!-- Header 
-        ============================================= -->
+            <!-- Header -->
             <header id="dtr-header-global" class="">
                 <div class="container">
                     <div class="row">
@@ -51,9 +47,7 @@ if ($error != null) {
                     </div>
                 </div>
             </header>
-            <!-- header ends
-        ================================================== --> 
-
+            
             <!-- == main content area starts == -->
             <div id="dtr-main-content"> 
 
@@ -125,26 +119,26 @@ if ($error != null) {
 
                                                 $sql = "select * from charity where (username='$username' or email='$email' or phone='$PhoneNumber') AND charityId<>$ID";
                                                 // To retrive charity info
-                                                $sql1= "Select * from charity WHERE charityId='$ID'";
+                                                $sql1 = "Select * from charity WHERE charityId='$ID'";
                                                 $res1 = mysqli_query($conn, $sql1);
                                                 $row1 = mysqli_fetch_assoc($res1);
-                                                
+
                                                 $res = mysqli_query($conn, $sql);
 
                                                 if (mysqli_num_rows($res) > 0) {
                                                     $row = mysqli_fetch_assoc($res);
                                                     // To compare charity info with entered info
-                                                    if ($email == isset($row['email'])&& $email !=$row1['email']) {
+                                                    if ($email == isset($row['email']) && $email != $row1['email']) {
                                                         echo "<h3 style='color:red; text-align:center'>الايميل موجود بالفعل</h3>";
                                                         echo '<META HTTP-EQUIV="Refresh" Content="10; URL=ProfilePage.php">';
                                                     }
 
-                                                    if ($username == isset($row['username'])&& $username !=$row1['username']) {
+                                                    if ($username == isset($row['username']) && $username != $row1['username']) {
                                                         echo "<h3 style='color:red; text-align:center'>اسم المستخدم موجود بالفعل</h3>";
                                                         echo '<META HTTP-EQUIV="Refresh" Content="10; URL=ProfilePage.php">';
                                                     }
 
-                                                    if ($PhoneNumber == isset($row['phone']) && $PhoneNumber !=$row1['phone']) {
+                                                    if ($PhoneNumber == isset($row['phone']) && $PhoneNumber != $row1['phone']) {
                                                         echo "<h3 style='color:red; text-align:center'>رقم الجوال مستخدم بالفعل</h3>";
                                                         echo '<META HTTP-EQUIV="Refresh" Content="10; URL=ProfilePage.php">';
                                                     }
@@ -175,7 +169,7 @@ if ($error != null) {
                                                                 <input type="text" name="name" placeholder="اسم المستخدم" id="name" value= "<?php echo $name ?>" >
                                                             </p>
                                                             <p class="dtr-form-column">
-                                                                 
+
                                                                 <label for="username">اسم المستخدم</label>
                                                                 <input type="text" name="username" id="username" placeholder="اسم المنظمة الخيرية" required value= "<?php echo $username ?>">
                                                             </p>
@@ -188,9 +182,9 @@ if ($error != null) {
                                                                 <input type="email" name="email" id="email" placeholder="البريد الالكتروني" required value= "<?php echo $email ?>"  >
                                                             </p>
                                                             <p class="dtr-form-column">
-                                                            <label  for="location">الموقع</label>
-                                                            <input type="text" name="location" id="location" placeholder="الموقع" required  value= "<?php echo $location ?>">
-                                                        </p>
+                                                                <label  for="location">الموقع</label>
+                                                                <input type="text" name="location" id="location" placeholder="الموقع" required  value= "<?php echo $location ?>">
+                                                            </p>
                                                         </div>
                                                     </fieldset>
                                                     <fieldset>
@@ -206,7 +200,7 @@ if ($error != null) {
                                                         </div>
                                                     </fieldset>
                                                     <fieldset>	
-                                                        
+
                                                         <p>
                                                             <label  for="">هل تتوفر خدمة التوصيل ؟ </label>
                                                         <div class="form-check-inline">

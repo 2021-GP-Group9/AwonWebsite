@@ -15,17 +15,7 @@ if (isset($_SESSION['role'])) {
             </head>  
             <body>
                 <div id="dtr-wrapper" class="clearfix"> 
-                    <div class="dtr-responsive-header">
-                        <div class="container"> 
-                            <div class="dtr-header-left" style="float: left;"> 
-                                <form id="signout" action="logout.php" method="POST">
-                                    <input type="submit" class="logoutbtn" value="تسجيل خروج">
-                                </form>       
-                            </div>
-                            <a href="index.php"><img src="finalLogo.jpeg" class="m-logo" alt="logo"></a> 
-                        </div>
-                    </div>
-                    <!-- header starts--> 
+                    <!-- header --> 
                     <header id="dtr-header-global" class="">
                         <div class="container">
                             <div class="row">

@@ -30,19 +30,7 @@ if (isset($_SESSION['role'])) {
 
     <body>
         <div id="dtr-wrapper" class="clearfix"> 
-
-            <div class="dtr-responsive-header">
-                <div class="container"> 
-
-                    <div class="dtr-header-left" style="float: left;"> 
-
-                    </div>
-
-                    <a href="index.php"><img src="finalLogo.jpeg" class="m-logo" alt="logo"></a> 
-
-                </div>
-            </div>
-
+            <!-- Header -->
             <header id="dtr-header-global" class="">
                 <div class="container">
                     <div class="row">
@@ -89,12 +77,12 @@ if (isset($_SESSION['role'])) {
 
                                             <!-- form starts -->
                                             <div class="dtr-form">
-                                                  <?php
-                                                    if (isset($_SESSION['faild'])) {
-                                                        echo "<span style='color:red'>" . $_SESSION['faild'] . "</span>";
-                                                    }
-                                                    $_SESSION['faild'] = null;
-                                                    ?>
+                                                <?php
+                                                if (isset($_SESSION['faild'])) {
+                                                    echo "<span style='color:red'>" . $_SESSION['faild'] . "</span>";
+                                                }
+                                                $_SESSION['faild'] = null;
+                                                ?>
                                                 <form id="contactform" method="POST"> 
                                                     <fieldset>
                                                         <div class="dtr-form-row dtr-form-row-2col">
@@ -196,7 +184,7 @@ if (isset($_SESSION['role'])) {
                                                         </p>
                                                     </fieldset>
 
-                                                  
+
                                                 </form>
                                                 <?php
                                                 $server = "localhost";

@@ -16,10 +16,7 @@ if (isset($_SESSION['role'])) {
             </head>  
             <body>
                 <div id="dtr-wrapper" class="clearfix"> 
-
-              
-                    <!-- Header 
-                ============================================= -->
+                    <!-- Header -->
                     <header id="dtr-header-global" class="">
                         <div class="container">
                             <div class="row">
@@ -57,7 +54,7 @@ if (isset($_SESSION['role'])) {
                                         <a href =https://hrsd.gov.sa/ar/ngo-enquiry style='text-align:center;float:right;'target='_blank'>:للتحقق من رقم ترخيص وبيانات الجمعية</a>
                                         <p style='color:gray; text-align:center;'>يرجى إدخال رقم الترخيص باللغة الإنجليزية</p>
 
-                                        
+
                                         <?php
                                         $connection = mysqli_connect("localhost", "root", "root", "awondb");
                                         $id = $_GET['id'];
