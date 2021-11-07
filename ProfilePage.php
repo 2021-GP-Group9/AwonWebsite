@@ -124,7 +124,7 @@ if ($error != null) {
                                                     }
                                                 } else {
 
-                                                    // Update query     a
+                                                    // Update query *
 
                                                     $query = "UPDATE charity SET name='" . $name . "', username='" . $username . "', email='" . $email . "',
                      phone='" . $PhoneNumber . "', licenseNumber='" . $LicenseNumber . "', service='" . $option . "', donationType='" . $servicetype . "', location='" . $location . "', descrption='" . $description . "' WHERE charityId='" . $ID . "'";
