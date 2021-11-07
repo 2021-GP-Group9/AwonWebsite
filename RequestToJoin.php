@@ -89,6 +89,12 @@ if (isset($_SESSION['role'])) {
 
                                             <!-- form starts -->
                                             <div class="dtr-form">
+                                                  <?php
+                                                    if (isset($_SESSION['faild'])) {
+                                                        echo "<span style='color:red'>" . $_SESSION['faild'] . "</span>";
+                                                    }
+                                                    $_SESSION['faild'] = null;
+                                                    ?>
                                                 <form id="contactform" method="POST"> 
                                                     <fieldset>
                                                         <div class="dtr-form-row dtr-form-row-2col">
@@ -190,12 +196,7 @@ if (isset($_SESSION['role'])) {
                                                         </p>
                                                     </fieldset>
 
-                                                    <?php
-                                                    if (isset($_SESSION['faild'])) {
-                                                        echo "<span style='color:red'>" . $_SESSION['faild'] . "</span>";
-                                                    }
-                                                    $_SESSION['faild'] = null;
-                                                    ?>
+                                                  
                                                 </form>
                                                 <?php
                                                 $server = "localhost";
@@ -240,7 +241,7 @@ if (isset($_SESSION['role'])) {
                                                     $result = $conn->query($sql_chk_email);
 
                                                     if ($result->num_rows > 0) {
-                                                        $_SESSION['faild'] = 'البريد الألكتروني مسجل مسبقا';
+                                                        $_SESSION['faild'] = "<h3 style='color:red; text-align:center'>البريد الألكتروني موجود بالفعل</h3>";
                                                         echo '<META HTTP-EQUIV="Refresh" Content="2; URL=RequestToJoin.php">';
                                                     } else {
                                                         //cheack the phone# if existen befor or not
@@ -249,7 +250,7 @@ if (isset($_SESSION['role'])) {
                                                         $result = $conn->query($sql_chk_email);
 
                                                         if ($result->num_rows > 0) {
-                                                            $_SESSION['faild'] = 'رقم الجوال مسجل مسبقا';
+                                                            $_SESSION['faild'] = "<h3 style='color:red; text-align:center'>رقم الجوال مستخدم بالفعل</h3>";
                                                             echo '<META HTTP-EQUIV="Refresh" Content="2; URL=RequestToJoin.php">';
                                                         } else {
                                                             //cheack the username if existen befor or not
@@ -258,7 +259,7 @@ if (isset($_SESSION['role'])) {
                                                             $res = $conn->query($sql_chk_username);
 
                                                             if ($res->num_rows > 0) {
-                                                                $_SESSION['faild'] = 'اسم المستخدم مسجل مسبقا';
+                                                                $_SESSION['faild'] = "<h3 style='color:red; text-align:center'>اسم المستخدم موجود بالفعل</h3>";
                                                                 echo '<META HTTP-EQUIV="Refresh" Content="2; URL=RequestToJoin.php">';
                                                             } else {
 
