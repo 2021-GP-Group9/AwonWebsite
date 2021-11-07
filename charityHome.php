@@ -13,11 +13,9 @@ if (!isset($_SESSION['role'])) {
         <link rel="stylesheet" href="DesignBootstrap.css">
     </head>
     <body>
-        <section>
+       
         <div id="dtr-wrapper" class="clearfix"> 
-
-         
-            <!-- Header 
+                  <!-- Header 
         ============================================= -->
             <header id="dtr-header-global" class="">
                 <div class="container">
@@ -50,13 +48,19 @@ if (!isset($_SESSION['role'])) {
                     <div class="container mt-100 mb-100"> -->
 
                         <!--===== row 1 starts =====-->
+                         <div  id="dtr-main-content"> 
+
+                <section id="about" class="dtr-section dtr-py-100 bg-light-blue">
+                    <div class="container mt-100 mb-100"> 
+
+                        <!--===== row 1 starts =====-->
                         <div class="row d-flex align-items-center"> 
                             <!-- column 2 starts -->
                             <div class="col-1 col-md-3"></div> 
                             <div class="col-10 col-md-6"> 
 
                                 <!-- heading starts -->
-                                <div class="dtr--" align="center">
+                                <div class="dtr-styled-" align="center">
                                     <h2 style="float: right;">مرحبا </h2>
                                     <?php
                                     require('db_connecting.php');
@@ -71,15 +75,15 @@ if (!isset($_SESSION['role'])) {
                                        
                                        // echo '<h1>مرحبا </h1>';
                                         echo "&nbsp;"."<h3> <a style='font-size:30px; float:right;'>{$row["name"]}</a></h3><br>";
-                                        echo "<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>";
+                                       
                                     }
                                     ?>  
 
-                                    
+                                   
                                     <!-- form starts 
                                     <H3>Aljawharahds Aljawharahds</H3>-->
                                     <!-- form ends --> 
-                                </div>
+                                </div>  <br><br><br><br><br><br><br><br><br><br><br><br>
                                 <!-- heading ends --> 
                             </div>
                             <!-- column 2 ends --> 
