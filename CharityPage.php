@@ -4,6 +4,7 @@ if (!isset($_SESSION['role'])) {
     header('Location:login.php');
 }
 ?>
+<!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="UTF-8">
@@ -14,9 +15,7 @@ if (!isset($_SESSION['role'])) {
     </head>
     <body>
         <div id="dtr-wrapper" class="clearfix"> 
-
-            <!-- Header 
-        ============================================= -->
+            <!-- Header  -->
             <header id="dtr-header-global" class="">
                 <div class="container">
                     <div class="row">
@@ -38,88 +37,63 @@ if (!isset($_SESSION['role'])) {
                     </div>
                 </div>
             </header>
-            <!-- header ends
-        ================================================== --> 
-
-            <!-- == main content area starts == -->
-            <!--            <div id="dtr-main-content"> 
-            
-                            <section id="about" class="dtr-section dtr-py-100 bg-light-blue">
-                                <div class="container mt-100 mb-100"> -->
-
-            <!--===== row 1 starts =====-->
-             <div  id="dtr-main-content"> 
-
+            <div  id="dtr-main-content"> 
                 <section id="about" class="dtr-section dtr-py-100 bg-light-blue">
-                   
+                    <div class="row d-flex align-items-center"> 
+                        <div class="col-1 col-md-3"></div> 
+                        <div class="col-10 col-md-6"> 
+                            <div class="dtr-styled-" align="center">
+                                <?php
+                                require('db_connecting.php');
 
-                        <!--===== row 1 starts =====-->
-                        <div class="row d-flex align-items-center"> 
-                            <!-- column 2 starts -->
-                            <div class="col-1 col-md-3"></div> 
-                            <div class="col-10 col-md-6"> 
+                                $ID = $_SESSION['ID'];
 
-                                <!-- heading starts -->
-                                <div class="dtr-styled-" align="center">
+                                $sqli = "SELECT * FROM `charity` WHERE charityId = '$ID'";
 
-                        <?php
-                        require('db_connecting.php');
+                                $result = $conn->query($sqli);
 
-                        $ID = $_SESSION['ID'];
+                                while ($row = $result->fetch_assoc()) {
+                                    // &nbsp; used for spaceing
+                                    //echo '<h1>مرحبا </h1>';
+                                    //echo "<h3> <a style='font-size:30px;'>{$row["name"]}</a></h3>";
+                                }
+                                ?> 
+                                <?php include("calendar.php") ?>
+                                                            </div>
+                                                   </div>
+                                           </div>
+                                    </section>
 
-                        $sqli = "SELECT * FROM `charity` WHERE charityId = '$ID'";
 
-                        $result = $conn->query($sqli);
-
-                        while ($row = $result->fetch_assoc()) {
-                            // &nbsp; used for spaceing
-                            //echo '<h1>مرحبا </h1>';
-                            //echo "<h3> <a style='font-size:30px;'>{$row["name"]}</a></h3>";
-                        }
-                        ?> 
-                        <?php include("calendar.php") ?>
-                        <!-- form starts 
-                        <H3>Aljawharahds Aljawharahds</H3>-->
-                        <!-- form ends --> 
-                    </div>
-                    <!-- heading ends --> 
-                </div>
-                <!-- column 2 ends --> 
-            </div>
-            <!--===== row 1 ends =====--> 
-       
-    </section>
- </div>
-
-    <!--    --------------------------------------------------------------- 
-      <header> 
-         logo in the right 
-          <img src="finalLogo.jpeg" alt="logo" class="logo" style="length:100px; width:100px; float: left;">
-
-    <!-- navbar for charity should include 'تعديل الملف الشخصي' which is call ProfilePage.php 
-    <nav class="topnav">
-        <ul>
-            <li><a href=".php">تعديل الملف الشخصي</a> </li>
-        </ul>
-    </nav>--> 
-    <!-- log out  as button in the left
-    <form id="signout" action="logout.php" method="POST">
-        <input type="submit" value="تسجيل خروج">
-
-    </form>
-</header>
-    -->
-    <!-- <form id="signout" action="logout.php" method="POST">
-         <input type="submit" value="تسجيل خروج">
- 
-     </form> 
-      <form id="profile" action="ProfilePage.php" method="POST">
-          <input type="submit" value="ملف التعريف الشخصي">
-      </form> -->
-  <!-- <img src="logo.jpg" alt="logo" class="pageP"  >
-  </header> 
-    <div class="auth-content"> -->
-<?php
+                <!--    --------------------------------------------------------------- 
+                  <header> 
+                     logo in the right 
+                      <img src="finalLogo.jpeg" alt="logo" class="logo" style="length:100px; width:100px; float: left;">
+            
+                <!-- navbar for charity should include 'تعديل الملف الشخصي' which is call ProfilePage.php 
+                <nav class="topnav">
+                    <ul>
+                        <li><a href=".php">تعديل الملف الشخصي</a> </li>
+                    </ul>
+                </nav>--> 
+                <!-- log out  as button in the left
+                <form id="signout" action="logout.php" method="POST">
+                    <input type="submit" value="تسجيل خروج">
+            
+                </form>
+            </header>
+                -->
+                <!-- <form id="signout" action="logout.php" method="POST">
+                     <input type="submit" value="تسجيل خروج">
+             
+                 </form> 
+                  <form id="profile" action="ProfilePage.php" method="POST">
+                      <input type="submit" value="ملف التعريف الشخصي">
+                  </form> -->
+              <!-- <img src="logo.jpg" alt="logo" class="pageP"  >
+              </header> 
+                <div class="auth-content"> -->
+                <?php
 //                    require('db_connecting.php');
 //
 //                    $ID = $_SESSION['ID'];
@@ -134,43 +108,43 @@ if (!isset($_SESSION['role'])) {
 //                        echo '<h1>مرحبا </h1>';
 //                        echo "<p> <a style='font-size:30px;'>{$row["name"]}</a></p>";
 //                    }
-?>      
-    <!--     </div>
-    Footer 
-      <footer>
-          <!-- we want footer with  <p>&copy; فريق منصة عون</p> 
+                ?>      
+                <!--     </div>
+                Footer 
+                  <footer>
+                      <!-- we want footer with  <p>&copy; فريق منصة عون</p> 
+            
+                      <p>&copy; فريق منصة عون</p>
+                  </footer>
+                -->
+                <footer id="dtr-footer"> 
 
-          <p>&copy; فريق منصة عون</p>
-      </footer>
-    -->
-    <footer id="dtr-footer"> 
+                    <!--== copyright starts ==-->
+                    <div class="dtr-copyright">
+                        <div class="container"> 
+                            <!--== row starts ==-->
+                            <div class="row"> 
+                                <!-- column 1 starts -->
+                                <div class="col-12 col-md-12" align="center">
+                                    <p>&copy; فريق منصة عون</p>
+                                </div>
+                            </div>
+                            <!--== row ends ==--> 
 
-        <!--== copyright starts ==-->
-        <div class="dtr-copyright">
-            <div class="container"> 
-                <!--== row starts ==-->
-                <div class="row"> 
-                    <!-- column 1 starts -->
-                    <div class="col-12 col-md-12" align="center">
-                        <p>&copy; فريق منصة عون</p>
+                        </div>
                     </div>
-                </div>
-                <!--== row ends ==--> 
+                    <!--== copyright ends ==--> 
+
+                </footer>
+                <!-- footer section ends
+            ================================================== --> 
 
             </div>
-        </div>
-        <!--== copyright ends ==--> 
+            <!-- == main content area ends == --> 
 
-    </footer>
-    <!-- footer section ends
-================================================== --> 
 
-</div>
-<!-- == main content area ends == --> 
-
-</div>
-<script src="design.js"></script> 
-</body>
+            <script src="design.js"></script> 
+    </body>
 
 
 </html>

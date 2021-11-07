@@ -13,8 +13,6 @@ if ($error != null) {
     echo "<p>Eror!! could not connect to DB may not connect </p>";
 }
 ?>
-
-
 <html lang="en">
     <head>
         <meta charset="UTF-8">
@@ -47,22 +45,16 @@ if ($error != null) {
                     </div>
                 </div>
             </header>
-            
-            <!-- == main content area starts == -->
+
+            <!-- main content -->
             <div id="dtr-main-content"> 
 
                 <section id="about" class="dtr-section dtr-py-100 bg-light-blue">
                     <div class="container mt-100 mb-100"> 
-
-                        <!--===== row 1 starts =====-->
                         <div class="row d-flex align-items-center"> 
-                            <!-- column 2 starts -->
                             <div class="col-1 col-md-2"></div> 
                             <div class="col-12 col-md-8"> 
-
-                                <!-- heading starts -->
                                 <div class="dtr-styled-" align="center">
-
                                     <?php
                                     $option = "";
 
@@ -84,21 +76,11 @@ if ($error != null) {
                                     $type = $row['donatoionType'];
                                     $picture = $row['picture'];
                                     ?>
-
-                                    <!-- heading starts -->
                                     <div class="dtr-styled-heading">
                                         <h2>إدارة الملف الشخصي</h2>
                                     </div>
-                                    <!-- heading ends --> 
-
-                                    <!--== row starts ==-->
                                     <div class="row"> 
-
-                                        <!-- column 1 starts -->
                                         <div class="col-12 col-md-12"> 
-
-                                            <!-- form starts -->
-
                                             <?php
                                             if (isset($_POST["Edit"])) {
                                                 echo "<h1>تعديل بيانات الحساب</h1>";
@@ -285,103 +267,79 @@ if ($error != null) {
                                                     </fieldset>
                                                 </form>
                                             </div>
-                                            <!-- form ends --> 
 
                                         </div>
-                                        <!-- column 1 ends --> 
-
                                     </div>
-                                    <!--== row ends ==--> 
-                                    <!-- form ends --> 
                                 </div>
-                                <!-- heading ends --> 
                             </div>
-                            <!-- column 2 ends --> 
                         </div>
-                        <!--===== row 1 ends =====--> 
-                    </div>
+
                 </section>
 
-
-
+                </body>
                 <!-- Footer -->
                 <footer id="dtr-footer"> 
-
-                    <!--== copyright starts ==-->
                     <div class="dtr-copyright">
                         <div class="container"> 
-                            <!--== row starts ==-->
                             <div class="row"> 
-                                <!-- column 1 starts -->
                                 <div class="col-12 col-md-12" align="center">
                                     <p>&copy; فريق منصة عون</p>
                                 </div>
                             </div>
-                            <!--== row ends ==--> 
-
                         </div>
                     </div>
-                    <!--== copyright ends ==--> 
-
                 </footer>
-                <!-- footer section ends
-        ================================================== --> 
-
             </div>
-            <!-- == main content area ends == --> 
-
         </div>
-        <!-- #dtr-wrapper ends --> 
-    </body>
-    <script src="design.js"></script> 
-    <script>
+
+        <script>
 
 
-                                                                function validate(form) {
-                                                                    ///alert("validate edit form");
-                                                                    var phone = document.getElementById("phone_number");
-                                                                    var digit = /^\d{10}$/; //to ensure the phone# input allow only correct address
-                                                                    //1-validate phone number
-                                                                    var checkPhone = phone.value.match(digit); // must be numbers
-                                                                    if (!checkPhone || phone.value.length < 10 || phone.value.length > 10)
-                                                                    {
-                                                                        alert("من فضلك ادخل رقم جوال الجمعية بشكل صحيح");
-                                                                        phone.focus();
-                                                                        return false;
+                                                                    function validate(form) {
+                                                                        ///alert("validate edit form");
+                                                                        var phone = document.getElementById("phone_number");
+                                                                        var digit = /^\d{10}$/; //to ensure the phone# input allow only correct address
+                                                                        //1-validate phone number
+                                                                        var checkPhone = phone.value.match(digit); // must be numbers
+                                                                        if (!checkPhone || phone.value.length < 10 || phone.value.length > 10)
+                                                                        {
+                                                                            alert("من فضلك ادخل رقم جوال الجمعية بشكل صحيح");
+                                                                            phone.focus();
+                                                                            return false;
+                                                                        }
+
+                                                                        ///alert("phone done");
+                                                                        var myPassword = document.getElementById("password");
+                                                                        var newPass = document.getElementById("password").value;
+                                                                        ///alert("New Password : " + newPass);
+                                                                        var passworsChar = /^[a-zA-Z0-9!@#$%^&*]{8,}$/;
+                                                                        var cheackPass = document.getElementById("password").value.match(passworsChar);
+
+
+
+                                                                        //2-validate password
+                                                                        if (newPass == "") {
+                                                                            alert("من فضلك ادخل كلمةالمرور");
+                                                                            myPassword.focus();
+                                                                            return false;
+                                                                        }
+
+                                                                        if (newPass.length < 8) {
+
+                                                                            alert("كلمة المرور يجب ان تتكون من ثمان خانات فأكثر ");
+                                                                            myPassword.focus();
+                                                                            return false;
+                                                                        }
+
+                                                                        if (!cheackPass) {
+                                                                            alert("password should contain at least one number and one special character");
+                                                                            return false;
+                                                                        }
+                                                                        ///alert("Password done");
+
+                                                                        this.form.submit();
                                                                     }
 
-                                                                    ///alert("phone done");
-                                                                    var myPassword = document.getElementById("password");
-                                                                    var newPass = document.getElementById("password").value;
-                                                                    ///alert("New Password : " + newPass);
-                                                                    var passworsChar = /^[a-zA-Z0-9!@#$%^&*]{8,}$/;
-                                                                    var cheackPass = document.getElementById("password").value.match(passworsChar);
 
-
-
-                                                                    //2-validate password
-                                                                    if (newPass == "") {
-                                                                        alert("من فضلك ادخل كلمةالمرور");
-                                                                        myPassword.focus();
-                                                                        return false;
-                                                                    }
-
-                                                                    if (newPass.length < 8) {
-
-                                                                        alert("كلمة المرور يجب ان تتكون من ثمان خانات فأكثر ");
-                                                                        myPassword.focus();
-                                                                        return false;
-                                                                    }
-
-                                                                    if (!cheackPass) {
-                                                                        alert("password should contain at least one number and one special character");
-                                                                        return false;
-                                                                    }
-                                                                    ///alert("Password done");
-
-                                                                    this.form.submit();
-                                                                }
-
-
-    </script>
+        </script>
 </html>

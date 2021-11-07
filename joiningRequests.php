@@ -15,7 +15,6 @@ if (isset($_SESSION['role'])) {
             </head>  
             <body>
                 <div id="dtr-wrapper" class="clearfix"> 
-                    <!-- header --> 
                     <header id="dtr-header-global" class="">
                         <div class="container">
                             <div class="row">
@@ -34,21 +33,18 @@ if (isset($_SESSION['role'])) {
                             </div>
                         </div>
                     </header>
-                    <!-- header ends--> 
-
-                    <!--main content area starts-->
+                    <!--main content -->
                     <div id="dtr-main-content"> 
                         <section id="about" class="dtr-section dtr-py-100 bg-light-blue">
                             <div class="container mt-100 mb-100"> 
-                                <!-- row 1 starts -->
                                 <div class="row d-flex align-items-center"> 
-                                    <!-- column 2 starts -->
+
                                     <div class="col-1 col-md-2"></div> 
                                     <div class="col-12 col-md-8"> 
-                                        <!-- heading starts -->
+
                                         <div class="dtr-styled-" align="center">
                                             <h2>طلبات الإنضمام</h2>
-                                            <!-- table starts -->
+
                                             <?php
                                             $connection = mysqli_connect("localhost", "root", "root", "awondb");
                                             $sqli = "SELECT * FROM `charity` WHERE status='بالانتظار'";
@@ -81,82 +77,76 @@ if (isset($_SESSION['role'])) {
                                                 ?>
 
                                             </table>
-                                            <!-- form ends --> 
+
                                         </div>
-                                        <!-- heading ends --> 
+
                                     </div>
-                                    <!-- column 2 ends --> 
+
                                 </div>
-                                <!--===== row 1 ends =====--> 
+
                             </div>
-                        </section>
-                    </div> 
-                    <br><br><br><br><br><br>
-                    <footer id="dtr-footer"> 
-                        <!--== copyright starts ==-->
-                        <div class="dtr-copyright">
-                            <div class="container"> 
-                                <!--== row starts ==-->
-                                <div class="row"> 
-                                    <!-- column 1 starts -->
-                                    <div class="col-12 col-md-12" align="center">
-                                        <p>&copy; فريق منصة عون</p>
+                        </section>   
+                        </body>
+                        <footer id="dtr-footer"> 
+                            <div class="dtr-copyright">
+                                <div class="container"> 
+                                    <div class="row"> 
+                                        <div class="col-12 col-md-12" align="center">
+                                            <p>&copy; فريق منصة عون</p>
+                                        </div>
                                     </div>
                                 </div>
-                                <!--== row ends ==--> 
                             </div>
-                        </div>
-                        <!--== copyright ends ==--> 
-                    </footer>
-                </div>
-                <!--main content area ends--> 
-            </div> 
+                        </footer>
+                    </div>
+                </div> 
 
-        </body>  </html>
-        <?php
-    }
-}
-?>
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-<script>
-    function accept(id) {
-        var charityID = $('#acc').val();
-        var data = "ID=" + charityID;
-        if (confirm('هل أنت متأكد من قبولك للجمعية؟')) {
-            $.ajax({
-                type: 'POST',
-                url: 'accept.php',
-                data: {ID: id},
-                success: function (data) {
-                    alert("تم قبول الجمعية الخيرية");
-                    window.location = 'joiningRequests.php';
-                }
-                , error: function (data) {
-                    alert("حدث خطأ أعد المحاولة");
-                    window.location = 'joiningRequests.php';
-                }
-            });
+
+                <?php
+            }
         }
-    }
-
-</script>
-<script>
-    function reject(id) {
-        if (confirm('هل أنت متأكد من رفضك للجمعية؟')) {
-            $.ajax({
-                type: 'POST',
-                url: 'reject.php',
-                data: {ID: id},
-                success: function (data) {
-                    alert("تم رفض الجمعية الخيرية");
-                    window.location = 'joiningRequests.php';
+        ?>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+        <script>
+            function accept(id) {
+                var charityID = $('#acc').val();
+                var data = "ID=" + charityID;
+                if (confirm('هل أنت متأكد من قبولك للجمعية؟')) {
+                    $.ajax({
+                        type: 'POST',
+                        url: 'accept.php',
+                        data: {ID: id},
+                        success: function (data) {
+                            alert("تم قبول الجمعية الخيرية");
+                            window.location = 'joiningRequests.php';
+                        }
+                        , error: function (data) {
+                            alert("حدث خطأ أعد المحاولة");
+                            window.location = 'joiningRequests.php';
+                        }
+                    });
                 }
-                , error: function (data) {
-                    alert("حدث خطأ أعد المحاولة");
-                    window.location = 'joiningRequests.php';
-                }
-            });
-        }
-    }
+            }
 
-</script>
+        </script>
+        <script>
+            function reject(id) {
+                if (confirm('هل أنت متأكد من رفضك للجمعية؟')) {
+                    $.ajax({
+                        type: 'POST',
+                        url: 'reject.php',
+                        data: {ID: id},
+                        success: function (data) {
+                            alert("تم رفض الجمعية الخيرية");
+                            window.location = 'joiningRequests.php';
+                        }
+                        , error: function (data) {
+                            alert("حدث خطأ أعد المحاولة");
+                            window.location = 'joiningRequests.php';
+                        }
+                    });
+                }
+            }
+
+        </script>
+</html>

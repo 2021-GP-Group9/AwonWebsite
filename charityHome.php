@@ -36,20 +36,13 @@ if (!isset($_SESSION['role'])) {
                     </div>
                 </div>
             </header>
-            <!-- == main content area starts == -->
-
+            <!-- main content -->
             <div  id="dtr-main-content"> 
-
                 <section id="about" class="dtr-section dtr-py-100 bg-light-blue">
                     <div class="container mt-100 mb-100"> 
-
-                        <!--===== row 1 starts =====-->
                         <div class="row d-flex align-items-center"> 
-                            <!-- column 2 starts -->
                             <div class="col-1 col-md-3"></div> 
                             <div class="col-10 col-md-6"> 
-
-                                <!-- heading starts -->
                                 <div class="dtr-styled-" align="center">
                                     <h2 style="float: right;">مرحبا </h2>
                                     <?php
@@ -62,53 +55,28 @@ if (!isset($_SESSION['role'])) {
                                     $result = $conn->query($sqli);
 
                                     while ($row = $result->fetch_assoc()) {
-
-                                        // echo '<h1>مرحبا </h1>';
-                                        echo "&nbsp;" . "<h3> <a style='font-size:30px; float:right;'>{$row["name"]}</a></h3><br>";
+                                        echo "&nbsp;" . "<h3> <a style='font-size:30px; float:right;'>  {$row["name"]}</a></h3><br>";
                                     }
                                     ?>  
-
-                                </div><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-                                <!-- form starts 
-                                <H3>Aljawharahds Aljawharahds</H3>-->
-                                <!-- form ends --> 
+                                </div><br><br><br><br><br><br><br><br><br><br><br><br><br>
                             </div>  
-                            <!-- heading ends --> 
                         </div>
-                        <!-- column 2 ends --> 
                     </div>
-                </section>              <!--===== row 1 ends =====--> 
-            </div>
-
-
-
-            <footer id="dtr-footer"> 
-
-                <!--== copyright starts ==-->
-                <div class="dtr-copyright">
-                    <div class="container"> 
-                        <!--== row starts ==-->
-                        <div class="row"> 
-                            <!-- column 1 starts -->
-                            <div class="col-12 col-md-12" align="center">
-                                <p>&copy; فريق منصة عون</p>
+                </section>             
+                </body>
+                <!-- Footer -->
+                <footer id="dtr-footer"> 
+                    <div class="dtr-copyright">
+                        <div class="container"> 
+                            <div class="row"> 
+                                <div class="col-12 col-md-12" align="center">
+                                    <p>&copy; فريق منصة عون</p>
+                                </div>
                             </div>
                         </div>
-                        <!--== row ends ==--> 
-
                     </div>
-                </div>
-                <!--== copyright ends ==--> 
-
-            </footer>
-            <!-- footer section ends
-    ================================================== --> 
-
+                </footer>
+            </div>
         </div>
-        <!-- == main content area ends == --> 
-
-    </div>
-</body>
-
 
 </html>
