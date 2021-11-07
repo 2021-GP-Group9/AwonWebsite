@@ -1,7 +1,5 @@
-<!--  see comments in line 16 - 19 - 25 - 62 --> 
 <?php
 session_start();
-//test21
 if (!isset($_SESSION['role'])) {
     header('Location:login.php');
 }
