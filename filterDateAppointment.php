@@ -17,10 +17,7 @@ if (!isset($_SESSION['role'])) {
     </head>
     <body>
         <div id="dtr-wrapper" class="clearfix"> 
-
-
-            <!-- Header 
-        ============================================= -->
+            <!-- Header -->
             <header id="dtr-header-global" class="">
                 <div class="container">
                     <div class="row">
@@ -43,35 +40,7 @@ if (!isset($_SESSION['role'])) {
                     </div>
                 </div>
             </header>
-            <!--     --------------------------------------
-            <header> 
-            <!-- logo in the right 
-            <img src="finalLogo.jpeg" alt="logo" class="logo" style="length:100px; width:100px; float: left;">
-    
-            <!-- navbar for charity should include 'تعديل الملف الشخصي' which is call ProfilePage.php  
-            <nav class="topnav">
-                <ul>
-                    <li><a href="CharityPage.php">رجوع</a> </li>
-                </ul>
-            </nav>
-            <!-- log out  as button in the left
-             <form id="signout" action="logout.php" method="POST">
-                 <input type="submit" value="تسجيل خروج" class="btn btn-default btn-sm">
-     
-             </form>
-         </header>
-     </head>
-     <body>-->
-            <!-- <form id="signout" action="logout.php" method="POST">
-                 <input type="submit" value="تسجيل خروج">
-         
-             </form> 
-              <form id="profile" action="ProfilePage.php" method="POST">
-                  <input type="submit" value="ملف التعريف الشخصي">
-              </form> -->
-          <!-- <img src="logo.jpg" alt="logo" class="pageP"  >
-          </header>
-            <div class="auth-content" style="width: 90%; height: 400px; display: block;">  -->
+          
             <div id="dtr-main-content"> 
 
                 <section id="about" class="dtr-section dtr-py-100 bg-light-blue">

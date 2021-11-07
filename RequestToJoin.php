@@ -14,8 +14,6 @@ if (isset($_SESSION['role'])) {
     }
 }
 ?>
-
-
 <html lang="en">
     <head>
         <meta charset="UTF-8">
@@ -27,27 +25,13 @@ if (isset($_SESSION['role'])) {
         <link rel="stylesheet" href="alert/dist/sweetalert.css">
 
     </head>
-
     <body>
         <div id="dtr-wrapper" class="clearfix"> 
-
-            <div class="dtr-responsive-header">
-                <div class="container"> 
-
-                    <div class="dtr-header-left" style="float: left;"> 
-
-                    </div>
-
-                    <a href="index.php"><img src="finalLogo.jpeg" class="m-logo" alt="logo"></a> 
-
-                </div>
-            </div>
 
             <header id="dtr-header-global" class="">
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-4">
-
                         </div>
                         <div class="col-sm-4" align="center"><br>
                             <div class="main-navigation dtr-menu-dark">
@@ -61,40 +45,27 @@ if (isset($_SESSION['role'])) {
                     </div>
                 </div>
             </header>
-
+            <!-- main content  -->
             <div id="dtr-main-content"> 
-
                 <section id="about" class="dtr-section dtr-py-100 bg-light-blue">
                     <div class="container mt-100 mb-100"> 
-
-
                         <div class="row d-flex align-items-center"> 
-                            <!-- column 2 starts -->
                             <div class="col-1 col-md-2"></div> 
                             <div class="col-12 col-md-8"> 
-
-                                <!-- heading starts -->
                                 <div class="dtr-styled-" align="center">
 
-
-                                    <!-- heading starts -->
                                     <div class="dtr-styled-heading">
                                         <h2>نموذج طلب انضمام المنظمات الخيرية</h2>
                                     </div>
-
                                     <div class="row"> 
-
-                                        <!-- column 1 starts -->
                                         <div class="col-12 col-md-12"> 
-
-                                            <!-- form starts -->
                                             <div class="dtr-form">
-                                                  <?php
-                                                    if (isset($_SESSION['faild'])) {
-                                                        echo "<span style='color:red'>" . $_SESSION['faild'] . "</span>";
-                                                    }
-                                                    $_SESSION['faild'] = null;
-                                                    ?>
+                                                <?php
+                                                if (isset($_SESSION['faild'])) {
+                                                    echo "<span style='color:red'>" . $_SESSION['faild'] . "</span>";
+                                                }
+                                                $_SESSION['faild'] = null;
+                                                ?>
                                                 <form id="contactform" method="POST"> 
                                                     <fieldset>
                                                         <div class="dtr-form-row dtr-form-row-2col">
@@ -185,36 +156,24 @@ if (isset($_SESSION['role'])) {
                                                         </div>
                                                         </p>
                                                         <br>
-
-
-
-
                                                         <br>
                                                         <p class="text-center">
-
                                                             <button class="dtr-btn btn-blue" type="submit" name="submit" onclick="validate(); return false;">تسجيل</button>
                                                         </p>
                                                     </fieldset>
-
-                                                  
                                                 </form>
                                                 <?php
                                                 $server = "localhost";
                                                 $username1 = "root";
                                                 $password = "root";
                                                 $dbname = "awondb";
-
                                                 //define DB
                                                 $conn = mysqli_connect("$server", "$username1", "$password", "$dbname");
-
                                                 // handele eroor conection
                                                 $error = mysqli_connect_error();
                                                 if ($error != null) {
                                                     echo "<p>Eror!! could not connect to DB may not connect </p>";
                                                 }
-
-
-
                                                 if ($_SERVER['REQUEST_METHOD'] == "POST") {
                                                     //declere form input                                   
                                                     $name = $_POST['name'];
@@ -280,42 +239,27 @@ if (isset($_SESSION['role'])) {
                                                     }
                                                 }
                                                 ?>
-
-
                                             </div>
-                                            <!-- form ends --> 
-
                                         </div>
-
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </section>
-
-
-
-                <div class="dtr-copyright">
-                    <div class="container"> 
-                        <div class="row"> 
-                            <div class="col-12 col-md-12" align="center">
-                                <p>&copy; فريق منصة عون</p>
+                </body>
+                <!-- Footer -->
+                <footer id="dtr-footer"> 
+                    <div class="dtr-copyright">
+                        <div class="container"> 
+                            <div class="row"> 
+                                <div class="col-12 col-md-12" align="center">
+                                    <p>&copy; فريق منصة عون</p>
+                                </div>
                             </div>
                         </div>
-
-
                     </div>
-                </div>
-
                 </footer>
-
-
             </div>
-
-
         </div>
-
-
-
 </html>

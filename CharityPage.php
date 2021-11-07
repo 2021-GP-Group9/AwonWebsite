@@ -4,22 +4,18 @@ if (!isset($_SESSION['role'])) {
     header('Location:login.php');
 }
 ?>
+<!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="format-detection" content="telephone=no">
-        <link rel='stylesheet' href='design.css'>
+        <link rel="stylesheet" href="design.css">
         <link rel="stylesheet" href="DesignBootstrap.css">
     </head>
     <body>
-       
         <div id="dtr-wrapper" class="clearfix"> 
-
-          
-
-            <!-- Header 
-        ============================================= -->
+            <!-- Header  -->
             <header id="dtr-header-global" class="">
                 <div class="container">
                     <div class="row">
@@ -41,60 +37,39 @@ if (!isset($_SESSION['role'])) {
                     </div>
                 </div>
             </header>
-            <!-- header ends
-        ================================================== --> 
-
-            <!-- == main content area starts == -->
-<!--            <div id="dtr-main-content"> 
-
+            <div  id="dtr-main-content"> 
                 <section id="about" class="dtr-section dtr-py-100 bg-light-blue">
-                    <div class="container mt-100 mb-100"> -->
+                    <div class="row d-flex align-items-center"> 
+                        <div class="col-1 col-md-3"></div> 
+                        <div class="col-10 col-md-6"> 
+                            <div class="dtr-styled-" align="center">
+                                <?php
+                                require('db_connecting.php');
 
-                        <!--===== row 1 starts =====-->
-                        <div class="row d-flex align-items-center"> 
-                            <!-- column 2 starts -->
-                            <div class="col-1 col-md-3"></div> 
-                            <div class="col-10 col-md-6"> 
+                                $ID = $_SESSION['ID'];
 
-                                <!-- heading starts -->
-                                <div class="dtr--" align="center">
-                                    
-                                     <?php
-                                     require('db_connecting.php');
+                                $sqli = "SELECT * FROM `charity` WHERE charityId = '$ID'";
 
-                                     $ID = $_SESSION['ID'];
+                                $result = $conn->query($sqli);
 
-                                     $sqli = "SELECT * FROM `charity` WHERE charityId = '$ID'";
-
-                                     $result = $conn->query($sqli);
-
-                                     while ($row = $result->fetch_assoc()) {
-                                         // &nbsp; used for spaceing
-                                         //echo '<h1>مرحبا </h1>';
-                                         //echo "<h3> <a style='font-size:30px;'>{$row["name"]}</a></h3>";
-                                     }
-                                     ?> 
-                                    <?php 
-                                    
-                                    include("calendar.php") ?>
-                                    <!-- form starts 
-                                    <H3>Aljawharahds Aljawharahds</H3>-->
-                                    <!-- form ends --> 
-                                </div>
-                                <!-- heading ends --> 
-                            </div>
-                            <!-- column 2 ends --> 
-                        </div>
-                        <!--===== row 1 ends =====--> 
-                    </div>
-                </section>
+                                while ($row = $result->fetch_assoc()) {
+                                    // &nbsp; used for spaceing
+                                    //echo '<h1>مرحبا </h1>';
+                                    //echo "<h3> <a style='font-size:30px;'>{$row["name"]}</a></h3>";
+                                }
+                                ?> 
+                                <?php include("calendar.php") ?>
+                                                            </div>
+                                                   </div>
+                                           </div>
+                                    </section>
 
 
                 <!--    --------------------------------------------------------------- 
                   <header> 
                      logo in the right 
                       <img src="finalLogo.jpeg" alt="logo" class="logo" style="length:100px; width:100px; float: left;">
-  
+            
                 <!-- navbar for charity should include 'تعديل الملف الشخصي' which is call ProfilePage.php 
                 <nav class="topnav">
                     <ul>
@@ -104,7 +79,7 @@ if (!isset($_SESSION['role'])) {
                 <!-- log out  as button in the left
                 <form id="signout" action="logout.php" method="POST">
                     <input type="submit" value="تسجيل خروج">
-
+            
                 </form>
             </header>
                 -->
@@ -138,7 +113,7 @@ if (!isset($_SESSION['role'])) {
                 Footer 
                   <footer>
                       <!-- we want footer with  <p>&copy; فريق منصة عون</p> 
-  
+            
                       <p>&copy; فريق منصة عون</p>
                   </footer>
                 -->
@@ -162,13 +137,13 @@ if (!isset($_SESSION['role'])) {
 
                 </footer>
                 <!-- footer section ends
-        ================================================== --> 
+            ================================================== --> 
 
             </div>
             <!-- == main content area ends == --> 
 
-        </div>
-        <script src="design.js"></script> 
+
+            <script src="design.js"></script> 
     </body>
 
 
