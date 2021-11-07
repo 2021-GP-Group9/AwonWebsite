@@ -13,10 +13,10 @@ if (!isset($_SESSION['role'])) {
         <link rel="stylesheet" href="DesignBootstrap.css">
     </head>
     <body>
-       
+
         <div id="dtr-wrapper" class="clearfix"> 
-                  <!-- Header 
-        ============================================= -->
+            <!-- Header 
+  ============================================= -->
             <header id="dtr-header-global" class="">
                 <div class="container">
                     <div class="row">
@@ -42,13 +42,13 @@ if (!isset($_SESSION['role'])) {
         ================================================== --> 
 
             <!-- == main content area starts == -->
-<!--            <div id="dtr-main-content"> 
+            <!--            <div id="dtr-main-content"> 
+            
+                            <section id="about" class="dtr-section dtr-py-100 bg-light-blue">
+                                <div class="container mt-100 mb-100"> -->
 
-                <section id="about" class="dtr-section dtr-py-100 bg-light-blue">
-                    <div class="container mt-100 mb-100"> -->
-
-                        <!--===== row 1 starts =====-->
-                         <div  id="dtr-main-content"> 
+            <!--===== row 1 starts =====-->
+            <div  id="dtr-main-content"> 
 
                 <section id="about" class="dtr-section dtr-py-100 bg-light-blue">
                     <div class="container mt-100 mb-100"> 
@@ -72,54 +72,53 @@ if (!isset($_SESSION['role'])) {
                                     $result = $conn->query($sqli);
 
                                     while ($row = $result->fetch_assoc()) {
-                                       
-                                       // echo '<h1>مرحبا </h1>';
-                                        echo "&nbsp;"."<h3> <a style='font-size:30px; float:right;'>{$row["name"]}</a></h3><br>";
-                                       
+
+                                        // echo '<h1>مرحبا </h1>';
+                                        echo "&nbsp;" . "<h3> <a style='font-size:30px; float:right;'>{$row["name"]}</a></h3><br>";
                                     }
                                     ?>  
 
-                                   
-                                    <!-- form starts 
-                                    <H3>Aljawharahds Aljawharahds</H3>-->
-                                    <!-- form ends --> 
-                                </div>  <br><br><br><br><br><br><br><br><br><br><br><br>
-                                <!-- heading ends --> 
-                            </div>
-                            <!-- column 2 ends --> 
+                                </div><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+                                <!-- form starts 
+                                <H3>Aljawharahds Aljawharahds</H3>-->
+                                <!-- form ends --> 
+                            </div>  
+                            <!-- heading ends --> 
                         </div>
-                        <!--===== row 1 ends =====--> 
+                        <!-- column 2 ends --> 
                     </div>
-                </section>
-
-
-                <footer id="dtr-footer"> 
-
-                    <!--== copyright starts ==-->
-                    <div class="dtr-copyright">
-                        <div class="container"> 
-                            <!--== row starts ==-->
-                            <div class="row"> 
-                                <!-- column 1 starts -->
-                                <div class="col-12 col-md-12" align="center">
-                                    <p>&copy; فريق منصة عون</p>
-                                </div>
-                            </div>
-                            <!--== row ends ==--> 
-
-                        </div>
-                    </div>
-                    <!--== copyright ends ==--> 
-
-                </footer>
-                <!-- footer section ends
-        ================================================== --> 
-
+                </section>              <!--===== row 1 ends =====--> 
             </div>
-            <!-- == main content area ends == --> 
+
+
+
+            <footer id="dtr-footer"> 
+
+                <!--== copyright starts ==-->
+                <div class="dtr-copyright">
+                    <div class="container"> 
+                        <!--== row starts ==-->
+                        <div class="row"> 
+                            <!-- column 1 starts -->
+                            <div class="col-12 col-md-12" align="center">
+                                <p>&copy; فريق منصة عون</p>
+                            </div>
+                        </div>
+                        <!--== row ends ==--> 
+
+                    </div>
+                </div>
+                <!--== copyright ends ==--> 
+
+            </footer>
+            <!-- footer section ends
+    ================================================== --> 
 
         </div>
-    </body>
+        <!-- == main content area ends == --> 
+
+    </div>
+</body>
 
 
 </html>
