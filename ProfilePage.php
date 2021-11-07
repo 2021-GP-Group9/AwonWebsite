@@ -91,7 +91,7 @@ if ($error != null) {
                                                 $PhoneNumber = $_POST['phone_number'];
                                                 $LicenseNumber = $_POST['license_Number'];
                                                 $location = $_POST['location'];
-                                                $description = $_POST['descrption'];
+                                                $description = $_POST['description'];
                                                 $option = $_POST['pickup_servise'];
                                                 $type = $_POST['types'];
 
@@ -259,7 +259,7 @@ if ($error != null) {
                                                         </p>
                                                         <p>
                                                             <label>وصف المنظمة الخيرية</label>
-                                                            <textarea rows="6" name="description" id="message" class="required"  placeholder="وصف المنظمة الخيرية" value="<?php echo $descrption ?>"> <?php echo $descrption ?></textarea>
+                                                            <textarea rows="6" name="description" id="message" class="required"  placeholder="وصف المنظمة الخيرية" value=""><?php echo $descrption ?></textarea>
                                                         </p><br>
                                                         <p class="text-center">
                                                             <button class="dtr-btn btn-blue" id="Edit" name="Edit"  type="submit"  onclick="return validate();">حفظ</button>
