@@ -295,50 +295,50 @@ if ($error != null) {
         <script>
 
 
-                                                                    function validate(form) {
-                                                                        ///alert("validate edit form");
-                                                                        var phone = document.getElementById("phone_number");
-                                                                        var digit = /^\d{10}$/; //to ensure the phone# input allow only correct address
-                                                                        //1-validate phone number
-                                                                        var checkPhone = phone.value.match(digit); // must be numbers
-                                                                        if (!checkPhone || phone.value.length < 10 || phone.value.length > 10)
-                                                                        {
-                                                                            alert("من فضلك ادخل رقم جوال الجمعية بشكل صحيح");
-                                                                            phone.focus();
-                                                                            return false;
-                                                                        }
+            function validate(form) {
+                ///alert("validate edit form");
+                var phone = document.getElementById("phone_number");
+                var digit = /^\d{10}$/; //to ensure the phone# input allow only correct address
+                //1-validate phone number
+                var checkPhone = phone.value.match(digit); // must be numbers
+                if (!checkPhone || phone.value.length < 10 || phone.value.length > 10)
+                {
+                    alert("من فضلك ادخل رقم جوال الجمعية بشكل صحيح");
+                    phone.focus();
+                    return false;
+                }
 
-                                                                        ///alert("phone done");
-                                                                        var myPassword = document.getElementById("password");
-                                                                        var newPass = document.getElementById("password").value;
-                                                                        ///alert("New Password : " + newPass);
-                                                                        var passworsChar = /^[a-zA-Z0-9!@#$%^&*]{8,}$/;
-                                                                        var cheackPass = document.getElementById("password").value.match(passworsChar);
+                ///alert("phone done");
+                var myPassword = document.getElementById("password");
+                var newPass = document.getElementById("password").value;
+                ///alert("New Password : " + newPass);
+                var passworsChar = /^[a-zA-Z0-9!@#$%^&*]{8,}$/;
+                var cheackPass = document.getElementById("password").value.match(passworsChar);
 
 
 
-                                                                        //2-validate password
-                                                                        if (newPass == "") {
-                                                                            alert("من فضلك ادخل كلمةالمرور");
-                                                                            myPassword.focus();
-                                                                            return false;
-                                                                        }
+                //2-validate password
+                if (newPass == "") {
+                    alert("من فضلك ادخل كلمةالمرور");
+                    myPassword.focus();
+                    return false;
+                }
 
-                                                                        if (newPass.length < 8) {
+                if (newPass.length < 8) {
 
-                                                                            alert("كلمة المرور يجب ان تتكون من ثمان خانات فأكثر ");
-                                                                            myPassword.focus();
-                                                                            return false;
-                                                                        }
+                    alert("كلمة المرور يجب ان تتكون من ثمان خانات فأكثر ");
+                    myPassword.focus();
+                    return false;
+                }
 
-                                                                        if (!cheackPass) {
-                                                                            alert("password should contain at least one number and one special character");
-                                                                            return false;
-                                                                        }
-                                                                        ///alert("Password done");
+                if (!cheackPass) {
+                    alert("password should contain at least one number and one special character");
+                    return false;
+                }
+                ///alert("Password done");
 
-                                                                        this.form.submit();
-                                                                    }
+                this.form.submit();
+            }
 
 
         </script>
