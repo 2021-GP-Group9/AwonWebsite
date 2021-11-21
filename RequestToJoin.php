@@ -87,7 +87,7 @@ if (isset($_SESSION['role'])) {
                                                             </p>
                                                             <p class="dtr-form-column">
                                                                 <label for=" password">كلمةالمرور</label>
-                                                                <input type="password" name="password" id="password" placeholder="كلمةالمرور" class="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="يجب أن تحتوي على رقم واحد على الأقل وحروف صغيرة وكبيرة وأن لا تكون أقل من ثمان خانات" required > <!-- use some constrain to ensure the user enter strong password -->
+                                                                <input type="password" name="password" id="password" placeholder="كلمة المرور" class="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="يجب أن تحتوي على رقم واحد على الأقل وحروف صغيرة وكبيرة وأن لا تكون أقل من ثمان خانات" required > <!-- use some constrain to ensure the user enter strong password -->
                                                             </p>
                                                         </div>
                                                     </fieldset>
@@ -105,9 +105,14 @@ if (isset($_SESSION['role'])) {
                                                         </div>
                                                     </fieldset>
                                                     <fieldset>	
-                                                        <p>
-                                                            <label  for="location">موقع الجمعية </label>
-                                                            <input type="text" name="location" id="location" placeholder="المدينة" pattern="[\u0600-\u065F\u066A-\u06EF\u06FA-\u06FFa-zA-Z]+[\u0600-\u065F\u066A-\u06EF\u06FA-\u06FFa-zA-Z-_]" title="يجب أن تحتوي على أحرف فقط " required>
+                                                       
+                                                        <p class="dtr-form-column">
+                                                            <label  for="location">عنوان المنظمة الخيرية</label>
+                                                            <input type="text" name="location" id="location" placeholder="الحي الشارع رقم المبنى" required>
+                                                        </p>
+                                                         <p class="dtr-form-column">
+                                                            <label  for="location">المدينة</label>
+                                                            <input type="text" name="city" id="city" placeholder="المدينة" pattern="[\u0600-\u065F\u066A-\u06EF\u06FA-\u06FFa-zA-Z]+[\u0600-\u065F\u066A-\u06EF\u06FA-\u06FFa-zA-Z-_]" title="يجب أن تحتوي على أحرف فقط " required>
                                                         </p>
                                                         <p><label>وصف المنظمة الخيرية</label> <textarea rows="6" name="descrption" id="message" class="required" placeholder="وصف المنظمة الخيرية"></textarea> </p> 
 
@@ -183,6 +188,7 @@ if (isset($_SESSION['role'])) {
                                                     $password = PASSWORD_HASH($_POST["password"], PASSWORD_DEFAULT);
                                                     $phone_number = $_POST['phone_number'];
                                                     $license_Number = $_POST['license_Number'];
+                                                    $city = $_POST['city'];
                                                     $location = $_POST['location'];
                                                     $option = $_POST['service'];
                                                     $type = $_POST['type'];
@@ -223,7 +229,8 @@ if (isset($_SESSION['role'])) {
                                                             } else {
 
                                                                 //insert data from form to DB                                                                                                                                                      
-                                                                $query = "INSERT INTO `charity`(name, username, descrption, email, password, phone, service, donationType, location, licenseNumber, picture, status) VALUES ('$name', '$username', '$descrption' ,'$email', '$password', '$phone_number','$option','$servicetype','$location','$license_Number','$picture','بالانتظار')";
+                                                                $query = "INSERT INTO `charity`(name, username, descrption, email, password, phone,city, service, donationType, location, licenseNumber, picture, status) VALUES "
+                                                                        . "('$name', '$username', '$descrption' ,'$email', '$password', '$phone_number','$city','$option','$servicetype','$location','$license_Number','$picture','بالانتظار')";
                                                                 $run = mysqli_query($conn, $query);
 
                                                                 if ($run) {

@@ -104,7 +104,8 @@ if (isset($_SESSION['role'])) {
                                             echo '<td>' . $row['status'] . '</td>';
                                             echo '<td>:الحالة</td></tr>';
 
-                                            echo "<td><button id='acc' class='btn btn-success btn-xs' style='width:100px;height:60px;float:right;' onclick='accept({$row["charityId"]})'>قبول </button>" . "<button id='rej' class='btn btn-danger btn-xs' value={$row['charityId']}  style='width: 100px;height:60px;float:left;' onclick='reject({$row["charityId"]})'>رفض</button>";
+                                            echo "<td><button id='acc' class='btn btn-success btn-xs' style='width:100px;height:60px;float:right;' onclick='accept({$row["charityId"]})'>قبول </button>" .
+                                                    "<button id='rej' class='btn btn-danger btn-xs'  style='width: 100px;height:60px;float:left;'  onclick='reject({$row["charityId"]})'>رفض</button>";
                                             echo "</table>";
                                         }
                                     }
@@ -157,11 +158,14 @@ if (isset($_SESSION['role'])) {
         </script>
         <script>
             function reject(id) {
-                if (confirm('هل أنت متأكد من رفضك للجمعية؟')) {
+                var charityID = $('#rej').val();
+                var data = "charityId=" + charityID;
+
+        if (confirm('هل أنت متأكد من رفضك للجمعية؟')) {
                     $.ajax({
                         type: 'POST',
                         url: 'reject.php',
-                        data: {ID: id},
+                        data: {charityId: id},
                         success: function (data) {
                             alert("تم رفض الجمعية الخيرية");
                             window.location = 'joiningRequests.php';

@@ -134,12 +134,15 @@ if (isset($_SESSION['role'])) {
 
         </script>
         <script>
-            function reject(id) {
-                if (confirm('هل أنت متأكد من رفضك للجمعية؟')) {
+           function reject(id) {
+                var charityID = $('#rej').val();
+                var data = "charityId=" + charityID;
+
+        if (confirm('هل أنت متأكد من رفضك للجمعية؟')) {
                     $.ajax({
                         type: 'POST',
                         url: 'reject.php',
-                        data: {ID: id},
+                        data: {charityId: id},
                         success: function (data) {
                             alert("تم رفض الجمعية الخيرية");
                             window.location = 'joiningRequests.php';
@@ -151,6 +154,5 @@ if (isset($_SESSION['role'])) {
                     });
                 }
             }
-
         </script>
 </html>
