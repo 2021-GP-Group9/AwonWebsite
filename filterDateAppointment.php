@@ -41,9 +41,9 @@ if (!isset($_SESSION['role'])) {
                 <section id="about" class="dtr-section dtr-py-100 bg-light-blue">
                     <div class="container mt-100 mb-100"> 
                         <div class="row d-flex align-items-center"> 
-                            <div class="col-1 col-md-3"></div> 
-                            <div class="col-10 col-md-6"> 
-                                <div class="dtr-styled-" align="center">
+                            <div class="col-1 col-md-3"> 
+                            <div class="col-10 col-md-6" > </div>
+                                <div class="dtr-styled-" align="center" style="width: 1200px;">
                                     <?php
                                     require('db_connecting.php');
                                     ?> 
@@ -109,9 +109,9 @@ if (!isset($_SESSION['role'])) {
                                     <!-- APPOINTMENT TABLE FOR THE SELECTED DAY -->
                                     <hr>
                                     <h3 align="center">عرض المواعيد</h3>
-                                    <table dir="rtl" class="table table-bordered" style="max-width: 2000px;margin: 10px auto; background: #FFF">
+                                    <table dir="rtl" class="table table-bordered" style="width: 1000px; margin: 10px auto; background: #FFF">
                                         <tr class="active">
-                                            <th align="center"style="width: 45px;">
+                                            <th align="center">
                                         <center>تاريخ الموعد</center>
                                         </th>
                                         <th align="center">
@@ -128,7 +128,7 @@ if (!isset($_SESSION['role'])) {
                                 <th align="center">
                                 <center>عنوان المتبرع</center>
                                 </th>
-                                <th align="center" style="width: 45px;">
+                                <th align="center">
                                 <center>تعديل أو حذف </center>
                                 </th>
 
@@ -146,13 +146,13 @@ if (!isset($_SESSION['role'])) {
                                 while ($row = mysqli_fetch_assoc($result)) {
                                     ?>
                                     <tr class="active">
-                                        <td style="width: 45px;">
+                                        <td>
                                             <?php echo $row['appointmentDate'] ?>
                                         </td>
                                         <td>
                                             <?php echo $row['appointmentTime'] ?>
                                         </td>
-                                        <td>
+                                        <td class="dtr-pr-40">
                                             <?php echo $row['reserved'] ?>
                                         </td>
                                         <td>
@@ -165,8 +165,8 @@ if (!isset($_SESSION['role'])) {
                                             <!-- <?php echo $row['donorLocation'] ?> --> 
                                         </td>
 
-                                        <td style="width: 45px;">
-                                            <a href="?q=edit&appointment_id=<?php echo $row['appointmentId'] ?>&date=<?php echo $row['appointmentDate'] ?>&time=<?php echo $row['appointmentTime'] ?>" class="btn btn-success btn-xs">تعديل</a>&nbsp;&nbsp;&nbsp;
+                                        <td class="dtr-pr-50">
+                                            <a href="?q=edit&appointment_id=<?php echo $row['appointmentId'] ?>&date=<?php echo $row['appointmentDate'] ?>&time=<?php echo $row['appointmentTime'] ?>" class="btn btn-success btn-xs">تعديل</a> &nbsp;&nbsp;&nbsp;
                                             <a href="#" onClick="RemoveAppoiment(<?php echo $row['appointmentId'] ?>)" class="btn btn-danger btn-xs">حذف</a>
                                         </td>
                                     </tr>
