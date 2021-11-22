@@ -109,85 +109,112 @@ if (!isset($_SESSION['role'])) {
                                     <!-- APPOINTMENT TABLE FOR THE SELECTED DAY -->
                                     <hr>
                                     <h3 align="center">عرض المواعيد</h3>
-                                    <table dir="rtl" class="table table-bordered" style="max-width: 600px;margin: 10px auto; background: #FFF">
+                                    <table dir="rtl" class="table table-bordered" style="max-width: 2000px;margin: 10px auto; background: #FFF">
                                         <tr class="active">
-                                            <th align="center">
+                                            <th align="center"style="width: 45px;">
                                         <center>تاريخ الموعد</center>
                                         </th>
                                         <th align="center">
                                         <center>الوقت</center>
                                         </th>
+                                        <th align="center">
+                                        <center>الحالة</center>
+                                        </th>
+                                        <th align="center">
+                                        <center>اسم المتبرع</center>
+                                    </th><th align="center">
+                                <center>هاتف المتبرع</center>
+                                </th>
+                                <th align="center">
+                                <center>عنوان المتبرع</center>
+                                </th>
+                                <th align="center" style="width: 45px;">
+                                <center>تعديل أو حذف </center>
+                                </th>
 
-                                        </tr>
-                                        <?php
-                                        $ID = $_SESSION['ID'];
-                                        $date = $_GET['date'];
-                                        $sqli = "SELECT * FROM appointment WHERE charityId = '$ID' AND appointmentDate='$date'";
+                                </tr>
+                                <?php
+                                $ID = $_SESSION['ID'];
+                                $date = $_GET['date'];
+                                $sqli = "SELECT * FROM appointment WHERE charityId = '$ID' AND appointmentDate='$date'";
+                                $sqli3 = "SELECT * FROM donor WHERE donorId = '123'";
+                                $result3 = $conn->query($sqli3);
 
-                                        $result = $conn->query($sqli);
-                                        $no = $result->num_rows;
-                                        while ($row = mysqli_fetch_assoc($result)) {
-                                            ?>
-                                            <tr>
-                                                <td>
-                                                    <?php echo $row['appointmentDate'] ?>
-                                                </td>
-                                                <td>
-                                                    <?php echo $row['appointmentTime'] ?>
-                                                </td>
+                                $result = $conn->query($sqli);
+                                $row3 = mysqli_fetch_assoc($result3);
+                                $no = $result->num_rows;
+                                while ($row = mysqli_fetch_assoc($result)) {
+                                    ?>
+                                    <tr class="active">
+                                        <td style="width: 45px;">
+                                            <?php echo $row['appointmentDate'] ?>
+                                        </td>
+                                        <td>
+                                            <?php echo $row['appointmentTime'] ?>
+                                        </td>
+                                        <td>
+                                            <?php echo $row['reserved'] ?>
+                                        </td>
+                                        <td>
+                                            <!-- <?php echo $row3['donorName'] ?> -->
+                                        </td>
+                                        <td>
+                                            <!-- <?php echo $row3['phone'] ?> --> 
+                                        </td>
+                                        <td>
+                                            <!-- <?php echo $row['donorLocation'] ?> --> 
+                                        </td>
 
-                                                <?php echo $row['user_id'] ?>
-
-                                                <td>
-                                                    <a href="?q=edit&appointment_id=<?php echo $row['appointmentId'] ?>&date=<?php echo $row['appointmentDate'] ?>&time=<?php echo $row['appointmentTime'] ?>" class="btn btn-success btn-xs">تعديل</a>
-                                                    <a href="#" onClick="RemoveAppoiment(<?php echo $row['appointmentId'] ?>)" class="btn btn-danger btn-xs">حذف</a>
-                                                </td>
-                                            </tr>
-                                            <?php
-                                        }
-                                        ?>
-                                    </table>
-                                </div>
-                            </div>
-                            </section>
-                            </body>
-                            <!-- Footer -->
-                            <footer id="dtr-footer"> 
-                                <div class="dtr-copyright">
-                                    <div class="container"> 
-                                        <div class="row"> 
-                                            <div class="col-12 col-md-12" align="center">
-                                                <p>&copy; فريق منصة عون</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </footer>
+                                        <td style="width: 45px;">
+                                            <a href="?q=edit&appointment_id=<?php echo $row['appointmentId'] ?>&date=<?php echo $row['appointmentDate'] ?>&time=<?php echo $row['appointmentTime'] ?>" class="btn btn-success btn-xs">تعديل</a>&nbsp;&nbsp;&nbsp;
+                                            <a href="#" onClick="RemoveAppoiment(<?php echo $row['appointmentId'] ?>)" class="btn btn-danger btn-xs">حذف</a>
+                                        </td>
+                                    </tr>
+                                    <?php
+                                }
+                                ?>
+                            </table>
                         </div>
                     </div>
-                    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+                    </section>
+                    </body>
+                    <!-- Footer -->
+                    <footer id="dtr-footer"> 
+                        <div class="dtr-copyright">
+                            <div class="container"> 
+                                <div class="row"> 
+                                    <div class="col-12 col-md-12" align="center">
+                                        <p>&copy; فريق منصة عون</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </footer>
+                </div>
+            </div>
+            <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 
-                    <script>
+            <script>
 
 
-                                                        function RemoveAppoiment(appointment_id) {
-                                                            var appointmentid = appointment_id;
-                                                            if (confirm('هل أنت متأكد من حذف الموعد؟')) {
-                                                                $.ajax({
-                                                                    type: 'POST',
-                                                                    url: 'RemoveAppointment.php',
-                                                                    data: {appointmentid: appointment_id},
-                                                                    success: function (data) {
-                                                                        alert("تم حذف الموعد بنجاح");
-                                                                        window.location = 'CharityPage.php';
-                                                                    }
-                                                                    , error: function (data) {
-                                                                        alert("حدث خطأ أعد المحاولة");
-                                                                        window.location = 'filterDateAppointment.php';
-                                                                    }
-                                                                });
-                                                            }
+                                            function RemoveAppoiment(appointment_id) {
+                                                var appointmentid = appointment_id;
+                                                if (confirm('هل أنت متأكد من حذف الموعد؟')) {
+                                                    $.ajax({
+                                                        type: 'POST',
+                                                        url: 'RemoveAppointment.php',
+                                                        data: {appointmentid: appointment_id},
+                                                        success: function (data) {
+                                                            alert("تم حذف الموعد بنجاح");
+                                                            window.location = 'CharityPage.php';
                                                         }
-                    </script>
-                    </html>
+                                                        , error: function (data) {
+                                                            alert("حدث خطأ أعد المحاولة");
+                                                            window.location = 'filterDateAppointment.php';
+                                                        }
+                                                    });
+                                                }
+                                            }
+            </script>
+            </html>
 
