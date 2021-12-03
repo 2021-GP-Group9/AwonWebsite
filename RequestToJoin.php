@@ -66,7 +66,7 @@ if (isset($_SESSION['role'])) {
                                                 }
                                                 $_SESSION['faild'] = null;
                                                 ?>
-                                                <form id="contactform" method="POST" action="upload.php" enctype="multipart/form-data"> 
+                                                <form id="contactform" method="POST"> 
                                                     <fieldset>
                                                         <div class="dtr-form-row dtr-form-row-2col">
                                                             <p class="dtr-form-column">
