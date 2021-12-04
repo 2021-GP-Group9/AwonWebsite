@@ -15,6 +15,7 @@ if (isset($_SESSION['role'])) {
             </head>  
             <body>
                 <div id="dtr-wrapper" class="clearfix"> 
+               
                     <header id="dtr-header-global" class="">
                         <div class="container">
                             <div class="row">
@@ -46,10 +47,10 @@ if (isset($_SESSION['role'])) {
                                             <h2>طلبات الإنضمام</h2>
 
                                             <?php
-                                            $connection = mysqli_connect("localhost", "root", "root", "awondb");
+                                            require('db_connecting.php');
                                             // Get the Unaccepted charities
                                             $sqli = "SELECT * FROM `charity` WHERE status='بالانتظار'";
-                                            $result = $connection->query($sqli);
+                                            $result = $conn->query($sqli);
                                             ?>
                                             <table width="100%" class="tab-requets">
                                                 <tr align="right">

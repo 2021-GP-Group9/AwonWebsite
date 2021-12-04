@@ -16,6 +16,7 @@ if (!isset($_SESSION['role'])) {
     </head>
     <body>
         <div id="dtr-wrapper" class="clearfix"> 
+       
             <header id="dtr-header-global" class="">
                 <div class="container">
                     <div class="row">
@@ -27,7 +28,7 @@ if (!isset($_SESSION['role'])) {
                         <div class="col-sm-4" align="center"><br>
                             <div class="main-navigation dtr-menu-dark">
                                 <a class="nav-link" href="charityHome.php" style="float: right;">الصفحة الرئيسية</a>
-                                <a class="nav-link" href="charityPage.php"style="float: left;">المواعيد</a>
+                                <a class="nav-link" href="CharityPage.php"style="float: left;">المواعيد</a>
                             </div>
                         </div>
                         <div class="col-sm-4" align="right">

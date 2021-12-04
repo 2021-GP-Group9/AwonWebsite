@@ -16,6 +16,7 @@ if (isset($_SESSION['role'])) {
             </head>  
             <body>
                 <div id="dtr-wrapper" class="clearfix"> 
+             
                     <header id="dtr-header-global" class="">
                         <div class="container">
                             <div class="row">
@@ -48,11 +49,11 @@ if (isset($_SESSION['role'])) {
                                         <a href =https://hrsd.gov.sa/ar/ngo-enquiry style='text-align:center;float:right;'target='_blank'>:للتحقق من رقم ترخيص وبيانات الجمعية</a>
                                         <p style='color:gray; text-align:center;'>يرجى إدخال رقم الترخيص باللغة الإنجليزية</p>
                                         <?php
-                                        $connection = mysqli_connect("localhost", "root", "root", "awondb");
+                                       require('db_connecting.php');
                                         $id = $_GET['id'];
                                         // Get each row data who is not accepted
                                         $sqli = "SELECT * FROM `charity` WHERE charityId= $id ";
-                                        $result = $connection->query($sqli);
+                                        $result = $conn->query($sqli);
                                         while ($row = $result->fetch_assoc()) {
                                             echo "<table width='100%' class='tab-requets'>";
                                             echo "<tr align='left'>";

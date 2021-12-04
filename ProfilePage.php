@@ -2,9 +2,9 @@
 session_start();
 $ID = $_SESSION['ID'];
 $server = "localhost";
-$username = "root";
-$password = "root";
-$dbname = "awondb";
+$username = "id17983305_awon";
+$password = "4S7r%KQ6O6(uC|+&";
+$dbname = "id17983305_awomdb";
 
 $conn = mysqli_connect("$server", "$username", "$password", "$dbname");
 
@@ -23,6 +23,7 @@ if ($error != null) {
     </head>
     <body>
         <div id="dtr-wrapper" class="clearfix"> 
+            
             <!-- Header -->
             <header id="dtr-header-global" class="">
                 <div class="container">
@@ -72,6 +73,7 @@ if ($error != null) {
                                     $option = $row['service'];
                                     $type = $row['donationType'];
                                     $picture = $row['picture'];
+                                     $city = $row['city'];
                                     ?>
                                     <div class="dtr-styled-heading">
                                         <h2>إدارة الملف الشخصي</h2>
@@ -84,7 +86,6 @@ if ($error != null) {
                                                 echo "<h1>تعديل بيانات الحساب</h1>";
                                                 $name = $_POST['name'];
                                                 $username = $_POST['username'];
-                                                $passwod = PASSWORD_HASH($_POST["pwd"], PASSWORD_DEFAULT);
                                                 $email = $_POST['email'];
                                                 $PhoneNumber = $_POST['phone_number'];
                                                 $LicenseNumber = $_POST['license_Number'];
@@ -92,7 +93,7 @@ if ($error != null) {
                                                 $description = $_POST['description'];
                                                 $option = $_POST['pickup_servise'];
                                                 $type = $_POST['types'];
-
+                                                $city = $_POST['city'];
                                                 $servicetype = implode(",", $type);
 
                                                 $picture = $_FILES['img']['name'];
@@ -127,7 +128,7 @@ if ($error != null) {
                                                     // Update query *
 
                                                     $query = "UPDATE charity SET name='" . $name . "', username='" . $username . "', email='" . $email . "',
-                     phone='" . $PhoneNumber . "', licenseNumber='" . $LicenseNumber . "', service='" . $option . "', donationType='" . $servicetype . "', location='" . $location . "', descrption='" . $description . "' WHERE charityId='" . $ID . "'";
+                     phone='" . $PhoneNumber . "', licenseNumber='" . $LicenseNumber . "', service='" . $option . "', donationType='" . $servicetype . "', location='" . $location . "', descrption='" . $description . "',city='" . $city . "' WHERE charityId='" . $ID . "'";
 
                                                     if ($conn->query($query) === TRUE) {
                                                         echo '<h1 style="color:green; text-align:center">تم الحفظ</h1>';
@@ -165,20 +166,27 @@ if ($error != null) {
                                                                 <input type="email" name="email" id="email" placeholder="البريد الالكتروني" required value= "<?php echo $email ?>"  >
                                                             </p>
                                                             <p class="dtr-form-column">
-                                                                <label  for="location">الموقع</label>
-                                                                <input type="text" name="location" id="location" placeholder="الموقع" pattern="[\u0600-\u065F\u066A-\u06EF\u06FA-\u06FFa-zA-Z]+[\u0600-\u065F\u066A-\u06EF\u06FA-\u06FFa-zA-Z-_]" title="يجب أن تحتوي على أحرف فقط " required  value= "<?php echo $location ?>">
+                                                                <label for="phone_number">رقم الجوال</label>
+                                                                <input type="tel" name="phone_number" placeholder="" id="phone_number" maxlength="10" pattern="[0-9]{,15}" title="يجب أن يحتوي على أرقام فقط" required value= "0<?php echo $PhoneNumber ?>">
                                                             </p>
+                                                            
                                                         </div>
                                                     </fieldset>
                                                     <fieldset>
                                                         <div class="dtr-form-row dtr-form-row-2col">
-                                                            <p class="dtr-form-column">
-                                                                <label for="phone_number">رقم الجوال</label>
-                                                                <input type="tel" name="phone_number" placeholder="" id="phone_number" maxlength="10" pattern="[0-9]{,15}" title="يجب أن يحتوي على أرقام فقط" required value= "0<?php echo $PhoneNumber ?>">
+                                                          <p class="dtr-form-column">
+                                                            <label for="phone_number">المدينة</label>
+                                                                <input type="text" name="city" placeholder="" id="city"  required value= "<?php echo $city ?>">
                                                             </p>
                                                             <p class="dtr-form-column">
                                                                 <label  for="license_Number">رقم الترخيص</label>
                                                                 <input type="text" name="license_Number" placeholder="" id="license_Number" pattern="[0-9]{,10}" title="يجب أن يحتوي على أرقام فقط" required value= "<?php echo $LicenseNumber ?>">
+                                                            </p>
+                                                        </div>
+                                                        <div class="dtr-form-row dtr-form-row-2col">
+                                                             <p class="">
+                                                                <label  for="location">عنوان الجمعية</label>
+                                                                <input type="text" name="location" id="location" placeholder="الموقع"  required  value= "<?php echo $location ?>">
                                                             </p>
                                                         </div>
                                                     </fieldset>

@@ -14,8 +14,9 @@ $result = mysqli_query($conn, $sql);
 if ($result) {
     $to = $email;
     $subject = "تأكيد قبول الجمعية";
-    $message = 'تم قبول الجمعية الخيرية بإمكانك الدخول باستخدام اسم المستخدم وكلمة المرور التي تم التسجيل بها ';
-    mail($to, $subject, $message);
+    $message = "<h1 style='text-align: center;'> تم قبول الجمعية الخيرية بإسم ".$row['name']."</h1>"."<br>"."<p style='text-align: center;'> يمكنك الدخول إلى المنصة عن طريق الرابط التالي باستخدام اسم المستخدم وكلمة المرور المدخلة سابقًا </p>"."<br>"."<p style='text-align: center;'> https://awoon.000webhostapp.com/index.php"."</p>"."<p style='text-align: center;'> فريق منصة عون </p>";
+   $headers = "Content-type:text/html;charset=UTF-8"."\r\n";
+    mail($to, $subject, $message,$headers);
     exit();
 } else {
     header("Content-Type: text/html");
