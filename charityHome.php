@@ -15,6 +15,7 @@ if (!isset($_SESSION['role'])) {
     <body>
         <div id="dtr-wrapper" class="clearfix"> 
             <!-- Header  -->
+            
             <header id="dtr-header-global" class="">
                 <div class="container">
                     <div class="row">
@@ -35,6 +36,7 @@ if (!isset($_SESSION['role'])) {
                         </div>
                     </div>
                 </div>
+                 
             </header>
             <!-- main content -->
             <div  id="dtr-main-content"> 
