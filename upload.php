@@ -1,4 +1,5 @@
 <?php
+//action="upload.php" enctype="multipart/form-data"
 $target_dir = "uploads/AwonWebsite";
 $target_file = $target_dir . basename($_FILES["fileToUpload"]["awondb-3.sql"]);
 $uploadOk = 1;
@@ -29,8 +30,8 @@ if ($_FILES["fileToUpload"]["size"] > 500000) {
 }
 
 // Allow certain file formats
-if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
-&& $imageFileType != "gif" ) {
+if($imageFileType != "JPG" && $imageFileType != "PNG" && $imageFileType != "JPEG"
+&& $imageFileType != "GIF" ) {
   echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
   $uploadOk = 0;
 }
