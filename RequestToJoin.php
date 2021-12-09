@@ -38,10 +38,9 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     for ($i = 0; $i < sizeof($type); $i++) {
         $servicetype .= $type[$i] . ",";
     }
-    //$picture = $_POST['picture'];
     $descrption = $_POST['descrption'];
-
-    $filename = $_FILES["uploadfile"]["name"];
+     //$picture
+    $filename = time() . '_' . $_FILES["uploadfile"]["name"];
     $tempname = $_FILES["uploadfile"]["tmp_name"];
     $folder = "image/" . $filename;
 
@@ -53,7 +52,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
     if ($result->num_rows > 0) {
         $_SESSION['faild'] = "<h3 style='color:red; text-align:center'>البريد الألكتروني موجود بالفعل</h3>";
-        echo '<META HTTP-EQUIV="Refresh" Content="2; URL=RequestToJoin.php">';
+        echo '<META HTTP-EQUIV="Refresh" Content="10; URL=RequestToJoin.php">';
     } else {
         //cheack the phone# if existen befor or not
         $sql_chk_email = "select * from charity where phone = '$phone_number' ";
@@ -62,7 +61,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
         if ($result->num_rows > 0) {
             $_SESSION['faild'] = "<h3 style='color:red; text-align:center'>رقم الجوال مستخدم بالفعل</h3>";
-            echo '<META HTTP-EQUIV="Refresh" Content="2; URL=RequestToJoin.php">';
+            echo '<META HTTP-EQUIV="Refresh" Content="10; URL=RequestToJoin.php">';
         } else {
             //cheack the username if existen befor or not
             $sql_chk_username = "select * from charity where username = '$username' ";
@@ -71,7 +70,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
             if ($res->num_rows > 0) {
                 $_SESSION['faild'] = "<h3 style='color:red; text-align:center'>اسم المستخدم موجود بالفعل</h3>";
-                echo '<META HTTP-EQUIV="Refresh" Content="2; URL=RequestToJoin.php">';
+                echo '<META HTTP-EQUIV="Refresh" Content="10; URL=RequestToJoin.php">';
             } else {
 
                 //insert data from form to DB                                                                                                                                                      
@@ -85,7 +84,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
                 if ($run) {
 
-                    // echo "<script>window.location ='confirmationPage.php';</script>";
+                   echo "<script>window.location ='confirmationPage.php';</script>";
                 } else {
                 }
             }
@@ -94,12 +93,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 }
 ?>
 
-<?php
-if (isset($_SESSION['faild'])) {
-    echo "<span style='color:red'>" . $_SESSION['faild'] . "</span>";
-}
-$_SESSION['faild'] = null;
-?>
+
 <html lang="en">
 
 <head>
@@ -146,6 +140,12 @@ $_SESSION['faild'] = null;
 
                                 <div class="dtr-styled-heading">
                                     <h2>نموذج طلب انضمام المنظمات الخيرية</h2>
+                                <?php
+if (isset($_SESSION['faild'])) {
+    echo "<span style='color:red'>" . $_SESSION['faild'] . "</span>";
+}
+$_SESSION['faild'] = null;
+?>
                                 </div>
                                 <div class="row">
                                     <div class="col-12 col-md-12">
@@ -225,14 +225,12 @@ $_SESSION['faild'] = null;
                                                         <label>هل تتوفر خدمة استلام للتبرعات ؟ </label>
                                                     <div class="form-check-inline">
                                                         <label class="form-check-label">
-                                                            <input type="radio" class="form-check-input" id="yes"
-                                                                name="service" value="نعم">نعم
+                                                         <input type="radio" class="form-check-input" id="yes" name="service" value="نعم">نعم
                                                         </label>
                                                     </div>
                                                     <div class="form-check-inline">
                                                         <label class="form-check-label">
-                                                            <input type="radio" class="form-check-input" id="no"
-                                                                name="service" value="لا">لا
+                                                         <input type="radio" class="form-check-input" id="no" nam="service" value="لا"> لا
                                                         </label>
                                                     </div>
                                                     </p>
@@ -270,7 +268,7 @@ $_SESSION['faild'] = null;
                                                     <div class="custom-file">
                                                         <input type="file" class="custom-file-input" id="uploadfile"
                                                             name="uploadfile">
-                                                        <label class="custom-file-label" for="uploadfile">اختر ملف
+                                                        <label class="custom-file-label" for="uploadfile">إرفاق الصورة
                                                         </label>
                                                     </div>
                                                     </p>
@@ -278,7 +276,7 @@ $_SESSION['faild'] = null;
                                                     <br>
                                                     <p class="text-center">
                                                         <button class="dtr-btn btn-blue" type="submit" name="submit"
-                                                            onclick="validate(); return false;">تسجيل</button>
+                                                            >تسجيل</button>
                                                     </p>
                                                 </fieldset>
                                             </form>
