@@ -12,7 +12,7 @@ if (isset($_POST['submit'])) {
 
     if ($no == 0) {
         //Add the appointment
-        $sqli2 = "INSERT INTO `appointment` VALUES(NULL,'$date', '$time', $ID, NULL ,'لم يحدد بعد' , 'غير محجوز')";
+        $sqli2 = "INSERT INTO `appointment` VALUES(NULL,'$date', '$time', $ID, NULL ,'لم يحدد بعد' , 0, 0 ,'غير محجوز')";
       
 
         $result2 = $conn->query($sqli2);

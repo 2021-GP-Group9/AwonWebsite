@@ -16,7 +16,7 @@ if (!isset($_SESSION['role'])) {
     </head>
     <body>
         <div id="dtr-wrapper" class="clearfix"> 
-       
+
             <header id="dtr-header-global" class="">
                 <div class="container">
                     <div class="row">
@@ -43,7 +43,7 @@ if (!isset($_SESSION['role'])) {
                     <div class="container mt-100 mb-100"> 
                         <div class="row d-flex align-items-center"> 
                             <div class="col-1 col-md-3"> 
-                            <div class="col-10 col-md-6" > </div>
+                                <div class="col-10 col-md-6" > </div>
                                 <div class="dtr-styled-" align="center" style="width: 1200px;">
                                     <?php
                                     require('db_connecting.php');
@@ -93,7 +93,7 @@ if (!isset($_SESSION['role'])) {
                                         $no = $result->num_rows;
 
                                         if ($no == 0) {
-                                            $sqli2 = "UPDATE appointment SET appointmentDate='$date', appointmentTime='$time' WHERE appointmentId=$appointment_id";
+                                            $sqli2 = "UPDATE appointment SET appointmentDate='$date', appointmentTime='$time' WHERE appointmentId=$appointment_id AND reserved ='غير محجوز'";
 
                                             $result2 = $conn->query($sqli2);
                                             if ($result2) {
@@ -110,6 +110,7 @@ if (!isset($_SESSION['role'])) {
                                     <!-- APPOINTMENT TABLE FOR THE SELECTED DAY -->
                                     <hr>
                                     <h3 align="center">عرض المواعيد</h3>
+                                    <p style='color:gray; text-align:center;'>يرجى عدم تغيير أو حذف الموعد المحجوز</p>
                                     <table dir="rtl" class="table table-bordered" style="width: 1000px; margin: 10px auto; background: #FFF">
                                         <tr class="active">
                                             <th align="center">
@@ -137,12 +138,33 @@ if (!isset($_SESSION['role'])) {
                                 <?php
                                 $ID = $_SESSION['ID'];
                                 $date = $_GET['date'];
-                                $sqli = "SELECT * FROM appointment WHERE charityId = '$ID' AND appointmentDate='$date'";
-                                $sqli3 = "SELECT * FROM donor WHERE donorId = '123'";
-                                $result3 = $conn->query($sqli3);
+                                // To retrive reserved appointments and donor info
+                                $sqli = "SELECT
+                                            donor.donorId,
+                                            donor.donorName,
+                                            donor.donorPhone,
+                                            appointment.donorId,
+                                            appointment.appointmentId,
+                                            appointment.charityId,
+                                            appointment.donorLocation,
+                                            appointment.appointmentDate,
+                                            appointment.appointmentTime,
+                                            appointment.charityId,
+                                            appointment.reserved,
+                                            charity.charityId
+                                        FROM
+                                            donor
+                                        JOIN appointment JOIN charity ON
+                                            (
+                                                donor.donorId = appointment.donorId AND charity.charityId = appointment.charityId
+                                            )
+                                        WHERE
+                                            appointment.charityId = '$ID' AND appointment.appointmentDate = '$date'
+                                        ORDER BY
+                                            `appointment`.`reserved` ASC,
+                                            `appointment`.`appointmentTime` ASC";
 
                                 $result = $conn->query($sqli);
-                                $row3 = mysqli_fetch_assoc($result3);
                                 $no = $result->num_rows;
                                 while ($row = mysqli_fetch_assoc($result)) {
                                     ?>
@@ -157,23 +179,63 @@ if (!isset($_SESSION['role'])) {
                                             <?php echo $row['reserved'] ?>
                                         </td>
                                         <td>
-                                            <!-- <?php echo $row3['donorName'] ?> -->
+                                            <?php echo $row['donorName'] ?>
                                         </td>
                                         <td>
-                                            <!-- <?php echo $row3['phone'] ?> --> 
+                                            <?php echo $row['donorPhone'] ?>
                                         </td>
                                         <td>
-                                            <!-- <?php echo $row['donorLocation'] ?> --> 
+                                            <?php echo $row['donorLocation'] ?>
                                         </td>
-
                                         <td class="dtr-pr-50">
+
                                             <a href="?q=edit&appointment_id=<?php echo $row['appointmentId'] ?>&date=<?php echo $row['appointmentDate'] ?>&time=<?php echo $row['appointmentTime'] ?>" class="btn btn-success btn-xs">تعديل</a> &nbsp;&nbsp;&nbsp;
                                             <a href="#" onClick="RemoveAppoiment(<?php echo $row['appointmentId'] ?>)" class="btn btn-danger btn-xs">حذف</a>
+                                            <?php
+                                            ?>
                                         </td>
                                     </tr>
                                     <?php
                                 }
                                 ?>
+
+                                <?php
+                                 // To retrive Unreserved appointments
+                                $sqli4 = "SELECT * FROM appointment WHERE charityId = '$ID' AND appointmentDate='$date' AND reserved = 'غير محجوز' ";
+                                $result4 = $conn->query($sqli4);
+
+                                while ($row4 = mysqli_fetch_assoc($result4)) {
+                                    ?>
+                                    <tr class="active">
+                                        <td>
+                                    <?php echo $row4['appointmentDate'] ?>
+                                        </td>
+                                        <td>
+                                            <?php echo $row4['appointmentTime'] ?>
+                                        </td>
+                                        <td class="dtr-pr-40">
+                                            <?php echo $row4['reserved'] ?>
+                                        </td>
+                                        <td>
+                                            <p>   </p>
+                                        </td>
+                                        <td>
+                                            <p>   </p>
+                                        </td>
+                                        <td>
+                                            <p>    </p>
+                                        </td>
+
+                                        <td class="dtr-pr-50">
+
+                                            <a href="?q=edit&appointment_id=<?php echo $row4['appointmentId'] ?>&date=<?php echo $row4['appointmentDate'] ?>&time=<?php echo $row4['appointmentTime'] ?>" class="btn btn-success btn-xs">تعديل</a> &nbsp;&nbsp;&nbsp;
+                                            <a href="#" onClick="RemoveAppoiment(<?php echo $row4['appointmentId'] ?>)" class="btn btn-danger btn-xs">حذف</a>
+    <?php ?>
+                                        </td>
+                                    </tr>
+                                            <?php
+                                        }
+                                        ?>
                             </table>
                         </div>
                     </div>
@@ -198,24 +260,24 @@ if (!isset($_SESSION['role'])) {
             <script>
 
 
-                                            function RemoveAppoiment(appointment_id) {
-                                                var appointmentid = appointment_id;
-                                                if (confirm('هل أنت متأكد من حذف الموعد؟')) {
-                                                    $.ajax({
-                                                        type: 'POST',
-                                                        url: 'RemoveAppointment.php',
-                                                        data: {appointmentid: appointment_id},
-                                                        success: function (data) {
-                                                            alert("تم حذف الموعد بنجاح");
-                                                            window.location = 'CharityPage.php';
-                                                        }
-                                                        , error: function (data) {
-                                                            alert("حدث خطأ أعد المحاولة");
-                                                            window.location = 'filterDateAppointment.php';
-                                                        }
-                                                    });
+                                                function RemoveAppoiment(appointment_id) {
+                                                    var appointmentid = appointment_id;
+                                                    if (confirm('هل أنت متأكد من حذف الموعد؟')) {
+                                                        $.ajax({
+                                                            type: 'POST',
+                                                            url: 'RemoveAppointment.php',
+                                                            data: {appointmentid: appointment_id},
+                                                            success: function (data) {
+                                                                alert("تم حذف الموعد بنجاح");
+                                                                window.location = 'CharityPage.php';
+                                                            }
+                                                            , error: function (data) {
+                                                                alert("حدث خطأ أعد المحاولة");
+                                                                window.location = 'filterDateAppointment.php';
+                                                            }
+                                                        });
+                                                    }
                                                 }
-                                            }
             </script>
             </html>
 
