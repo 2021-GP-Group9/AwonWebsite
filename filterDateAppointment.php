@@ -110,7 +110,7 @@ if (!isset($_SESSION['role'])) {
                                     <!-- APPOINTMENT TABLE FOR THE SELECTED DAY -->
                                     <hr>
                                     <h3 align="center">عرض المواعيد</h3>
-                                    <p style='color:gray; text-align:center;'>يرجى عدم تغيير أو حذف الموعد المحجوز</p>
+                                    <p style='color:red; text-align:center;'>يرجى عدم تغيير أو حذف الموعد المحجوز</p>
                                     <table dir="rtl" class="table table-bordered" style="width: 1000px; margin: 10px auto; background: #FFF">
                                         <tr class="active">
                                             <th align="center">
@@ -185,7 +185,11 @@ if (!isset($_SESSION['role'])) {
                                             <?php echo $row['donorPhone'] ?>
                                         </td>
                                         <td>
-                                            <?php echo $row['donorLocation'] ?>
+                                           <?php 
+                                               echo "<a href ={$row['donorLocation']} style='text-align:center;float:right;'target='_blank'>اضغط هنا</a>";                 
+
+                                               //echo "<p style='direction: ltr;font-size: 13px;'>{$row['donorLocation']}</p>";
+                                          ?>
                                         </td>
                                         <td class="dtr-pr-50">
 
