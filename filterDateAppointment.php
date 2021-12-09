@@ -188,7 +188,6 @@ if (!isset($_SESSION['role'])) {
                                            <?php 
                                                echo "<a href ={$row['donorLocation']} style='text-align:center;float:right;'target='_blank'>اضغط هنا</a>";                 
 
-                                               //echo "<p style='direction: ltr;font-size: 13px;'>{$row['donorLocation']}</p>";
                                           ?>
                                         </td>
                                         <td class="dtr-pr-50">
