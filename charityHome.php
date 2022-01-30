@@ -5,80 +5,101 @@ if (!isset($_SESSION['role'])) {
 }
 ?>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="format-detection" content="telephone=no">
-        <link rel='stylesheet' href='design.css'>
-        <link rel="stylesheet" href="DesignBootstrap.css">
-    </head>
-    <body>
-        <div id="dtr-wrapper" class="clearfix"> 
-            <!-- Header  -->
-            
-            <header id="dtr-header-global" class="">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-sm-4">
-                            <form id="signout" action="logout.php" method="POST">
-                                <input type="submit" class="logoutbtn" value="تسجيل خروج">
-                            </form>  
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="format-detection" content="telephone=no">
+    <link rel='stylesheet' href='design.css'>
+    <link rel="stylesheet" href="DesignBootstrap.css">
+</head>
+
+<body>
+    <div id="dtr-wrapper" class="clearfix">
+        <!-- Header  -->
+
+        <header id="dtr-header-global" class="">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <form id="signout" action="logout.php" method="POST">
+                            <input type="submit" class="logoutbtn" value="تسجيل خروج">
+                        </form>
+                    </div>
+                    <div class="col" ><br>
+                        <div class="main-navigation dtr-menu-dark">
+                            <a class="nav-link" href="ProfilePage.php">الملف الشخصي</a>
                         </div>
-                        <div class="col-sm-4" align="center"><br>
-                            <div class="main-navigation dtr-menu-dark">
-                                <a class="nav-link" href="ProfilePage.php" style="float: right;">تعديل الملف الشخصي</a>
-                                <a class="nav-link" href="CharityPage.php?">المواعيد</a>
-                            </div>
+                    </div>
+                    <div class="col" ><br>
+                        <div class="main-navigation dtr-menu-dark">
+                           
+                            <a class="nav-link" href="CharityPage.php?">المواعيد</a>
+                           
                         </div>
-                        <div class="col-sm-4" align="right">
-                            <div class="dtr-header-right"> 
-                                <a class="logo-default dtr-scroll-link" href="index.php"><img src="finalLogo.jpeg" alt="logo" width="108"></a></div>
+                    </div>
+                    <div class="col" ><br>
+                        <div class="main-navigation dtr-menu-dark">
+                           
+                            <a class="nav-link" href="donationRequests.php">طلبات التبرع</a>
+                        </div>
+                    </div>
+                    
+                    
+                    
+                    
+                    <div class="col-sm-3" align="right">
+                        <div class="dtr-header-right">
+                            <a class="logo-default dtr-scroll-link" href="index.php"><img src="finalLogo.jpeg"
+                                    alt="logo" width="108"></a>
                         </div>
                     </div>
                 </div>
-                 
-            </header>
-            <!-- main content -->
-            <div  id="dtr-main-content"> 
-                <section id="about" class="dtr-section dtr-py-100 bg-light-blue">
-                    <div class="container mt-100 mb-100"> 
-                        <div class="row d-flex align-items-center"> 
-                            <div class="col-1 col-md-3"></div> 
-                            <div class="col-10 col-md-6"> 
-                                <div class="dtr-styled-" align="center">
-                                    <h2 style="float: right;">مرحبا </h2>
-                                    <?php
-                                    require('db_connecting.php');
+            </div>
 
-                                    $ID = $_SESSION['ID'];
+        </header>
+        <!-- main content -->
+        <div id="dtr-main-content">
+            <section id="about" class="dtr-section dtr-py-100 bg-light-blue">
+                <div class="container mt-100 mb-100">
+                    <div class="row d-flex align-items-center">
+                        <div class="col-1 col-md-3"></div>
+                        <div class="col-10 col-md-6">
+                            <div class="dtr-styled-" align="center">
+                                <h2 style="float: right;">مرحبا </h2>
+                                <?php
+                                require('db_connecting.php');
 
-                                    $sqli = "SELECT * FROM `charity` WHERE charityId = '$ID'";
+                                $ID = $_SESSION['ID'];
 
-                                    $result = $conn->query($sqli);
+                                $sqli = "SELECT * FROM `charity` WHERE charityId = '$ID'";
 
-                                    while ($row = $result->fetch_assoc()) {
-                                        echo "&nbsp;" . "<h3> <a style='font-size:30px; float:right;'>  {$row["name"]}</a></h3><br>";
-                                    }
-                                    ?>  
-                                </div><br><br><br><br><br><br><br><br><br><br><br><br><br>
-                            </div>  
+                                $result = $conn->query($sqli);
+
+                                while ($row = $result->fetch_assoc()) {
+                                    echo "&nbsp;" . "<h3> <a style='font-size:30px; float:right;'>  {$row["name"]}</a></h3><br>";
+                                   // echo '<img src="./image/' . $row['picture'] . '">';
+                                }
+                                ?>
+                            </div><br><br><br><br><br><br><br><br><br><br><br><br><br>
                         </div>
                     </div>
-                </section>             
-                </body>
-                <!-- Footer -->
-                <footer id="dtr-footer"> 
-                    <div class="dtr-copyright">
-                        <div class="container"> 
-                            <div class="row"> 
-                                <div class="col-12 col-md-12" align="center">
-                                    <p>&copy; فريق منصة عون</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </footer>
+                </div>
+            </section>
+</body>
+<!-- Footer -->
+<footer id="dtr-footer">
+    <div class="dtr-copyright">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-md-12" align="center">
+                    <p>&copy; فريق منصة عون</p>
+                </div>
             </div>
         </div>
+    </div>
+</footer>
+</div>
+</div>
 
 </html>

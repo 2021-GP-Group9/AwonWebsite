@@ -34,12 +34,13 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     $option = $_POST['service'];
     $type = $_POST['type'];
     $servicetype = "";
-
+   if($type != null){
     for ($i = 0; $i < sizeof($type); $i++) {
         $servicetype .= $type[$i] . ",";
-    }
+    }}
+    //$picture = $_POST['picture'];
     $descrption = $_POST['descrption'];
-     //$picture
+
     $filename = time() . '_' . $_FILES["uploadfile"]["name"];
     $tempname = $_FILES["uploadfile"]["tmp_name"];
     $folder = "image/" . $filename;
@@ -84,13 +85,28 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
                 if ($run) {
 
-                   echo "<script>window.location ='confirmationPage.php';</script>";
+                    echo "<script>window.location ='confirmationPage.php';</script>";
                 } else {
                 }
             }
         }
     }
-}
+}$options = array(
+                                                'منطقة الرياض',
+                                                'منطقة مكة المكرمة',
+                                                'منطقة المدينة المنورة',
+                                                'منطقة القصيم',
+                                                'المنطقة الشرقية',
+                                                'منطقة عسير',
+                                                'منطقة تبوك',
+                                                'منطقة حائل',
+                                                'منطقة الحدود الشمالية',
+                                                'منطقة جازان',
+                                                'منطقة نجران',
+                                                'منطقة الباحة',
+                                                'منطقة الجوف',
+                                               );
+                                            
 ?>
 
 
@@ -151,7 +167,7 @@ $_SESSION['faild'] = null;
                                     <div class="col-12 col-md-12">
                                         <div class="dtr-form">
 
-                                            <form id="contactform" method="POST" enctype="multipart/form-data">
+                                            <form id="contactform" method="POST" enctype="multipart/form-data" style="direction:rtl;">
                                                 <fieldset>
                                                     <div class="dtr-form-row dtr-form-row-2col">
                                                         <p class="dtr-form-column">
@@ -213,24 +229,31 @@ $_SESSION['faild'] = null;
                                                     </p>
                                                     <p class="dtr-form-column">
                                                         <label for="location">المدينة</label>
-                                                        <input type="text" name="city" id="city" placeholder="المدينة"
-                                                            pattern="[\u0600-\u065F\u066A-\u06EF\u06FA-\u06FFa-zA-Z]+[\u0600-\u065F\u066A-\u06EF\u06FA-\u06FFa-zA-Z-_]"
-                                                            title="يجب أن تحتوي على أحرف فقط " required>
+                                                       <?php echo "<select name='city'>";
+                                                             echo "<option selected='selected' value=''>اختر المنطقة</option>";
+
+                                                                        foreach ($options as $option) {
+                                                                            echo "<option selected='' value='$option'>$option</option>";
+                                                                        }
+                                                                        echo "</select>"; 
+                                                        ?>
                                                     </p>
                                                     <p><label>وصف المنظمة الخيرية</label> <textarea rows="6"
                                                             name="descrption" id="message" class="required"
-                                                            placeholder="وصف المنظمة الخيرية"></textarea> </p>
+                                                            placeholder="وصف المنظمة الخيرية" required></textarea> </p>
 
                                                     <p>
                                                         <label>هل تتوفر خدمة استلام للتبرعات ؟ </label>
                                                     <div class="form-check-inline">
                                                         <label class="form-check-label">
-                                                         <input type="radio" class="form-check-input" id="yes" name="service" value="نعم">نعم
+                                                            <input type="radio" class="form-check-input" id="yes"
+                                                                   name="service" value="نعم" required>نعم
                                                         </label>
                                                     </div>
                                                     <div class="form-check-inline">
                                                         <label class="form-check-label">
-                                                         <input type="radio" class="form-check-input" id="no" nam="service" value="لا"> لا
+                                                            <input type="radio" class="form-check-input" id="no"
+                                                                name="service" value="لا">لا
                                                         </label>
                                                     </div>
                                                     </p>
@@ -239,7 +262,7 @@ $_SESSION['faild'] = null;
                                                     <div class="form-check-inline">
                                                         <label class="form-check-label">
                                                             <input type="checkbox" class="form-check-input"
-                                                                name="type[]" id="clothes" value="">ملابس
+                                                                name="type[]" id="clothes" value="ملابس" >ملابس
                                                         </label>
                                                     </div>
                                                     <div class="form-check-inline">

@@ -29,7 +29,7 @@ if (isset($_POST['submit'])) {
 }
 ?>
 <br>
-<i class="fa fa-calendar"></i> مذكرة المواعيد
+<i class="fa fa-calendar"></i><h3> مذكرة المواعيد
 </h3>
 <!-- filter form -->
 <div id="mainContent1" style="padding: 20px 10px;">
@@ -101,7 +101,7 @@ if (isset($_POST['submit'])) {
         $forLoopDate = $date;
         $this_date = date("Y-m-d");
         //Get and display the Added appointments for loged in charity
-        $query1 = "SELECT * FROM appointment WHERE appointmentDate='$date' and charityId = {$ID}";
+        $query1 = "SELECT * FROM appointment WHERE appointmentDate='$date' and reserved='محجوز' and charityId = {$ID}";
         $result1 = mysqli_query($conn, $query1);
         $count = mysqli_num_rows($result1);
         if ($count == 0) {
@@ -110,7 +110,19 @@ if (isset($_POST['submit'])) {
         } else {
             $count = $count;
             // display the number of appointment in each day
-            $msg = '<div class="pull-left">عدد المواعيد : ' . $count . "</div>";
+            $msg = '<div class="pull-left" style="color:red;">● ' . $count . "</div>";
+        }
+        //Get and display the Added appointments for loged in charity
+        $query2 = "SELECT * FROM appointment WHERE appointmentDate='$date' and reserved='غير محجوز' and charityId = {$ID}";
+        $result2 = mysqli_query($conn, $query2);
+        $count1 = mysqli_num_rows($result2);
+        if ($count1 == 0) {
+            $count1 = 0;
+            $msg1 = '';
+        } else {
+            $count1 = $count1;
+            // display the number of appointment in each day
+            $msg1 = '<div class="pull-left" style="color:green;">● ' . $count1 . "</div>";
         }
         if ($today == $date) {
             // Current day to show the charity so no need to check any outsource
@@ -121,6 +133,8 @@ if (isset($_POST['submit'])) {
         }
         $week .= '<a href="filterDateAppointment.php?date=' . $date . '" title="Appointments">';
         $week .= '<span class="label label-info pull-left">' . $msg . '</span></a>';
+        $week .= '<a href="filterDateAppointment.php?date=' . $date . '" title="Appointments">';
+        $week .= '<span class="label label-info pull-left">' . $msg1 . '</span></a>';
         $week .= '<span class="label label-success pull-right">' . $msg2 . '</span></a>';
         // To select an appointment
         $week .= '<a href="?q=show_time&date=' . $date . '" style="border:none;position: absolute;top: 3px;right: 5px;" class="dtr-btn btn-blue btn-small">+</a>';
