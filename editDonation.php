@@ -31,27 +31,27 @@ $color = $_GET['color'];
                             <div class="row">
                                 <div class="col-sm-2">
                                     <form id="signout" action="logout.php" method="POST">
-                                        <input type="submit" class="logoutbtn" value="تسجيل خروج">
+                                        <input type="submit" class="logoutbtn" value="تسجيل خروج" style="font-family: Almarai;">
                                     </form>
                                 </div>
                                 <div class="col" ><br>
                                     <div class="main-navigation dtr-menu-dark">
-                                        <a class="nav-link" href="ProfilePage.php">الملف الشخصي</a>
+                                        <a class="nav-link" href="ProfilePage.php" style="font-family: Almarai;">الملف الشخصي</a>
                                     </div>
                                 </div>
                                 <div class="col" ><br>
                                     <div class="main-navigation dtr-menu-dark">
-                                        <a class="nav-link" href="donationRequests.php">طلبات التبرع</a>
+                                        <a class="nav-link" href="donationRequests.php" style="font-family: Almarai;">طلبات التبرع</a>
                                     </div>
                                 </div>
                                 <div class="col" ><br>
                                     <div class="main-navigation dtr-menu-dark">
-                                        <a class="nav-link" href="CharityPage.php?">المواعيد</a>
+                                        <a class="nav-link" href="CharityPage.php?" style="font-family: Almarai;">المواعيد</a>
                                     </div>
                                 </div>
                                 <div class="col" ><br>
                                     <div class="main-navigation dtr-menu-dark">
-                                        <a class="nav-link" href="charityHome.php">الرئيسية</a>
+                                        <a class="nav-link" href="charityHome.php" style="font-family: Almarai;">الرئيسية</a>
                                     </div>
                                 </div>
                                 <div class="col-sm-2" align="right">
@@ -141,7 +141,7 @@ $color = $_GET['color'];
                                                     <div class="dtr-form">
                                                         <form id="contactform" method="POST" enctype="multipart/form-data" style="direction:rtl;" >
                                                             <fieldset>
-                                                                <p><label>وصف طلب التبرع</label>
+                                                                <p><label style="font-family: Almarai;">وصف طلب التبرع</label>
                                                                     <textarea rows="4"
                                                                               name="descrption" id="message" class="required"
                                                                               placeholder="عائلة متعففة مكونة من ست أشخاص تحتاج إلى ..." maxlength="255" required><?php echo $descrption ?></textarea>
@@ -153,17 +153,17 @@ $color = $_GET['color'];
                                                                 <br>  
                                                                 <div class="dtr-form-row dtr-form-row-3col"> 
                                                                     <p class="dtr-form-column">
-                                                                        <label for="size">المقاس</label>
+                                                                        <label for="size" style="font-family: Almarai;">المقاس</label>
                                                                         <input type="text" name="size" id="size"
                                                                                placeholder="S,38,مفرد,مزدوج" value="<?php echo $size ?>"required>
                                                                     </p>
                                                                     <p class="dtr-form-column">
-                                                                        <label for="name">الصنف</label>
+                                                                        <label for="name" style="font-family: Almarai;">الصنف</label>
                                                                         <input type="text" name="name" id="name"
                                                                                placeholder="سرير" value="<?php echo $name ?>" required>
                                                                     </p>
                                                                     <p class="dtr-form-column">
-                                                                        <label for="type">النوع</label>
+                                                                        <label for="type" style="font-family: Almarai;">النوع</label>
                                                                         <select name="type">  
                                                                             <option selected='selected' value="<?php echo $typeo ?>">اختر</option>  
                                                                            <?php for ($i = 0; $i < sizeof($headers); $i++) {
@@ -180,11 +180,11 @@ $color = $_GET['color'];
                                                                 </div>
                                                                 <div class="dtr-form-row dtr-form-row-2col">
                                                                     <p class="dtr-form-column">
-                                                                        <label for=" quant">الكمية</label>
+                                                                        <label for=" quant" style="font-family: Almarai;">الكمية</label>
                                                                         <input type="number" id="quantity" name="quantity" min="1" max="100" value="<?php echo $quant ?>">
                                                                     </p>  
                                                                     <p class="dtr-form-column">
-                                                                        <label for="color">اللون</label>
+                                                                        <label for="color" style="font-family: Almarai;">اللون</label>
                                                                        <select name='color'>
                                                                          <option selected='selected' value="<?php echo $color ?>">اختر</option>  
  <?php
@@ -200,7 +200,7 @@ $color = $_GET['color'];
                                                             <br>
                                                             <br>
                                                             <p class="text-center">
-                                                                <button class="dtr-btn btn-blue" type="submit" id="Edit" name="Edit" >حفظ</button>
+                                                                <button class="dtr-btn btn-blue" type="submit" id="Edit" name="Edit" style="font-family: Almarai;">حفظ</button>
                                                             </p>
                                                             </fieldset>
                                                         </form>
@@ -232,7 +232,7 @@ $color = $_GET['color'];
         <div class="container"> 
             <div class="row"> 
                 <div class="col-12 col-md-12" align="center">
-                    <p>&copy; فريق منصة عون</p>
+                    <p style="font-family: Almarai;">&copy; فريق منصة عون</p>
                 </div>
             </div>
         </div>

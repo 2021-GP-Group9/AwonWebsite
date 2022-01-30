@@ -22,12 +22,12 @@ if (isset($_SESSION['role'])) {
                             <div class="row">
                                 <div class="col-sm-4">
                                     <form id="signout" action="logout.php" method="POST">
-                                        <input type="submit" class="logoutbtn" value="تسجيل خروج">
+                                        <input type="submit" class="logoutbtn" style="font-family: Almarai;" value="تسجيل خروج">
                                     </form>  
                                 </div>
                                 <div class="col-sm-4" align="center"><br>
                                     <div class="main-navigation dtr-menu-dark">
-                                        <a class="nav-link" href="joiningRequests.php">طلبات الإنضمام</a>
+                                        <a class="nav-link" href="joiningRequests.php" style="font-family: Almarai;">طلبات الإنضمام</a>
                                     </div>
                                 </div>
                                 <div class="col-sm-4" align="right">
@@ -46,8 +46,8 @@ if (isset($_SESSION['role'])) {
                                     <div class="col-1 col-md-2"> </div> 
                                     <div class="col-10 col-md-8"> 
                                         <!--// To verify the license number, the admin visits the website who verified by government-->
-                                        <a href =https://hrsd.gov.sa/ar/ngo-enquiry style='text-align:center;float:right;'target='_blank'>:للتحقق من رقم ترخيص وبيانات الجمعية</a>
-                                        <p style='color:gray; text-align:center;'>يرجى إدخال رقم الترخيص باللغة الإنجليزية</p>
+                                        <a href =https://hrsd.gov.sa/ar/ngo-enquiry style='text-align:center;float:right;font-family: Almarai;'target='_blank'>:للتحقق من رقم ترخيص وبيانات الجمعية</a>
+                                        <p style='color:gray; text-align:center;font-family: Almarai;'>يرجى إدخال رقم الترخيص باللغة الإنجليزية</p>
                                         <?php
                                        require('db_connecting.php');
                                         $id = $_GET['id'];
@@ -56,57 +56,57 @@ if (isset($_SESSION['role'])) {
                                         $result = $conn->query($sqli);
                                         while ($row = $result->fetch_assoc()) {
                                             echo "<table width='100%' class='tab-requets'>";
-                                            echo "<tr align='left'>";
+                                            echo "<tr align='left' style='font-family: Almarai;'>";
                                             echo "<th>" . $image = '<img src="data:image/jpeg;base64, ' . base64_encode($row['picture']) . '"width="50em"/>' . "</th>";
                                             echo "<th></th></tr>";
                                             echo '</table>';
                                             echo '<table width="100%" class="tab-requets">';
-                                            echo '<tr align="right">';
+                                            echo '<tr align="right" style="font-family: Almarai;">';
                                             echo '<td>' . $row['name'] . '</td>';
                                             echo '<td>:اسم المنظمة الخيرية</td></tr>';
 
-                                            echo '<tr align="right">';
+                                            echo '<tr align="right" style="font-family: Almarai;">';
                                             echo '<td>' . $row['username'] . '</td>';
                                             echo '<td>:اسم المستخدم</td></tr>';
 
-                                            echo '<tr align="right">';
+                                            echo '<tr align="right" style="font-family: Almarai;">';
                                             echo '<td>' . $row['licenseNumber'] . '</td>';
                                             echo '<td>:رقم الترخيص</td></tr>';
 
-                                            echo '<tr align="right">';
+                                            echo '<tr align="right" style="font-family: Almarai;">';
                                             echo '<td>' . $row['email'] . '</td>';
                                             echo '<td>:البريد الإلكتروني</td></tr>';
 
-                                            echo '<tr align="right">';
+                                            echo '<tr align="right" style="font-family: Almarai;">';
                                             echo '<td>' . $row['location'] . '</td>';
                                             echo '<td>:الموقع</td></tr>';
 
-                                            echo '<tr align="right">';
+                                            echo '<tr align="right" style="font-family: Almarai;">';
                                             echo '<td>' . $row['phone'] . '</td>';
                                             echo '<td>:رقم الجوال</td></tr>';
 
-                                            echo '<tr align="right">';
+                                            echo '<tr align="right" style="font-family: Almarai;">';
                                             echo '<td>' . $row['service'] . '</td>';
                                             echo '<td>:توافر خدمة التوصيل</td></tr>';
 
-                                            echo '<tr align="right">';
+                                            echo '<tr align="right" style="font-family: Almarai;">';
                                             echo '<td>' . $row['descrption'] . '</td>';
                                             echo '<td>:وصف المنظمة الخيرية</td></tr>';
 
-                                            echo '<tr align="right">';
+                                            echo '<tr align="right" style="font-family: Almarai;">';
                                             echo '<td>' . $row['donationType'] . '</td>';
                                             echo '<td>:أنواع التبرعات التي تستقبلها المنظمة الخيرية</td></tr>';
 
-                                            echo '<tr align="right">';
+                                            echo '<tr align="right" style="font-family: Almarai;">';
                                             echo '<td>' . $row['registerDate'] . '</td>';
                                             echo '<td>:وقت الإنضمام</td></tr>';
 
-                                            echo '<tr align="right">';
+                                            echo '<tr align="right" style="font-family: Almarai;">';
                                             echo '<td>' . $row['status'] . '</td>';
                                             echo '<td>:الحالة</td></tr>';
 
-                                            echo "<td><button id='acc' class='btn btn-success btn-xs' style='width:100px;height:60px;float:right;' onclick='accept({$row["charityId"]})'>قبول </button>" .
-                                                    "<button id='rej' class='btn btn-danger btn-xs'  style='width: 100px;height:60px;float:left;'  onclick='reject({$row["charityId"]})'>رفض</button>";
+                                            echo "<td><button id='acc' class='btn btn-success btn-xs' style='width:100px;height:60px;float:right;font-family: Almarai;' onclick='accept({$row["charityId"]})'>قبول </button>" .
+                                                    "<button id='rej' class='btn btn-danger btn-xs'  style='width: 100px;height:60px;float:left;font-family: Almarai;'  onclick='reject({$row["charityId"]})'>رفض</button>";
                                             echo "</table>";
                                         }
                                     }
@@ -123,7 +123,7 @@ if (isset($_SESSION['role'])) {
                             <div class="container"> 
                                 <div class="row"> 
                                     <div class="col-12 col-md-12" align="center">
-                                        <p>&copy; فريق منصة عون</p>
+                                        <p style="font-family: Almarai;">&copy; فريق منصة عون</p>
                                     </div>
                                 </div>
                             </div>

@@ -41,15 +41,15 @@ if (isset($_POST['submit'])) {
                     <div class="well">
                         <form method="post">
                             <div class="form-group">
-                                <label>التاريخ</label>
+                                <label style="font-family: Almarai;">التاريخ</label>
                                 <input type="text" name="date" class="form-control" readonly value="<?php echo date("d/m/Y", strtotime($_GET['date'])) ?>">
                             </div>
                             <div class="form-group">
-                                <label>حدد الوقت</label>
+                                <label style="font-family: Almarai;">حدد الوقت</label>
                                 <input type="time" class="form-control" name="time" required>
                             </div>
                             <div class="form-group">
-                                <button type="submit" name="submit" class="dtr-btn btn-blue btn-small">حفظ الموعد</button>
+                                <button type="submit" name="submit" class="dtr-btn btn-blue btn-small" style="font-family: Almarai;">حفظ الموعد</button>
 
                             </div>
                         </form>
@@ -155,13 +155,13 @@ if (isset($_POST['submit'])) {
     <h3><a href="?ym=<?php echo $prev; ?>" class="btn btn-success btn-xs">&lt;</a> <?php echo $html_title; ?> <a class="btn btn-success btn-xs" href="?ym=<?php echo $next; ?>">&gt;</a></h3>
     <table class="table table-bordered" dir="rtl">
         <tr class="active">
-            <th>الاحد</th>
-            <th>الاثنين</th>
-            <th>الثلاثاء</th>
-            <th>الاربعاء</th>
-            <th>الخميس</th>
-            <th>الجمعة</th>
-            <th>السبت</th>
+            <th style="font-family: Almarai;">الاحد</th>
+            <th style="font-family: Almarai;">الاثنين</th>
+            <th style="font-family: Almarai;">الثلاثاء</th>
+            <th style="font-family: Almarai;">الاربعاء</th>
+            <th style="font-family: Almarai;">الخميس</th>
+            <th style="font-family: Almarai;">الجمعة</th>
+            <th style="font-family: Almarai;">السبت</th>
         </tr>
         <?php
         foreach ($weeks as $week) {

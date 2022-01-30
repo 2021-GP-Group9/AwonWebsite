@@ -22,28 +22,28 @@ if (!isset($_SESSION['role'])) {
                 <div class="row">
                     <div class="col-sm-2">
                         <form id="signout" action="logout.php" method="POST">
-                            <input type="submit" class="logoutbtn" value="تسجيل خروج">
+                            <input type="submit" class="logoutbtn"style="font-family: Almarai;" value="تسجيل خروج">
                         </form>
                     </div>
                     <div class="col" ><br>
                         <div class="main-navigation dtr-menu-dark">
-                            <a class="nav-link" href="ProfilePage.php">الملف الشخصي</a>
+                            <a class="nav-link" href="ProfilePage.php" style="font-family: Almarai;">الملف الشخصي</a>
                         </div>
                     </div>
                     <div class="col" ><br>
                         <div class="main-navigation dtr-menu-dark">
-                            <a class="nav-link" href="donationRequests.php">طلبات التبرع</a>
+                            <a class="nav-link" href="donationRequests.php" style="font-family: Almarai;">طلبات التبرع</a>
                         </div>
                     </div>
                    
                     <div class="col" ><br>
                         <div class="main-navigation dtr-menu-dark">
-                            <a class="nav-link" href="CharityPage.php">المواعيد</a>
+                            <a class="nav-link" href="CharityPage.php" style="font-family: Almarai;">المواعيد</a>
                         </div>
                     </div>
                      <div class="col" ><br>
                         <div class="main-navigation dtr-menu-dark">
-                                <a class="nav-link" href="charityHome.php">الصفحة الرئيسية</a>
+                                <a class="nav-link" href="charityHome.php" style="font-family: Almarai;">الصفحة الرئيسية</a>
                         </div>
                     </div>
                     <div class="col-sm-2" align="right">
@@ -156,14 +156,14 @@ if ($resultEdit) {
         exit();                                    
                                             }
                                         } else {
-                                            echo "<h2 style='text-align:center; color:red'>يوجد موعد في نفس هذا التاريخ $date ونفس الوقت $time</h2>";
+                                            echo "<h2 style='text-align:center; color:red;'>يوجد موعد في نفس هذا التاريخ $date ونفس الوقت $time</h2>";
                                         }
                                     }
                                     ?>
                                     <!-- APPOINTMENT TABLE FOR THE SELECTED DAY -->
                                     <hr>
                                     <h3 align="center">عرض المواعيد</h3>
-                                    <p style='color:red; text-align:center;'>عند تغيير أو حذف تاريخ أو وقت الموعد سيتم إرسال ايميل إلى المتبرع لإعلامه</p>
+                                    <p style='color:red; text-align:center;font-family: Almarai;'>عند تغيير أو حذف تاريخ أو وقت الموعد سيتم إرسال ايميل إلى المتبرع لإعلامه</p>
                                     <table dir="rtl" class="table table-bordered" style="width: 1000px; margin: 10px auto; background: #FFF">
                                         <tr class="active">
                                             <th align="center">
@@ -221,11 +221,11 @@ if ($resultEdit) {
                                 $no = $result->num_rows;
                                 while ($row = mysqli_fetch_assoc($result)) {
                                     ?>
-                                    <tr class="active">
+                                    <tr class="active"  style="font-family: Almarai;">
                                         <td>
                                             <?php echo $row['appointmentDate'] ?>
                                         </td>
-                                        <td>
+                                        <td >
                                             <?php echo $row['appointmentTime'] ?>
                                         </td>
                                         <td class="dtr-pr-40">
@@ -239,15 +239,15 @@ if ($resultEdit) {
                                         </td>
                                         <td>
                                            <?php 
-                                               echo "<a href ={$row['donorLocation']} style='text-align:center;float:right;'target='_blank'>اضغط هنا</a>";                 
+                                               echo "<a href ={$row['donorLocation']} style='text-align:center;float:right;'target='_blank' style='font-family: Almarai;'>اضغط هنا</a>";                 
 
                                                //echo "<p style='direction: ltr;font-size: 13px;'>{$row['donorLocation']}</p>";
                                           ?>
                                         </td>
                                         <td class="dtr-pr-50">
 
-                                            <a href="?q=edit&appointment_id=<?php echo $row['appointmentId'] ?>&date=<?php echo $row['appointmentDate'] ?>&time=<?php echo $row['appointmentTime'] ?>" class="btn btn-success btn-xs">تعديل</a> &nbsp;&nbsp;&nbsp;
-                                            <a href="#" onClick="RemoveAppoiment(<?php echo $row['appointmentId'] ?>)" class="btn btn-danger btn-xs">حذف</a>
+                                            <a href="?q=edit&appointment_id=<?php echo $row['appointmentId'] ?>&date=<?php echo $row['appointmentDate'] ?>&time=<?php echo $row['appointmentTime'] ?>" class="btn btn-success btn-xs" style="font-family: Almarai;">تعديل</a> &nbsp;&nbsp;&nbsp;
+                                            <a href="#" onClick="RemoveAppoiment(<?php echo $row['appointmentId'] ?>)" class="btn btn-danger btn-xs" style="font-family: Almarai;">حذف</a>
                                             <?php
                                             ?>
                                         </td>
@@ -264,13 +264,13 @@ if ($resultEdit) {
                                 while ($row4 = mysqli_fetch_assoc($result4)) {
                                     ?>
                                     <tr class="active">
-                                        <td>
+                                        <td style="font-family: Almarai;">
                                     <?php echo $row4['appointmentDate'] ?>
                                         </td>
-                                        <td>
+                                        <td style="font-family: Almarai;">
                                             <?php echo $row4['appointmentTime'] ?>
                                         </td>
-                                        <td class="dtr-pr-40">
+                                        <td class="dtr-pr-40" style="font-family: Almarai;">
                                             <?php echo $row4['reserved'] ?>
                                         </td>
                                         <td>
@@ -285,8 +285,8 @@ if ($resultEdit) {
 
                                         <td class="dtr-pr-50">
 
-                                            <a href="?q=edit&appointment_id=<?php echo $row4['appointmentId'] ?>&date=<?php echo $row4['appointmentDate'] ?>&time=<?php echo $row4['appointmentTime'] ?>" class="btn btn-success btn-xs">تعديل</a> &nbsp;&nbsp;&nbsp;
-                                            <a href="#" onClick="RemoveAppoiment(<?php echo $row4['appointmentId'] ?>)" class="btn btn-danger btn-xs">حذف</a>
+                                            <a href="?q=edit&appointment_id=<?php echo $row4['appointmentId'] ?>&date=<?php echo $row4['appointmentDate'] ?>&time=<?php echo $row4['appointmentTime'] ?>" class="btn btn-success btn-xs" style="font-family: Almarai;">تعديل</a> &nbsp;&nbsp;&nbsp;
+                                            <a href="#" onClick="RemoveAppoiment(<?php echo $row4['appointmentId'] ?>)" class="btn btn-danger btn-xs" style="font-family: Almarai;">حذف</a>
     <?php ?>
                                         </td>
                                     </tr>
@@ -304,7 +304,7 @@ if ($resultEdit) {
                             <div class="container"> 
                                 <div class="row"> 
                                     <div class="col-12 col-md-12" align="center">
-                                        <p>&copy; فريق منصة عون</p>
+                                        <p style="font-family: Almarai;">&copy; فريق منصة عون</p>
                                     </div>
                                 </div>
                             </div>

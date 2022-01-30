@@ -23,25 +23,25 @@ if (!isset($_SESSION['role'])) {
                 <div class="row">
                     <div class="col-sm-4">
                         <form id="signout" action="logout.php" method="POST">
-                            <input type="submit" class="logoutbtn" value="تسجيل خروج">
+                            <input type="submit" class="logoutbtn" style="font-family: Almarai;" value="تسجيل خروج">
                         </form>
                     </div>
                     <div class="col" ><br>
                         <div class="main-navigation dtr-menu-dark">
-                            <a class="nav-link" href="ProfilePage.php">الملف الشخصي</a>
+                            <a class="nav-link" href="ProfilePage.php" style="font-family: Almarai;">الملف الشخصي</a>
                         </div>
                     </div>
                     <div class="col" ><br>
                         <div class="main-navigation dtr-menu-dark">
                            
-                            <a class="nav-link" href="CharityPage.php?">المواعيد</a>
+                            <a class="nav-link" href="CharityPage.php?" style="font-family: Almarai;">المواعيد</a>
                            
                         </div>
                     </div>
                     <div class="col" ><br>
                         <div class="main-navigation dtr-menu-dark">
                            
-                            <a class="nav-link" href="donationRequests.php">طلبات التبرع</a>
+                            <a class="nav-link" href="donationRequests.php" style="font-family: Almarai;">طلبات التبرع</a>
                         </div>
                     </div>
                     
@@ -79,9 +79,24 @@ if (!isset($_SESSION['role'])) {
                                 while ($row = $result->fetch_assoc()) {
                                     echo "&nbsp;" . "<h3> <a style='font-size:30px; float:right;'>  {$row["name"]}</a></h3><br>";
                                    // echo '<img src="./image/' . $row['picture'] . '">';
-                                }
+                                   echo "<br><br>";
+                                   echo "<h4>".$row['city']."</h4>";
+                                   echo "<br>";
+                                   echo "<h4>".$row['location']."</h4>";
+                                   echo "<br>";
+                                   echo "<h4>".$row['descrption']."</h4>";
+                                   echo "<br>";
+                                   echo "<h4>".$row['phone']."</h4>";
+                                   echo "<br>";
+                                   echo "<h4>".$row['email']."</h4>";
+                                   echo "<br>";
+                                   echo "<h4>".$row['licenseNumber']."</h4>";
+                                   echo "<br>";
+                                   echo "<h4>".$row['donationType']."</h4>";
+                                   
+                                    }
                                 ?>
-                            </div><br><br><br><br><br><br><br><br><br><br><br><br><br>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -93,7 +108,7 @@ if (!isset($_SESSION['role'])) {
         <div class="container">
             <div class="row">
                 <div class="col-12 col-md-12" align="center">
-                    <p>&copy; فريق منصة عون</p>
+                    <p style="font-family: Almarai;">&copy; فريق منصة عون</p>
                 </div>
             </div>
         </div>

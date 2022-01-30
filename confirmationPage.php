@@ -18,7 +18,7 @@
                     <div class="row">
                         <div class="col-sm-4">
                             <form id="signout" action="logout.php" method="POST">
-                                <input type="submit" class="logoutbtn" value="تسجيل خروج">
+                                <input type="submit" class="logoutbtn" style="font-family: Almarai;" value="تسجيل خروج">
                             </form>  
                         </div>
                         <div class="col-sm-4"></div>
@@ -52,7 +52,7 @@
                                     <h4>فريق منصة عون</h4>
                                     <br>
                                     <p class="text-center">
-                                        <a class="dtr-btn btn-blue" href="index.php" >عودة للصفحة الرئسية</a>
+                                        <a class="dtr-btn btn-blue" href="index.php" style="font-family: Almarai;" >عودة للصفحة الرئسية</a>
                                     </p>
                                     <!-- form ends --> 
                                 </div>
@@ -64,53 +64,7 @@
                     </div>
                 </section>
 
-                <!--   ----------------------------------------------
-                <header> 
-                   logo in the right 
-                    <img src="finalLogo.jpeg" alt="logo" class="logo" style="length:100px; width:100px; float: left;">
-                -->
-                <!-- navbar for charity should include 'الصفحة الرئيسية' which is call CharityPage.php   
-                <nav class="topnav">
-                    <ul>
-                        <li><a href=".php"></a> </li>
-                    </ul>
-                </nav>-->
-                <!-- log out  as button in the left
-                <form id="signout" action="logout.php" method="POST">
-                    <input type="submit" value="تسجيل خروج">
-
-                </form>
-            </header>-->
-                <!-- <header id="headerPage" style="padding:28px 16px">
-                         
-                         <img src="logo.jpg" alt="logo" class="pageP"  >
-                     </header>
-             </head> 
-
-
-                <div class="auth-content"> 
-                    <hr><br><br>
-
-                    <h1>شكرا لإنضمامك لنا</h1>  
-                    <h2>تم تسجيل طلبك بنجاح وسيتم التواصل معك خلال الإيميل المسجل لإعلامك بإمكانية الدخول</h2>  
-                    <h4>فريق منصة عون</h4> 
-                    <br><br> 
-                    <form id="signout" action="logout.php" method="POST" style="float: none;">
-                        <input type="submit" class="conf" value="عودة للصفحة الرئسية">
-                    </form> 
-                </div>
-
-
-
-                </body>
-                <br><br>
-                --> 
-                <!-- Footer 
-                <footer>-->
-                    <!-- we want footer with  <p>&copy; فريق منصة عون</p>  
-
-                    <p>&copy; فريق منصة عون</p>
-                </footer>-->
+                
                 <footer id="dtr-footer"> 
 
                     <!--== copyright starts ==-->
@@ -120,7 +74,7 @@
                             <div class="row"> 
                                 <!-- column 1 starts -->
                                 <div class="col-12 col-md-12" align="center">
-                                    <p>&copy; فريق منصة عون</p>
+                                    <p style="font-family: Almarai;">&copy; فريق منصة عون</p>
                                 </div>
                             </div>
                             <!--== row ends ==--> 

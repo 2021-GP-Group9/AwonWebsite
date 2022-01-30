@@ -133,7 +133,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                     </div>
                     <div class="col-sm-4" align="center"><br>
                         <div class="main-navigation dtr-menu-dark">
-                            <a class="nav-link" href="index.php"">الصفحة الرئيسية</a>
+                            <a class="nav-link" href="index.php" style="font-family: Almarai;">الصفحة الرئيسية</a>
                             </div>
                         </div>
                         <div class=" col-sm-4" align="right">
@@ -171,7 +171,7 @@ $_SESSION['faild'] = null;
                                                 <fieldset>
                                                     <div class="dtr-form-row dtr-form-row-2col">
                                                         <p class="dtr-form-column">
-                                                            <label for="name">اسم الجمعية الخيرية</label>
+                                                            <label for="name" style="font-family: Almarai;">اسم الجمعية الخيرية</label>
                                                             <input type="text" name="name" id="name"
                                                                 placeholder="اسم الجمعية الخيرية"
                                                                 pattern="^[\p{InArabic}\p{Latin}-,]+(\s?[\p{InArabic}\p{Latin}-, ])*$"
@@ -179,7 +179,7 @@ $_SESSION['faild'] = null;
                                                             <!-- use pattren to ensure the name contain just arabic litters or english litters -->
                                                         </p>
                                                         <p class="dtr-form-column">
-                                                            <label for="username">اسم المستخدم</label>
+                                                            <label for="username" style="font-family: Almarai;">اسم المستخدم</label>
                                                             <input type="text" name="username" id="username"
                                                                 placeholder="اسم المستخدم" required>
                                                         </p>
@@ -188,12 +188,12 @@ $_SESSION['faild'] = null;
                                                 <fieldset>
                                                     <div class="dtr-form-row dtr-form-row-2col">
                                                         <p class="dtr-form-column">
-                                                            <label for=" email">البريد الالكتروني</label>
+                                                            <label for=" email" style="font-family: Almarai;">البريد الالكتروني</label>
                                                             <input type="email" name="email" id="email"
                                                                 placeholder="البريد الالكتروني" required>
                                                         </p>
                                                         <p class="dtr-form-column">
-                                                            <label for=" password">كلمةالمرور</label>
+                                                            <label for=" password" style="font-family: Almarai;">كلمةالمرور</label>
                                                             <input type="password" name="password" id="password"
                                                                 placeholder="كلمة المرور" class="password"
                                                                 pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
@@ -207,13 +207,13 @@ $_SESSION['faild'] = null;
                                                 <fieldset>
                                                     <div class="dtr-form-row dtr-form-row-2col">
                                                         <p class="dtr-form-column">
-                                                            <label for="phone_number">رقم الجوال</label>
+                                                            <label for="phone_number" style="font-family: Almarai;">رقم الجوال</label>
                                                             <input type="tel" name="phone_number" id="phone_number"
                                                                 placeholder="xxxxxxxxxx" pattern="[0-9]{,15}"
                                                                 title="يجب أن يحتوي على أرقام فقط" required>
                                                         </p>
                                                         <p class="dtr-form-column">
-                                                            <label for="license_Number">رقم الترخيص</label>
+                                                            <label for="license_Number" style="font-family: Almarai;">رقم الترخيص</label>
                                                             <input type="text" name="license_Number" id="license_Number"
                                                                 placeholder="xxx" pattern="[0-9]{,10}"
                                                                 title="يجب أن يحتوي على أرقام فقط" required>
@@ -223,12 +223,12 @@ $_SESSION['faild'] = null;
                                                 <fieldset>
 
                                                     <p class="dtr-form-column">
-                                                        <label for="location">عنوان المنظمة الخيرية</label>
+                                                        <label for="location" style="font-family: Almarai;">عنوان المنظمة الخيرية</label>
                                                         <input type="text" name="location" id="location"
-                                                            placeholder="الحي الشارع رقم المبنى" required>
+                                                            placeholder="المدينة الحي الشارع رقم المبنى" required>
                                                     </p>
                                                     <p class="dtr-form-column">
-                                                        <label for="location">المدينة</label>
+                                                        <label for="location" style="font-family: Almarai;">المنطقة الإدارية</label>
                                                        <?php echo "<select name='city'>";
                                                              echo "<option selected='selected' value=''>اختر المنطقة</option>";
 
@@ -238,67 +238,67 @@ $_SESSION['faild'] = null;
                                                                         echo "</select>"; 
                                                         ?>
                                                     </p>
-                                                    <p><label>وصف المنظمة الخيرية</label> <textarea rows="6"
+                                                    <p><label style="font-family: Almarai;">وصف المنظمة الخيرية</label> <textarea rows="6"
                                                             name="descrption" id="message" class="required"
                                                             placeholder="وصف المنظمة الخيرية" required></textarea> </p>
 
                                                     <p>
-                                                        <label>هل تتوفر خدمة استلام للتبرعات ؟ </label>
+                                                        <label style="font-family: Almarai;">هل تتوفر خدمة استلام للتبرعات ؟ </label>
                                                     <div class="form-check-inline">
                                                         <label class="form-check-label">
                                                             <input type="radio" class="form-check-input" id="yes"
-                                                                   name="service" value="نعم" required>نعم
+                                                                   name="service" value="نعم" required><h6>نعم</h6>
                                                         </label>
                                                     </div>
                                                     <div class="form-check-inline">
                                                         <label class="form-check-label">
                                                             <input type="radio" class="form-check-input" id="no"
-                                                                name="service" value="لا">لا
+                                                                name="service" value="لا"><h6>لا</h6>
                                                         </label>
                                                     </div>
                                                     </p>
                                                     <p>
-                                                        <label>انواع التبرعات التي تقبل به المنظمة الخيرية؟</label>
+                                                        <label style="font-family: Almarai;">انواع التبرعات التي تقبل به المنظمة الخيرية؟</label>
                                                     <div class="form-check-inline">
                                                         <label class="form-check-label">
                                                             <input type="checkbox" class="form-check-input"
-                                                                name="type[]" id="clothes" value="ملابس" >ملابس
+                                                                name="type[]" id="clothes" value="ملابس" ><h6>ملابس</h6>
                                                         </label>
                                                     </div>
                                                     <div class="form-check-inline">
                                                         <label class="form-check-label">
                                                             <input type="checkbox" class="form-check-input"
-                                                                name="type[]" id="furniture" value="اثاث">اثاث
+                                                                name="type[]" id="furniture" value="اثاث"><h6>اثاث</h6>
                                                         </label>
                                                     </div>
                                                     <div class="form-check-inline">
                                                         <label class="form-check-label">
                                                             <input type="checkbox" class="form-check-input"
                                                                 name="type[]" id="electronic"
-                                                                value="الكترونيات">الكترونيات
+                                                                value="الكترونيات"><h6>الكترونيات</h6>
                                                         </label>
                                                     </div>
 
                                                     <div class="form-check-inline">
                                                         <label class="form-check-label">
                                                             <input type="checkbox" class="form-check-input"
-                                                                name="type[]" id="books" value="كتب_ورق">كتب وورق
+                                                                name="type[]" id="books" value="كتب_ورق"><h6>كتب ورق </h6>
                                                         </label>
                                                     </div>
                                                     </p>
                                                     <p>
-                                                        <label>صورة الملف التعريفي</label>
+                                                        <label style="font-family: Almarai;">صورة الملف التعريفي</label>
                                                     <div class="custom-file">
                                                         <input type="file" class="custom-file-input" id="uploadfile"
                                                             name="uploadfile">
-                                                        <label class="custom-file-label" for="uploadfile">إرفاق الصورة
+                                                        <label class="custom-file-label" for="uploadfile" style="font-family: Almarai;">إرفاق الصورة
                                                         </label>
                                                     </div>
                                                     </p>
                                                     <br>
                                                     <br>
                                                     <p class="text-center">
-                                                        <button class="dtr-btn btn-blue" type="submit" name="submit"
+                                                        <button class="dtr-btn btn-blue" type="submit" name="submit" style="font-family: Almarai;"
                                                             >تسجيل</button>
                                                     </p>
                                                 </fieldset>
@@ -319,7 +319,7 @@ $_SESSION['faild'] = null;
         <div class="container">
             <div class="row">
                 <div class="col-12 col-md-12" align="center">
-                    <p>&copy; فريق منصة عون</p>
+                    <p style="font-family: Almarai;">&copy; فريق منصة عون</p>
                 </div>
             </div>
         </div>

@@ -50,23 +50,23 @@ if (isset($_SESSION['role'])) {
                                             <fieldset>
                                                 <div class="dtr-form-row dtr-form-row-2col">
                                                     <p class="">
-                                                        <label>اسم المستخدم</label>
+                                                        <label style="font-family: Almarai;">اسم المستخدم</label>
                                                         <input name="username"  id="username" class="name-input" type="text" placeholder="اسم المستخدم">
                                                     </p>
                                                     <p class="">
-                                                        <label>كلمة المرور</label>
+                                                        <label style="font-family: Almarai;">كلمة المرور</label>
                                                         <input name="pwd"  class="required"  id="password" type="password" placeholder="كلمة المرور">
                                                     </p>
                                                 </div><br>
                                                 <p class="text-center">
-                                                    <button class="dtr-btn btn-blue" type="submit">تسجيل الدخول</button>
+                                                    <button class="dtr-btn btn-blue" style="font-family: Almarai;" type="submit">تسجيل الدخول</button>
                                                 </p>
                                                 <div id="result"></div>
                                             </fieldset>
                                         </form>
 
                                         <br>
-                                        <p>جمعية جديدة؟ <a href="RequestToJoin.php">تسجيل جديد</a></p>
+                                        <p style="font-family: Almarai;">جمعية جديدة؟ <a href="RequestToJoin.php" style="font-family: Almarai;">تسجيل جديد</a></p>
                                         <?php
                                         // to show Error messages
                                         if (isset($_SESSION['errorC'])) {
@@ -98,7 +98,7 @@ if (isset($_SESSION['role'])) {
                                                     //if password for admin not correct 
                                                     $_SESSION['errorC'] = 'اسم المستخدم أو كلمة المرور غير صحيحة';
 
-                                                    echo "<span style='color:red'>" . 'اسم المستخدم أو كلمة المرور غير صحيحة' . "</span>";
+                                                    echo "<span style='color:red;font-family: Almarai;'>" . 'اسم المستخدم أو كلمة المرور غير صحيحة' . "</span>";
 
                                                     echo '<META HTTP-EQUIV="Refresh" Content="2; URL=login.php">';
                                                 }
@@ -155,7 +155,7 @@ if (isset($_SESSION['role'])) {
                             <div class="row"> 
 
                                 <div class="col-12 col-md-12" align="center">
-                                    <p>&copy; فريق منصة عون</p>
+                                    <p style="font-family: Almarai;">&copy; فريق منصة عون</p>
                                 </div>
                             </div>
                         </div>

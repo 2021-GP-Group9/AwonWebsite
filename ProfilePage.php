@@ -12,6 +12,24 @@ $error = mysqli_connect_error();
 if ($error != null) {
     echo "<p>Eror!! could not connect to DB may not connect </p>";
 }
+$options = array(
+                                                'منطقة الرياض',
+                                                'منطقة مكة المكرمة',
+                                                'منطقة المدينة المنورة',
+                                                'منطقة القصيم',
+                                                'المنطقة الشرقية',
+                                                'منطقة عسير',
+                                                'منطقة تبوك',
+                                                'منطقة حائل',
+                                                'منطقة الحدود الشمالية',
+                                                'منطقة جازان',
+                                                'منطقة نجران',
+                                                'منطقة الباحة',
+                                                'منطقة الجوف',
+                                               );
+                                            
+
+
 ?>
 <html lang="en">
     <head>
@@ -31,22 +49,22 @@ if ($error != null) {
                             <div class="row">
                                 <div class="col-sm-4">
                                     <form id="signout" action="logout.php" method="POST">
-                                        <input type="submit" class="logoutbtn" value="تسجيل خروج">
+                                        <input type="submit" class="logoutbtn" style="font-family: Almarai;" value="تسجيل خروج">
                                     </form>
                                 </div>
                                 <div class="col" ><br>
                                     <div class="main-navigation dtr-menu-dark">
-                                        <a class="nav-link" href="donationRequests.php">طلبات التبرع</a>
+                                        <a class="nav-link" href="donationRequests.php" style="font-family: Almarai;" >طلبات التبرع</a>
                                     </div>
                                 </div>
                                 <div class="col" ><br>
                                     <div class="main-navigation dtr-menu-dark">
-                                        <a class="nav-link" href="CharityPage.php?">المواعيد</a>
+                                        <a class="nav-link" href="CharityPage.php?" style="font-family: Almarai;">المواعيد</a>
                                     </div>
                                 </div>
                                 <div class="col" ><br>
                                     <div class="main-navigation dtr-menu-dark">
-                                        <a class="nav-link" href="charityHome.php">الرئيسية</a>
+                                        <a class="nav-link" href="charityHome.php" style="font-family: Almarai;">الرئيسية</a>
                                     </div>
                                 </div>
                                 <div class="col-sm-3" align="right">
@@ -159,14 +177,13 @@ if ($error != null) {
 
                                                 <form method="post" id="ManageTheProfile" enctype="multipart/form-data" ">
                                                     <fieldset>
-                                                        <div class="dtr-form-row dtr-form-row-2col">
+                                                        <div class="dtr-form-row dtr-form-row-4col">
                                                             <p class="dtr-form-column">
-                                                                <label for="name" >اسم المنظمة الخيرية</label> 
-                                                                <input type="text" name="name" placeholder="اسم المستخدم" id="name" pattern="^[\p{InArabic}\p{Latin}-,]+(\s?[\p{InArabic}\p{Latin}-, ])*$" title="يجب أن تتكون من أحرف فقط"  value= "<?php echo $name ?>" >
+                                                                <label for="name" style="font-family: Almarai;">اسم المنظمة الخيرية</label> 
+                                                                <input type="text" size="10" name="name" placeholder="اسم المستخدم" id="name" pattern="^[\p{InArabic}\p{Latin}-,]+(\s?[\p{InArabic}\p{Latin}-, ])*$" title="يجب أن تتكون من أحرف فقط"  value= "<?php echo $name ?>" >
                                                             </p>
                                                             <p class="dtr-form-column">
-
-                                                                <label for="username">اسم المستخدم</label>
+                                                                <label for="username" style="font-family: Almarai;">اسم المستخدم</label>
                                                                 <input type="text" name="username" id="username" placeholder="اسم المنظمة الخيرية" required value= "<?php echo $username ?>">
                                                             </p>
                                                         </div>
@@ -174,46 +191,46 @@ if ($error != null) {
                                                     <fieldset>	
                                                         <div class="dtr-form-row dtr-form-row-2col">
                                                             <p class="dtr-form-column">
-                                                                <label for="password">البريد الالكتروني</label>
+                                                                <label for="password" style="font-family: Almarai;">البريد الالكتروني</label>
                                                                 <input type="email" name="email" id="email" placeholder="البريد الالكتروني" required value= "<?php echo $email ?>"  >
                                                             </p>
                                                             <p class="dtr-form-column">
-                                                                <label for="phone_number">رقم الجوال</label>
+                                                                <label for="phone_number" style="font-family: Almarai;">رقم الجوال</label>
                                                                 <input type="tel" name="phone_number" placeholder="" id="phone_number" maxlength="10" pattern="[0-9]{,15}" title="يجب أن يحتوي على أرقام فقط" required value= "0<?php echo $PhoneNumber ?>">
                                                             </p>
                                                             
                                                         </div>
                                                     </fieldset>
                                                     <fieldset>
-                                                        <div class="dtr-form-row dtr-form-row-2col">
+                                                        <div class="dtr-form-row dtr-form-row-4col">
                                                           <p class="dtr-form-column">
-                                                            <label for="phone_number">المدينة</label>
-                                                                <input type="text" name="city" placeholder="" id="city"  required value= "<?php echo $city ?>">
-                                                            </p>
-                                                            <p class="dtr-form-column">
-                                                                <label  for="license_Number">رقم الترخيص</label>
-                                                                <input type="text" name="license_Number" placeholder="" id="license_Number" pattern="[0-9]{,10}" title="يجب أن يحتوي على أرقام فقط" required value= "<?php echo $LicenseNumber ?>">
-                                                            </p>
-                                                        </div>
-                                                        <div class="dtr-form-row dtr-form-row-2col">
-                                                             <p class="">
-                                                                <label  for="location">عنوان الجمعية</label>
+                                                            <label for="phone_number"style="font-family: Almarai;">المنطقة الإدارية</label>
+                                                            <?php echo "<select name='city'>";
+                                                             echo "<option selected='selected' value='$city'>اختر المنطقة</option>";
+                                                                        foreach ($options as $optionq) {
+                                                                            echo "<option value='$optionq'>$optionq</option>";
+                                                                        }
+                                                                        echo "</select>"; 
+                                                        ?>                                                            </p>
+                                                           <p class="dtr-form-column">
+                                                                <label  for="location" style="font-family: Almarai;">عنوان الجمعية</label>
                                                                 <input type="text" name="location" id="location" placeholder="الموقع"  required  value= "<?php echo $location ?>">
                                                             </p>
                                                         </div>
+                                                        
                                                     </fieldset>
                                                     <fieldset>	
 
                                                         <p>
-                                                            <label  for="">هل تتوفر خدمة التوصيل ؟ </label>
+                                                            <label  for=""style="font-family: Almarai;">هل تتوفر خدمة التوصيل ؟ </label>
                                                         <div class="form-check-inline">
                                                             <label class="form-check-label">
-                                                                <input type="radio" class="form-check-input" value="نعم" name="pickup_servise" <?php if ($option == 'نعم') echo " checked" ?> >نعم
+                                                                <input type="radio" class="form-check-input" value="نعم" name="pickup_servise" <?php if ($option == 'نعم') echo " checked" ?> ><h6>نعم</h6>
                                                             </label>
                                                         </div>
                                                         <div class="form-check-inline">
                                                             <label class="form-check-label">
-                                                                <input type="radio" class="form-check-input" value="لا" name="pickup_servise" <?php if ($option == 'لا') echo " checked" ?>>لا
+                                                                <input type="radio" class="form-check-input" value="لا" name="pickup_servise" <?php if ($option == 'لا') echo " checked" ?>><h6>لا</h6>
                                                             </label>
                                                         </div>
                                                         </p>
@@ -221,7 +238,7 @@ if ($error != null) {
                                                             <?php
                                                             $headers = explode(',', $type);
                                                             ?>                                                             
-                                                            <label  for="">انواع التبرع التي تقبل به المنظمة الخيرية؟</label>
+                                                            <label  for="" style="font-family: Almarai;">انواع التبرع التي تقبل به المنظمة الخيرية؟</label>
                                                         <div class="form-check-inline">
                                                             <label class="form-check-label">
                                                                 <input type="checkbox" class="form-check-input" name="types[]" id="type_of_donation"  value="ملابس" <?php
@@ -229,7 +246,7 @@ if ($error != null) {
                                                                     echo "checked ";
                                                                 }
                                                                 ?>
-                                                                       >ملابس
+                                                                       ><h6>ملابس</h6>
                                                             </label>
                                                         </div>
                                                         <div class="form-check-inline">
@@ -241,7 +258,7 @@ if ($error != null) {
                                                                 }
                                                                 ?>
 
-                                                                       >اثاث
+                                                                       ><h6>اثاث</h6>
                                                             </label>
                                                         </div>
                                                         <div class="form-check-inline">
@@ -250,7 +267,7 @@ if ($error != null) {
                                                                 if (in_array('الكترونيات', $headers)) {
                                                                     echo " checked ";
                                                                 }
-                                                                ?>  >الكترونيات
+                                                                ?>  ><h6>الكترونيات</h6>
 
                                                             </label>
                                                         </div>
@@ -264,25 +281,25 @@ if ($error != null) {
                                                                        }
                                                                        ?>
 
-                                                                       >   كتب ورق </label>
+                                                                       ><h6>كتب ورق </h6>   </label>
 
 
                                                         </div>
                                                         </div>
                                                         </p>
                                                         <p>
-                                                            <label>صورة الملف التعريفي</label>
+                                                            <label style="font-family: Almarai;">صورة الملف التعريفي</label>
                                                         <div class="custom-file">
                                                             <input type="file" class="custom-file-input"  name="img" id="customFile">
                                                             <label class="custom-file-label" for="customFile">Choose file</label>
                                                         </div>
                                                         </p>
                                                         <p>
-                                                            <label>وصف المنظمة الخيرية</label>
+                                                            <label style="font-family: Almarai;">وصف المنظمة الخيرية</label>
                                                             <textarea rows="6" name="description" id="message" class="required"  placeholder="وصف المنظمة الخيرية" value=""><?php echo $descrption ?></textarea>
                                                         </p><br>
                                                         <p class="text-center">
-                                                            <button class="dtr-btn btn-blue" id="Edit" name="Edit"  type="submit"  onclick="return validate();">حفظ</button>
+                                                            <button class="dtr-btn btn-blue" id="Edit" name="Edit"  type="submit"  onclick="return validate();" style="font-family: Almarai;">حفظ</button>
                                                         </p>
                                                     </fieldset>
                                                 </form>
@@ -303,7 +320,7 @@ if ($error != null) {
                         <div class="container"> 
                             <div class="row"> 
                                 <div class="col-12 col-md-12" align="center">
-                                    <p>&copy; فريق منصة عون</p>
+                                    <p style="font-family: Almarai;">&copy; فريق منصة عون</p>
                                 </div>
                             </div>
                         </div>

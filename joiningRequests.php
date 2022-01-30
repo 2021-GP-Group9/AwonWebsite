@@ -21,7 +21,7 @@ if (isset($_SESSION['role'])) {
                             <div class="row">
                                 <div class="col-sm-4">
                                     <form id="signout" action="logout.php" method="POST">
-                                        <input type="submit" class="logoutbtn" value="تسجيل خروج">
+                                        <input type="submit" class="logoutbtn" style="font-family: Almarai;" value="تسجيل خروج">
                                     </form>  
                                 </div>
                                 <div class="col-sm-4" align="center"><br>
@@ -53,7 +53,7 @@ if (isset($_SESSION['role'])) {
                                             $result = $conn->query($sqli);
                                             ?>
                                             <table width="100%" class="tab-requets">
-                                                <tr align="right">
+                                                <tr align="right" style="font-family: Almarai;">
                                                     <th>تاريخ الإنضمام</th>
                                                     <th>قبول أو رفض </th>
                                                     <th>الجمعية الخيرية</th>
@@ -61,7 +61,7 @@ if (isset($_SESSION['role'])) {
                                                 <?php
                                                 if ($result->num_rows > 0) {
                                                     while ($row = mysqli_fetch_assoc($result)) {
-                                                        echo'<tr align="right">';
+                                                        echo'<tr align="right" style="font-family: Almarai;">';
                                                         // Bring the date with specific format
                                                         $dt = date("d-m-Y", strtotime($row['registerDate']));
                                                         // Retrive the image from database
@@ -75,7 +75,7 @@ if (isset($_SESSION['role'])) {
                                                 }//end if 
                                                 else {
                                                     // If there is no request, the system will display appropraite message
-                                                    echo'<tr align="right">';
+                                                    echo'<tr align="right" style="font-family: Almarai;">';
                                                     echo "<td>" . "</td>" . "<td>" . "لا يوجد طلبات إنضمام جديدة" . "</td>";
                                                     echo "<td>" . "</td>" . "<td>" . "</td>";
                                                 }
@@ -97,7 +97,7 @@ if (isset($_SESSION['role'])) {
                                 <div class="container"> 
                                     <div class="row"> 
                                         <div class="col-12 col-md-12" align="center">
-                                            <p>&copy; فريق منصة عون</p>
+                                            <p style="font-family: Almarai;">&copy; فريق منصة عون</p>
                                         </div>
                                     </div>
                                 </div>

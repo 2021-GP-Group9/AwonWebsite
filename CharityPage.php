@@ -21,23 +21,23 @@ if (!isset($_SESSION['role'])) {
                 <div class="row">
                     <div class="col-sm-4">
                         <form id="signout" action="logout.php" method="POST">
-                            <input type="submit" class="logoutbtn" value="تسجيل خروج">
+                            <input type="submit" class="logoutbtn" style="font-family: Almarai;" value="تسجيل خروج">
                         </form>
                     </div>
                     <div class="col" ><br>
                         <div class="main-navigation dtr-menu-dark">
-                            <a class="nav-link" href="ProfilePage.php">الملف الشخصي</a>
+                            <a class="nav-link" href="ProfilePage.php" style="font-family: Almarai;">الملف الشخصي</a>
                         </div>
                     </div>
                     <div class="col" ><br>
                         <div class="main-navigation dtr-menu-dark">
-                            <a class="nav-link" href="donationRequests.php">طلبات التبرع</a>
+                            <a class="nav-link" href="donationRequests.php" style="font-family: Almarai;">طلبات التبرع</a>
                         </div>
                     </div>
                     <div class="col" ><br>
                         <div class="main-navigation dtr-menu-dark">
                            
-                            <a class="nav-link" href="charityHome.php">الرئيسية</a>
+                            <a class="nav-link" href="charityHome.php" style="font-family: Almarai;">الرئيسية</a>
                         </div>
                     </div>
                     <div class="col-sm-3" align="right">
@@ -83,7 +83,7 @@ if (!isset($_SESSION['role'])) {
                         <div class="container"> 
                             <div class="row"> 
                                 <div class="col-12 col-md-12" align="center">
-                                    <p>&copy; فريق منصة عون</p>
+                                    <p style="font-family: Almarai;">&copy; فريق منصة عون</p>
                                 </div>
                             </div>
                         </div>

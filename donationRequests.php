@@ -21,25 +21,25 @@ if (isset($_SESSION['role'])) {
                             <div class="row">
                                 <div class="col-sm-4">
                                     <form id="signout" action="logout.php" method="POST">
-                                        <input type="submit" class="logoutbtn" value="تسجيل خروج">
+                                        <input type="submit" class="logoutbtn" style="font-family: Almarai;" value="تسجيل خروج">
                                     </form>
                                 </div>
                                 <div class="col" ><br>
                                     <div class="main-navigation dtr-menu-dark">
-                                        <a class="nav-link" href="ProfilePage.php">الملف الشخصي</a>
+                                        <a class="nav-link" href="ProfilePage.php" style="font-family: Almarai;">الملف الشخصي</a>
                                     </div>
                                 </div>
                                 <div class="col" ><br>
                                     <div class="main-navigation dtr-menu-dark">
 
-                                        <a class="nav-link" href="CharityPage.php?">المواعيد</a>
+                                        <a class="nav-link" href="CharityPage.php?" style="font-family: Almarai;">المواعيد</a>
 
                                     </div>
                                 </div>
                                 <div class="col" ><br>
                                     <div class="main-navigation dtr-menu-dark">
 
-                                        <a class="nav-link" href="charityHome.php">الرئيسية</a>
+                                        <a class="nav-link" href="charityHome.php" style="font-family: Almarai;">الرئيسية</a>
                                     </div>
                                 </div>
 
@@ -63,7 +63,7 @@ if (isset($_SESSION['role'])) {
 
                                         <div class="dtr-styled-" align="center" style="width: 1100px;">
                                            
-                                              <a href="newDonation.php">إضافة طلب تبرع جديد</a>
+                                              <a href="newDonation.php" style="font-family: Almarai;">إضافة طلب تبرع جديد</a>
 <hr>
                                             <h2>طلبات التبرع</h2>
 <hr>
@@ -76,7 +76,7 @@ if (isset($_SESSION['role'])) {
                                             $result = $conn->query($sqli);
                                             ?>
                                             <table table dir="rtl" class="tab-requets" style="width: 1000px; margin: 10px auto; background: #FFF">
-                                                <tr align="right" style="text-align: center;">
+                                                <tr align="right" style="text-align: center;font-family: Almarai;">
                                                     <th align="center" >تسلسل</th>
                                                     <th align="center">وصف الطلب</th>
                                                     <th align="center" style="width:5%">الصنف</th>
@@ -89,8 +89,8 @@ if (isset($_SESSION['role'])) {
                                                 <?php
                                                 if ($result->num_rows > 0) {
                                                     while ($row = mysqli_fetch_assoc($result)) {
-                                                        echo'<tr>';
-                                                        echo "<td align='center'>" . $row['donationId'] . "</td>";
+                                                        echo "<tr style='font-family: Almarai;'>";
+                                                        echo "<td align='center' >" . $row['donationId'] . "</td>";
                                                         echo "<td align='center'>" . $row['donationDescription'] . "</td>";
                                                         echo "<td align='center'>" . $row['itemName'] . "</td>";
                                                         echo "<td align='center'>" . $row['itemType'] . "</td>";
@@ -98,7 +98,7 @@ if (isset($_SESSION['role'])) {
                                                         echo "<td align='center'>" . $row['itemColor'] . "</td>";
                                                         echo "<td align='center'>" . $row['itemCount'] . "</td>";
                                                     echo "<td align='center'>" .
-                                                            "<a href='editDonation.php?id={$row["donationId"]}&type={$row['itemType']}&color={$row['itemColor']}' class='btn btn-success btn-xs'>تعديل"."</a>"."&nbsp;&nbsp;&nbsp;"."<button id='rej' class='btn btn-danger btn-xs' value={$row['donationId']} onclick='reject({$row["donationId"]})'>حذف</button>"  . "</td>";
+                                                            "<a href='editDonation.php?id={$row["donationId"]}&type={$row['itemType']}&color={$row['itemColor']}' class='btn btn-success btn-xs' style='font-family: Almarai;'>تعديل"."</a>"."&nbsp;&nbsp;&nbsp;"."<button id='rej' class='btn btn-danger btn-xs' value={$row['donationId']} onclick='reject({$row["donationId"]})' style='font-family: Almarai;'>حذف</button>"  . "</td>";
                                                         // &nbsp; used for spaceing
                                                         echo "</tr>";
                                                     }//end while
@@ -122,7 +122,7 @@ if (isset($_SESSION['role'])) {
                                 <div class="container"> 
                                     <div class="row"> 
                                         <div class="col-12 col-md-12" align="center">
-                                            <p>&copy; فريق منصة عون</p>
+                                            <p style="font-family: Almarai;">&copy; فريق منصة عون</p>
                                         </div>
                                     </div>
                                 </div>
