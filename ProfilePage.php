@@ -177,11 +177,11 @@ $options = array(
                                                     <fieldset>
                                                         <div class="dtr-form-row dtr-form-row-4col">
                                                             <p class="dtr-form-column">
-                                                                <label for="name" style="font-family: Almarai;">اسم المنظمة الخيرية</label> 
+                                                                <label for="name" style="font-family: Almarai;direction: rtl;">اسم المنظمة الخيرية</label> 
                                                                 <input type="text" size="10" name="name" placeholder="اسم المستخدم" id="name" pattern="^[\p{InArabic}\p{Latin}-,]+(\s?[\p{InArabic}\p{Latin}-, ])*$" title="يجب أن تتكون من أحرف فقط"  value= "<?php echo $name ?>" >
                                                             </p>
                                                             <p class="dtr-form-column">
-                                                                <label for="username" style="font-family: Almarai;">اسم المستخدم</label>
+                                                                <label for="username" style="font-family: Almarai;direction: rtl;">اسم المستخدم</label>
                                                                 <input type="text" name="username" id="username" placeholder="اسم المنظمة الخيرية" required value= "<?php echo $username ?>">
                                                             </p>
                                                         </div>
@@ -189,11 +189,11 @@ $options = array(
                                                     <fieldset>	
                                                         <div class="dtr-form-row dtr-form-row-2col">
                                                             <p class="dtr-form-column">
-                                                                <label for="password" style="font-family: Almarai;">البريد الالكتروني</label>
+                                                                <label for="password" style="font-family: Almarai;direction: rtl;">البريد الالكتروني</label>
                                                                 <input type="email" name="email" id="email" placeholder="البريد الالكتروني" required value= "<?php echo $email ?>"  >
                                                             </p>
                                                             <p class="dtr-form-column">
-                                                                <label for="phone_number" style="font-family: Almarai;">رقم الجوال</label>
+                                                                <label for="phone_number" style="font-family: Almarai;direction: rtl;">رقم الجوال</label>
                                                                 <input type="tel" name="phone_number" placeholder="" id="phone_number" maxlength="10" pattern="[0-9]{,15}" title="يجب أن يحتوي على أرقام فقط" required value= "0<?php echo $PhoneNumber ?>">
                                                             </p>
                                                             
@@ -202,7 +202,7 @@ $options = array(
                                                     <fieldset>
                                                         <div class="dtr-form-row dtr-form-row-4col">
                                                           <p class="dtr-form-column">
-                                                            <label for="phone_number"style="font-family: Almarai;">المنطقة الإدارية</label>
+                                                            <label for="phone_number"style="font-family: Almarai;direction: rtl;">المنطقة الإدارية</label>
                                                             <?php echo "<select name='city'>";
                                                              echo "<option selected='selected' value='$city'>اختر المنطقة</option>";
                                                                         foreach ($options as $optionq) {
@@ -211,7 +211,7 @@ $options = array(
                                                                         echo "</select>"; 
                                                         ?>                                                            </p>
                                                            <p class="dtr-form-column">
-                                                                <label  for="location" style="font-family: Almarai;">عنوان الجمعية</label>
+                                                                <label  for="location" style="font-family: Almarai;direction: rtl;">عنوان الجمعية</label>
                                                                 <input type="text" name="location" id="location" placeholder="الموقع"  required  value= "<?php echo $location ?>">
                                                             </p>
                                                         </div>
@@ -294,7 +294,7 @@ $options = array(
                                                         </p>
                                                         <p>
                                                             <label style="font-family: Almarai;">وصف المنظمة الخيرية</label>
-                                                            <textarea rows="6" name="description" id="message" class="required"  placeholder="وصف المنظمة الخيرية" value=""><?php echo $descrption ?></textarea>
+                                                            <textarea rows="6" name="description" id="message" class="required"  placeholder="وصف المنظمة الخيرية" value="" style="direction: rtl;"><?php echo $descrption ?></textarea>
                                                         </p><br>
                                                         <p class="text-center">
                                                             <button class="dtr-btn btn-blue" id="Edit" name="Edit"  type="submit"  onclick="return validate();" style="font-family: Almarai;">حفظ</button>
