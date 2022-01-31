@@ -97,7 +97,6 @@ $options = array(
                                     $pass = $row['password'];
                                     $email = $row['email'];
                                     $PhoneNumber = $row['phone'];
-                                    $LicenseNumber = $row['licenseNumber'];
                                     $location = $row['location'];
                                     $descrption = $row['descrption'];
                                     $option = $row['service'];
@@ -118,7 +117,6 @@ $options = array(
                                                 $username = $_POST['username'];
                                                 $email = $_POST['email'];
                                                 $PhoneNumber = $_POST['phone_number'];
-                                                $LicenseNumber = $_POST['license_Number'];
                                                 $location = $_POST['location'];
                                                 $description = $_POST['description'];
                                                 $option = $_POST['pickup_servise'];
@@ -158,7 +156,7 @@ $options = array(
                                                     // Update query *
 
                                                     $query = "UPDATE charity SET name='" . $name . "', username='" . $username . "', email='" . $email . "',
-                     phone='" . $PhoneNumber . "', licenseNumber='" . $LicenseNumber . "', service='" . $option . "', donationType='" . $servicetype . "', location='" . $location . "', descrption='" . $description . "',city='" . $city . "' WHERE charityId='" . $ID . "'";
+                     phone='" . $PhoneNumber . "', service='" . $option . "', donationType='" . $servicetype . "', location='" . $location . "', descrption='" . $description . "',city='" . $city . "' WHERE charityId='" . $ID . "'";
 
                                                     if ($conn->query($query) === TRUE) {
                                                         echo '<h1 style="color:green; text-align:center">تم الحفظ</h1>';
