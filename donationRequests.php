@@ -11,7 +11,7 @@ if (isset($_SESSION['role'])) {
                 <meta name="format-detection" content="telephone=no">
                 <link rel='stylesheet' href='design.css'>
                 <link rel="stylesheet" href="DesignBootstrap.css">
-                <title>طلبات التبرع</title>
+                <title>مطابقة التبرعات </title>
             </head>  
             <body>
                 <div id="dtr-wrapper" class="clearfix"> 
@@ -64,6 +64,8 @@ if (isset($_SESSION['role'])) {
                                         <div class="dtr-styled-" align="center" style="width: 1100px;">
                                            
                                               <a href="newDonation.php" style="font-family: Almarai;">إضافة طلب تبرع جديد</a>
+                                              
+                                              
 <hr>
                                             <h2>طلبات التبرع</h2>
 <hr>
@@ -84,7 +86,7 @@ if (isset($_SESSION['role'])) {
                                                     <th align="center" style="width:5%">المقاس</th>   
                                                     <th align="center" style="width:5%">اللون</th>
                                                     <th align="center" style="width:5%">الكمية</th>
-                                                    <th align="center" style="width:20%">تعديل أو حذف</th>
+                                                    <th align="center" style="width:30%">تعديل أو حذف أو مطابقة </th>
                                                 </tr>
                                                 <?php
                                                 if ($result->num_rows > 0) {
@@ -98,7 +100,7 @@ if (isset($_SESSION['role'])) {
                                                         echo "<td align='center'>" . $row['itemColor'] . "</td>";
                                                         echo "<td align='center'>" . $row['itemCount'] . "</td>";
                                                     echo "<td align='center'>" .
-                                                            "<a href='editDonation.php?id={$row["donationId"]}&type={$row['itemType']}&color={$row['itemColor']}' class='btn btn-success btn-xs' style='font-family: Almarai;'>تعديل"."</a>"."&nbsp;&nbsp;&nbsp;"."<button id='rej' class='btn btn-danger btn-xs' value={$row['donationId']} onclick='reject({$row["donationId"]})' style='font-family: Almarai;'>حذف</button>"  . "</td>";
+                                                            "<a href='editDonation.php?id={$row["donationId"]}&type={$row['itemType']}&color={$row['itemColor']}' class='btn btn-success btn-xs' style='font-family: Almarai;'>تعديل"."</a>"."&nbsp;&nbsp;&nbsp;"."<button id='rej' class='btn btn-danger btn-xs' value={$row['donationId']} onclick='reject({$row["donationId"]})' style='font-family: Almarai;'>حذف</button>"."&nbsp;&nbsp;&nbsp;". "<a href='MatchData.php?id={$row["donationId"]}' class='btn btn-success btn-xs' style='font-family: Almarai;'>مطابقة"."</a>". "</td>";
                                                         // &nbsp; used for spaceing
                                                         echo "</tr>";
                                                     }//end while
