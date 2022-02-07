@@ -163,15 +163,17 @@ echo "<p dir='rtl'>تم العثور على المتبرع باسم  <span style
 
         ?>
 <script>
-    function send_email(donor_email) {
+    function send_email(donor_email, ID) {
         $.ajax({
             url: "Send_donor_email.php",
             type: "POST",
             // dataType: "json",
             // contentType: "application/json; charset=utf-8",
+            data:(ID: ID),
             data: {donor_email: donor_email},
             success: function (result) {
                 alert("تم إرسال البريد الإلكتروني إلى المتبرع بنجاح");
+                  
             },
             error: function (err) {
                 // check the err for error details
