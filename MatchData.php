@@ -20,7 +20,7 @@ if (isset($_SESSION['role'])) {
                     <header id="dtr-header-global" class="">
                         <div class="container">
                             <div class="row">
-                                <div class="col-sm-4">
+                                <div class="col-sm-2">
                                     <form id="signout" action="logout.php" method="POST">
                                         <input type="submit" class="logoutbtn" style="font-family: Almarai;" value="تسجيل خروج">
                                     </form>
@@ -51,7 +51,7 @@ if (isset($_SESSION['role'])) {
                         </div>
                     </div>
 
-                                <div class="col-sm-3" align="right">
+                                <div class="col-sm-2" align="right">
                                     <div class="dtr-header-right">
                                         <a class="logo-default dtr-scroll-link" href="index.php"><img src="finalLogo.jpeg"
                                                                                                       alt="logo" width="108"></a>
@@ -112,7 +112,7 @@ echo "<p dir='rtl'>تم العثور على المتبرع باسم  <span style
                                                 else {
                                                     // If there is no request, the system will display appropraite message
                                                    
-                                                    echo "لم يتم العثور على متبرع حتى الآن";
+                                                    echo "<h2>"."لم يتم العثور على متبرع حتى الآن"."</h2>";
                                                 }//end else
                                                 ?>
                                         <?php
@@ -163,12 +163,13 @@ echo "<p dir='rtl'>تم العثور على المتبرع باسم  <span style
 
         ?>
 <script>
-    function send_email(donor_email) {
+    function send_email(donor_email, ID) {
         $.ajax({
             url: "Send_donor_email.php",
             type: "POST",
             // dataType: "json",
             // contentType: "application/json; charset=utf-8",
+            data: {ID: ID},
             data: {donor_email: donor_email},
             success: function (result) {
                 alert("تم إرسال البريد الإلكتروني إلى المتبرع بنجاح");
