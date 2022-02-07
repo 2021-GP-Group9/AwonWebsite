@@ -1,15 +1,31 @@
 <?php
-
+                                             
+   require('db_connecting.php');
+                                                    $ID = $_POST['ID'];
+                                                 
+                                            $sqli2 = "SELECT `name`,`email`,`phone` FROM `charity`";
+                                            $result2 = $conn->query($sqli2);
+                                        ?>
+<?php
+                                                if ($result2 ->num_rows > 0) {
+                                                    while ($row = mysqli_fetch_assoc($result2)) {
+                                                       $name = $row['name'];
+                                                       $email = $row['email'];
+                                                       $phone = $row['phone'];
+                                                }}
+                                                       ?>
+<?php
 if ($_POST['donor_email']){
     $email= $_POST['donor_email'];
     $to = $email;
     $subject = "يمكنك التبرع الآن";
-    $message ="<p style='text-align: center;'> يمكنك التبرع الان للجمعية الخيرية </p>"."<br>"."<p style='text-align: center;'> https://awoon.000webhostapp.com/index.php"."</p>"."<p style='text-align: center;'>منصة عون الخيرية     </p>";
+    $message ="<p style='text-align: center;'> يمكنك التبرع الان للجمعية الخيرية  </p>".$name."<br>"."<p style='text-align: center;'>للتواصل مع الجمعية عبر البريد الالكتروني أو رقم الجوال </p>". $email."<br>".$phone ."<p style='text-align: center;'>منصة عون الخيرية     </p>";
     $headers = "Content-type:text/html;charset=UTF-8"."\r\n";
     
     if(mail($to, $subject, $message,$headers)){
            
-      $sql = "UPDATE `donation` SET `donationStatus`='1' ";  
+      $sql = "UPDATE `donation` SET `donationStatus`='1' ";
+      $result = $conn->query($sql);
       
       echo "Email Sent"; 
     }
