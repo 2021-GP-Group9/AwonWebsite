@@ -268,7 +268,7 @@ $_SESSION['faild'] = null;
                                                     <div class="form-check-inline">
                                                         <label class="form-check-label">
                                                             <input type="checkbox" class="form-check-input"
-                                                                name="type[]" id="furniture" value="اثاث"><h6>اثاث</h6>
+                                                                name="type[]" id="furniture" value="أثاث"><h6>أثاث</h6>
                                                         </label>
                                                     </div>
                                                     <div class="form-check-inline">
@@ -327,5 +327,4 @@ $_SESSION['faild'] = null;
 </footer>
 </div>
 </div>
-
 </html>

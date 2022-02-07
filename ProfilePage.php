@@ -249,14 +249,14 @@ $options = array(
                                                         </div>
                                                         <div class="form-check-inline">
                                                             <label class="form-check-label">
-                                                                <input type="checkbox" class="form-check-input" name="types[]" id="type_of_donation"  value="اثاث"
+                                                                <input type="checkbox" class="form-check-input" name="types[]" id="type_of_donation"  value="أثاث"
                                                                 <?php
-                                                                if (in_array('اثاث', $headers)) {
+                                                                if (in_array('أثاث', $headers)) {
                                                                     echo "checked ";
                                                                 }
                                                                 ?>
 
-                                                                       ><h6>اثاث</h6>
+                                                                       ><h6>أثاث</h6>
                                                             </label>
                                                         </div>
                                                         <div class="form-check-inline">
