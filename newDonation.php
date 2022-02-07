@@ -107,7 +107,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                                             }
                                             //print_r($headers);
                                             //to show colors in dropdown list
-                                            $options = array('غير محدد',
+                                            $options = array(
                                                 'أبيض',
                                                 'أحمر',
                                                 'أخضر',
@@ -121,20 +121,19 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                                                 'رمادي',
                                                 'فضي',
                                                 'كحلي',
-                                                'وردي');
+                                                'وردي','غير محدد');
                                             ?>
                                             <div class="row">
                                                 <div class="col-12 col-md-12">
                                                     <div class="dtr-form">
                                                         <form id="contactform" method="POST" enctype="multipart/form-data" style="direction:rtl;" >
                                                             <fieldset>
-                                                                <!-- يوم الخميس 
-                                                                  يكون فورم الاد يشتغل كامل
-                                                                -->
+                                                               
                                                                 <p><label>وصف طلب التبرع</label>
                                                                     <textarea rows="4"
                                                                               name="descrption" id="message" class="required"
-                                                                              placeholder="عائلة متعففة مكونة من ست أشخاص تحتاج إلى ..." maxlength="255" required></textarea>
+                                                                              placeholder="عائلة متعففة مكونة من ست أشخاص تحتاج إلى ..." maxlength="255" 
+                                                                              title="يجب تعبئة هذا الحقل" required></textarea>
                                                                 <div id="count" style="float: left;">
                                                                     <span id="current">0</span>
                                                                     <span id="maximum">/ 255</span>
@@ -145,38 +144,42 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                                                                     <p class="dtr-form-column">
                                                                         <label for="size">المقاس</label>
                                                                         <input type="text" name="size" id="size"
-                                                                               placeholder="S,38,مفرد,مزدوج" required>
+                                                                               placeholder="S,38,مفرد,مزدوج"
+                                                                               title="يجب تعبئة هذا الحقل"
+                                                                               required>
                                                                     </p>
                                                                     <p class="dtr-form-column">
                                                                         <label for="name">الصنف</label>
                                                                         <input type="text" name="name" id="name"
-                                                                               placeholder="سرير" required>
+                                                                               placeholder="سرير" title="يجب تعبئة هذا الحقل" required>
                                                                     </p>
                                                                     <p class="dtr-form-column">
                                                                         <label for="type">النوع</label>
-                                                                        <select name="type">  
-                                                                            <option value="">اختر</option>  
+                                                                        <select name="type" title="يجب اختيار النوع" required>  
+                                                                             
                                                                             <?php
                                                                             for ($i = 0; $i < sizeof($headers); $i++) {
                                                                                 ?>  
                                                                                 <option selected='selected' value="<?php echo $headers[$i]; ?>"> 
                                                                                     <?php echo $headers[$i]; ?>  
                                                                                 </option>  
+                                                                               
                                                                                 <?php
                                                                             }
-                                                                            ?>  
+                                                                            ?> 
+                                                                                 <option value="" selected='selected'>اختر</option> 
                                                                         </select>  
                                                                     </p>  
                                                                 </div>
                                                                 <div class="dtr-form-row dtr-form-row-2col">
                                                                     <p class="dtr-form-column">
                                                                         <label for=" quant">الكمية</label>
-                                                                        <input type="number" id="quantity" name="quantity" min="1" max="100" value="1">
+                                                                        <input type="number" id="quantity" name="quantity" min="1" max="100" value="1" title="يجب إدخال الكمية" required>
                                                                     </p>  
                                                                     <p class="dtr-form-column">
                                                                         <label for="color">اللون</label>
                                                                         <?php
-                                                                        echo "<select name='color'>";
+                                                                        echo "<select name='color' title='يجب اختيار لون''required>";
                                                                         foreach ($options as $option) {
                                                                             echo "<option selected='selected' value='$option'>$option</option>";
                                                                         }

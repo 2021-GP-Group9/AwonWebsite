@@ -11,7 +11,7 @@ if (isset($_SESSION['role'])) {
                 <meta name="format-detection" content="telephone=no">
                 <link rel='stylesheet' href='design.css'>
                 <link rel="stylesheet" href="DesignBootstrap.css">
-                <title>مطابقة التبرعات </title>
+                <title>طلبات التبرع</title>
             </head>  
             <body>
                 <div id="dtr-wrapper" class="clearfix"> 
@@ -76,7 +76,10 @@ if (isset($_SESSION['role'])) {
 
                                             $sqli = "SELECT * FROM `donation` WHERE charity_id = '$ID'";
                                             $result = $conn->query($sqli);
+                                             if ($result->num_rows > 0) {
+                                                    while ($row = mysqli_fetch_assoc($result)) {
                                             ?>
+
                                             <table table dir="rtl" class="tab-requets" style="width: 1000px; margin: 10px auto; background: #FFF">
                                                 <tr align="right" style="text-align: center;font-family: Almarai;">
                                                     <th align="center" >تسلسل</th>
@@ -89,8 +92,7 @@ if (isset($_SESSION['role'])) {
                                                     <th align="center" style="width:30%">تعديل أو حذف أو مطابقة </th>
                                                 </tr>
                                                 <?php
-                                                if ($result->num_rows > 0) {
-                                                    while ($row = mysqli_fetch_assoc($result)) {
+                                               
                                                         echo "<tr style='font-family: Almarai;'>";
                                                         echo "<td align='center' >" . $row['donationId'] . "</td>";
                                                         echo "<td align='center'>" . $row['donationDescription'] . "</td>";
@@ -107,9 +109,8 @@ if (isset($_SESSION['role'])) {
                                                 }//end if 
                                                 else {
                                                     // If there is no request, the system will display appropraite message
-                                                    echo'<tr align="right">';
-                                                    echo "<td>" . "</td>" . "<td>" . "لا يوجد طلبات تبرع جديدة" . "</td>";
-                                                    echo "<td>" . "</td>" . "<td>" . "</td>";
+                                                   
+                                                    echo "<h3>". "لا يوجد طلبات تبرع جديدة" ."</h3>";
                                                 }
                                                 ?>
                                             </table>

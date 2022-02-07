@@ -120,7 +120,7 @@ $color = $_GET['color'];
                                             }
                                             //print_r($headers);
                                             //to show colors in dropdown list
-                                            $options = array('غير محدد',
+                                            $options = array(
                                                 'أبيض',
                                                 'أحمر',
                                                 'أخضر',
@@ -134,7 +134,7 @@ $color = $_GET['color'];
                                                 'رمادي',
                                                 'فضي',
                                                 'كحلي',
-                                                'وردي');
+                                                'وردي','غير محدد');
                                             ?>
                                             <div class="row">
                                                 <div class="col-12 col-md-12">
