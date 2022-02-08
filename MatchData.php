@@ -90,28 +90,36 @@ if (isset($_SESSION['role'])) {
                                                 <?php
                                                 if ($result->num_rows > 0) {
                                                  while ($row = mysqli_fetch_assoc($result)) {
-                                                     //echo $row['DonorId'];
-                                                    // exit;
+
+
                                                        $donor_name_fetch =   "SELECT * FROM `donor` WHERE DonorId =". $row['DonorId'];
                                                          $donor_name = $conn->query($donor_name_fetch);
                                                          $row1 = mysqli_fetch_assoc($donor_name);
-                                                         $email = $row1["donorEmail"];
-echo "<p dir='rtl'>تم العثور على المتبرع باسم  <span style='color: green'> $row1[donorName]<span></span> <button   style='float: left' class='btn btn-success' onclick=send_email('$email')>   
+$email = $row1["donorEmail"];
+
+
+echo "<p dir='rtl'>تم العثور على المتبرع باسم  <span style='color: green'>$row1[donorName]<span></span> <button   style='float: left' class='btn btn-success' onclick=send_email('$email')>   
      
      ارسل بريد الكتروني</button></p> ";
-                                                     //echo "<button  style='margin-right: 30px' class='btn btn-success'>abc</button>". $row1['donorName'] ."&nbsp"."تم العثور على المتبرع باسم "."<br>";
-//                                                       $donationId = $row['donationId'];
-//                                                       $donationDescription = $row['donationDescription'];
-//                                                       $itemName = $row['itemName'];
-//                                                       $itemType = $row['itemType'];
-//                                                       $itemSize = $row['itemSize'];
-//                                                       $itemColor = $row['itemColor'];
-//                                                       $itemCount = $row['itemCount'];
+                                                    
                                                     }//end while
                                                 }//end if 
                                                 else {
                                                     // If there is no request, the system will display appropraite message
-                                                   
+                                                    $donationId=  $_GET['id'];
+                                                    $sqli = "SELECT * FROM `respond` WHERE  `DonationId` = $donationId  LIMIT 1";
+                                                    $result = $conn->query($sqli);
+                                                    $row = mysqli_fetch_assoc($result);
+
+                                                    $donor_name_fetch =   "SELECT * FROM `donor` WHERE DonorId =". $row['DonorId'];
+                                                    $donor_name = $conn->query($donor_name_fetch);
+                                                    $row1 = mysqli_fetch_assoc($donor_name);
+                                                    $email = $row1["donorEmail"];
+                                                    $to = $email;
+                                                    $subject = "اعتذار عن استقبال التبرع ";
+                                                    $message = "<h1 style='text-align: center;'> نعتذر عن استقبال تبرعك لعدم تحقيقة مواصفات الحالة </h1>"."<br>"."<p style='text-align: center;'> يمكنك الإطلاع على جميع الحالات الاخرى في تطبيق عونأو التواصل مع الجمعية لمزيد من المعلومات  </p>"."<br>"."<p style='text-align: center;'> https://awoon.000webhostapp.com/index.php"."</p>"."<p style='text-align: center;'> شاكرين لك مساهمتك معنا وسعدنا بانضمامك </p>";
+                                                    $headers = "Content-type:text/html;charset=UTF-8"."\r\n";
+                                                    mail($to, $subject, $message,$headers);
                                                     echo "لم يتم العثور على متبرع حتى الآن";
                                                 }//end else
                                                 ?>
@@ -169,11 +177,10 @@ echo "<p dir='rtl'>تم العثور على المتبرع باسم  <span style
             type: "POST",
             // dataType: "json",
             // contentType: "application/json; charset=utf-8",
-            data:(ID: ID),
+            data: {ID: ID},
             data: {donor_email: donor_email},
             success: function (result) {
                 alert("تم إرسال البريد الإلكتروني إلى المتبرع بنجاح");
-                  
             },
             error: function (err) {
                 // check the err for error details
