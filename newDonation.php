@@ -43,27 +43,27 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                             <div class="row">
                                 <div class="col-sm-2">
                                     <form id="signout" action="logout.php" method="POST">
-                                        <input type="submit" class="logoutbtn" value="تسجيل خروج">
+                                        <input type="submit" class="logoutbtn" style="font-family: Almarai;" value="تسجيل خروج">
                                     </form>
                                 </div>
                                 <div class="col" ><br>
                                     <div class="main-navigation dtr-menu-dark">
-                                        <a class="nav-link" href="ProfilePage.php">الملف الشخصي</a>
+                                        <a class="nav-link" href="ProfilePage.php" style="font-family: Almarai;">الملف الشخصي</a>
                                     </div>
                                 </div>
                                 <div class="col" ><br>
                                     <div class="main-navigation dtr-menu-dark">
-                                        <a class="nav-link" href="donationRequests.php">طلبات التبرع</a>
+                                        <a class="nav-link" href="donationRequests.php" style="font-family: Almarai;">طلبات التبرع</a>
                                     </div>
                                 </div>
                                 <div class="col" ><br>
                                     <div class="main-navigation dtr-menu-dark">
-                                        <a class="nav-link" href="CharityPage.php?">المواعيد</a>
+                                        <a class="nav-link" href="CharityPage.php?" style="font-family: Almarai;">المواعيد</a>
                                     </div>
                                 </div>
                                 <div class="col" ><br>
                                     <div class="main-navigation dtr-menu-dark">
-                                        <a class="nav-link" href="charityHome.php">الرئيسية</a>
+                                        <a class="nav-link" href="charityHome.php" style="font-family: Almarai;">الرئيسية</a>
                                     </div>
                                 </div>
                                 <div class="col-sm-2" align="right">
@@ -128,7 +128,9 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                                                     <div class="dtr-form">
                                                         <form id="contactform" method="POST" enctype="multipart/form-data" style="direction:rtl;" >
                                                             <fieldset>
-                                                               
+                                                                <!-- يوم الخميس 
+                                                                  يكون فورم الاد يشتغل كامل
+                                                                -->
                                                                 <p><label>وصف طلب التبرع</label>
                                                                     <textarea rows="4"
                                                                               name="descrption" id="message" class="required"

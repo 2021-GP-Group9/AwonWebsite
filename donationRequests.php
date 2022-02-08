@@ -74,15 +74,15 @@ if (isset($_SESSION['role'])) {
                                             // Get the Unaccepted charities
                                             $ID = $_SESSION['ID'];
 
-                                            $sqli = "SELECT * FROM `donation` WHERE charity_id = '$ID'";
+                                            $sqli = "SELECT * FROM `donation` WHERE charity_id = '$ID' AND donationStatus = '0' ";
                                             $result = $conn->query($sqli);
                                              if ($result->num_rows > 0) {
-                                                    while ($row = mysqli_fetch_assoc($result)) {
+                                                   
                                             ?>
 
                                             <table table dir="rtl" class="tab-requets" style="width: 1000px; margin: 10px auto; background: #FFF">
                                                 <tr align="right" style="text-align: center;font-family: Almarai;">
-                                                    <th align="center" >تسلسل</th>
+                                                    <th align="center" style="width:10%">رقم الطلب</th>
                                                     <th align="center">وصف الطلب</th>
                                                     <th align="center" style="width:5%">الصنف</th>
                                                     <th align="center" style="width:10%">النوع</th>
@@ -92,7 +92,7 @@ if (isset($_SESSION['role'])) {
                                                     <th align="center" style="width:30%">تعديل أو حذف أو مطابقة </th>
                                                 </tr>
                                                 <?php
-                                               
+                                                while ($row = mysqli_fetch_assoc($result)) {
                                                         echo "<tr style='font-family: Almarai;'>";
                                                         echo "<td align='center' >" . $row['donationId'] . "</td>";
                                                         echo "<td align='center'>" . $row['donationDescription'] . "</td>";

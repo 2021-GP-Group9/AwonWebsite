@@ -20,7 +20,7 @@ if (isset($_SESSION['role'])) {
                     <header id="dtr-header-global" class="">
                         <div class="container">
                             <div class="row">
-                                <div class="col-sm-4">
+                                <div class="col-sm-2">
                                     <form id="signout" action="logout.php" method="POST">
                                         <input type="submit" class="logoutbtn" style="font-family: Almarai;" value="تسجيل خروج">
                                     </form>
@@ -51,7 +51,7 @@ if (isset($_SESSION['role'])) {
                         </div>
                     </div>
 
-                                <div class="col-sm-3" align="right">
+                                <div class="col-sm-2" align="right">
                                     <div class="dtr-header-right">
                                         <a class="logo-default dtr-scroll-link" href="index.php"><img src="finalLogo.jpeg"
                                                                                                       alt="logo" width="108"></a>
@@ -106,21 +106,8 @@ echo "<p dir='rtl'>تم العثور على المتبرع باسم  <span style
                                                 }//end if 
                                                 else {
                                                     // If there is no request, the system will display appropraite message
-                                                    $donationId=  $_GET['id'];
-                                                    $sqli = "SELECT * FROM `respond` WHERE  `DonationId` = $donationId  LIMIT 1";
-                                                    $result = $conn->query($sqli);
-                                                    $row = mysqli_fetch_assoc($result);
-
-                                                    $donor_name_fetch =   "SELECT * FROM `donor` WHERE DonorId =". $row['DonorId'];
-                                                    $donor_name = $conn->query($donor_name_fetch);
-                                                    $row1 = mysqli_fetch_assoc($donor_name);
-                                                    $email = $row1["donorEmail"];
-                                                    $to = $email;
-                                                    $subject = "اعتذار عن استقبال التبرع ";
-                                                    $message = "<h1 style='text-align: center;'> نعتذر عن استقبال تبرعك لعدم تحقيقة مواصفات الحالة </h1>"."<br>"."<p style='text-align: center;'> يمكنك الإطلاع على جميع الحالات الاخرى في تطبيق عونأو التواصل مع الجمعية لمزيد من المعلومات  </p>"."<br>"."<p style='text-align: center;'> https://awoon.000webhostapp.com/index.php"."</p>"."<p style='text-align: center;'> شاكرين لك مساهمتك معنا وسعدنا بانضمامك </p>";
-                                                    $headers = "Content-type:text/html;charset=UTF-8"."\r\n";
-                                                    mail($to, $subject, $message,$headers);
-                                                    echo "لم يتم العثور على متبرع حتى الآن";
+                                                   
+                                                    echo "<h2>"."لم يتم العثور على متبرع حتى الآن"."</h2>";
                                                 }//end else
                                                 ?>
                                         <?php
