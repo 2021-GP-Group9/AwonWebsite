@@ -145,7 +145,7 @@ if ($result ->num_rows > 0) {
                                                     $email = $row1["donorEmail"];
                                                     $to = $email;
                                                     $subject = "اعتذار عن استقبال التبرع ";
-                                                    $message = "<h1 style='text-align: center;'>  ($itemName)نعتذر عن استقبال تبرعك باسم: </h1>". "<p style='text-align: center;'>لعدم ماطبقتة حالة التبرع </p>"."<br>"."<p style='text-align: center;'> يمكنك الإطلاع على جميع الحالات الآخرى في تطبيق عون  </p>"."<br>"."<p style='text-align: center;'> لمزيد من المعلومات يمكنك التواصل مع الجمعية عبر البريد الألكتروني: $emailC"."</p>"."<br>"."<p style='text-align: center;'>    أو عبر الهاتف: $phoneC   </p>"." <br>"."<p style='text-align: center;'> شاكرين لك مساهمتك معنا وسعدنا بانضمامك </p>";
+                                                    $message = "<p style='text-align: center;'>  ($itemName)نعتذر عن استقبال تبرعك باسم: </p>". "<p style='text-align: center;'>لعدم ماطبقتة حالة التبرع </p>"."<br>"."<p style='text-align: center;'> يمكنك الإطلاع على جميع الحالات الآخرى في تطبيق عون  </p>"."<br>"."<p style='text-align: center;'> لمزيد من المعلومات يمكنك التواصل مع الجمعية عبر البريد الألكتروني: $emailC"."</p>"."<br>"."<p style='text-align: center;'>    أو عبر الهاتف: $phoneC   </p>"." <br>"."<p style='text-align: center;'> شاكرين لك مساهمتك معنا وسعدنا بانضمامك </p>";
                                                     $headers = "Content-type:text/html;charset=UTF-8"."\r\n";
                                                     mail($to, $subject, $message,$headers);
                                                     }
