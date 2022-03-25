@@ -10,7 +10,7 @@ $city = $_POST['city'];
     WHERE 
         status='Accepted' AND (city = '{$city}') AND
         ( (service = '{$service}')  
-         OR (donationType = '{$type}') )
+         OR (donationType LIKE '%{$type}%'))
         ") or die($conn->error);
    
    $res=array();
@@ -45,8 +45,12 @@ $city = $_POST['city'];
     //The usort() function sorts an array using a user-defined comparison function.
   
   usort($res, "cmp");
-  
+ 
+  // remover first element which is the same charity since its the most simillar
+array_shift($res);
+
   while(count($res) > 5){
+      
       array_pop($res);
   }
   
