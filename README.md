@@ -1,6 +1,6 @@
 Project Title:AwonWebsite
 Introduction: The website is used by the administrator to receive joining requests, manage the charities’ accounts.
-Moreover, charity representatives can request joining the system, manage their profile, manage appointment scheduling, manage requests for donation, match the donation responses automatically.
+Moreover, charity representatives can request joining the system, manage their profile, manage appointment scheduling, manage requests for donation, match the donation responses automatically.Finally, we did back end for charities recommender system.
 
 Technologies:
 languages: Html,CSS,javaScript, php.
