@@ -5,26 +5,6 @@ if (isset($_SESSION['role'])) {
         $error = NULL;
         $color = null;
         require('db_connecting.php');
-        if (isset($_POST["ema"])) {
-            $color = $_POST['color'];
-            $query = "insert into `donor` (`reason`) values('$color') WHERE donorId='" . $donorId . "'";
-            if ($conn->query($query) === TRUE) {
-                echo '<h1 style="color:green; text-align:center">تم الارسال</h1>';
-                ?>
-                <META HTTP-EQUIV="Refresh" Content="2; URL=manageAccounts.php">
-                <?php
-            } else {
-                echo "الرجاء اعادة المحاولة ";
-            }
-        }
-        $options = array(
-            'شكوى صادرة من متبرع',
-            'شكوى صادرة من جمعية خيرية',
-            'تجاوزات في المحادثة',
-            'مصلحة عامة',
-            'مخالفة شروط التطبيق',
-            'آخرى',
-        );
         ?>
         <html lang="en">
             <head>
@@ -70,9 +50,10 @@ if (isset($_SESSION['role'])) {
                                                 <h6><lable>ادخل البريد الإلكتروني الذي ترغب بالبحث عنه</lable></h6>
                                                 <input type="text" name="search" value="">
                                                 <h6 class="text-center">
-                                                    <button class="dtr-btn btn-blue" type="submit" name="hitsearch"
+                                                    <br><button class="dtr-btn btn-blue" type="submit" name="hitsearch"
                                                             >بحث</button> </h6>
                                             </form>
+                                            <br><br>
                                             <table width="100%" class="tab-requets">
                                                 <?php
                                                 if (isset($_POST['hitsearch'])) {
@@ -83,8 +64,6 @@ if (isset($_SESSION['role'])) {
                                                     if ($result->num_rows > 0) {
                                                         while ($row = mysqli_fetch_assoc($result)) {
                                                             $donorId = $row['donorId'];
-                                                            $donorEmail = $row['donorEmail'];
-                                                            $mess = "";
                                                             ?> <tr align="right" style="font-family: Almarai;">
                                                                 <th>الحالة</th>
                                                                 <th>البريد الإلكتروني</th>
@@ -92,76 +71,102 @@ if (isset($_SESSION['role'])) {
                                                                 <th>اسم المتبرع</th>
                                                             </tr>
                                                             <tr align="right" style="font-family: Almarai;">
-                                                                <?php
-                                                                echo " <td>";
-                                                                if ($row['suspend'] == "unsuspend") {
-                                                                    echo "فعال";
-                                                                } else {
-                                                                    echo "معلق";
-                                                                }"</td>";
-                                                                echo "<td>" . $row['donorEmail'] . "</td>";
-                                                                echo "<td>" . $row['donorPhone'] . "</td>";
-                                                                echo "<td>" . $row['donorName'] . "</td>";
-                                                                echo" </tr>";
-                                                                echo "</table><br>";
+                    <?php
+                    echo " <td>";
+                    if ($row['suspend'] == "unsuspend") {
+                        echo "فعال";
+                    } else {
+                        echo "معلق";
+                    }"</td>";
+                    echo "<td>" . $row['donorEmail'] . "</td>";
+                    echo "<td>" . $row['donorPhone'] . "</td>";
+                    echo "<td>" . $row['donorName'] . "</td>";
+                    echo" </tr>";
+                    echo "</table><br>";
+                    echo"<br><h6 class='text-center'>";
+                    if ($row['suspend'] == "unsuspend") {
+                        echo "<button id='sus' class='btn btn-danger btn-xs' value=$donorId onclick='sus($donorId)' style='font-family: Almarai;'>تعليق</button>";
+                    } else {
+                        echo "<button id='unsus' class='btn btn-success btn-xs' value=$donorId onclick='unsus($donorId)' style='font-family: Almarai;'>تفعيل</button>";
+                    }
+//"<button id='sus' class='btn btn-success btn-xs' onclick='sus({$row["donorId"]})'>تعليق</button>"
+//"<button id='unsus' class='btn btn-success btn-xs' onclick='unsus({$row["donorId"]})'>تفعيل</button>"
+                }
+            } else {
+                echo '<h3>لايوجد متبرع بهذا الإيميل المدخل</h3>';
+            }
+        } echo '</table>';
+        ?>
 
-                                                                echo '<form method="POST">';
-                                                                echo"<h6>" . "<label>سبب تعليق/عدم تعليق الحساب" . "</label>" . "</h6>";
-                                                                ?> <p class="dtr-form-column">
-                                                                <label for="color">السبب</label>
-                                                                <?php
-                                                                echo "<select name='color' title='يجب اختيار سبب''required>";
-                                                                foreach ($options as $option) {
-                                                                    echo "<option selected='selected' value='$option'>$option</option>";
-                                                                }
-                                                                echo "</select>";
-                                                                ?> 
-                                                            </p></form>
+                                                    </div>
+                                                    </div>
+                                                    </div>
+                                                    </div>
+                                                    </section>   
+                                                    </body>
+                                                <footer id="dtr-footer"> 
+                                                    <div class="dtr-copyright">
+                                                        <div class="container"> 
+                                                            <div class="row"> 
+                                                                <div class="col-12 col-md-12" align="center">
+                                                                    <p style="font-family: Almarai;">&copy; فريق منصة عون</p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
 
-                                                            <?php
-                                                            echo"<br><h6 class='text-center'>"
-                                                            //<button class="dtr-btn btn-blue" type="submit" name="hitsearch"
-                                                            // >بحث</button>
-                                                            . "<a href='suspendEmail.php?id={$row['donorId']}' class='btn btn-success btn-xs' name='ema' style='font-family: Almarai;'>ارسل ايميل</a>";
-
-                                                            if ($row['suspend'] == "unsuspend") {
-                                                                $sql = "UPDATE donor SET suspend='suspend' WHERE donorId ='$id'";
-                                                            } else {
-                                                                $sql = "UPDATE donor SET suspend='unsuspend' WHERE donorId ='$id'";
-                                                            }
-                                                            $result = mysqli_query($conn, $sql);
-                                                        }
-                                                    } else {
-                                                        echo '<h3>لايوجد متبرع بهذا الإيميل المدخل</h3>';
-                                                    }
-                                                } echo '</table>';
-                                                ?>
-
+                                                    </div>
+                                                </footer>
                                         </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </section>   
-                        </body>
-                        <footer id="dtr-footer"> 
-                            <div class="dtr-copyright">
-                                <div class="container"> 
-                                    <div class="row"> 
-                                        <div class="col-12 col-md-12" align="center">
-                                            <p style="font-family: Almarai;">&copy; فريق منصة عون</p>
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </footer>
-                    </div>
-                </div> 
+                                    </div> 
 
         <?php
     }
 }
 ?>
+                            <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+                            <script>
+                                function sus(id) {
+                                    var donorId = $('#sus').val();
+                                    var data = "ID=" + donorId;
+                                    if (confirm('هل أنت متأكد من تعليق الوصول لهذا الحساب ؟')) {
+                                        $.ajax({
+                                            type: 'POST',
+                                            url: 'suspendEmailDonor.php',
+                                            data: {ID: id},
+                                            success: function (data) {
+                                                alert("تم تعليق الحساب وإرسال إيميل");
+                                                window.location = 'joiningRequests.php';
+                                            }
+                                            , error: function (data) {
+                                                alert("حدث خطأ أعد المحاولة");
+                                                window.location = 'joiningRequests.php';
+                                            }
+                                        });
+                                    }
+                                }
 
-</html>
+                            </script>
+                            <script>
+                                function unsus(id) {
+                                    var donorId = $('#unsus').val();
+                                    var data = "ID=" + donorId;
+                                    if (confirm('هل أنت متأكد من تفعيل الوصول لهذا الحساب ؟')) {
+                                        $.ajax({
+                                            type: 'POST',
+                                            url: 'suspendEmailDonor.php',
+                                            data: {ID: id},
+                                            success: function (data) {
+                                                alert("تم تفعيل الحساب وإرسال إيميل");
+                                                window.location = 'joiningRequests.php';
+                                            }
+                                            , error: function (data) {
+                                                alert("حدث خطأ أعد المحاولة");
+                                                window.location = 'joiningRequests.php';
+                                            }
+                                        });
+                                    }
+                                }
+
+                            </script>
+                            </html>
 
