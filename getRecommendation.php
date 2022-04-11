@@ -10,8 +10,7 @@ $city = $_POST['city'];
     WHERE 
         status='Accepted' AND (city = '{$city}') AND
         ( (service = '{$service}')  
-         OR (donationType LIKE '%{$type}%'))
-        ") or die($conn->error);
+         OR (donationType LIKE '%{$type}%')) ORDER BY RAND() ") or die($conn->error);
    
    $res=array();
   while($row=$sql->fetch_assoc()){
