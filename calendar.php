@@ -11,9 +11,16 @@ if (isset($_POST['submit'])) {
     $no = $result->num_rows;
 
     if ($no == 0) {
+        $sqli = "SELECT * FROM `charity` WHERE charityId = '$ID'";
+        $result = $conn->query($sqli);
+        $row = $result->fetch_assoc();
+        $status = $row['suspend'];
+        if ($status == 'suspend') {
+            echo"<h3 style='color:red; text-align:center'> تم إيقاف الحساب تواصل مع المشرف</h3>";
+            echo '<META HTTP-EQUIV="Refresh" Content="3; URL=charityHome.php">';
+        }else{
         //Add the appointment
         $sqli2 = "INSERT INTO `appointment` VALUES(NULL,'$date', '$time', $ID, NULL ,'لم يحدد بعد' , 0, 0 ,'غير محجوز')";
-      
 
         $result2 = $conn->query($sqli2);
         if ($result2) {
@@ -21,6 +28,8 @@ if (isset($_POST['submit'])) {
             echo '<h1 style="color:green; text-align:center">تم إضافة الموعد بنجاح</h1>';
             echo '<META HTTP-EQUIV="Refresh" Content="2;CharityPage.php">';
             exit();
+        }
+        
         }
     } else {
         //Conflect

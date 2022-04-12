@@ -76,6 +76,16 @@ $color = $_GET['color'];
                                                 <h2>نموذج تعديل طلب التبرع </h2>
                                                 <?php
   
+$sqli = "SELECT * FROM `charity` WHERE charityId = '$ID'";
+$result = $conn->query($sqli);
+    $row = $result->fetch_assoc();
+    $status = $row['suspend'];
+if($status=='suspend'){
+    echo"<h3 style='color:red; text-align:center'> تم إيقاف الحساب تواصل مع المشرف</h3>";
+                echo '<META HTTP-EQUIV="Refresh" Content="3; URL=charityHome.php">';
+}
+
+
 //insert data from form to DB                                                                                                                                                      
     $query = "SELECT * FROM `donation` WHERE donationId='$id'";
                 $result = $conn->query($query);

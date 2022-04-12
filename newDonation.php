@@ -87,13 +87,30 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                                             <div class="dtr-styled-heading">
                                                 <h2>نموذج طلب تبرع جديد  </h2>
                                                 <?php
-   //insert data from form to DB                                                                                                                                                      
-    $query = "INSERT INTO `donation`(`donationId`, `charity_id`, `donationDescription`, `itemName`, `itemType`, `itemSize`, `itemColor`, `itemCount`) VALUES (NULL,'$ID','$descrption','$name','$type','$size','$color','$quant')";
+   
+
+$sqli = "SELECT * FROM `charity` WHERE charityId = '$ID'";
+$result = $conn->query($sqli);
+    $row = $result->fetch_assoc();
+    $status = $row['suspend'];
+if($status=='suspend'){
+    echo"<h3 style='color:red; text-align:center'> تم إيقاف الحساب تواصل مع المشرف</h3>";
+                echo '<META HTTP-EQUIV="Refresh" Content="5; URL=charityHome.php">';
+}
+//insert data from form to DB                                                                                                                                                      
+   if (isset($_POST['submit'])){
+       $query = "INSERT INTO `donation`(`donationId`, `charity_id`, `donationDescription`, `itemName`, `itemType`, `itemSize`, `itemColor`, `itemCount`) VALUES (NULL,'$ID','$descrption','$name','$type','$size','$color','$quant')";
                 $run = mysqli_query($conn, $query);
                 if ($run) {
                      echo "<h2 style='text-align:center; color:green'>تم حفظ الطلب بنجاح </h2>";
                       echo '<META HTTP-EQUIV="Refresh" Content="2;donationRequests.php">';
-                }                             
+                } else {
+                   echo "<h2 style='text-align:center; color:red'>تم حفظ الطلب بنجاح </h2>";
+                      echo '<META HTTP-EQUIV="Refresh" Content="2;donationRequests.php">'; 
+   } 
+}  
+
+                                       
                                                 ?>
                                             </div>
                                             <hr>
