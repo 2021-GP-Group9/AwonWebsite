@@ -21,14 +21,24 @@ if (!isset($_SESSION['role'])) {
         <header id="dtr-header-global" class="">
             <div class="container">
                 <div class="row">
-                    <div class="col-sm-4">
+                    <div class="col">
                         <form id="signout" action="logout.php" method="POST">
-                            <input type="submit" class="logoutbtn" style="font-family: Almarai;" value="تسجيل خروج">
+                            <input type="submit" class="logoutbtn" style="font-family: Almarai; float: left;" value="تسجيل خروج">
                         </form>
                     </div>
+                     <div class="col" ><br>
+                                    <div class="main-navigation dtr-menu-dark">
+                                        <a class="nav-link" href="get_paymentlist.php" style="font-family: Almarai;">قائمة التبرعات</a>
+                                    </div>
+                                </div>
                     <div class="col" ><br>
                         <div class="main-navigation dtr-menu-dark">
                             <a class="nav-link" href="ProfilePage.php" style="font-family: Almarai;">الملف الشخصي</a>
+                        </div>
+                    </div>
+                    <div class="col" ><br>
+                        <div class="main-navigation dtr-menu-dark">
+                            <a class="nav-link" href="charityChat.php" style="font-family: Almarai;">محادثات</a>
                         </div>
                     </div>
                     <div class="col" ><br>
@@ -45,10 +55,8 @@ if (!isset($_SESSION['role'])) {
                         </div>
                     </div>
                     
-                    
-                    
-                    
-                    <div class="col-sm-3" align="right">
+             
+                    <div class="col" align="right">
                         <div class="dtr-header-right">
                             <a class="logo-default dtr-scroll-link" href="index.php"><img src="finalLogo.jpeg"
                                     alt="logo" width="108"></a>

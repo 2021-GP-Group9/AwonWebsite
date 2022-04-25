@@ -26,9 +26,14 @@ if (isset($_SESSION['role'])) {
                                         <input type="submit" class="logoutbtn" style="font-family: Almarai;" value="تسجيل خروج">
                                     </form>  
                                 </div>
-                                <div class="col-sm-4" align="center"><br>
+                                <div class="col" align="center"><br>
                                     <div class="main-navigation dtr-menu-dark">
                                         <a class="nav-link" href="joiningRequests.php" style="font-family: Almarai;">طلبات الإنضمام</a>
+                                    </div>
+                                </div>
+                                <div class="col" align="center"><br>
+                                    <div class="main-navigation dtr-menu-dark">
+                                        <a class="nav-link" href="adminChat.php" style="font-family: Almarai;">محادثات</a>
                                     </div>
                                 </div>
                                 <div class="col-sm-4" align="right">
@@ -89,8 +94,6 @@ if (isset($_SESSION['role'])) {
                                                                 } else {
                                                                     echo "<button id='unsus' class='btn btn-success btn-xs' value=$donorId onclick='unsus($donorId)' style='font-family: Almarai;'>تفعيل</button>";
                                                                 }
-//"<button id='sus' class='btn btn-success btn-xs' onclick='sus({$row["donorId"]})'>تعليق</button>"
-//"<button id='unsus' class='btn btn-success btn-xs' onclick='unsus({$row["donorId"]})'>تفعيل</button>"
                                                             }
                                                         } else {
                                                             $sqli1 = "SELECT * FROM `charity` WHERE email='$str'";

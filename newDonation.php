@@ -48,6 +48,11 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                                 </div>
                                 <div class="col" ><br>
                                     <div class="main-navigation dtr-menu-dark">
+                                        <a class="nav-link" href="get_paymentlist.php" style="font-family: Almarai;">قائمة الدفع</a>
+                                    </div>
+                                </div>
+                                <div class="col" ><br>
+                                    <div class="main-navigation dtr-menu-dark">
                                         <a class="nav-link" href="ProfilePage.php" style="font-family: Almarai;">الملف الشخصي</a>
                                     </div>
                                 </div>
@@ -95,7 +100,7 @@ $result = $conn->query($sqli);
     $status = $row['suspend'];
 if($status=='suspend'){
     echo"<h3 style='color:red; text-align:center'> تم إيقاف الحساب تواصل مع المشرف</h3>";
-                echo '<META HTTP-EQUIV="Refresh" Content="5; URL=charityHome.php">';
+                echo '<META HTTP-EQUIV="Refresh" Content="3; URL=charityHome.php">';
 }
 //insert data from form to DB                                                                                                                                                      
    if (isset($_POST['submit'])){

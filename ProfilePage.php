@@ -47,7 +47,7 @@ $options = array(
 <header id="dtr-header-global" class="">
                         <div class="container">
                             <div class="row">
-                                <div class="col-sm-4">
+                                <div class="col">
                                     <form id="signout" action="logout.php" method="POST">
                                         <input type="submit" class="logoutbtn" style="font-family: Almarai;" value="تسجيل خروج">
                                     </form>
@@ -55,6 +55,11 @@ $options = array(
                                 <div class="col" ><br>
                                     <div class="main-navigation dtr-menu-dark">
                                         <a class="nav-link" href="donationRequests.php" style="font-family: Almarai;" >طلبات التبرع</a>
+                                    </div>
+                                </div>
+                                <div class="col" ><br>
+                                    <div class="main-navigation dtr-menu-dark">
+                                        <a class="nav-link" href="charityChat.php" style="font-family: Almarai;" >محادثات</a>
                                     </div>
                                 </div>
                                 <div class="col" ><br>
@@ -67,7 +72,7 @@ $options = array(
                                         <a class="nav-link" href="charityHome.php" style="font-family: Almarai;">الرئيسية</a>
                                     </div>
                                 </div>
-                                <div class="col-sm-3" align="right">
+                                <div class="col" align="right">
                                     <div class="dtr-header-right">
                                         <a class="logo-default dtr-scroll-link" href="index.php"><img src="finalLogo.jpeg"
                                                                                                       alt="logo" width="108"></a>

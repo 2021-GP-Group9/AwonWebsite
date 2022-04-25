@@ -89,7 +89,7 @@ if (isset($_SESSION['role'])) {
 
                                                 if (password_verify($password, $row['password'])) {
                                                     //If login for the admin is successful ، password and usrname is correct
-                                                    $_SESSION['ID'] = $row['ID'];
+                                                    $_SESSION['ID'] = $row['id'];
                                                     $_SESSION['role'] = 'admin';
 
                                                     echo '<META HTTP-EQUIV="Refresh" Content="0; URL=joiningRequests.php">';
