@@ -48,12 +48,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                                 </div>
                                 <div class="col" ><br>
                                     <div class="main-navigation dtr-menu-dark">
-                                        <a class="nav-link" href="get_paymentlist.php" style="font-family: Almarai;">قائمة الدفع</a>
-                                    </div>
-                                </div>
-                                <div class="col" ><br>
-                                    <div class="main-navigation dtr-menu-dark">
-                                        <a class="nav-link" href="ProfilePage.php" style="font-family: Almarai;">الملف الشخصي</a>
+                                        <a class="nav-link" href="get_paymentlist.php" style="font-family: Almarai;">قائمة التبرعات</a>
                                     </div>
                                 </div>
                                 <div class="col" ><br>
@@ -64,6 +59,11 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                                 <div class="col" ><br>
                                     <div class="main-navigation dtr-menu-dark">
                                         <a class="nav-link" href="CharityPage.php?" style="font-family: Almarai;">المواعيد</a>
+                                    </div>
+                                </div>
+                                 <div class="col" ><br>
+                                    <div class="main-navigation dtr-menu-dark">
+                                        <a class="nav-link" href="ProfilePage.php" style="font-family: Almarai;">الملف الشخصي</a>
                                     </div>
                                 </div>
                                 <div class="col" ><br>
@@ -150,9 +150,7 @@ if($status=='suspend'){
                                                     <div class="dtr-form">
                                                         <form id="contactform" method="POST" enctype="multipart/form-data" style="direction:rtl;" >
                                                             <fieldset>
-                                                                <!-- يوم الخميس 
-                                                                  يكون فورم الاد يشتغل كامل
-                                                                -->
+                                                               
                                                                 <p><label>وصف طلب التبرع</label>
                                                                     <textarea rows="4"
                                                                               name="descrption" id="message" class="required"

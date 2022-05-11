@@ -49,7 +49,11 @@ if (isset($_SESSION['role'])) {
                             <a class="nav-link" href="donationRequests.php" style="font-family: Almarai;">طلبات التبرع</a>
                         </div>
                     </div>
-                    
+                    <div class="col" ><br>
+                            <div class="main-navigation dtr-menu-dark">
+                                <a class="nav-link" href="charityHome.php" style="font-family: Almarai;">الرئيسية</a>
+                            </div>
+                        </div>
              
                     
                     <div class="col" align="right">
@@ -74,6 +78,8 @@ if (isset($_SESSION['role'])) {
                                     </div>
                                     <div class="row dtr-styled-">
                                         <div class="col-md-6">
+                                        <META HTTP-EQUIV="Refresh" Content="30; URL=charityChat.php?">
+
                                             <div class="modal-header">
                                                 <h4>
                                                     <?php
@@ -101,18 +107,11 @@ if (isset($_SESSION['role'])) {
                                                         $sqli1234 = "SELECT * FROM `admin` WHERE id='$uName[userId]'";
                                                         $result1234 = $conn->query($sqli1234);
                                                         $row1234 = mysqli_fetch_assoc($result1234);
-                                                        echo "أدمن المنصة";
+                                                        echo "مشرف منصة عون";
                                                     }
                                                 }
                                                     }
-                                                    //                                                    else {
-                                                    //                                                        $userName = "SELECT * FROM `users` WHERE userId = '" . $_GET["toUser"] . "'";
-                                                    //                                                        $res = $conn->query($userName);
-                                                    //                                                        $uName = mysqli_fetch_assoc($res);
-                                                    //                                                        $_SESSION["toUser"] = $uName["userId"];
-                                                    //                                                        echo '<input type="text" value=' . $_SESSION["toUser"] . ' id="toUser" hidden/>';
-                                                    //                                                        echo $uName['role'];
-                                                    //                                                    }
+                                                                                                   
                                                     ?>
                                                 </h4>
 
@@ -121,15 +120,13 @@ if (isset($_SESSION['role'])) {
                                                 <?php
                                                 if (isset($_GET["toUser"])) {
                                                     $chats = mysqli_query($conn, "SELECT * from messages where (fromUser = '" . $userId . "' AND toUser='" . $_GET["toUser"] . "') OR (fromUser = '" . $_GET["toUser"] . "' AND toUser='" . $userId . "') ORDER BY id DESC ")  or die("Failed to query");
-//                                                }else{
-//                                                    $chats = mysqli_query($conn, "SELECT * from messages where (fromUser = '" . $userId . "' AND toUser='" . $_GET["toUser"] . "') OR (fromUser = '" . $_GET["toUser"] . "' AND toUser='" . $userId . "')") or die("Failed to query");
-//                                                }
+//                                                
                                                     while ($chat = mysqli_fetch_assoc($chats)) {
                                                         if ($chat["fromUser"] == $userId) {
                                                             echo "<div style='text-align:right;'><p style='background-color: lightblue; word-warp:break-word; display:inline-block; padding:5px; border-radius:10px; max width:70%;'>"  . $chat["message"]   . "</p></div>";
                                                             echo "<div style='text-align:right;'>".$chat['time']. "</div>";
                                                         }else{
-                                                            echo "<div style='text-align:left;'><p style='background-color: lightblue; word-warp:break-word; display:inline-block; padding:5px; border-radius:10px; max width:70%;'>"  . $chat["message"]   . "</p></div>";
+                                                            echo "<div style='text-align:left;'><p style='background-color: lightgrey; word-warp:break-word; display:inline-block; padding:5px; border-radius:10px; max width:70%;'>"  . $chat["message"]   . "</p></div>";
                                                             echo "<div style='text-align:left;'>".$chat['time']. "</div>";
                                                         }
                                                     }
@@ -171,18 +168,86 @@ if (isset($_SESSION['role'])) {
                                                         $sqli12 = "SELECT * FROM `charity` WHERE charityId='$row[userId]'";
                                                         $result12 = $conn->query($sqli12);
                                                         $row12 = mysqli_fetch_assoc($result12);
-                                                        echo '<a href="?toUser=' . $row['userId'] . '">' . $row12['name'] . '</a>' . '<br>';
-                                                    } elseif($row['role'] == 'donor') {
+                                                        $sqlmess = "SELECT * FROM messages where (fromUser = {$row['userId']} OR toUser={$row['userId']}) AND (toUser={$userId} OR fromUser={$userId}) ORDER BY id DESC LIMIT 1";
+                                                        $query3 = mysqli_query($conn, $sqlmess);
+                                                        $row4 = mysqli_fetch_assoc($query3);
+                                                        if($query3->num_rows > 0){
+                                                            $ress = $row4["message"];
+                                                        } else {
+                                                           $ress = "لاتوجد رسائل "; 
+                                                        } 
+                                                        (strlen($ress) > 32)? $msg = substr($ress, 0, 32): $msg = $ress;
+                                                         ?><div class="row" >
+                                                       
+                                                    <div class="col-6" align="right">
+                                                    <?php echo  $msg.'<br>';?>
+
+                                                    </div>
+                                                        <div class="col-6" >
+                                                    <?php echo '<a href="?toUser=' . $row['userId'] . '">' .$row12['name']. '</a>&nbsp;';?>
+                                                    </div>
+                                                </div> 
+                                                    <?php
+                                                    
+                                                        } elseif($row['role'] == 'donor') {
                                                         $sqli123 = "SELECT * FROM `donor` WHERE donorId='$row[userId]'";
                                                         $result123 = $conn->query($sqli123);
                                                         $row123 = mysqli_fetch_assoc($result123);
-                                                        echo '<a href="?toUser=' . $row['userId'] . '">' . $row123['donorName'] . '</a>' . '<br>';
+                                                        $sqlmess = "SELECT * FROM messages where (fromUser = {$row['userId']} OR toUser={$row['userId']}) AND (toUser={$userId} OR fromUser={$userId}) ORDER BY id DESC LIMIT 1";
+                                                        $query3 = mysqli_query($conn, $sqlmess);
+                                                        $row4 = mysqli_fetch_assoc($query3);
+                                                        if($query3->num_rows > 0){
+                                                            $ress = $row4["message"];
+                                                        } else {
+                                                           $ress = "لاتوجد رسائل"; 
+                                                        } 
+                                                        (strlen($ress) > 32)? $msg = substr($ress, 0, 32): $msg = $ress;
+                                                   ?> <div class="row" >
+                                                        
+                                                    <div class="col-6" align="right">
+                                                    
+                                                    <?php 
+                                                   
+                                                    echo $msg.'<br>';?>
+
+                                                    </div>
+                                                        <div class="col-6" >
+                                                    <?php echo '<a href="?toUser=' . $row['userId'] . '">' .$row123['donorName']. '</a>&nbsp;';?>
+                                                    </div>
+                                                    
+                                                </div> 
+                                                      <?php  
+                                                        
+                                                        
                                                     } else {
                                                         $sqli1234 = "SELECT * FROM `admin` WHERE id='$row[userId]'";
                                                         $result1234 = $conn->query($sqli1234);
                                                         $row1234 = mysqli_fetch_assoc($result1234);
-                                                    echo '<a href="?toUser=' . $row['userId'] . '">' . $row1234['username'] . '</a>' . '<br>';
+                                                        $sqlmess = "SELECT * FROM messages where (fromUser = {$row['userId']} OR toUser={$row['userId']}) AND (toUser={$userId} OR fromUser={$userId}) ORDER BY id DESC LIMIT 1";
+                                                        $query3 = mysqli_query($conn, $sqlmess);
+                                                        $row4 = mysqli_fetch_assoc($query3);
+                                                        if($query3->num_rows > 0){
+                                                            $ress = $row4["message"];
+                                                        } else {
+                                                           $ress = "لاتوجد رسائل"; 
+                                                        } 
+                                                        (strlen($ress) > 32)? $msg = substr($ress, 0, 32): $msg = $ress;
+                                                     
+                                                    ?><div class="row" >
+                                                       
+                                                        <div class="col-6" align="right" style="font-family: Almarai;">
+                                                    <?php echo  $msg.'<br>';?>
 
+                                                    </div>
+                                                        <div class="col-6" >
+                                                    <?php echo '<a href="?toUser=' . $row['userId'] . '">' ." مشرف منصة عون". '</a>&nbsp;';?>
+                                                    </div>
+                                                    
+
+                                                </div> 
+                                                        
+                                                        
+<?php
                                                     }
                                                 }
                                             }

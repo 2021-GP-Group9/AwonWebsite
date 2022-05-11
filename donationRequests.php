@@ -26,28 +26,29 @@ if (isset($_SESSION['role'])) {
                                 </div>
                                 <div class="col" ><br>
                                     <div class="main-navigation dtr-menu-dark">
-                                        <a class="nav-link" href="ProfilePage.php" style="font-family: Almarai;">الملف الشخصي</a>
-                                    </div>
-                                </div>
-                                <div class="col" ><br>
-                                    <div class="main-navigation dtr-menu-dark">
-
-                                        <a class="nav-link" href="CharityPage.php?" style="font-family: Almarai;">المواعيد</a>
-
-                                    </div>
-                                </div>
-                                <div class="col" ><br>
-                                    <div class="main-navigation dtr-menu-dark">
                                         <a class="nav-link" href="charityChat.php" style="font-family: Almarai;">محادثات</a>
                                     </div>
                                 </div>
                                 <div class="col" ><br>
                                     <div class="main-navigation dtr-menu-dark">
-
+                                        <a class="nav-link" href="get_paymentlist.php" style="font-family: Almarai;">قائمة التبرعات</a>
+                                    </div>
+                                </div>
+                                <div class="col" ><br>
+                                    <div class="main-navigation dtr-menu-dark">
+                                        <a class="nav-link" href="CharityPage.php?" style="font-family: Almarai;">المواعيد</a>
+                                    </div>
+                                </div>
+                                <div class="col" ><br>
+                                    <div class="main-navigation dtr-menu-dark">
+                                        <a class="nav-link" href="ProfilePage.php" style="font-family: Almarai;">الملف الشخصي</a>
+                                    </div>
+                                </div>
+                                <div class="col" ><br>
+                                    <div class="main-navigation dtr-menu-dark">
                                         <a class="nav-link" href="charityHome.php" style="font-family: Almarai;">الرئيسية</a>
                                     </div>
                                 </div>
-
                                 <div class="col" align="right">
                                     <div class="dtr-header-right">
                                         <a class="logo-default dtr-scroll-link" href="index.php"><img src="finalLogo.jpeg"
@@ -69,7 +70,6 @@ if (isset($_SESSION['role'])) {
                                         <div class="dtr-styled-" align="center" style="width: 1100px;">
                                            
                                               <a href="newDonation.php" style="font-family: Almarai;">إضافة طلب تبرع جديد</a>
-                                              
                                               
 <hr>
                                             <h2>طلبات التبرع</h2>
