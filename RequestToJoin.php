@@ -171,7 +171,7 @@ $_SESSION['faild'] = null;
                                                 <fieldset>
                                                     <div class="dtr-form-row dtr-form-row-2col">
                                                         <p class="dtr-form-column">
-                                                            <label for="name" style="font-family: Almarai;">اسم الجمعية الخيرية</label>
+                                                            <label for="name" style="font-family: Almarai;">اسم الجمعية الخيرية*</label>
                                                             <input type="text" name="name" id="name"
                                                                 placeholder="اسم الجمعية الخيرية"
                                                                 pattern="^[\p{InArabic}\p{Latin}-,]+(\s?[\p{InArabic}\p{Latin}-, ])*$"
@@ -179,7 +179,7 @@ $_SESSION['faild'] = null;
                                                             <!-- use pattren to ensure the name contain just arabic litters or english litters -->
                                                         </p>
                                                         <p class="dtr-form-column">
-                                                            <label for="username" style="font-family: Almarai;">اسم المستخدم</label>
+                                                            <label for="username" style="font-family: Almarai;">اسم المستخدم*</label>
                                                             <input type="text" name="username" id="username"
                                                                 placeholder="اسم المستخدم" required>
                                                         </p>
@@ -188,12 +188,12 @@ $_SESSION['faild'] = null;
                                                 <fieldset>
                                                     <div class="dtr-form-row dtr-form-row-2col">
                                                         <p class="dtr-form-column">
-                                                            <label for=" email" style="font-family: Almarai;">البريد الالكتروني</label>
+                                                            <label for=" email" style="font-family: Almarai;">البريد الالكتروني*</label>
                                                             <input type="email" name="email" id="email"
                                                                 placeholder="البريد الالكتروني" required>
                                                         </p>
                                                         <p class="dtr-form-column">
-                                                            <label for=" password" style="font-family: Almarai;">كلمةالمرور</label>
+                                                            <label for=" password" style="font-family: Almarai;">كلمةالمرور*</label>
                                                             <input type="password" name="password" id="password"
                                                                 placeholder="كلمة المرور" class="password"
                                                                 pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
@@ -207,13 +207,13 @@ $_SESSION['faild'] = null;
                                                 <fieldset>
                                                     <div class="dtr-form-row dtr-form-row-2col">
                                                         <p class="dtr-form-column">
-                                                            <label for="phone_number" style="font-family: Almarai;">رقم الجوال</label>
+                                                            <label for="phone_number" style="font-family: Almarai;">رقم الجوال*</label>
                                                             <input type="tel" name="phone_number" id="phone_number"
                                                                 placeholder="xxxxxxxxxx" pattern="[0-9]{,15}"
                                                                 title="يجب أن يحتوي على أرقام فقط" required>
                                                         </p>
                                                         <p class="dtr-form-column">
-                                                            <label for="license_Number" style="font-family: Almarai;">رقم الترخيص</label>
+                                                            <label for="license_Number" style="font-family: Almarai;">رقم الترخيص*</label>
                                                             <input type="text" name="license_Number" id="license_Number"
                                                                 placeholder="xxx" pattern="[0-9]{,10}"
                                                                 title="يجب أن يحتوي على أرقام فقط" required>
@@ -223,12 +223,12 @@ $_SESSION['faild'] = null;
                                                 <fieldset>
 
                                                     <p class="dtr-form-column">
-                                                        <label for="location" style="font-family: Almarai;">عنوان المنظمة الخيرية</label>
+                                                        <label for="location" style="font-family: Almarai;">عنوان المنظمة الخيرية*</label>
                                                         <input type="text" name="location" id="location"
                                                             placeholder="المدينة الحي الشارع رقم المبنى" required>
                                                     </p>
                                                     <p class="dtr-form-column">
-                                                        <label for="location" style="font-family: Almarai;">المنطقة الإدارية</label>
+                                                        <label for="location" style="font-family: Almarai;">المنطقة الإدارية*</label>
                                                        <?php echo "<select name='city'>";
                                                              echo "<option selected='selected' value=''>اختر المنطقة</option>";
 
@@ -238,12 +238,12 @@ $_SESSION['faild'] = null;
                                                                         echo "</select>"; 
                                                         ?>
                                                     </p>
-                                                    <p><label style="font-family: Almarai;">وصف المنظمة الخيرية</label> <textarea rows="6"
+                                                    <p><label style="font-family: Almarai;">وصف المنظمة الخيرية*</label> <textarea rows="6"
                                                             name="descrption" id="message" class="required"
                                                             placeholder="وصف المنظمة الخيرية" required></textarea> </p>
 
                                                     <p>
-                                                        <label style="font-family: Almarai;">هل تتوفر خدمة استلام للتبرعات ؟ </label>
+                                                        <label style="font-family: Almarai;">هل تتوفر خدمة استلام للتبرعات ؟ *</label>
                                                     <div class="form-check-inline">
                                                         <label class="form-check-label">
                                                             <input type="radio" class="form-check-input" id="yes"

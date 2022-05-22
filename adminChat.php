@@ -91,9 +91,6 @@ if (isset($_SESSION['role'])) {
                                             <?php
                                             if (isset($_GET["toUser"])) {
                                                 $chats = mysqli_query($conn, "SELECT * from messages where (fromUser = '" . $userId . "' AND toUser='" . $_GET["toUser"] . "') OR (fromUser = '" . $_GET["toUser"] . "' AND toUser='" . $userId . "') ORDER BY id DESC ") or die("Failed to query");
-//                                                else
-//                                                    $chats = mysqli_query($conn, "SELECT * from messages where (fromUser = '" . $userId . "' AND toUser='" . $_GET["toUser"] . "') OR (fromUser = '" . $_GET["toUser"] . "' AND toUser='" . $userId . "')") or die("Failed to query");
-
                                                 while ($chat = mysqli_fetch_assoc($chats)) {
                                                     if ($chat["fromUser"] == $userId) {
                                                         echo "<div style='text-align:right;'><p style='background-color: lightblue; word-warp:break-word; display:inline-block; padding:5px; border-radius:10px; max width:70%; font-family: Almarai;'>" . $chat["message"] . "</p></div>";
@@ -149,11 +146,15 @@ if (isset($_SESSION['role'])) {
                                                         $ress = "لاتوجد رسائل";
                                                     }
                                                     (strlen($ress) > 28) ? $msg = substr($ress, 0, 28) : $msg = $ress;
-                                                    ?><div class="row" >
-
+                                                    ?>
+                                                    <div class="row" >
                                                         <div class="col-6" align="right">
-                                                            <?php echo $msg . '<br>'; ?>
-
+                                                            <?php
+                                                            if($msg != "لاتوجد رسائل"){
+                                                             
+                                                            }
+                                                            echo $msg . '<br>';
+                                                            ?>
                                                         </div>
                                                         <div class="col-6" >
                                                             <?php echo '<a href="?toUser=' . $row['userId'] . '">' . $row12['name'] . '</a>&nbsp;'; ?>
@@ -173,27 +174,33 @@ if (isset($_SESSION['role'])) {
                                                         $ress = "لاتوجد رسائل";
                                                     }
                                                     (strlen($ress) > 28) ? $msg = substr($ress, 0, 28) : $msg = $ress;
-                                                    ?> <div class="row" >
+                                                    ?> 
+                                        <div class="row" >
                                                         <div class="col-6" align="right">
-                                                            <?php echo $msg . '<br>'; ?>
+                                                           
+                                                            <?php
+                                                            if($msg != "لاتوجد رسائل"){
+                                                         
+                                                            }
+                                                            echo $msg . '<br>';
+                                                            ?>
                                                         </div>
-                                                        <div class="col-6" >
-                                                            <?php echo '<a href="?toUser=' . $row['userId'] . '">' . $row123['donorName'] . '</a>&nbsp;'; ?>
-                                                        </div>
-
-                                                    </div> 
+                                                    <div class="col-6" >
+                                                        <?php echo '<a href="?toUser=' . $row['userId'] . '">' . $row123['donorName'] . '</a>&nbsp;'; ?>
+                                                    </div>
+                                                </div> 
                                                 <?php
-                                                }
                                             }
                                         }
-                                        ?>
-
-                                    </div>
-
+                                    }
+                                    ?>
 
                                 </div>
+    </div>
 
                             </div>
+
+                        </div>
                     </section>   
                     </body>
                     <footer id="dtr-footer"> 

@@ -64,7 +64,8 @@ if (isset($_SESSION['role'])) {
                                                 <div id="result"></div>
                                             </fieldset>
                                         </form>
-
+<br>
+<p style="font-family: Almarai;"><a href="forgot_password.php" style="font-family: Almarai;">هل نسيت كلمة السر ؟ </a></p>
                                         <br>
                                         <p style="font-family: Almarai;">جمعية جديدة؟ <a href="RequestToJoin.php" style="font-family: Almarai;">تسجيل جديد</a></p>
                                         <?php

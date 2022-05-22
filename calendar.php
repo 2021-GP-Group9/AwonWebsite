@@ -19,9 +19,14 @@ if (isset($_POST['submit'])) {
             echo"<h3 style='color:red; text-align:center'> تم إيقاف الحساب تواصل مع المشرف</h3>";
             echo '<META HTTP-EQUIV="Refresh" Content="3; URL=charityHome.php">';
         }else{
+        // Prevent add an appointment before that date 
+        if(strtotime($date)< time()){
+        echo '<h1 style="color:red; text-align:center">لايمكنك إضافة موعد بتاريخ سابق</h1>';
+        echo '<META HTTP-EQUIV="Refresh" Content="2;CharityPage.php">';
+        exit(); 
+        } else {
         //Add the appointment
         $sqli2 = "INSERT INTO `appointment` VALUES(NULL,'$date', '$time', $ID, NULL ,'لم يحدد بعد' , 0, 0 ,'غير محجوز')";
-
         $result2 = $conn->query($sqli2);
         if ($result2) {
             //Display a message 
@@ -29,7 +34,7 @@ if (isset($_POST['submit'])) {
             echo '<META HTTP-EQUIV="Refresh" Content="2;CharityPage.php">';
             exit();
         }
-        
+            }
         }
     } else {
         //Conflect
